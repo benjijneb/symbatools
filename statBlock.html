@@ -1,0 +1,84 @@
+<section>
+
+    <div class="row mt-2" style="font-size: 0.7em;">
+        <div class="col-md-4 offset-md-2">
+            <table id="statBlock" width="100%">
+                <thead>
+                    <tr>
+                        <th colspan="8" class="bb" ng-bind="statBlockProps.getDefault(nom)" style="padding-top: 15px;"></th>
+                    </tr>
+                    <tr>
+                        <th colspan="8" ng-bind="statBlockProps.getDefault(typ)" style="padding-bottom: 15px;"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="topRows">
+                        <td class="br">{{'PRE' | translate}}</td>
+                        <td class="br">{{'AST' | translate}}</td>
+                        <td class="br">{{'DIS' | translate}}</td>
+                        <td class="br">{{'PER' | translate}}</td>
+                        <td class="br">{{'AGI' | translate}}</td>
+                        <td class="br">{{'VOL' | translate}}</td>
+                        <td class="br">{{'FOR' | translate}}</td>
+                        <td>{{'VIG' | translate}}</td>
+                    </tr>
+                    <tr class="topRows bbb">
+                        <td class="br"><b ng-bind="statBlockProps.getDefault(pre)"></b></td>
+                        <td class="br"><b ng-bind="statBlockProps.getDefault(ast)"></b></td>
+                        <td class="br"><b ng-bind="statBlockProps.getDefault(dis)"></b></td>
+                        <td class="br"><b ng-bind="statBlockProps.getDefault(per)"></b></td>
+                        <td class="br"><b ng-bind="statBlockProps.getDefault(agi)"></b></td>
+                        <td class="br"><b ng-bind="statBlockProps.getDefault(vol)"></b></td>
+                        <td class="br"><b ng-bind="statBlockProps.getDefault(forc)"></b></td>
+                        <td><b ng-bind="statBlockProps.getDefault(vig)"></b></td>
+                    </tr>
+                    <tr class="topRows">
+                        <td class="br" colspan="2">{{'DEFENSE' | translate}}</td>
+                        <td class="br" colspan="2">{{'ARMURE' | translate}}</td>
+                        <td class="br" colspan="2">{{'ENDURANCE' | translate}}</td>
+                        <td colspan="2">{{'RES_DOUL' | translate}}</td>
+                    </tr>
+                    <tr class="topRows">
+                        <td class="br bbb" colspan="2"><b ng-bind="statBlockProps.getDefault(def)"></b></td>
+                        <td class="br bbb" colspan="2"><b ng-bind="statBlockProps.getDefault(arm)"></b></td>
+                        <td class="br bbb" colspan="2"><b ng-bind="statBlockProps.getDefault(end)"></b></td>
+                        <td class="bbb" colspan="2"><b ng-bind="statBlockProps.getDefault(sd)"></b></td>
+                    </tr>
+                    <tr class="bbb even botRows">
+                        <td colspan="2"><b>{{'ARMES' | translate}}</b></td>
+                        <td colspan="6" ng-bind="statBlockProps.getDefault(deg)"></td>
+                    </tr>
+                    <tr class="bbb odd botRows">
+                        <td colspan="2"><b>{{'TALENTS' | translate}}</b></td>
+                        <td colspan="6" ng-bind="statBlockProps.getAbilities()"></td>
+                    </tr>
+                    <tr class="bbb even botRows">
+                        <td colspan="2"><b>{{'TRAITS' | translate}}</b></td>
+                        <td colspan="6" ng-bind="statBlockProps.getTraits()"></td>
+                    </tr>
+                    <tr class="bbb odd botRows">
+                        <td colspan="2"><b>{{'EQUIPMENT' | translate}}</b></td>
+                        <td colspan="6" ng-bind="statBlockProps.getDefault(equipment)"></td>
+                    </tr>
+                    <tr class="bbb even botRows">
+                        <td colspan="2"><b>{{'SHADOW' | translate}}</b></td>
+                        <td colspan="6" ng-bind="statBlockProps.getDefault(shadow)"></td>
+                    </tr>
+                    <tr class="bbb odd botRows">
+                        <td colspan="2"><b>{{'TACTICS' | translate}}</b></td>
+                        <td colspan="6" ng-bind="statBlockProps.getDefault(tactics)"></td>
+                    </tr>
+                    <tr class="even botRows">
+                        <td colspan="2"><b>{{'NOTES' | translate}}</b></td>
+                        <td colspan="6" ng-bind="statBlockProps.getDefault(notes)"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4" ng-show="!statBlockProps.hideAbilities">
+            <span ng-bind-html="statBlockProps.abilitiesTexts"></span>
+        </div>
+        <div class="offset-md-2"></div>
+    </div>
+
+</section>

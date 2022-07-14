@@ -1,0 +1,91 @@
+#carac {
+    padding-bottom: 3px;
+ }
+#carac.std {
+    background-color: white;
+    border-bottom: 2px solid lightslategray;
+}
+
+#carac.dark {
+    background-color: #222222;
+    border-bottom: 2px solid lightslategray;
+}
+
+/*.input-group-xs>.form-control,
+.input-group-xs>.form-group>.form-control-file,
+.input-group-xs>.btn,
+.input-group-xs>.input-group-prepend>.input-group-text {
+    height: 22px;
+    padding: 1px 5px;
+    font-size: 12px;
+    line-height: 1.5;
+}*/
+
+#statBlock {
+
+    table-layout: fixed;
+}
+
+#statBlock thead {
+
+    background-color: black;
+    color: white;
+    text-align: center;
+    
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+}
+
+#statBlock .bb {
+    border-bottom: 1px solid white;
+}
+
+#statBlock .bbb {
+    border-bottom: 1px solid black
+}
+
+#statBlock .br {
+    border-right: 1px solid black;
+}
+
+#statBlock .topRows {
+    background-color: #F1E8D3;
+    text-align: center;
+}
+
+#statBlock .even {
+    background-color: #E8E3D6;
+}
+
+#statBlock .odd {
+    background-color: #F1E8D3;
+}
+
+#statBlock .botRows {
+    text-align: left;
+}
+
+.hovertext {
+    position: relative;
+    border-bottom: 1px dotted black;
+  }
+  
+  .hovertext:before {
+    content: attr(data-hover);
+    visibility: hidden;
+    opacity: 0;
+    width: 360px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 110%;
+  }
+  
+  .hovertext:hover:before {
+    opacity: 1;
+    visibility: visible;
+    left: -340px;
+  }

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="symbaroum">
+
+<head>
+	<title>Symbaroum Tools</title>
+
+	<!-- General META -->
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+
+	<!--Application CSS Files -->
+	<link rel="stylesheet" ng-href="bootstrap.min.{{theme}}.css">
+	<link rel="stylesheet" href="symbatools.css">
+</head>
+
+<body>
+
+	<div class="container-fluid">
+
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flex py-0" ng-controller="Index">
+			<img src="images/recherche.jpg" class="rounded" style="margin-right:10px;" alt="LOGO"/>
+			<a class="navbar-brand" href="#">{{'BRAND' | translate}}</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item"><a class="nav-link" href="#!/search">{{'SEARCH' | translate}}</a></li>
+					<li class="nav-item" ng-if="lang == 'fr'"><a class="nav-link" href="#!/rules">Rappel règles</a></li>
+					<li class="nav-item" ng-if="lang == 'fr' || lang == 'en'"><a class="nav-link" href="#!/davokar">Davokar</a></li>
+					<li class="nav-item" ng-if="lang == 'fr'"><a class="nav-link" href="#!/init">Init</a></li>
+					<li class="nav-item"><a class="nav-link" href="#!/ext">{{'LIENS' | translate}}</a></li>
+				</ul>
+				<ul class="navbar-nav text-white">
+					<li class="nav-item align-self-center m-2">Lang&nbsp;:&nbsp;<a href><img src="images/fr.png" class="img-responsive" ng-click="changeLanguage('fr')" alt="fr"></a></li>
+					<li class="nav-item align-self-center m-2"><a href><img src="images/en.png" class="img-responsive" ng-click="changeLanguage('en')" alt="en"></a></li>
+					<li class="nav-item align-self-center m-2"><a href><img src="images/es.png" class="img-responsive" ng-click="changeLanguage('es')" alt="es"></a></li>
+					<li class="nav-item align-self-center m-2">Contact&nbsp;:&nbsp;
+						<a href="https://www.facebook.com/symbatools" target="_blank">
+							<svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="white" class="bi bi-facebook" viewBox="0 0 16 16">
+								<path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+							  </svg>
+						</a>
+					</li>
+					<li class="nav-item align-self-center m-2">Mode&nbsp;:&nbsp;
+						<a ng-if="theme == 'std'" href="" ng-click="darkmode()" target="_self">
+							<svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="white" class="bi bi-sun" viewBox="0 0 16 16">
+								<path d="M3.5 8a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0z"/>
+								<path d="M8.202.28a.25.25 0 0 0-.404 0l-.91 1.255a.25.25 0 0 1-.334.067L5.232.79a.25.25 0 0 0-.374.154l-.36 1.51a.25.25 0 0 1-.282.188l-1.532-.244a.25.25 0 0 0-.286.286l.244 1.532a.25.25 0 0 1-.189.282l-1.509.36a.25.25 0 0 0-.154.374l.812 1.322a.25.25 0 0 1-.067.333l-1.256.91a.25.25 0 0 0 0 .405l1.256.91a.25.25 0 0 1 .067.334L.79 10.768a.25.25 0 0 0 .154.374l1.51.36a.25.25 0 0 1 .188.282l-.244 1.532a.25.25 0 0 0 .286.286l1.532-.244a.25.25 0 0 1 .282.189l.36 1.508a.25.25 0 0 0 .374.155l1.322-.812a.25.25 0 0 1 .333.067l.91 1.256a.25.25 0 0 0 .405 0l.91-1.256a.25.25 0 0 1 .334-.067l1.322.812a.25.25 0 0 0 .374-.155l.36-1.508a.25.25 0 0 1 .282-.19l1.532.245a.25.25 0 0 0 .286-.286l-.244-1.532a.25.25 0 0 1 .189-.282l1.508-.36a.25.25 0 0 0 .155-.374l-.812-1.322a.25.25 0 0 1 .067-.333l1.256-.91a.25.25 0 0 0 0-.405l-1.256-.91a.25.25 0 0 1-.067-.334l.812-1.322a.25.25 0 0 0-.155-.374l-1.508-.36a.25.25 0 0 1-.19-.282l.245-1.532a.25.25 0 0 0-.286-.286l-1.532.244a.25.25 0 0 1-.282-.189l-.36-1.509a.25.25 0 0 0-.374-.154l-1.322.812a.25.25 0 0 1-.333-.067L8.203.28zM8 2.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11z"/>
+							  </svg>
+						</a>
+						<a href="" ng-if="theme == 'dark'" ng-click="lightmode()" target="_self">
+							<svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="white" class="bi bi-moon" viewBox="0 0 16 16">
+								<path fill-rule="evenodd" d="M14.53 10.53a7 7 0 0 1-9.058-9.058A7.003 7.003 0 0 0 8 15a7.002 7.002 0 0 0 6.53-4.47z"/>
+							  </svg>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		
+		<div id="symbaroum_core" ng-view>
+		</div>
+	</div>
+	<div style="margin-bottom: 40px;"></div>
+
+	<!-- load BootStrap -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+	
+	<!-- Load AngularJS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-route.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-sanitize.js"></script>
+	<script src="angular-translate.min.js"></script>
+
+	<!-- Load Others -->
+	<script src="lang.js"></script>
+	<script src="lz-string.min.js"></script>
+	<script src="symbaroum.js"></script>
+	<script src="html2canvas.min.js"></script>
+
+	<footer class="fixed-bottom">
+		<div class="text-center" style="background-color: white; border-top: 2px solid lightslategray; font-size: smaller;">
+		  <span><b>Symbaroum is a registered trademark of Fria Ligan AB. All texts are copyright Fria Ligan AB 2020 and used with their permission.</b></span>
+		</div>
+	</footer>
+</body>
+</html>

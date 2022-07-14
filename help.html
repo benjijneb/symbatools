@@ -1,0 +1,170 @@
+		<div ng-if="lang == 'fr'">
+		Versions EN/ES : 1.1.4 CRB, 1.0.3 APG<br/>
+		Versions FR : AKA Games<br/><br> 
+
+		<div>Cet outil offre deux fonctionnalités :
+		<ul>
+			<li>Rechercher des talents/pouvoirs mystiques/rituels/traits/atouts/fardeaux et les afficher sous forme de cartes</li>
+			<li>Construire rapidement une fiche de PC/NPC en saisissant les caractéristiques et en épinglant les cartes désirées</li>
+		</ul>
+		</div>
+		<h2>La recherche</h2>
+		<div>Pour rechercher des élements, le champ de recherche fonctionne par mots clés séparés par des virgules, en mode "contient". Une virgule à la fin réaffiche l'ensemble des résultats.
+		La recherche n'est réalisée que sur le nom des cartes.</div>
+		<h5>Exemples</h5>
+		<ul>
+		<li>"berserk" ou même "erserk" affichera le talent Berserker</li>
+		<li>"berserk," ou même "erserk," affichera tous les résultats (virgule à la fin)</li>
+		<li>"berserk,acrob" ou "berserk, acrob" affichera les talents Berserker et Acrobatie</li>
+		</ul>
+		<h5>Les filtres</h5>
+		<div>En plus de la barre de recherche, vous pouvez sélectionner des filtres pour limiter les résutats. Les filtres se cumulent entre eux ainsi qu'avec les mots clés de la barre de recherche.</div>
+		<h5>Afficher les descriptions</h5>
+		<div>La case à cocher "Afficher les descriptions" permet d'afficher la description dans les cartes car celle-ci est cachée par défaut.</div>
+		<h5>Compact</h5>
+		<div>La case à cocher "Compact" permet de cacher la partie <i>construction fiche PC/NPC</i> et de n'afficher que la partie <i>recherche</i>.</div>
+		<h5>Sélecteur de règles</h5>
+		<div>Le sélecteur "Règles" permet de changer les textes affichés dans les différentes cartes (talents/pouvoirs mystiques/rituels/traits/atouts/fardeaux),
+			en basculant entre les règles issues des livres de base et le travail d'équilibrage réalisé par Marco Pagnini :
+			<a href="https://drive.google.com/drive/folders/1Wkuib_OU7DkBZu4qHAeEqVUZh049qqNh">Symbaroum (Final)</a>
+		</div>
+		<h2>Construction rapide fiche PC/NPC</h2>
+		<h5>Saisie des caractéristiques</h5>
+		Les caractéristiques à saisir correspondent à celles présentes sur une fiche de personnage Symbaroum.
+		<ul>
+			<li>{{'NAME' | translate}} : Nom du PC/NPC</li>
+			<li>{{'CATEG' | translate}} : Catégorie du PC/NPC (ex. "elfe d'hiver", "templier de prios", "dieu sanglier", etc.)</li>
+			<li>{{'AGI' | translate}} : {{'ATTR_AGI' | translate}}</li>
+			<li>{{'FOR' | translate}} : {{'ATTR_FOR' | translate}}</li>
+			<li>{{'PRE' | translate}} : {{'ATTR_PRE' | translate}}</li>
+			<li>{{'VOL' | translate}} : {{'ATTR_VOL' | translate}}</li>
+			<li>{{'VIG' | translate}} : {{'ATTR_VIG' | translate}}</li>
+			<li>{{'DIS' | translate}} : {{'ATTR_DIS' | translate}}</li>
+			<li>{{'AST' | translate}} : {{'ATTR_AST' | translate}}</li>
+			<li>{{'PER' | translate}} : {{'ATTR_PER' | translate}}</li>
+			<li>{{'INIT' | translate}} : {{'INITIATIVE' | translate}}</li>
+			<li>{{'DEF' | translate}} : {{'DEFENSE' | translate}}</li>
+			<li>{{'END' | translate}} : {{'ENDURANCE' | translate}}</li>
+			<li>{{'SD' | translate}} : {{'RES_DOUL' | translate}}</li>
+			<li>{{'SC' | translate}} : {{'SEUIL_CORR' | translate}}</li>
+			<li>{{'CP' | translate}} : {{'PERM_CORR' | translate}}</li>
+			<li>{{'DEG' | translate}} : {{'ARMES' | translate}} (type, dégâts)</li>
+			<li>{{'ARM' | translate}} : {{'ARMURE' | translate}} (type, protection)</li>
+			<li>{{'NOTES' | translate}} : {{'NOTES' | translate}} sur le PC/NPC, ex. sa tactique de combat, son équipement supplémentaire, des rappels sur l'utilisation de ses pouvoirs, etc.</li>
+			<li>+ : Le bouton "+" permet d'afficher deux nouveaux champs textes, {{'EQUIPMENT' | translate}}, {{'TACTICS' | translate}} et {{'SHADOW' | translate}}, comme dans les stat block des livres.</li>
+			<li>{{'EQUIPMENT' | translate}} : {{'EQUIPMENT' | translate}} du PC/NPC (ex. elixirs, outils, thalers, etc.).</li>
+			<li>{{'TACTICS' | translate}} : {{'TACTICS' | translate}} de combat du PC/NPC.</li>
+			<li>{{'SHADOW' | translate}} : Description de l'{{'SHADOW' | translate}} du PC/NPC.</li>
+		</ul>
+		<h5>Selection des cartes</h5>
+		Les talents, pouvoirs mystiques, traits, atouts et fardeaux peuvent être épignés.
+		A quoi cela sert-il ? Cela permet de sélectionner les différents talents et autres éléments que possède le PC/NPC pour l'export/import et d'utiliser la case "Epinglés seulement".
+		<br/>Les cartes peuvent être épinglées de plusieurs manières :
+		<ul>
+		<li>En cochant la case globale à côté du nom de la carte</li>
+		<li>En sélectionnant un ou plusieurs niveaux dans la carte</li>
+		</ul>
+		<h5>Epinglés seulement</h5>
+		La case à cocher <span style="color: red;">Epinglés seulement</span> permet de n'afficher que ce qui a été épinglé de manière à n'afficher que les éléments possédés par un PC/NPC.
+		<h5>Import/Export des caractéristiques</h5>
+		Une fois les caractéristiques saisies et les cartes sélectionnées, il est possible de réaliser plusieurs actions :
+		<ul>
+			<li>Bouton {{'SAVE' | translate}} : Sauvegarder la fiche sous plusieurs formats.</li>
+			<li>Bouton {{'IMPORT_JSON' | translate}} : Réimporer une fiche sauvegardée sous forme d'un fichier JSON.</li>
+			<li>Bouton Stat Block : Afficher les caractéristiques saisies sous forme d'un Stat Block (version Starter Kit).</li>
+		</ul>
+		<h5>Sauvegardes</h5>
+		<ul>
+			<li>{{'B84_PAN_TITLE' | translate }} : Génère une URL permettant d'être ajoutée comme favori. L'URL générée contient les valeurs des champs de caractéristiques, encodées,
+				celles-ci étant ensuite restaurées lors de l'accès à l'URL.</li>
+			<li>{{'EXPORT' | translate}} : Exporte les caractéristiques saisies sous forme d'un fichier JSON (télécharge le fichier depuis le navigateur), qui peut ensuite être réimporté.
+				Toutes les valeurs des champs de caractéristiques sont sauvegardés ainsi que les épingés des cartes et la langue utilisé.</li>
+			<li>(Anglais seulement) {{'FOUNDRY_EXPORT' | translate }} : Copie les caractéristiques saisies sous forme d'un JSON dans le presse-papier.
+				Ces informations peuvent ensuite être collées dans le prompt de la macro d'import de PC/NPC pour Symbaroum.fr du système Symbaroum de FoundryVTT.
+		</ul>
+	</div>
+
+	<div ng-if="lang != 'fr'">
+		EN/ES versions: 1.1.4 CRB, 1.0.3 APG<br/>
+		FR version : AKA Games<br/><br> 
+
+		<div>This search tool offers two features :
+		<ul>
+			<li>Search abilities/mystical powers/traits/boons/burdens et display them as cards</li>
+			<li>Quickly build a PC/PNC sheet by filling the characteristics and pinning desired cards</li>
+		</ul>
+		</div>
+		<h2>Search</h2>
+		<div>To search cards, the search field works with coma separated keywords, in "contains" mode. An ending coma displays again everything.
+		The search is only made on cards names.</div>
+		<h5>Examples</h5>
+		<ul>
+		<li>"berserk" or even "erserk" will display Berserker ability</li>
+		<li>"berserk," or even "erserk," will display all results (ending coma)</li>
+		<li>"berserk,acrob" or ""berserk, acrob" will display Berserker and Acrobat</li>
+		</ul>
+		<h5>Filters</h5>
+		<div>In addition to the search field, you can select filters to limit the results. Filter are cumulatives between them and with the search field content.</div>
+		<h5>Display descriptions</h5>
+		<div>The  "Display descriptions" checkbow allows to display descriptions in cards, they are hidden by default.</div>
+		<h5>Compact</h5>
+		<div>"Compact" checkbox allows to hide the <i>build PC/NPC sheet</i> part and to only display the <i>search</i> part of the interface.</div>
+		<h5>Rules selector</h5>
+		<div>The "Rules" selector allows to change the cards texts,	switching from standard core rules to the balancing work of Marco Pagnini :
+			<a href="https://drive.google.com/drive/folders/1Wkuib_OU7DkBZu4qHAeEqVUZh049qqNh">Symbaroum (Final)</a>
+		</div>
+		<h2>PC/NPC quick sheet builder</h2>
+		<h5>Fill characteristics</h5>
+		The characteristics to be entered correspond to those present on the Symbaroum character sheet.
+		<ul>
+			<li>{{'NAME' | translate}} : PC/NPC name</li>
+			<li>{{'CATEG' | translate}} : PC/NPC category (ex. "winter elve", "prios templar", "boar god", etc.)</li>
+			<li>{{'AGI' | translate}} : {{'ATTR_AGI' | translate}}</li>
+			<li>{{'FOR' | translate}} : {{'ATTR_FOR' | translate}}</li>
+			<li>{{'PRE' | translate}} : {{'ATTR_PRE' | translate}}</li>
+			<li>{{'VOL' | translate}} : {{'ATTR_VOL' | translate}}</li>
+			<li>{{'VIG' | translate}} : {{'ATTR_VIG' | translate}}</li>
+			<li>{{'DIS' | translate}} : {{'ATTR_DIS' | translate}}</li>
+			<li>{{'AST' | translate}} : {{'ATTR_AST' | translate}}</li>
+			<li>{{'PER' | translate}} : {{'ATTR_PER' | translate}}</li>
+			<li>{{'INIT' | translate}} : {{'INITIATIVE' | translate}}</li>
+			<li>{{'DEF' | translate}} : {{'DEFENSE' | translate}}</li>
+			<li>{{'END' | translate}} : {{'ENDURANCE' | translate}}</li>
+			<li>{{'SD' | translate}} : {{'RES_DOUL' | translate}}</li>
+			<li>{{'SC' | translate}} : {{'SEUIL_CORR' | translate}}</li>
+			<li>{{'CP' | translate}} : {{'PERM_CORR' | translate}}</li>
+			<li>{{'DEG' | translate}} : {{'ARMES' | translate}} (type, damages)</li>
+			<li>{{'ARM' | translate}} : {{'ARMURE' | translate}} (type, armor)</li>
+			<li>{{'NOTES' | translate}} : {{'NOTES' | translate}} on PC/NPC, ex. its combat tacticals, its additional equipment, reminders on how to use a specific ability, etc.</li>
+			<li>+ : The "+" button allows to display two more text fields, {{'EQUIPMENT' | translate}}, {{'TACTICS' | translate}} and {{'SHADOW' | translate}}, as in Symbaroum stat blocks.</li>
+			<li>{{'EQUIPMENT' | translate}} : PC/NPC {{'EQUIPMENT' | translate}} (ex. potions, tools, thalers, etc.).</li>
+			<li>{{'TACTICS' | translate}} : NPC/PC {{'TACTICS' | translate}}.</li>
+			<li>{{'SHADOW' | translate}} : NPC/PC {{'SHADOW' | translate}} description.</li>
+		</ul>
+		<h5>Cards selection</h5>
+		Abilities, mystical powers, traits, boons and burdens can be pinned as cards.
+		Why ? Il allows you to select the cards owned by the PC/NPC and use them with the import/export feature, and with the "Pinned only" checkbox.
+		<br/>The cards can be pinned in several ways:
+		<ul>
+		<li>By checking the global checkbox next to the card name</li>
+		<li>By selecting one or more levels in the card</li>
+		</ul>
+		<h5>Pinned only</h5>
+		The <span style="color: red;">Pinned Only</span> checkbox allows you to display only what has been pinned so that only items owned by a PC/NPC are displayed.
+		<h5>Character sheet import/export</h5>
+		Once the characteristics have been entered and the cards selected, it is possible to perform several actions:
+		<ul>
+			<li>Button - {{'SAVE' | translate}} : Save character sheet under multiple formats.</li>
+			<li>Button - {{'IMPORT_JSON' | translate}} : Import a previously saved character sheet (JSON format).</li>
+			<li>Button - Stat Block : Display all entered characteristics as a Stat Block (Starter Kit version).</li>
+		</ul>
+		<h5>Saves</h5>
+		<ul>
+			<li>{{'B84_PAN_TITLE' | translate }} : Generates a URL to be added as a favorite. The generated URL contains the values of all the characteristics fields,
+				encoded, which are then restored when the URL is accessed.</li>
+			<li>{{'EXPORT' | translate}} : Exports the entered characteristics as a JSON file (download the file from the browser), which can then be reimported.
+				All characteristics field values are saved as well as the pinned cards and language used.</li>
+			<li>(English Only) {{'FOUNDRY_EXPORT' | translate }} : Copies the entered characteristics as a JSON to the clipboard.
+				This information can then be pasted into the PC/NPC import for Symbaroum.fr macro prompt from the FoundryVTT Symbaroum system.
+		</ul>
+	</div>

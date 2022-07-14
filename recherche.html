@@ -1,0 +1,485 @@
+<section class="recherche">
+
+    <div id="carac" class="sticky-top {{theme}}">
+        <div class="row" style="margin-top:2px;">
+            <div class="input-group input-group-sm col-12 col-xl-7" title="{{'SEARCH_TITLE' | translate}}">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">{{'SEARCH' | translate}}</span>
+                </div>
+                <input type="text" class="form-control" ng-model="filtreNomTalent">
+            </div>
+            <div class="input-group input-group-sm col-3 col-xl-1">
+                <select class="form-control" ng-model="filtreType">
+					<option value="tous">{{'TYPE_TOUS' | translate}}</option>
+					<option value="talent">🗡 {{'TYPE_TALENT' | translate}}</option>
+                    <option value="pouvoir mystique">🔮 {{'TYPE_POUVOIR_MYSTIQUE' | translate}}</option>
+                    <option value="rituel">📖 {{'TYPE_RITUEL' | translate}}</option>
+					<option value="qualite">⚒ {{'TYPE_QUALITE' | translate}}</option>
+					<option value="trait monstrueux">🦄 {{'TYPE_TRAIT_MONSTRUEUX' | translate}}</option>
+					<option value="trait">🧬 {{'TYPE_TRAIT' | translate}}</option>
+					<option value="atout">💪 {{'TYPE_ATOUT' | translate}}</option>
+					<option value="fardeau">🎱 {{'TYPE_FARDEAU' | translate}}</option>
+                </select>
+            </div>
+            <div class="input-group input-group-sm col-3 col-xl-1">
+                <select class="form-control" ng-model="filtreLivre">
+                    <option value="tous">{{'BOOK_TOUS' | translate}}</option>
+                    <option value="ldb">{{'BOOK_LDB' | translate}}</option>
+                    <option value="gdj">{{'BOOK_GDJ' | translate}}</option>
+                    <option value="cdx">{{'BOOK_CDX' | translate}}</option>
+                    <option value="fanmade">Fan-Made</option>
+                </select>
+            </div>
+            <div class="input-group input-group-sm col-3 col-xl-1">
+                <select class="form-control" ng-model="filtreTrad">
+                    <option value="tous">{{'TRAD_TOUS' | translate}}</option>
+                    <option value="aucune">{{'TRAD_AUCUNE' | translate}}</option>
+                    <option value="{{'TRAD_GUERRIER' | translate}}">{{'TRAD_GUERRIER' | translate}}</option>
+                    <option value="{{'TRAD_MYSTIQUE' | translate}}">{{'TRAD_MYSTIQUE' | translate}}</option>
+                    <option value="{{'TRAD_ROUBLARD' | translate}}">{{'TRAD_ROUBLARD' | translate}}</option>
+                    <option value="{{'TRAD_CHASSEUR' | translate}}">{{'TRAD_CHASSEUR' | translate}}</option>
+                    <option value="{{'TRAD_MAGIE' | translate}}">{{'TRAD_MAGIE' | translate}}</option>
+                    <option value="{{'TRAD_THEURGIE' | translate}}">{{'TRAD_THEURGIE' | translate}}</option>
+                    <option value="{{'TRAD_SORCELLERIE' | translate}}">{{'TRAD_SORCELLERIE' | translate}}</option>
+                    <option value="{{'TRAD_CONJURATION' | translate}}">{{'TRAD_CONJURATION' | translate}}</option>
+                    <option value="{{'TRAD_TROLLS' | translate}}">{{'TRAD_TROLLS' | translate}}</option>
+                    <option value="{{'TRAD_SYMBOLISME' | translate}}">{{'TRAD_SYMBOLISME' | translate}}</option>
+                    <option value="{{'TRAD_BATON' | translate}}">{{'TRAD_BATON' | translate}}</option>
+                </select>
+            </div>
+            <div class="input-group input-group-sm col-3 col-xl-1">
+                <select class="form-control" ng-model="filtreAttr">
+                    <option value="tous">{{'ATTR_TOUS' | translate}}</option>
+                    <option value="AGI">{{'ATTR_AGI' | translate}}</option>
+                    <option value="AGI <- FOR">{{'ATTR_AGIFOR' | translate}}</option>
+                    <option value="AST">{{'ATTR_AST' | translate}}</option>
+                    <option value="AST <- AGI">{{'ATTR_ASTAGI' | translate}}</option>
+                    <option value="AST <- AST">{{'ATTR_ASTAST' | translate}}</option>
+                    <option value="AST <- FOR">{{'ATTR_ASTFOR' | translate}}</option>
+                    <option value="DIS">{{'ATTR_DIS' | translate}}</option>
+                    <option value="DIS <- VIG">{{'ATTR_DISVIG' | translate}}</option>
+                    <option value="FOR">{{'ATTR_FOR' | translate}}</option>
+                    <option value="FOR <- AGI">{{'ATTR_FORAGI' | translate}}</option>
+                    <option value="FOR <- FOR">{{'ATTR_FORFOR' | translate}}</option>
+                    <option value="PER">{{'ATTR_PER' | translate}}</option>
+                    <option value="PER <- VOL">{{'ATTR_PERVOL' | translate}}</option>
+                    <option value="PRE <- AGI">{{'ATTR_PREAGI' | translate}}</option>
+                    <option value="PRE <- FOR">{{'ATTR_PREFOR' | translate}}</option>
+                    <option value="PRE <- VOL">{{'ATTR_PREVOL' | translate}}</option>
+                    <option value="VIG">{{'ATTR_VIG' | translate}}</option>
+                    <option value="VOL">{{'ATTR_VOL' | translate}}</option>
+                </select>
+            </div>
+            <div class="input-group input-group-sm d-none d-lg-flex col-lg-1 ">
+                <button type="button" class="btn btn-sm btn-info btn-block" ng-click="openHelpPage()">{{'HELP' | translate}}</button>
+            </div>
+        </div>
+        <div class="row d-none d-lg-flex" style="margin-top:2px;" ng-show="!compact">
+            <div class="input-group input-group-sm col-4 col-xl-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text border-info font-weight-bold">{{'NAME' | translate}}</span>
+                </div>
+                <input type="text" class="form-control border-info" ng-model="nom">
+            </div>
+            <div class="input-group input-group-sm col-2 col-xl-1" title="{{'ATTR_AGI' | translate}}">
+                <div class="input-group-prepend">
+                    <span class="input-group-text border-success">{{'AGI' | translate}}</span>
+                </div>
+                <input type="text" class="form-control border-success" ng-model="agi">
+            </div>
+            <div class="input-group input-group-sm col-lg-2 col-xl-1" title="{{'ATTR_FOR' | translate}}">
+                <div class="input-group-prepend">
+                    <span class="input-group-text border-primary">{{'FOR' | translate}}</span>
+                </div>
+                <input type="text" class="form-control border-primary" ng-model="forc">
+            </div>
+            <div class="input-group input-group-sm col-lg-2 col-xl-1" title="{{'ATTR_PRE' | translate}}">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">{{'PRE' | translate}}</span>
+                </div>
+                <input type="text" class="form-control" ng-model="pre">
+            </div>
+            <div class="input-group input-group-sm col-lg-2 col-xl-1" title="{{'ATTR_VOL' | translate}}">
+                <div class="input-group-prepend">
+                    <span class="input-group-text border-danger">{{'VOL' | translate}}</span>
+                </div>
+                <input type="text" class="form-control border-danger" ng-model="vol">
+            </div>
+            <div class="input-group input-group-sm col-lg-2 col-xl-1" title="{{'ATTR_VIG' | translate}}">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">{{'VIG' | translate}}</span>
+                </div>
+                <input type="text" class="form-control" ng-model="vig">
+            </div>
+            <div class="input-group input-group-sm col-lg-2 col-xl-1" title="{{'ATTR_DIS' | translate}}">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">{{'DIS' | translate}}</span>
+                </div>
+                <input type="text" class="form-control" ng-model="dis">
+            </div>
+            <div class="input-group input-group-sm col-lg-2 col-xl-1" title="{{'ATTR_AST' | translate}}">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">{{'AST' | translate}}</span>
+                </div>
+                <input type="text" class="form-control" ng-model="ast">
+            </div>
+            <div class="input-group input-group-sm col-lg-2 col-xl-1" title="{{'ATTR_PER' | translate}}">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">{{'PER' | translate}}</span>
+                </div>
+                <input type="text" class="form-control" ng-model="per">
+            </div>
+            <div class="input-group input-group-sm col-lg-2 col-xl-1" title="{{'INITIATIVE' | translate}}">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">{{'INIT' | translate}}</span>
+                </div>
+                <input type="text" class="form-control" ng-model="ini">
+            </div>
+            <div class="col-lg-2 col-xl-1" title="">
+                <small>Total: <span ng-bind="getSpentPoints()"></span>/80</small>
+                <span class="hovertext" data-hover="{{'STD_ARRAY' | translate}} 15 13 11 10 10 9 7 5">(<a href="">?</a>)</span>
+            </div>
+        </div>
+        <div class="row d-none d-lg-flex" style="margin-top:2px;" ng-show="!compact">
+            <div class="input-group input-group-sm col-lg-4 col-xl-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">{{'CATEG' | translate}}</span>
+                </div>
+                <input type="text" class="form-control" ng-model="typ">
+            </div>
+            <div class="input-group input-group-sm col-lg-2 col-xl-1" title="{{'DEFENSE' | translate}}">
+                <div class="input-group-prepend">
+                    <span class="input-group-text border-success">{{'DEF' | translate}}</span>
+                </div>
+                <input type="text" class="form-control border-success" ng-model="def">
+            </div>
+            <div class="input-group input-group-sm col-lg-2 col-xl-1" title="{{'ENDURANCE' | translate}}">
+                <div class="input-group-prepend">
+                    <span class="input-group-text border-primary">{{'END' | translate}}</span>
+                </div>
+                <input type="text" class="form-control border-primary" ng-model="end">
+            </div>
+            <div class="input-group input-group-sm col-lg-2 col-xl-1" title="{{'RES_DOUL' | translate}}">
+                <div class="input-group-prepend">
+                    <span class="input-group-text border-primary">{{'SD' | translate}}</span>
+                </div>
+                <input type="text" class="form-control border-primary" ng-model="sd">
+            </div>
+            <div class="input-group input-group-sm col-lg-2 col-xl-1" title="{{'SEUIL_CORR' | translate}}">
+                <div class="input-group-prepend">
+                    <span class="input-group-text border-danger">{{'SC' | translate}}</span>
+                </div>
+                <input type="text" class="form-control border-danger" ng-model="sc">
+            </div>
+            <div class="input-group input-group-sm col-lg-2 col-xl-1" title="{{'PERM_CORR' | translate}}">
+                <div class="input-group-prepend">
+                    <span class="input-group-text border-danger">{{'CP' | translate}}</span>
+                </div>
+                <input type="text" class="form-control border-danger" ng-model="cp">
+            </div>
+            <div class="input-group input-group-sm col-lg-4 col-xl-2" title="{{'ARMES' | translate}}">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">{{'DEG' | translate}}</span>
+                </div>
+                <input type="text" class="form-control" ng-model="deg">
+            </div>
+            <div class="input-group input-group-sm col-lg-4 col-xl-2" title="{{'ARMURE' | translate}}">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">{{'ARM' | translate}}</span>
+                </div>
+                <input type="text" class="form-control" ng-model="arm">
+            </div>
+            <div class="input-group input-group-sm col-lg-2 col-xl-1">
+            </div>
+        </div>
+        <div class="row d-none d-lg-flex" style="margin-top:2px;" ng-show="!compact">
+            <div class="input-group input-group-sm col-10">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">{{'NOTES' | translate}}</span>
+                </div>
+                <textarea class="form-control" rows="1" ng-model="notes"></textarea>
+            </div>
+            <div class="input-group input-group-sm col-lg-2 col-xl-1">
+                <button type="button" class="btn btn-dark btn-sm btn-block" title="➕"
+                    data-toggle="collapse" data-target="#collapseMoreFields">
+                    &nbsp;➕
+                </button>
+            </div>
+            <div class="input-group input-group-sm col-lg-12 col-xl-1">
+                <div class="input-group-prepend">
+                    <label class="input-group-text">{{'REGLES' | translate}}</label>
+                </div>
+                <select class="form-control" ng-model="rulesSet" ng-change="importer(undefined, 'true')">
+					<option value="">{{'BOOK_LDB' | translate}}</option>
+					<option value="en_31">3.0 (Marco Pagnini)</option>
+                </select>
+            </div>
+        </div>
+        <div class="collapse" id="collapseMoreFields" ng-show="!compact">
+             <div class="row d-none d-lg-flex" style="margin-top:2px;">
+                <div class="input-group input-group-sm col-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">{{'EQUIPMENT' | translate}}</span>
+                    </div>
+                    <textarea class="form-control" rows="1" ng-model="equipment"></textarea>
+                </div>
+                <div class="input-group input-group-sm col-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">{{'TACTICS' | translate}}</span>
+                    </div>
+                    <textarea class="form-control" rows="1" ng-model="tactics"></textarea>
+                </div>
+                <div class="input-group input-group-sm col-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">{{'SHADOW' | translate}}</span>
+                    </div>
+                    <textarea class="form-control" rows="1" ng-model="shadow"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top:2px;margin-bottom: 5px;">
+            <div class="d-none d-lg-flex col-3 col-xl-2" ng-show="!compact">
+                <button type="button" class="btn btn-dark btn-sm btn-block" title="{{'SAVE' | translate}}"
+                    data-toggle="modal" data-target="#save" ng-click="encoder()">
+                    🔻&nbsp;{{'SAVE' | translate}}
+                </button>
+            </div>
+            <div class="d-none d-lg-flex col-3 col-xl-2" ng-show="!compact">
+                <button type="button" class="btn btn-dark btn-sm btn-block" title="{{'IMPORT_JSON' | translate}}"
+                    data-toggle="modal" data-target="#importJson" >
+                    🔺&nbsp;{{'IMPORT_JSON' | translate}}
+                </button>
+            </div>
+            <div class="d-none d-lg-flex col-3 col-xl-2" ng-show="!compact">
+                <button type="button" class="btn btn-dark btn-sm btn-block" title="Stat Block"
+                    data-toggle="modal" data-target="#sheet" ng-click="calculsStatBlock()">
+                    📜&nbsp;Stat Block
+                </button>
+            </div>
+            <div class="input-group input-group-sm col-12 col-xl-4">
+                <div class="form-check" style="margin-right:10px">
+                    <input class="form-check-input" type="checkbox" value="" id="afficherDescription" ng-model="afficherDescription">
+                    <label class="form-check-label small" for="afficherDescription">{{'DISP_DESC' | translate}}</label>
+                </div>
+                <div class="d-none d-lg-flex form-check" style="margin-right:10px">
+                    <input class="form-check-input" type="checkbox" value="" id="epingleSeulement" ng-model="epingleSeulement">
+                    <label style="color: red;" class="form-check-label small" for="epingleSeulement"><b>{{'PINS' | translate}}</b></label>
+                </div>
+                <div class="d-none d-lg-flex form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="compact" ng-model="compact">
+                    <label class="form-check-label small" for="compact">Compact</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top:2px;">
+        <div class="col-lg-6 col-xl-3"
+            ng-repeat="(key, talent) in talents | rechercheFilter:{nom: filtreNomTalent, epingleSeulement: epingleSeulement,
+                filtreType: filtreType, filtreLivre: filtreLivre, filtreTrad: filtreTrad, filtreAttr: filtreAttr}">
+            <div class="card border-info h-100">
+                <div class="card-header bg-dark text-white small py-2 pl-2">
+                    <div class="row">
+                        <div class="col-11">{{talent.nom}}{{talent.mod}} [{{tradType(talent.type)}}]</div>
+                        <div class="col-1">
+                            <div class="form-check d-none d-lg-inline-flex">
+                                <input class="form-check-input position-static" type="checkbox" title="{{'PINS_TITLE_ALL' | translate}}" ng-model="talent.epingle" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ul class="list-group list-group-flush bg-light small">
+                    <li class="list-group-item py-1 pl-2" ng-if="afficherDescription && talent.description">
+                        <i><span ng-bind-html="talent.description"></span></i>
+                    </li>
+                    <li class="list-group-item py-1 pl-2" ng-if="talent.source"><span ng-bind-html="talent.source"></span></li>
+                    <li class="list-group-item py-1 pl-2" ng-if="talent.tradition">{{talent.tradition}}</li>
+                    <li class="list-group-item py-1" ng-if="(talent.novice && !epingleSeulement) || (epingleSeulement && (talent.epingle || talent.epinglen))">
+                        &nbsp;<input class="form-check-input d-none d-lg-inline-flex" type="checkbox" title="{{'PINS_TITLE_NOV' | translate}}" ng-model="talent.epinglen">
+                        <span ng-bind-html="talent.novice"></span>
+                    </li>
+                    <li class="list-group-item py-1" ng-if="(talent.adepte && !epingleSeulement) || (epingleSeulement && (talent.epingle || talent.epinglea))">
+                        &nbsp;<input class="form-check-input d-none d-lg-inline-flex" type="checkbox" title="{{'PINS_TITLE_ADP' | translate}}" ng-model="talent.epinglea">
+                        <span ng-bind-html="talent.adepte"></span>
+                    </li>
+                    <li class="list-group-item py-1" ng-if="(talent.maitre && !epingleSeulement) || (epingleSeulement && (talent.epingle || talent.epinglem))">
+                        &nbsp;<input class="form-check-input d-none d-lg-inline-flex" type="checkbox" title="{{'PINS_TITLE_MAI' | translate}}" ng-model="talent.epinglem">
+                        <span ng-bind-html="talent.maitre"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div class="modal fade" id="save" tabindex="-1" role="dialog" aria-labelledby="saveModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="saveModalLabel">{{'SAVE' | translate}}</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-5">{{'B84_PAN_TITLE' | translate}}</div>
+                        <div class="col-7"><a href="{{b64}}" data-dismiss="modal">{{'B84_PAN_LINK' | translate}}</a></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-5">{{'EXPORT_TITLE' | translate}}</div>
+                        <div class="col-7"><a href="_blank" data-dismiss="modal" ng-click="exporter()">{{'DOWNLOAD' | translate}}</a></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-5">{{'FOUNDRY_EXPORT_TITLE' | translate}}</div>
+                        <div class="col-7"><a href="" ng-click="copyToClipboard()">{{'FOUNDRY_EXPORT' | translate}}</a><span id="copied"></span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <br/><br/><i>FoundryVTT system : <a href="https://foundryvtt.com/packages/symbaroum" target="_blank">https://foundryvtt.com/packages/symbaroum</a></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">{{'PAN_CLOSE' | translate}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="sheet" tabindex="-1" role="dialog" aria-labelledby="sheetModalLabel" aria-hidden="true" style="font-size: 0.7em;">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="sheetModalLabel">Stat Block</h5>
+                    <button type="button" class="btn btn-sm btn-secondary" ng-click="statBlockProps.newTab()">{{'NEW_TAB' | translate}}</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row py-2">
+                        <div class="col-12">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" value="" id="hideAbilities" ng-model="statBlockProps.hideAbilities">
+                                <label class="form-check-label small" for="hideAbilities">{{'HIDE_ABILITIES' | translate}}</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" ng-model="statBlockProps.manageIntegrated">
+                                <label class="form-check-label small" for="">{{'MANAGE_INTEGRATED' | translate}}</label>
+                            </div>
+                            <div ng-repeat="(talent, boolIntegrated) in statBlockProps.integrated" class="form-check form-check-inline" ng-show="statBlockProps.manageIntegrated">
+                                <input class="form-check-input" type="checkbox" value="" id="" ng-model="statBlockProps.integrated[talent]">
+                                <label class="form-check-label small" for="">{{talent}}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="row">
+                        <div class="col-{{statBlockProps.getStatBlockColumnsNb()}}">
+                            <table id="statBlock" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th colspan="8" class="bb" ng-bind="statBlockProps.getDefault(nom)" style="padding-top: 15px;"></th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="8" ng-bind="statBlockProps.getDefault(typ)" style="padding-bottom: 15px;"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="topRows">
+                                        <td class="br">{{'PRE' | translate}}</td>
+                                        <td class="br">{{'AST' | translate}}</td>
+                                        <td class="br">{{'DIS' | translate}}</td>
+                                        <td class="br">{{'PER' | translate}}</td>
+                                        <td class="br">{{'AGI' | translate}}</td>
+                                        <td class="br">{{'VOL' | translate}}</td>
+                                        <td class="br">{{'FOR' | translate}}</td>
+                                        <td>{{'VIG' | translate}}</td>
+                                    </tr>
+                                    <tr class="topRows bbb">
+                                        <td class="br"><b ng-bind="statBlockProps.getDefault(pre)"></b></td>
+                                        <td class="br"><b ng-bind="statBlockProps.getDefault(ast)"></b></td>
+                                        <td class="br"><b ng-bind="statBlockProps.getDefault(dis)"></b></td>
+                                        <td class="br"><b ng-bind="statBlockProps.getDefault(per)"></b></td>
+                                        <td class="br"><b ng-bind="statBlockProps.getDefault(agi)"></b></td>
+                                        <td class="br"><b ng-bind="statBlockProps.getDefault(vol)"></b></td>
+                                        <td class="br"><b ng-bind="statBlockProps.getDefault(forc)"></b></td>
+                                        <td><b ng-bind="statBlockProps.getDefault(vig)"></b></td>
+                                    </tr>
+                                    <tr class="topRows">
+                                        <td class="br" colspan="2">{{'DEFENSE' | translate}}</td>
+                                        <td class="br" colspan="2">{{'ARMURE' | translate}}</td>
+                                        <td class="br" colspan="2">{{'ENDURANCE' | translate}}</td>
+                                        <td colspan="2">{{'RES_DOUL' | translate}}</td>
+                                    </tr>
+                                    <tr class="topRows">
+                                        <td class="br bbb" colspan="2"><b ng-bind="statBlockProps.getDefault(def)"></b></td>
+                                        <td class="br bbb" colspan="2"><b ng-bind="statBlockProps.getDefault(arm)"></b></td>
+                                        <td class="br bbb" colspan="2"><b ng-bind="statBlockProps.getDefault(end)"></b></td>
+                                        <td class="bbb" colspan="2"><b ng-bind="statBlockProps.getDefault(sd)"></b></td>
+                                    </tr>
+                                    <tr class="bbb even botRows">
+                                        <td colspan="2"><b>{{'ARMES' | translate}}</b></td>
+                                        <td colspan="6" ng-bind="statBlockProps.getDefault(deg)"></td>
+                                    </tr>
+                                    <tr class="bbb odd botRows">
+                                        <td colspan="2"><b>{{'INTEGRATED' | translate}}</b></td>
+                                        <td colspan="6" ng-bind="statBlockProps.getIntegrated()"></td>
+                                    </tr>
+                                    <tr class="bbb even botRows">
+                                        <td colspan="2"><b>{{'TALENTS' | translate}}</b></td>
+                                        <td colspan="6" ng-bind="statBlockProps.getAbilities()"></td>
+                                    </tr>
+                                    <tr class="bbb odd botRows">
+                                        <td colspan="2"><b>{{'TRAITS' | translate}}</b></td>
+                                        <td colspan="6" ng-bind="statBlockProps.getTraits()"></td>
+                                    </tr>
+                                    <tr class="bbb even botRows">
+                                        <td colspan="2"><b>{{'EQUIPMENT' | translate}}</b></td>
+                                        <td colspan="6" ng-bind="statBlockProps.getDefault(equipment)"></td>
+                                    </tr>
+                                    <tr class="bbb odd botRows">
+                                        <td colspan="2"><b>{{'SHADOW' | translate}}</b></td>
+                                        <td colspan="6" ng-bind="statBlockProps.getDefault(shadow)"></td>
+                                    </tr>
+                                    <tr class="bbb even botRows">
+                                        <td colspan="2"><b>{{'TACTICS' | translate}}</b></td>
+                                        <td colspan="6" ng-bind="statBlockProps.getDefault(tactics)"></td>
+                                    </tr>
+                                    <tr class="odd botRows">
+                                        <td colspan="2"><b>{{'NOTES' | translate}}</b></td>
+                                        <td colspan="6" ng-bind="statBlockProps.getDefault(notes)"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-6" ng-show="!statBlockProps.hideAbilities">
+                            <span ng-bind-html="statBlockProps.abilitiesTexts"></span>
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">{{'PAN_CLOSE' | translate}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="importJson" tabindex="-1" role="dialog" aria-labelledby="importJsonModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="importJsonModalLabel">{{'IMPORT_JSON' | translate}}</h5>
+                </div>
+                <div class="modal-body">
+                    <input id="importer" type="file" class="form-control-file" on-read-file="importer($fileContent)">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">{{'PAN_CLOSE' | translate}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</section>

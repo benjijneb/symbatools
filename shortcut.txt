@@ -1,0 +1,77 @@
+{"nom":"
+
+"type":"rituel",
+"livre":"ldb",
+"novice":"
+
+"tradition":"",
+
+"materiel":"
+
+"description":"
+
+"novice":"
+
+"adepte":"
+
+"maitre":"
+
+"},
+
+",
+
+\r\nAdept
+",\r\n"adepte":"Adept
+
+\r\nNovice
+",\r\n"novice":"Novice
+
+\r\nMaitre
+",\r\n"maitre":"Maitre
+
+\r\n---\r\n
+"},\r\n{"nom":"
+
+’
+'
+
+
+
+
+
+
+
+#E8E2D5
+#FEFDF5
+
+
+			
+			for (var tmp in $scope.epingles['g']) {
+
+				var name = $scope.epingles['g'][tmp];
+				if ($scope.talents[name]) {
+					$scope.talents[name].epingle = true;
+				}
+			}
+			for (var tmp in $scope.epingles['n']) {
+
+				var name = $scope.epingles['n'][tmp];
+				if ($scope.talents[name]) {
+					$scope.talents[name].epinglen = true;
+				}
+				
+			}
+			for (var tmp in $scope.epingles['a']) {
+
+				var name = $scope.epingles['a'][tmp];
+				if ($scope.talents[name]) {
+					$scope.talents[name].epinglea = true;
+				}
+			}
+			for (var tmp in $scope.epingles['m']) {
+
+				var name = $scope.epingles['m'][tmp];
+				if ($scope.talents[name]) {
+					$scope.talents[name].epinglem = true;
+				}
+			}
