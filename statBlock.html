@@ -49,26 +49,30 @@
                         <td colspan="6" ng-bind="statBlockProps.getDefault(deg)"></td>
                     </tr>
                     <tr class="bbb odd botRows">
+                        <td colspan="2"><b>{{'INTEGRATED' | translate}}</b></td>
+                        <td colspan="6" ng-bind="statBlockProps.getIntegrated()"></td>
+                    </tr>
+                    <tr class="bbb even botRows">
                         <td colspan="2"><b>{{'TALENTS' | translate}}</b></td>
                         <td colspan="6" ng-bind="statBlockProps.getAbilities()"></td>
                     </tr>
-                    <tr class="bbb even botRows">
+                    <tr class="bbb odd botRows">
                         <td colspan="2"><b>{{'TRAITS' | translate}}</b></td>
                         <td colspan="6" ng-bind="statBlockProps.getTraits()"></td>
                     </tr>
-                    <tr class="bbb odd botRows">
+                    <tr class="bbb even botRows">
                         <td colspan="2"><b>{{'EQUIPMENT' | translate}}</b></td>
                         <td colspan="6" ng-bind="statBlockProps.getDefault(equipment)"></td>
                     </tr>
-                    <tr class="bbb even botRows">
+                    <tr class="bbb odd botRows">
                         <td colspan="2"><b>{{'SHADOW' | translate}}</b></td>
                         <td colspan="6" ng-bind="statBlockProps.getDefault(shadow)"></td>
                     </tr>
-                    <tr class="bbb odd botRows">
+                    <tr class="bbb even botRows">
                         <td colspan="2"><b>{{'TACTICS' | translate}}</b></td>
                         <td colspan="6" ng-bind="statBlockProps.getDefault(tactics)"></td>
                     </tr>
-                    <tr class="even botRows">
+                    <tr class="odd botRows">
                         <td colspan="2"><b>{{'NOTES' | translate}}</b></td>
                         <td colspan="6" ng-bind="statBlockProps.getDefault(notes)"></td>
                     </tr>

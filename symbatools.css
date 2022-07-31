@@ -80,12 +80,12 @@
     text-align: center;
     position: absolute;
     z-index: 1;
-    left: 0;
+    right: 0;
     top: 110%;
   }
   
   .hovertext:hover:before {
     opacity: 1;
     visibility: visible;
-    left: -340px;
+    right: 0;
   }

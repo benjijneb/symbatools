@@ -256,14 +256,17 @@ routeAppControllers.controller('Recherche', function ($scope, $http, $q, $routeP
 
 	var symboles = {
 		
-		'talent':'🗡',
+		'talent':'🏆',
 		'pouvoir mystique':'🔮',
 		'qualite':'⚒',
 		'trait monstrueux':'🦄',
 		'trait':'🧬',
 		'atout':'💪',
 		'fardeau':'🎱',
-		'rituel':'📖'
+		'rituel':'📖',
+		'elixir':'🧪',
+		'arme':'⚔',
+		'armure':'🛡'
 	}
 
 	//TODO Inutilisé
@@ -293,9 +296,10 @@ routeAppControllers.controller('Recherche', function ($scope, $http, $q, $routeP
 
 	$scope.importer = function ($fileContent, $switch) {
 
+		var jsonImporter = {};
 		if ($fileContent) {
 
-			var jsonImporter = JSON.parse($fileContent);
+			jsonImporter = JSON.parse($fileContent);
 
 			$scope.nom = jsonImporter.nom;
 			$scope.agi = jsonImporter.agi;
@@ -324,6 +328,8 @@ routeAppControllers.controller('Recherche', function ($scope, $http, $q, $routeP
 				$rootScope.lang = jsonImporter.lang;
 				$translate.use(jsonImporter.lang);
 			}
+			if (jsonImporter.integrated)
+				$scope.statBlockProps.integrated = jsonImporter.integrated;
 		}
 
 		$scope.loadJson().then(function successCallback(response) {
@@ -389,7 +395,7 @@ routeAppControllers.controller('Recherche', function ($scope, $http, $q, $routeP
 				}
 	
 				$scope.epingleSeulement = true;
-				$scope.calculsStatBlock(true);
+				(jsonImporter.integrated) ? $scope.calculsStatBlock(false) : $scope.calculsStatBlock(true);
 				$('#importJson').modal('hide');
 			}
 		}, function errorCallback(response) {
@@ -713,7 +719,9 @@ routeAppControllers.controller('Recherche', function ($scope, $http, $q, $routeP
 		
 		newTab: function(value) {
 			
-			window.open(globalService.encoding($scope.getDataToExport(), 'statblock'), '_blank').focus();
+			var jsonToSend = $scope.getDataToExport();
+			jsonToSend.integrated = $scope.statBlockProps.integrated;
+			window.open(globalService.encoding(jsonToSend, 'statblock'), '_blank').focus();
 		},
 		getAbilities: function (value) {
 

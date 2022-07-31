@@ -1341,7 +1341,7 @@
         "livre": "cdx",
         "description": "It is not uncommon for witch hunters and black cloaks to fight with a sword in one hand and a whip in the other. This is an effective and deadly combination; in the hands of someone with the proper training, it can even bring down wellarmored opponents.",
         "novice": "<span class='text-success'>Novice</span> : Active. Attack with a whip in one hand and a one-handed weapon in the other. If the whip attack hits, the character gets a Free Attack with the one-handed weapon, regardless of whether or not the whip deals damage.",
-        "adepte": "<span class='text-info'>Adepte</span> : Active. As Novice, but the whip hinders the enemy’s movements so that the Free Attack hits automatically.",
+        "adepte": "<span class='text-info'>Adepte</span> : Active. As Novice, but the whip hinders the enemy's movements so that the Free Attack hits automatically.",
         "maitre": "<span class='text-danger'>Maître</span> : Active. As Adept, but the whip fighter pulls the enemy toward himself/herself so that the Free Attack also deals +1D6 damage.",
         "nom": "Whip Fighter"
     },
@@ -1351,7 +1351,7 @@
         "description": "Most people fighting with a two-handed weapon rely on its considerable weight, but there are also those who cultivate the ability to wield huge two-handed swords with great finesse. Those who possess this ability belong to that category, and can use the length of the weapon to combat all sorts of opponents.",
         "novice": "<span class='text-success'>Novice</span> : Passive. In the hands of the novice, two-handed swords gain the quality Long and can therefore be used with the Polearm Mastery ability.",
         "adepte": "<span class='text-info'>Adepte</span> : Reaction. After one successful Defense per turn, pass a [Strong←Strong] test to push enemies out of melee combat with the sword. The enemy takes 1D6 damage, is pushed back a couple of meters, and must once again face the quality Long.",
-        "maitre": "<span class='text-danger'>Maître</span> : Active. The master’s flowing strikes count as a chain of attacks against enemies within melee distance – if an enemy is hit, an attack is made against the next one, and so on until an attack fails.",
+        "maitre": "<span class='text-danger'>Maître</span> : Active. The master's flowing strikes count as a chain of attacks against enemies within melee distance – if an enemy is hit, an attack is made against the next one, and so on until an attack fails.",
         "nom": "Two-handed Finesse"
     },
     "#156": {
@@ -3012,5 +3012,352 @@
         "maitre": "<span class='text-danger'>Master</span> Special. In addition to their novice and adept knowledge, the character knows all the basic master elixirs as well as any secret master elixirs of their mystical tradition. With a successful roll of Cunning they can produce a single dose of a master elixir of their choice from among the recipes they know, or 1D4 doses of an adept elixir of their choice, or 1D6 doses of a novice elixir of their choice. If the roll fails, they gain a single dose of a random elixir from their recipe list.",
         "attribut": "AST",
         "nom": "Alchemy (Revised)"
+    },
+    "#361": {
+        "type": "elixir",
+        "livre": "ldb",
+        "tradition": "Cost: 1 Th. (W), 2 Th. (M), 3 Th. (S)",
+        "novice": "(Weak) A weak antidote lowers the effect of a poison by one degree; a strong poison becomes moderate, a moderate poison becomes weak and a weak poison is completely neutralized. The antidote does not affect any damage that a character has already suffered. Requires a passed Cunning test to take effect",
+        "adepte" : "(Moderate) A moderate antidote lowers the effect of a poison by two degrees; a strong poison becomes weak, while both moderate and weak poisons are completely neutralized. The antidote does not affect any damage that a character has already suffered. Requires a passed Cunning test to take effect.",
+        "maitre": "(Strong) A strong antidote lowers theeffect of a poison by three degrees, which usually means that the poison is completely neutralized. The antidote does not affect any damage that a character has already suffered. Requires a passed Cunning test to take effect.",
+        "nom": "Antidote"
+    },
+    "#362": {
+        "type": "elixir",
+        "livre": "ldb",
+        "tradition": "Cost: 3 Th.",
+        "novice": "The spore bomb is used together with the Strangler ability.",
+        "nom": "Spore Bomb"
+    },
+    "#363": {
+        "type": "elixir",
+        "livre": "ldb",
+        "tradition": "Cost: 2 Th.",
+        "novice": "The fumes from this candle make invisible things at a location or in a room visible.",
+        "nom": "Ghost Candle"
+    },
+    "#364": {
+        "type": "elixir",
+        "livre": "ldb",
+        "tradition": "Cost: 1 Th.",
+        "novice": "A dose of mystical essence, which gives a mystic a second chance to succeed with a Resolute test the next time he or she attempts to use a mystical power",
+        "nom": "Concentrated Magic"
+    },
+    "#365": {
+        "type": "elixir",
+        "livre": "ldb",
+        "tradition": "Cost: 6 Th.",
+        "novice": "Consuming an Elixir of Life gives the drinker regenerative powers that heal 1D6 points of Toughness during 1D6 turns, on the character's initiative. Sadly the character also suffers 1 temporary corruption for each turn the elixir is in effect.",
+        "nom": "Elixir of Life"
+    },
+    "#366": {
+        "type": "elixir",
+        "livre": "ldb",
+        "tradition": "Cost: 2 Th.",
+        "novice": "When applying a dose of elemental essence, either one weapon, four throwing weapons or all the arrows/bolts in a quiver deal 1D4 elemental damage for the duration of a scene. The alchemist must choose which element to prepare: fire, cold, acid or lightning.",
+        "nom": "Elemental Essence"
+    },
+    "#367": {
+        "type": "elixir",
+        "livre": "ldb",
+        "tradition": "Cost: 2 Th.",
+        "novice": "These drops will immediately return the gift of sight to a temporarily blinded creature.",
+        "nom": "Eye Drops"
+    },
+    "#368": {
+        "type": "elixir",
+        "livre": "ldb",
+        "tradition": "Cost: 2 Th.",
+        "nom": "Protective Oil",
+        "novice": "The alchemical oil protects against elemental damage by providing 1D4 additional Armor against one of the elements for the duration of a scene. The alchemist must choose which of the elements that the oil shields against: fire, cold, acid or lightning."
+    },
+    "#369": {
+        "type": "elixir",
+        "livre": "ldb",
+        "tradition": "1 Th.",
+        "nom": "Waybread",
+        "novice": "One loaf of this rich waybread corresponds to a week's food supply for one person."
+    },
+    "#370": {
+        "type": "elixir",
+        "livre": "ldb",
+        "tradition": "Cost: 2 Th. (W), 4 Th. (M), 6 Th. (S)",
+        "nom": "Poison",
+        "novice": "(Weak) A weak poison deals 1D4 damage each turn for 1D4 turns.",
+        "adepte": "(Moderate) A moderate poison deals 1D6 damage each turn for 1D6 turns.",
+        "maitre": "(Strong) A strong poison deals 1D8 damage each turn for 1D8 turns."
+    },
+    "#371": {
+        "type": "elixir",
+        "livre": "ldb",
+        "tradition": "Cost: 2 Th.",
+        "nom": "Wraith Dust",
+        "novice": "The wraith dust forces an incorporeal being (a creature with the monstrous trait Spirit Form) to take physical form for the duration of a scene. The dust must be thrown with a [Accurate←Defense] test; if hit the spirit takes damage as living creatures do."
+    },
+    "#372": {
+        "type": "elixir",
+        "livre": "ldb",
+        "tradition": "Cost: 1 Th.",
+        "nom": "Herbal Cure",
+        "novice": "An herbal cure consists of an alchemical poultice coupled with bandages. It smells vile but heals 1 point of Toughness. The herbal cure has greater effect if used by a character with the Medicus ability."
+    },
+    "#373": {
+        "type": "elixir",
+        "livre": "ldb",
+        "tradition": "Cost: 2 Th.",
+        "novice": "Choking Spores are produced from Davokar's lichens and mushrooms. The elixir is used specifically with the Strangler ability.",
+        "nom": "Choking Spores"
+    },
+    "#374": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Damages: 1D8, Quality: Long, Cost: 3 Th.",
+        "nom": "Long Weapon",
+        "novice": "Long weapons have the advantage of superior reach and give the user Free Attacks against enemies that are not armed with Long weapons themselves. A Long weapon can be used in one hand, but then loses the Long quality since the user is forced to hold it higher up on the grip to control the weapon. Spear and staff are examples of Long weapons."
+    },
+    "#375": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Damages: 1D8+1, Quality: Deep Impact, Cost: 15 Th.",
+        "nom": "Halberd",
+        "novice": "The halberd, known as the pole axe among barbarians, has elements of both the Long and the Heavy weapon since it is combining the point of a spear with the head of an axe. It cannot thrust as quickly as the spear, but its sweeping chop can have a devastating effect."
+    },
+    "#376": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Damages: 1D8, Quality: Precise, Cost: 15 Th.",
+        "nom": "Pike",
+        "novice": "The slender shaft and fire-tempered steel point of the Ambrian pike slides towards the target with great precision."
+    },
+    "#377": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Damages: 1D6, Quality: Blunt, Cost: 1 Sh.",
+        "nom": "Quarterstaff",
+        "novice": "The simpler wooden staff, often made from heavy wood that has been hardened with fire, has the reach of a Long weapon but lacks the effect of steel-tipped weapons."
+    },
+    "#378": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Damages: 1D10, Cost: 10 Th.",
+        "nom": "Heavy Weapons",
+        "novice": "Heavy weapons are distinguished by the fact that they have to be wielded with two hands in order to be used effectively. They have a superior damage effect in melee combat. Pole axe, warhammer and the mighty great sword are all examples of heavy weapons common in the Davokar region."
+    },
+    "#379": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Damages: 1D10, Quality: Precise, Cost: 50 Th.",
+        "nom": "Bastard Sword",
+        "novice": "The master smiths of the Pansars forge the finest weapons in Ambria, and the bastard swords of the Queen's Guard are an exquisite testament to that fact, at least when wielded by the right warrior. The weapon is preferably handled with both hands (as a heavy weapon) but can also be used single-handedly with a shield. When wielded with just one hand, the bastard sword loses the Precise quality and instead deals damage like a single-handed weapon."
+    },
+    "#380": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Damages: 1D10, Quality: Flexible, Cost: 50 Th.",
+        "nom": "Heavy Flail",
+        "novice": "The heavy flail is a Jointed weapon, where a metal ball – often spiked – attached to a two-handed shaft by a chain is swung against the enemy. It is not easy to parry a flail since the metal ball often strikes around the parrying weapon or shield to find its target. The heavy flail comes in a number of shapes, like the traditional wooden two-handed shaft attached to a chain that ends in a spiked metal head. There are also variants with spiked pieces of metal that are linked together, as well as models where two or three chains and metal heads share the same shaft. Regardless of design, they all share the weight of the flail and the fact that they are difficult to block."
+    },
+    "#381": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Damages: 1D10+1, Quality: Deep Impact, Cost: 50 Th.",
+        "nom": "Double-axe",
+        "novice": "The barbarian double-axe (not to be confused with the more common pole axe with its single-edged axe head) is aptly named after its twin axe heads and is presumed to be a legacy from the fallen Symbaroum. In those days the double-axe was a weapon as well as a symbol of status and standing. Even though the knowledge of metallurgy has dwindled since the fall of Symbaroum these powerful weapons can still be forged, often made for particularly prominent warriors. Ambrians consider the double-axe crude and savage, fit for barbarians and few else, but its shape is well known because of its similarity to the royal rune, Labrys."
+    },
+    "#382": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Damages: 1D8, Cost: 5 Th.",
+        "nom": "Single-handed Weapons",
+        "novice": "The category of Single-handed weapons covers all kinds of weapons that can be wielded in one hand. Axe, saber, sword and war hammer are all examples of single-handed weapons."
+    },
+    "#383": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Damages: 1D8, Quality: Precise, Cost: 25 Th.",
+        "nom": "Fencing Sword",
+        "novice": "In Yndaros, the Ambrian fencing sword is considered to be of the highest fashion, an instrument with superior precision made from strong but flexible steel. It is often combined with the duelist's favorite, the parrying dagger, which gives the lightly armored fighter a stronger defense in combat."
+    },
+    "#384": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Damages: 1D8, Quality: Flexible, Cost: 25 Th.",
+        "nom": "Flail",
+        "novice": "The single-handed cousin of the heavy flail."
+    },
+    "#385": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Damages: 1D8+1, Quality: Deep Impact, Cost: 25 Th.",
+        "nom": "Crow's Beak",
+        "novice": "A less elegant, but just as effective weapon is the Crow's Beak, also known as a Kandorian War Pick after the city in Alberetor where it was first forged. The Crow's Beak is a club whose metal head is fitted with a spike or a beak of steel, in order to punch through armor more easily. After the escape to Yndaros, the smiths of the Kandorian War Pick settled down in the district of Old Kadizar where they have continued to craft their dreaded weapons."
+    },
+    "#386": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Damages: 1D6, Quality: Short, Cost: 1 Th.",
+        "nom": "Short Weapon",
+        "novice": "Short weapons can be drawn quickly and are easily hidden. Daggers and short swords are examples of Short weapons."
+    },
+    "#387": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Damages: 1D6, Quality: Short, Balanced, Cost: 5 Th.",
+        "nom": "Parrying Dagger",
+        "novice": "The parrying dagger, with its wide and v-shaped cross-guard, has become very popular in Yndaros, and is often wielded together with a fencing sword."
+    },
+    "#388": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Damages: 1D6+1, Quality: Short, Deep Impact, Cost: 5 Th.",
+        "nom": "Stiletto",
+        "novice": "The slender and agile stiletto is a dagger whose razor sharp point stabs deeply – the weapon of an assassin."
+    },
+    "#389": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Damages: 1D6, Cost: 2 Th.",
+        "nom": "Throwing Weapon",
+        "novice": "Throwing weapons are hurled single-handedly over short distances. They are usually used before melee combat is initiated, and are therefore often combined with a shield. Throwing axe, throwing knife and throwing spear are all examples of this weapon group."
+    },
+    "#390": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Damages: 1D6+1, Quality: Deep Impact, Cost: 10 Th.",
+        "nom": "Spear Sling",
+        "novice": "The barbarians of eastern Davokar, and especially the members of clan Karohar, prefer the use of spear slings – a throwing arm with a hook that is attached to the end of a short spear in order to throw it with tremendous force."
+    },
+    "#391": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Damages: Crossbow 1D10, Bow 1D8, Sling 1D6, Cost: 8 Th. 5 Th., N/A",
+        "nom": "Projectile Weapon",
+        "novice": "Projectile weapons are meant to be used over greater distances and need some time to reload. The crossbow is loaded with bolts, the bows fire arrows and slings throw sharpened rocks. A crossbow requires a Movement Action to be reloaded, while reloading a bow or a sling counts as a Free Action. Bow, crossbow and sling are all examples of projectile weapons."
+    },
+    "#392": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Damages: 1D8, Quality: Précis, Cost: 25 Th.",
+        "nom": "Longbow",
+        "novice": "The longbow is a reliable and proven weapon in the Ambrian army, and since The Great War it is often carried by farmers who make up the backbone of the kingdom's archer companies."
+    },
+    "#393": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Damages: 1D10+1, Quality: Deep Impact, Cost: 40 Th.",
+        "nom": "Arbalest",
+        "novice": "The arbalest is a heavy Ambrian crossbow with a bow of feather steel, which gives its bolts a bit of extra punch."
+    },
+    "#394": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Damages: 1D4, Quality: Short",
+        "nom": "Unarmed Attack",
+        "novice": "Unarmed attacks are usually used as the last resort of cultural beings and are less effective than the natural weapons of beasts and abominations in almost all respects. Yet, with the Natural Warrior ability even an unarmed character can inf lict considerable amounts of damage to its enemies. An elbow, a bite, a punch, a head-butt, a kick as well as the use of brass knuckles are examples of Unarmed Attacks."
+    },
+    "#395": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Damages: 1D4+1, Quality: Short, Deep Impact, Cost: 1 Th.",
+        "nom": "Battle Claw",
+        "novice": "The clan Karohar in southern Davokar has developed a clawed gauntlet that you wear on your hand and whose long claws simulate those of a mare cat."
+    },
+    "#396": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Provides +1 in Defense, Cost: 3 Th.",
+        "nom": "Shield",
+        "novice": "Shields make it difficult to hit the wielder with melee, as well as ranged, attacks. They are often combined with a single-handed weapon, or with a single-handed weapon and a number of additional throwing weapons."
+    },
+    "#397": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Provides +1 in Defense, Quality: Flexible, Cost: 15 Th.",
+        "nom": "Buckler",
+        "novice": "The buckler is a small shield commonly carried by elite archers and pikemen, since it is agile enough to be strapped to the arm while still allowing the use of both hands to wield a weapon. The Buckler is too light to be used with the Shield Fighter ability."
+    },
+    "#398": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Provides +2 in Defense, Quality: Balanced, Cost: 15 Th.",
+        "nom": "Steel Shield",
+        "novice": "The steel shield is as strong as the common wooden shields, but both thinner and more easily maneuvered."
+    },
+    "#399": {
+        "type": "armure",
+        "livre": "ldb",
+        "tradition": "Protection: 1D4, Quality: Impeding (-2), Cost: 2 Th.",
+        "nom": "Light Armor",
+        "novice": "Light armor is easy to come by and does not limit the wearer's capabilities substantially in acrobatic situations or when performing stealthy maneuvers. Yet it has a negative effect when using mystical powers. Hardened, ring and studded leather are all examples of light armor."
+    },
+    "#400": {
+        "type": "armure",
+        "livre": "ldb",
+        "tradition": "Protection: 1D4, Quality: Flexible (0), Cost: 10 Th.",
+        "nom": "Blessed Robe",
+        "novice": "The priest robes of the theurgs are blessed and protected by benevolent forces so that the Church's finest can travel safely throughout the kingdom, and beyond."
+    },
+    "#401": {
+        "type": "armure",
+        "livre": "ldb",
+        "tradition": "Protection: 1D4, Quality: Flexible (0), Cost: 10 Th.",
+        "nom": "Order Cloak",
+        "novice": "Most novice mages of Ordo Magica are given a protective cloak in time for their first long journey. These cloaks are embroidered with warding runes, which increases the chance of the novice surviving to complete its appointed task."
+    },
+    "#402": {
+        "type": "armure",
+        "livre": "ldb",
+        "tradition": "Protection: 1D4, Quality: Flexible (0), Cost: 10 Th.",
+        "nom": "Witch Gown",
+        "novice": "Witches bind protective spirits in carved pieces of bone and the skulls of fallen enemies, and attach them to their clothing for effective protection."
+    },
+    "#403": {
+        "type": "armure",
+        "livre": "ldb",
+        "tradition": "Protection: 1D4, Quality: Flexible (0), Cost: 10 Th.",
+        "nom": "Woven Silk",
+        "novice": "Woven silk is the finest light armor available, since the close weave of its threads withstands stabs and cuts far better than its weight suggests. Woven silk has been used by both barbarians and Ambrians for a long time and some scholars speculate that the technique originally comes from the elves, possibly dating as far back as the days of the Iron Pact."
+    },
+    "#404": {
+        "type": "armure",
+        "livre": "ldb",
+        "tradition": "Protection: 1D4, Quality: Cumbersome (-3), Cost: 1 Th.",
+        "nom": "Wolf Skin",
+        "novice": "For poor barbarian scouts the cheap, cumbersome wolf skin armor is a common alternative; skin that has been tanned in the most simple way and sewn together into some kind of passable protection."
+    },
+    "#405": {
+        "type": "armure",
+        "livre": "ldb",
+        "tradition": "Protection: 1D6, Quality: Impeding (-3), Cost: 5 Th.",
+        "nom": "Medium Armor",
+        "novice": "Medium armor offers better protection than the light versions but at the cost of being more restrictive to the wearer's movements. However, this downside is considered an acceptable trade-off by most melee combatants. Scale- and chainmail are examples of medium armor."
+    },
+    "#406": {
+        "type": "armure",
+        "livre": "ldb",
+        "tradition": "Protection: 1D6, Quality: Cumbersome (-4), Cost: 2 Th.",
+        "nom": "Crow Armor",
+        "novice": "Medium armor is more expensive than light, which is the reason why many warriors have picked, riveted and bound together a so-called “Crow Armor” of their own. It is cheap, but far more difficult to move around in."
+    },
+    "#407": {
+        "type": "armure",
+        "livre": "ldb",
+        "tradition": "Protection: 1D6, Quality: Flexible (-1), Cost: 25 Th.",
+        "nom": "Lacquered Silk Cuirass",
+        "novice": "Barbarian warriors that have earned their place in the guard of a wealthy clan chieftain can sometimes be seen wearing a cuirass of lacquered silk, an armor that despite its apparent lightness protects like a breast plate. According to legend, the secret of lacquered silk was given to humankind by the elves, in a time when the Iron Pact was still strong and humans battled the parasitic darkness of Symbaroum."
+    },
+    "#408": {
+        "type": "armure",
+        "livre": "ldb",
+        "tradition": "Protection: 1D8, Quality: Impeding (-4), Cost: 10 Th.",
+        "nom": "Heavy Armor",
+        "novice": "Those melee combatants that can afford it usually chose increased protection at the cost of even greater restrictions to their movement. A self-respecting knight wears chainmail enforced by shoulder, knee and elbow plates, while those with the means tend to order themselves a personalized set of full plate armor."
+    },
+    "#409": {
+        "type": "armure",
+        "livre": "ldb",
+        "tradition": "Protection: 1D8, Quality: Flexible (-2), Cost: 50 Th.",
+        "nom": "Full Plate",
+        "novice": "Personalized full plate armor is available for those of sufficient means, and offers the best protection available with less restriction than many other kinds of heavy armor."
     }
 }

@@ -2846,5 +2846,352 @@
         "livre": "gdj",
         "novice": "Le personnage détient un sombre secret quelconque qui menace de détruire sa réputation et sa vie s'il vient à être révélé. Le personnage a peut-être été le membre d'un culte corrompu, tué quelqu'un ou protégé un meurtrier sans avoir été jamais pris. Si le sombre secret était rendu public, le personnage recevrait l'un des Fardeaux Paria ou Recherché à la place, selon la teneur du secret. Une fois par aventure, un risque d'être découvert se profile. Le personnage doit tenter un test de Discrétion au début de chaque aventure avec une seconde chance de le réussir. S'il échoue, quelqu'un découvre un indice qui le conduira à la vérité. Cela peut être une preuve physique qui réapparaît (une lettre, par exemple), un témoin qui clame avoir vu quelque chose ou encore le personnage qui parle dans son sommeil. Que le personnage soupçonneux soit un autre personnage ou un personnage non joueur, celui qui cache un sombre secret doit apaiser leur curiosité. Remarquez qu'un personnage non joueur peut désirer faire chanter plutôt que dénoncer le personnage.",
         "nom": "Sombre secret"
+    },
+    "#361": {
+        "type": "elixir",
+        "livre": "ldb",
+        "tradition": "Coût : 1 Th. (F), 2 Th. (M), 3 Th. (P)",
+        "novice": "(Faible) Un antidote faible diminue d'un niveau l'effet d'un poison : un poison puissant devient modéré, un poison modéré devient faible et un poison faible est totalement neutralisé. L'antidote n'a aucun effet sur les dégâts déjà subis par le personnage. Nécessite un jet d'Astuce réussi pour faire effet.",
+        "adepte" : "(Modéré) Un antidote modéré diminue l'effet d'un poison de deux niveaux : un poison puissant devient faible et les poisons modérés et faibles sont complètement neutralisés. L'antidote n'a aucun effet sur les dégâts déjà subis par le personnage. Nécessite un jet d'Astuce réussi pour faire effet.",
+        "maitre": "(Puissant) Un antidote puissant diminue l'effet d'un poison de trois niveaux. Cela signifie en général que le poison est totalement neutralisé. L'antidote n'a aucun effet sur les dégâts déjà subis par le personnage. Nécessite un jet d'Astuce réussi pour faire effet.",
+        "nom": "Antidote"
+    },
+    "#362": {
+        "type": "elixir",
+        "livre": "ldb",
+        "tradition": "Coût : 2 Th.",
+        "novice": "La bombe à spores est spécifiquement utilisée avec le Talent Étrangleur.",
+        "nom": "Bombe à spores"
+    },
+    "#363": {
+        "type": "elixir",
+        "livre": "ldb",
+        "tradition": "Coût : 2 Th.",
+        "novice": "La fumée de cette bougie rend visibles les objets invisibles situés dans un lieu ou une pièce.",
+        "nom": "Bougie fantomatique"
+    },
+    "#364": {
+        "type": "elixir",
+        "livre": "ldb",
+        "tradition": "Coût : 1 Th.",
+        "novice": "Une dose d'essence mystique pure. Après avoir été consommé, le concentré de magie offre à un Mystique la possibilité de relancer un jet de Volonté la prochaine fois qu'il utilisera ses pouvoirs mystiques.",
+        "nom": "Concentré de magie"
+    },
+    "#365": {
+        "type": "elixir",
+        "livre": "ldb",
+        "tradition": "Coût : 6 Th.",
+        "novice": "Consommer un Élixir de vie donne au personnage des pouvoirs de régénération. Il peut ainsi guérir 1D6 points d'Endurance pendant 1D6 tours lors du tour d'initiative du personnage. Malheureusement, le personnage subit aussi 1 point de Corruption temporaire à chaque tour où l'élixir fait effet.",
+        "nom": "Élixir de vie"
+    },
+    "#366": {
+        "type": "elixir",
+        "livre": "ldb",
+        "tradition": "Coût : 2 Th.",
+        "novice": "Une fois appliquée sur, au choix, une arme, quatre armes de lancer, ou tous les carreaux ou flèches d'un carquois, ils infligent 1D4 de dégâts supplémentaires pendant une scène entière. L'alchimiste doit, avant cela, choisir quel élément il désire préparer : feu, froid, acide ou éclair.",
+        "nom": "Essence élémentaire"
+    },
+    "#367": {
+        "type": "elixir",
+        "livre": "ldb",
+        "tradition": "Coût : 2 Th.",
+        "novice": "Ces gouttes redonnent immédiatement la vue à une créature rendue temporairement aveugle.",
+        "nom": "Gouttes de vision"
+    },
+    "#368": {
+        "type": "elixir",
+        "livre": "ldb",
+        "tradition": "Coût : 2 Th.",
+        "nom": "Huile de Protection",
+        "novice": "L'huile alchimique protège contre les dégâts élémentaires. Elle offre 1D4 de protection supplémentaire contre un élément précis pendant la durée de la scène. L'alchimiste doit, au préalable, choisir l'élément contre lequel l'huile est efficace : feu, froid, acide ou éclairs."
+    },
+    "#369": {
+        "type": "elixir",
+        "livre": "ldb",
+        "tradition": "Coût : 1 Th.",
+        "nom": "Pain de voyage",
+        "novice": "Une miche de ce pain de voyage correspond à une semaine de rations pour une personne."
+    },
+    "#370": {
+        "type": "elixir",
+        "livre": "ldb",
+        "tradition": "Coût : 2 Th. (F), 4 Th. (M), 6 Th. (P)",
+        "nom": "Poison",
+        "novice": "(Faible) Un poison faible inflige 1D4 dégâts pendant 1D4 tours.",
+        "adepte": "(Modéré) Un poison modéré inflige 1D6 dégâts pendant 1D6 tours.",
+        "maitre": "(Puissant) Un poison puissant inflige 1D8 dégâts pendant 1D8 tours."
+    },
+    "#371": {
+        "type": "elixir",
+        "livre": "ldb",
+        "tradition": "Coût : 2 Th.",
+        "nom": "Poussière de spectre",
+        "novice": "La poussière de spectre oblige un être immatériel (une créature avec le Trait monstrueux Forme éthérée) à se matérialiser pour la durée de la scène. La poussière doit être lancée grâce à test réussi de [Accurate←Defense]; si cela touche, l'esprit subit des dégâts comme une créature vivante."
+    },
+    "#372": {
+        "type": "elixir",
+        "livre": "ldb",
+        "tradition": "Coût : 1 Th.",
+        "nom": "Remède à base de plantes",
+        "novice": "Un remède à base de plantes correspond à un cataplasme alchimique associé à des bandages. L'odeur en est abominable, mais cela soigne 1 point d'Endurance. La cure par les plantes est plus efficace lorsqu'elle est utilisée par un personnage possédant le Talent Medicus."
+    },
+    "#373": {
+        "type": "elixir",
+        "livre": "ldb",
+        "tradition": "Coût : 2 Th.",
+        "nom": "Spores asphyxiantes",
+        "novice": "Les spores asphyxiantes sont produites à partir de lichens et de champignons de Davokar. Cet élixir est spécifiquement utilisé avec le Talent Étrangleur."
+    },
+    "#374": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Dégâts : 1D8, Qualité : Longue, Coût : 3 Th.",
+        "nom": "Arme longue",
+        "novice": "Les armes longues ont l'avantage d'avoir une plus grande allonge et offrent à leur utilisateur une Attaque gratuite contre les ennemis qui ne sont pas eux-mêmes équipés d'une arme longue. Les armes longues peuvent être maniées à une main, mais elles perdent alors leur qualité Longue puisque l'utilisateur est obligé de saisir l'arme plus haut sur son manche pour la contrôler. Les lances et les bâtons sont des exemples d'armes longues."
+    },
+    "#375": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Dégâts : 1D8+1, Qualité : Longue, Éventreur, Coût : 15 Th.",
+        "nom": "Hallebarde",
+        "novice": "La hallebarde, connue chez les barbares sous le nom de hache d'armes, associe à la fois les caractéristiques d'une arme lourde et celles d'une arme longue puisqu'elle possède la pointe d'une lance et la lame d'une hache. Bien qu'elle ne puisse pas frapper aussi rapidement qu'une lance, un coup de sa lame peut être réellement dévastateur."
+    },
+    "#376": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Dégâts : 1D8, Qualité : Longue, Précise, Coût : 15 Th.",
+        "nom": "Pique",
+        "novice": "Avec son manche élancé et sa pointe en acier trempé, la pique ambrienne glisse vers sa cible avec une grande précision."
+    },
+    "#377": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Dégâts : 1D6, Qualité : Long, Contondant, Coût : 1 Sh.",
+        "nom": "Bâton de combat",
+        "novice": "Un simple bâton de bois, parfois fait d'un bois lourd durci par le feu. Il possède l'allonge d'une arme longue, mais ne cause pas autant de dégâts que les armes disposant d'une pointe en acier."
+    },
+    "#378": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Dégâts : 1D10, Coût : 10 Th.",
+        "nom": "Arme lourde",
+        "novice": "Les armes lourdes se distinguent par leur maniement à deux mains nécessaire pour être utilisées efficacement. Elles infligent aussi de plus grands dégâts en combat au corps à corps. La Hache d'armes, le Marteau de guerre et la puissante Épée à deux mains sont autant d'exemples d'armes lourdes relativement courantes dans la région de Davokar."
+    },
+    "#379": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Dégâts : 1D10, Qualité : Précise, Coût : 50 Th.",
+        "nom": "Épée bâtarde",
+        "novice": "Les maîtres forgerons des Pansars forgent les meilleures armes d'Ambria et l'épée bâtarde de la Garde de la reine en est le parfait exemple, tout du moins lorsque le guerrier qui la tient sait s'en servir correctement. L'arme est de préférence maniée à deux mains (comme toute autre arme lourde), mais peut aussi être utilisée à une seule main avec un bouclier dans l'autre. Lorsqu'elle est tenue à une main, l'épée bâtarde perd sa qualité d'arme Précise et inflige des dégâts comme une arme une main."
+    },
+    "#380": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Dégâts : 1D10, Qualité : Flexible, Coût : 50 Th.",
+        "nom": "Fléau d'armes lourd",
+        "novice": "Le fléau d'armes lourd est une arme Flexible constituée d'un manche à deux mains auquel est rattachée, au moyen d'une chaîne, une boule de métal — souvent hérissée de pointes — qui sert à frapper l'ennemi. Parer l'attaque d'un fléau d'armes n'est pas simple puisque la chaîne permet à la boule de frapper ailleurs que sur l'arme ou sur le bouclier pour atteindre sa cible. Il existe de nombreux modèles de fléaux d'armes lourds comme le fléau d'armes traditionnel avec un manche en bois et une chaîne qui se termine par une tête d'acier hérissée de pointes. Mais il existe aussi des variantes où plusieurs pièces de métal hérissées sont reliées entre elles, et d'autres où deux ou trois chaînes avec des têtes en métal sont reliées au même manche. Néanmoins, sans prendre en compte leur aspect, ces modèles sont tous aussi lourds et possèdent comme point commun d'être difficiles à bloquer."
+    },
+    "#381": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Dégâts : 1D10+1, Qualité : Éventreur, Coût : 50 Th.",
+        "nom": "Hache double",
+        "novice": "La hache double barbare (à ne pas confondre avec la hache d'armes à simple tranchant) est légitimement baptisée ainsi, car elle est dotée d'une tête à double tranchant. Son origine remonterait à l'époque du Symbaroum déchu. En ces temps reculés, la hache double était à la fois une arme et le symbole d'un certain rang social. Malgré une diminution constante des connaissances en métallurgie depuis la chute de Symbaroum, ces puissantes armes peuvent encore être fabriquées. Elles sont d'ailleurs parfois forgées pour des guerriers très renommés. Les Ambriens considèrent la hache double comme une arme sauvage et grossière qui ne convient qu'aux barbares. Cependant, sa forme n'est pas sans rappeler celle du labrys runique royal."
+    },
+    "#382": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Dégâts : 1D8, Coût : 5 Th.",
+        "nom": "Arme à une main",
+        "novice": "La catégorie des armes à une main regroupe toutes les armes qui peuvent être manipulées d'une seule main. La hache, le sabre, l'épée et le marteau de combat sont tous des armes à une main."
+    },
+    "#383": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Dégâts : 1D8, Qualité : Précise, Coût : 25 Th.",
+        "nom": "Fleuret",
+        "novice": "À Yndaros, le fleuret ambrien est considéré comme un accessoire hautement à la mode. D'une très grande précision, le fleuret est forgé avec un acier à la fois résistant et flexible. Cette arme est souvent combinée avec la lame préférée des duellistes, la dague de parade, ce qui offre au combattant équipé d'une armure légère une excellente défense en combat."
+    },
+    "#384": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Dégâts : 1D8, Qualité : Flexible, Coût : 25 Th.",
+        "nom": "Fléau d'armes",
+        "novice": "Le cousin à une main du fléau d'armes lourd."
+    },
+    "#385": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Dégâts : 1D8+1, Qualité : Éventreur, Coût : 25 Th.",
+        "nom": "Bec-de-corbin",
+        "novice": "Bien que peu élégant, le becde-corbin est une arme très efficace. Connu aussi sous le nom de pique de guerre kandorianne, du nom de la cité en Albérétor où il fut forgé pour la première fois, le bec-de-corbin est une canne surmontée d'une tête de métal ornée d'un pic ou d'un bec d'acier, permettant ainsi de traverser une armure plus facilement. Après leur fuite jusqu'à Yndaros, les forgerons de la pique de guerre kandorianne s'établirent dans le quartier du vieux Kadizar où ils ont continuè à fabriquer leur arme effrayante."
+    },
+    "#386": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Dégâts : 1D6, Qualité : Courte, Coût : 1 Th.",
+        "nom": "Arme courte",
+        "novice": "Une arme courte possède une lame courte qui lui permet d'être rapidement dégainée et facilement dissimulée. Les dagues et les épées courtes sont toutes deux des armes courtes."
+    },
+    "#387": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Dégâts : 1D6, Qualité : Courte, Équilibrée, Coût : 5 Th.",
+        "nom": "Dague de parade",
+        "novice": "La dague de parade, avec sa large garde en V, est devenue très populaire à Yndaros. Elle est souvent maniée avec un fleuret."
+    },
+    "#388": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Dégâts : 1D6+1, Qualité : Court, Éventreur, Coût : 5 Th.",
+        "nom": "Stylet",
+        "novice": "Le stylet est une dague longue, effilée et très efficace. Sa pointe, tranchante comme un rasoir, s'enfonce profondément dans les chairs. Cette arme est parfaite pour les assassins."
+    },
+    "#389": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Dégâts : 1D6, Coût : 2 Th.",
+        "nom": "Arme de jet",
+        "novice": "Les armes de jet sont lancées d'une seule main sur de courtes distances. Elles sont généralement utilisées avant que le combat au corps à corps ne commence. Par conséquent, elles se combinent assez souvent avec un bouclier. Couteaux de lancer, haches de lancer et javelots sont tous des exemples d'armes de jet."        
+    },
+    "#390": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Dégâts : 1D6+1, Qualité : Éventreur, Coût : 10 Th.",
+        "nom": "Lance-épieu",
+        "novice": "Les clans barbares dans l'est du Davokar ont une prédilection pour le lance-épieu. Il s'agit d'une arme de lancer équipée d'un crochet auquel s'y attache une courte lance, ce qui permet de la projeter avec une force phénoménale."
+    },
+    "#391": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Dégâts : Arbalète 1D10, Arc 1D8, Fronde 1D6, Coût : 8 Th. 5 Th., N/A",
+        "nom": "Arme de trait",
+        "novice": "Les armes de trait sont conçues pour être utilisées sur une plus grande distance et prennent du temps à être rechargées. L'arbalète utilise des carreaux, l'arc tire des flèches et la fronde projette des pierres taillées. Une arbalète utilise une Action de mouvement pour être rechargée tandis que recharger un arc ou une fronde compte comme une Action gratuite. Arcs, arbalètes et frondes sont tous des armes de trait."
+    },
+    "#392": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Dégâts : 1D8, Qualité : Précis, Coût : 25 Th.",
+        "nom": "Arc long",
+        "novice": "L'arc long est une arme fiable qui a fait ses preuves à de nombreuses reprises au sein de l'armée ambrienne. Depuis la Grande Guerre, il est souvent porté par les fermiers qui constituent l'échine même des régiments d'archers du royaume."
+    },
+    "#393": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Dégâts : 1D10+1, Qualité : Éventreur, Coût : 40 Th.",
+        "nom": "Arbalète lourde",
+        "novice": "L'arbalète lourde est une puissante arbalète ambrienne avec un arc forgé en acier feuilleté, donnant ainsi à ses carreaux plus de puissance."
+    },
+    "#394": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Dégâts : 1D4, Qualité : Courte",
+        "nom": "Attaques sans armes",
+        "novice": "Les attaques sans armes sont souvent le dernier recours de tout être civilisé puisqu'elles sont bien moins efficaces que les armes naturelles des bêtes et autres abominations de toutes sortes. Cependant grâce au Talent Guerrier né, même un personnage désarmé peut infliger une quantité considérable de dégâts à ses ennemis. Un coup de coude, de poing, de tête, de pied, ainsi qu'une morsure ou l'utilisation d'un coup-depoing sont autant d'exemples d'attaques sans armes."
+    },
+    "#395": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Dégâts : 1D4+1, Qualité : Courte, Éventreur, Coût : 1 Th.",
+        "nom": "Griffe de combat",
+        "novice": "Le clan Karohar dans le sud de Davokar a développé un gantelet serti de griffes qui se porte au poing. Les attaques de ses longues griffes ressemblent à celles d'un félispectre."
+    },
+    "#396": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Armure : Donne +1 en Défense, Coût : 3 Th.",
+        "nom": "Bouclier",
+        "novice": "Il est plus difficile de blesser un combattant équipé d'un bouclier, que ce soit avec une attaque au corps à corps ou une attaque à distance. Un bouclier est souvent utilisé avec une arme à une main, ou avec une arme à une main et des armes de jet supplémentaires."
+    },
+    "#397": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Armure : Donne +1 en Défense, Qualité : Pratique, Coût : 15 Th.",
+        "nom": "Bouclier rond",
+        "novice": "Le bouclier rond est un petit bouclier souvent porté par les archers d'élite et les piquiers. Très pratique, il peut être attaché au bras, et permettre ainsi de manier une arme à deux mains. Le bouclier rond est trop léger pour être utilisé avec le Talent Maîtrise du bouclier."
+    },
+    "#398": {
+        "type": "arme",
+        "livre": "ldb",
+        "tradition": "Armure : Donne +2 en Défense, Qualité : Equilibré, Coût : 15 Th.",
+        "nom": "Bouclier en acier",
+        "novice": "Le bouclier en acier est aussi résistant que le bouclier en bois traditionnel tout en étant à la fois plus fin et plus facile à manier."
+    },
+    "#399": {
+        "type": "armure",
+        "livre": "ldb",
+        "tradition": "Protection: 1D4, Qualité : Gênante (-2), Coût : 2 Th.",
+        "nom": "Armure légère",
+        "novice": "Les armures légères sont faciles à trouver et ne gênent pas beaucoup les capacités du porteur lors d'acrobaties ou de manœuvres de discrétion. Cependant, elles conservent un effet négatif lors de l'utilisation de pouvoirs mystiques. Les broignes, le cuir bouilli et le cuir clouté sont des armures légères."
+    },
+    "#400": {
+        "type": "armure",
+        "livre": "ldb",
+        "tradition": "Protection: 1D4, Qualité : Pratique (0), Coût : 10 Th.",
+        "nom": "Aube Bénie",
+        "novice": "Les aubes de prêtre portées par les théurges sont bénies et protégées par des forces bienveillantes. Ainsi l'élite de l'Église peut voyager en toute sécurité à travers le royaume et au-delà."
+    },
+    "#401": {
+        "type": "armure",
+        "livre": "ldb",
+        "tradition": "Protection: 1D4, Qualité : Pratique (0), Coût : 10 Th.",
+        "nom": "Cape de l'Ordre",
+        "novice": "La plupart des mages novices de l'Ordo Magica reçoivent une cape de protection au moment de leur premier grand voyage. Ces capes sont brodées de runes de protection qui donnent au novice un peu plus de chance de survivre et, de ce fait, de mener à bien son importante mission."
+    },
+    "#402": {
+        "type": "armure",
+        "livre": "ldb",
+        "tradition": "Protection: 1D4, Qualité : Pratique (0), Coût : 10 Th.",
+        "nom": "Robe de sorcière",
+        "novice": "Les sorcières lient des esprits protecteurs à des fragments d'os et au crâne de leurs ennemis morts. Elles cousent ensuite tout cela à leurs vêtements pour bénéficier de leur protection."
+    },
+    "#403": {
+        "type": "armure",
+        "livre": "ldb",
+        "tradition": "Protection: 1D4, Qualité : Pratique (0), Coût : 10 Th.",
+        "nom": "Soie tissée",
+        "novice": "La soie tissée est la meilleure armure légère disponible. Cela s'explique par les mailles serrées de ce tissu qui résiste mieux aux entailles et aux coups de poignard que son poids ne le laisse croire. La soie tissée est utilisée depuis très longtemps par les Ambriens, mais aussi par les barbares. Certains érudits soupçonnent que les secrets de sa fabrication proviennent des elfes, remontant ainsi à l'époque du Pacte de Fer."
+    },
+    "#404": {
+        "type": "armure",
+        "livre": "ldb",
+        "tradition": "Protection: 1D4, Qualité : Encombrante (-3), Coût : 1 Th.",
+        "nom": "Peau de loup",
+        "novice": "Pour un éclaireur barbare sans le sou, la peau de loup, peu pratique, mais néanmoins bon marché, est un choix assez répandu. Il s'agit d'un amas de peaux de bêtes tannées de manière très rudimentaire, puis cousues ensemble pour fournir une protection convenable."
+    },
+    "#405": {
+        "type": "armure",
+        "livre": "ldb",
+        "tradition": "Protection: 1D6, Qualité : Gênante (-3), Coût : 5 Th.",
+        "nom": "Armure moyenne",
+        "novice": "Les armures moyennes offrent une plus grande protection que les armures légères mais gênent bien plus les mouvements de ceux qui en portent. Néanmoins, la plupart des combattants au corps à corps considèrent cette restriction comme un bon compromis. Les armures d'écailles et les cottes de mailles sont des exemples d'armures moyennes."
+    },
+    "#406": {
+        "type": "armure",
+        "livre": "ldb",
+        "tradition": "Protection: 1D6, Qualité : Encombrante (-4), Coût : 2 Th.",
+        "nom": "Armure du corbeau",
+        "novice": "Les armures moyennes étant bien plus chères que les légères, de nombreux guerriers récupèrent, rivettent et attachent ensemble différentes pièces pour ainsi constituer par eux-mêmes ce qu'ils appellent une « armure du corbeau ». Bon marché, elles sont cependant bien moins pratiques pour se mouvoir."
+    },
+    "#407": {
+        "type": "armure",
+        "livre": "ldb",
+        "tradition": "Protection: 1D6, Qualité : Pratique (-1), Coût : 25 Th.",
+        "nom": "Cuirasse en soie laquée",
+        "novice": "Les guerriers barbares qui ont gagné leur place dans la garde d'un chef de clan riche et prestigieux peuvent parfois être aperçus vêtus d'une cuirasse en soie laquée, une armure qui, malgré son aspect, protège aussi bien que le plastron de plates. D'après la légende, le secret de la soie laquée aurait été transmis aux hommes par les elfes en un temps où le Pacte de Fer était encore puissant, et où les humains combattaient les ténèbres grouillantes de Symbaroum."
+    },
+    "#408": {
+        "type": "armure",
+        "livre": "ldb",
+        "tradition": "Protection: 1D8, Qualité : Gênante (-4), Coût : 10 Th.",
+        "nom": "Armure lourde",
+        "novice": "Les combattants au corps à corps qui peuvent se le permettre ont tendance à préférer une meilleure protection à leur liberté de mouvement. Tout bon chevalier qui se respecte porte une cotte de mailles renforcées par des plaques au niveau des épaules, des genoux et des coudes. Ceux qui en ont les moyens, en revanche, préfèrent se faire forger une armure de plates complète sur mesure."
+    },
+    "#409": {
+        "type": "armure",
+        "livre": "ldb",
+        "tradition": "Protection: 1D8, Qualité : Pratique (-2), Coût : 50 Th.",
+        "nom": "Armure de plates complète",
+        "novice": "Une armure de plates complète fabriquée sur mesure offre, à ceux qui en ont les moyens, la meilleure protection possible avec une gêne moins importante qu'avec une armure lourde traditionnelle."
     }
 }
