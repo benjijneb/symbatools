@@ -3017,9 +3017,9 @@
         "type": "elixir",
         "livre": "ldb",
         "tradition": "Cost: 1 Th. (W), 2 Th. (M), 3 Th. (S)",
-        "novice": "(Weak) A weak antidote lowers the effect of a poison by one degree; a strong poison becomes moderate, a moderate poison becomes weak and a weak poison is completely neutralized. The antidote does not affect any damage that a character has already suffered. Requires a passed Cunning test to take effect",
-        "adepte" : "(Moderate) A moderate antidote lowers the effect of a poison by two degrees; a strong poison becomes weak, while both moderate and weak poisons are completely neutralized. The antidote does not affect any damage that a character has already suffered. Requires a passed Cunning test to take effect.",
-        "maitre": "(Strong) A strong antidote lowers theeffect of a poison by three degrees, which usually means that the poison is completely neutralized. The antidote does not affect any damage that a character has already suffered. Requires a passed Cunning test to take effect.",
+        "novice": "(N:Weak) A weak antidote lowers the effect of a poison by one degree; a strong poison becomes moderate, a moderate poison becomes weak and a weak poison is completely neutralized. The antidote does not affect any damage that a character has already suffered. Requires a passed Cunning test to take effect",
+        "adepte" : "(A:Moderate) A moderate antidote lowers the effect of a poison by two degrees; a strong poison becomes weak, while both moderate and weak poisons are completely neutralized. The antidote does not affect any damage that a character has already suffered. Requires a passed Cunning test to take effect.",
+        "maitre": "(M:Strong) A strong antidote lowers theeffect of a poison by three degrees, which usually means that the poison is completely neutralized. The antidote does not affect any damage that a character has already suffered. Requires a passed Cunning test to take effect.",
         "nom": "Antidote"
     },
     "#362": {
@@ -3083,9 +3083,9 @@
         "livre": "ldb",
         "tradition": "Cost: 2 Th. (W), 4 Th. (M), 6 Th. (S)",
         "nom": "Poison",
-        "novice": "(Weak) A weak poison deals 1D4 damage each turn for 1D4 turns.",
-        "adepte": "(Moderate) A moderate poison deals 1D6 damage each turn for 1D6 turns.",
-        "maitre": "(Strong) A strong poison deals 1D8 damage each turn for 1D8 turns."
+        "novice": "(N:Weak) A weak poison deals 1D4 damage each turn for 1D4 turns.",
+        "adepte": "(A:Moderate) A moderate poison deals 1D6 damage each turn for 1D6 turns.",
+        "maitre": "(M:Strong) A strong poison deals 1D8 damage each turn for 1D8 turns."
     },
     "#371": {
         "type": "elixir",
@@ -3150,13 +3150,6 @@
         "nom": "Bastard Sword",
         "novice": "The master smiths of the Pansars forge the finest weapons in Ambria, and the bastard swords of the Queen's Guard are an exquisite testament to that fact, at least when wielded by the right warrior. The weapon is preferably handled with both hands (as a heavy weapon) but can also be used single-handedly with a shield. When wielded with just one hand, the bastard sword loses the Precise quality and instead deals damage like a single-handed weapon."
     },
-    "#380": {
-        "type": "arme",
-        "livre": "ldb",
-        "tradition": "Damages: 1D10, Quality: Flexible, Cost: 50 Th.",
-        "nom": "Heavy Flail",
-        "novice": "The heavy flail is a Jointed weapon, where a metal ball – often spiked – attached to a two-handed shaft by a chain is swung against the enemy. It is not easy to parry a flail since the metal ball often strikes around the parrying weapon or shield to find its target. The heavy flail comes in a number of shapes, like the traditional wooden two-handed shaft attached to a chain that ends in a spiked metal head. There are also variants with spiked pieces of metal that are linked together, as well as models where two or three chains and metal heads share the same shaft. Regardless of design, they all share the weight of the flail and the fact that they are difficult to block."
-    },
     "#381": {
         "type": "arme",
         "livre": "ldb",
@@ -3181,7 +3174,7 @@
     "#384": {
         "type": "arme",
         "livre": "ldb",
-        "tradition": "Damages: 1D8, Quality: Flexible, Cost: 25 Th.",
+        "tradition": "Damages: 1D8, Quality: Jointed, Cost: 25 Th.",
         "nom": "Flail",
         "novice": "The single-handed cousin of the heavy flail."
     },
@@ -3237,7 +3230,7 @@
     "#392": {
         "type": "arme",
         "livre": "ldb",
-        "tradition": "Damages: 1D8, Quality: Précis, Cost: 25 Th.",
+        "tradition": "Damages: 1D8, Quality: Precise, Cost: 25 Th.",
         "nom": "Longbow",
         "novice": "The longbow is a reliable and proven weapon in the Ambrian army, and since The Great War it is often carried by farmers who make up the backbone of the kingdom's archer companies."
     },
@@ -3286,78 +3279,470 @@
     "#399": {
         "type": "armure",
         "livre": "ldb",
-        "tradition": "Protection: 1D4, Quality: Impeding (-2), Cost: 2 Th.",
+        "tradition": "Protection: 1D4, Type: Light (-2), Cost: 2 Th.",
         "nom": "Light Armor",
         "novice": "Light armor is easy to come by and does not limit the wearer's capabilities substantially in acrobatic situations or when performing stealthy maneuvers. Yet it has a negative effect when using mystical powers. Hardened, ring and studded leather are all examples of light armor."
     },
     "#400": {
         "type": "armure",
         "livre": "ldb",
-        "tradition": "Protection: 1D4, Quality: Flexible (0), Cost: 10 Th.",
+        "tradition": "Protection: 1D4, Type: Light (0), Quality: Flexible, Cost: 10 Th.",
         "nom": "Blessed Robe",
         "novice": "The priest robes of the theurgs are blessed and protected by benevolent forces so that the Church's finest can travel safely throughout the kingdom, and beyond."
     },
     "#401": {
         "type": "armure",
         "livre": "ldb",
-        "tradition": "Protection: 1D4, Quality: Flexible (0), Cost: 10 Th.",
+        "tradition": "Protection: 1D4, Type: Light (0), Quality: Flexible, Cost: 10 Th.",
         "nom": "Order Cloak",
         "novice": "Most novice mages of Ordo Magica are given a protective cloak in time for their first long journey. These cloaks are embroidered with warding runes, which increases the chance of the novice surviving to complete its appointed task."
     },
     "#402": {
         "type": "armure",
         "livre": "ldb",
-        "tradition": "Protection: 1D4, Quality: Flexible (0), Cost: 10 Th.",
+        "tradition": "Protection: 1D4, Type: Light (0), Quality: Flexible, Cost: 10 Th.",
         "nom": "Witch Gown",
         "novice": "Witches bind protective spirits in carved pieces of bone and the skulls of fallen enemies, and attach them to their clothing for effective protection."
     },
     "#403": {
         "type": "armure",
         "livre": "ldb",
-        "tradition": "Protection: 1D4, Quality: Flexible (0), Cost: 10 Th.",
+        "tradition": "Protection: 1D4, Type: Light (0), Quality: Flexible, Cost: 10 Th.",
         "nom": "Woven Silk",
         "novice": "Woven silk is the finest light armor available, since the close weave of its threads withstands stabs and cuts far better than its weight suggests. Woven silk has been used by both barbarians and Ambrians for a long time and some scholars speculate that the technique originally comes from the elves, possibly dating as far back as the days of the Iron Pact."
     },
     "#404": {
         "type": "armure",
         "livre": "ldb",
-        "tradition": "Protection: 1D4, Quality: Cumbersome (-3), Cost: 1 Th.",
+        "tradition": "Protection: 1D4, Type: Light (-3), Quality: Cumbersome, Cost: 1 Th.",
         "nom": "Wolf Skin",
         "novice": "For poor barbarian scouts the cheap, cumbersome wolf skin armor is a common alternative; skin that has been tanned in the most simple way and sewn together into some kind of passable protection."
     },
     "#405": {
         "type": "armure",
         "livre": "ldb",
-        "tradition": "Protection: 1D6, Quality: Impeding (-3), Cost: 5 Th.",
+        "tradition": "Protection: 1D6, Type: Medium (-3), Cost: 5 Th.",
         "nom": "Medium Armor",
         "novice": "Medium armor offers better protection than the light versions but at the cost of being more restrictive to the wearer's movements. However, this downside is considered an acceptable trade-off by most melee combatants. Scale- and chainmail are examples of medium armor."
     },
     "#406": {
         "type": "armure",
         "livre": "ldb",
-        "tradition": "Protection: 1D6, Quality: Cumbersome (-4), Cost: 2 Th.",
+        "tradition": "Protection: 1D6, Type: Medium (-4), Quality: Cumbersome, Cost: 2 Th.",
         "nom": "Crow Armor",
         "novice": "Medium armor is more expensive than light, which is the reason why many warriors have picked, riveted and bound together a so-called “Crow Armor” of their own. It is cheap, but far more difficult to move around in."
     },
     "#407": {
         "type": "armure",
         "livre": "ldb",
-        "tradition": "Protection: 1D6, Quality: Flexible (-1), Cost: 25 Th.",
+        "tradition": "Protection: 1D6, Type: Medium (-1), Quality: Flexible, Cost: 25 Th.",
         "nom": "Lacquered Silk Cuirass",
         "novice": "Barbarian warriors that have earned their place in the guard of a wealthy clan chieftain can sometimes be seen wearing a cuirass of lacquered silk, an armor that despite its apparent lightness protects like a breast plate. According to legend, the secret of lacquered silk was given to humankind by the elves, in a time when the Iron Pact was still strong and humans battled the parasitic darkness of Symbaroum."
     },
     "#408": {
         "type": "armure",
         "livre": "ldb",
-        "tradition": "Protection: 1D8, Quality: Impeding (-4), Cost: 10 Th.",
+        "tradition": "Protection: 1D8, Type: Heavy (-4), Cost: 10 Th.",
         "nom": "Heavy Armor",
         "novice": "Those melee combatants that can afford it usually chose increased protection at the cost of even greater restrictions to their movement. A self-respecting knight wears chainmail enforced by shoulder, knee and elbow plates, while those with the means tend to order themselves a personalized set of full plate armor."
     },
     "#409": {
         "type": "armure",
         "livre": "ldb",
-        "tradition": "Protection: 1D8, Quality: Flexible (-2), Cost: 50 Th.",
+        "tradition": "Protection: 1D8, Type: Heavy (-2), Quality: Flexible, Cost: 50 Th.",
         "nom": "Full Plate",
         "novice": "Personalized full plate armor is available for those of sufficient means, and offers the best protection available with less restriction than many other kinds of heavy armor."
+    },
+    "#410": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Cost: 12 Th.",
+        "novice": "(M) The miraculous drug called Spirit Friend is cooked in a cauldron, but it is not the liquid that is bottled, but the vapors. The gray-white smoke is captured in small ceramic jars and inhaled when needed. Spirit Friend gives the user level I in the trait Spirit Form. The effect lasts for 1d4 turns, to the price of as many points in temporary corruption.",
+        "nom": "Spirit Friend"
+    },
+    "#411": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Cost (black market): 4 Th.",
+        "novice": "(A) A handful of seeds are thrown to the ground and one turn later 1d4 thorn beasties appear to serve the user. The thorn beasties are small, vaguely humanoid creatures made of thorns; they do not speak but squeak and crack as twigs that are bent and rubbed together. The beasties live during a single scene before drying up to look like thorny witch dolls. The summoning of the thorn beasties is a clear violation of the natural order, meaning that the one using the seeds suffers 1d6 temporary corruption.",
+        "nom": "Thorn Beasties"
+    },
+    "#412": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Cost: 2 Th.",
+        "novice": "(A) The smoke bomb is a ceramic vessel that emits dense alchemical smoke when crushed, and it is used with the adept level of the ability Pyrotechnics. The smoke fills a room or covers a group of people engaged in melee combat.",
+        "nom": "Smoke bomb"
+    },
+    "#413": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Cost: 8 Th. (F), 9 Th. (M)",
+        "novice": "(A/M) When lit, this candle emits fumes that work as an antidote on all around it. A weak antidote candle affects every poisoned creature in the vicinity and reduces the effect of ongoing poisons by one level – a strong poison becomes moderate, a moderate weak and a weak is neutralized. A moderate antidote candle does the same, but with a two level reduction: a strong poison becomes weak while moderate and weak ones are neutralized. Note that this does not affect damage already suffered.",
+        "nom": "Antidote Candle"
+    },
+    "#414": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Cost: 8 Th., 12 Th. (M)",
+        "novice": "(A/M) A seemingly ordinary candle that emits poisonous fumes when lit; revealed with a passed [Vigilant←alchemist’s Discreet]. The poison is airborne and affects everyone in the room or in the vicinity. The candle must burn for 1d4 turns before the poison is released, so the assassin can light it and leave the room before it takes effect. A weak poison candle deals 2 damage per turn, a moderate 3 damage per turn.",
+        "nom": "Poison Candle"
+    },
+    "#415": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Cost: 1 Th.",
+        "novice": "(N) The alchemist covers a crossbow bolt in a fast acting muscle relaxant; anyone hit by the bolt must pass a [Strong –Damage] test or fall to the ground. The monstrous trait Robust gives +2 in Strong per level when rolling this test.",
+        "nom": "Stun Bolt"
+    },
+    "#416": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Cost: 1 Th.",
+        "novice": "(N) The red chewing resin called Wild Chew is a strong stimulant that makes the chewer more alert, less cautious and much more aggressive. One dose of Wild Chew moves 2 points in Discreet, Cunning and Resolute to Quick, Strong and Accurate for the rest of the scene. During the upcoming scene, the user feels weak and has –2 on all attributes. With time, Wild Chew is highly addictive and severe withdrawal symptoms will occur unless the user consumes one dose each week, with the risk of permanent madness or death. No known drugs can counteract this.",
+        "nom": "Wild Chew"
+    },
+    "#417": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Cost (black market): 2 Th. (F), 4 Th. (M), 6 Th. (P)",
+        "description": "This is a powerful mutagen which transforms the body of the user in a monstrous way. During a scene the user is twisted into a bestial half-creature and has a second chance to fail all Persuasive tests until the effect wears off. The draught gives the user a monstrous trait for the rest of the scene; the level of the trait is decided by the strength of the elixir. In addition, each dose consumed deals temporary corruption, also determined by the strength of the elixir. Of course, the physical transformation and the corrupting effect is reason enough for the elixir to be banned and only available on Ambria’s black market. The following monstrous traits can be acquired, decided by the alchemist when brewing the elixir: Armored, Natural Weapon, Robust and Wings.",
+        "novice": "(N:Weak) The draught gives the selected trait at level I, to the cost of 1d4 temporary corruption.",
+        "adepte" : "(A:Moderate) The draught gives the selected trait at level II, to the cost of 1d6 temporary corruption.",
+        "maitre": "(M:Strong) The draught gives the selected trait at level III, to the cost of 1d8 temporary corruption.",
+        "nom": "Transforming Draught"
+    },
+    "#418": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Cost: 2 Th.",
+        "novice": "(A) Holy water, instilled with the light of Prios, can heal wounds and sooth souls. It works as a Herbal Cure with +1 on the effect test (meaning +2 Toughness if used without the ability Medicus), and it also removes 1 point of temporary corruption.",
+        "nom": "Holy Water"
+    },
+    "#419": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Cost: 1 Th.",
+        "novice": "(N) Fire dye consists of salts that change the color of any fire they are cast into. If the colors are ascribed a specific meaning known to the user and an allied observer it can be used for signaling over long distances. They are also used for entertainment among the wealthy, and by charlatans to impress commoners.",
+        "nom": "Fire Dye"
+    },
+    "#420": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Cost: 2 Th.",
+        "novice": "(N) The alchemist marinates an arrow in homing essences, thereby creating an arrow that flies past other combatants, i.e. it does not require clear line of sight. However, the archer must see some part of the target and must roll a normal attack test in order to successfully hit.",
+        "nom": "Homing Arrow"
+    },
+    "#421": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Cost (black market): 2 Th.",
+        "novice": "(N) A seed is planted and one day later a miniature servant sprouts from the ground. The homunculus is small as a child, has no abilities and all attribute values are 5 (+5). It serves its maker loyally then withers away after a month; all it leaves behind is a pile of dirt. Creating a homunculus is a true violation of the natural order, meaning that the one using the seed suffers 1d6 temporary corruption.",
+        "nom": "Homonculus"
+    },
+    "#422": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Cost: 2 Th.",
+        "novice": "(N) A wax candle that when lit makes living creatures (not undead or abominations) glow softly in the dark, making it harder to stay hidden (a second chance to fail tests for sneaking up on someone, or a second chance to pass tests to discover someone sneaking). This affects everyone in the room or the vicinity, including the one who lit the candle.",
+        "nom": "Revealing Light"
+    },
+    "#423": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Cost: 2 Th.",
+        "novice": "(N) Mystically charged paints can help a warrior in combat. War paint adds +1 to either Quick or Strong during an entire scene, and the warrior decides which attribute to boost when the paint is applied.",
+        "nom": "War Paint"
+    },
+    "#424": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Cost: 1 Th.",
+        "novice": "(N) A finely grained powder that emits a blinding light when thrown. Flash Powder is used with the novice level of the ability Pyrotechnics.",
+        "nom": "Flash Powder"
+    },
+    "#425": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Cost: 4 Th.",
+        "novice": "(A) Drone Dew is a liquid elixir made from drone spores, also containing accelerants. A person who ingests a dose of the elixir immediately falls asleep if he or she does not pass a Strong test, and stays asleep for an hour or until suffering any damage. If the test is passed, the person is instead dazed, with the effect that he or she is limited to one action per turn and cannot use any active abilities for an hour.",
+        "nom": "Drone Dew"
+    },
+    "#426": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Cost: 4 Th. (F), 8 Th. (M), 16 Th. (P)",
+        "description": "The Purple Sap is made from a decoction of a purple Lily of the Valley, a flower whose cleansing properties and resistance to corruption were discovered by the witches of Davokar long ago. Purchasing the elixir is expensive, because the ingredient is so rare and few alchemists are skilled enough to brew it. The elixir has no effect on permanent corruption or on blight-marks which have already appeared on the user.",
+        "novice": "(N:Weak) A novice alchemist can brew a potion which immediately removes 1d4 temporary corruption from the user’s soul.",
+        "adepte" : "(A:Moderate) When made by an adept, the elixir immediately removes 1d6 temporary corruption.",
+        "maitre": "(M:Strong) The master’s version removes 1d8 temporary corruption.",
+        "nom": "Purple Sap"
+    },
+    "#427": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Cost: 12 Th.",
+        "novice": "(M) This is an extract of dried stems and leaves from the extremely rare Twilight Thistle. Up until recently the rareness of the herb (on occasion, one or a couple of stems can be found among other offerings in the ruins of Davokar, rather than an actual growing site) coupled with its moderate medical effect made it not very sought-after; it seems to have an effect on certain types of eczema and possibly also on senility if consumed. However, with the aging of the queen mother has come an increased demand from the court. Of course, the tale of how Lasifor Nightpitch bought the land on which Thistle Hold is built for an armful of Twilight Thistles gave the herb a hefty boost in popularity among fortune hunters. Lately, the twilight tincture has found another group of users, and a new area of use: it has proven capable of disguising a number of symptoms gained from being undead. Desperate unfortunates – some of them alchemists – searched for ways to hide their death marks, and someone discovered that the twilight tincture (consumed, not smeared on the skin) temporarily made an undead body come to life: the skin regained its redness, the body temperature rose, and the smell of the breath improved dramatically. The effect lasts for a week per passed [Strong <– permanent corruption] test. If the test fails, the effect lingers for one more day before dissipating completely. On thoroughly corrupt creatures the effect only lasts for a day per dose, no test is made.",
+        "nom": "Twilight Tincture"
+    },
+    "#428": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Cost: 3 Th.",
+        "novice": "(A) This horribly sickening elixir was once used by mystics wanting to hide just how close they were to becoming thoroughly corrupt, making it a welcomed addition to all sorcerers’ collections of mystical decoctions. Whomever manages to force down the sludge, distorts his or her shadow for a whole scene, making it appear as if the value in total corruption is 1d6 points lower.",
+        "nom": "Shadow Tint"
+    },
+    "#429": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Cost: 3 Th.",
+        "novice": "(M) An alchemical load that is thrown and detonates amidst a sudden, loud flash, used with the master level of the ability Pyrotechnics.",
+        "nom": "Thunder Ball"
+    },
+    "#430": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Damages: 1D6, Quality: Returning, Cost: 10 Th.",
+        "nom": "Throwing Wing",
+        "novice": "The throwing wing is designed so that a skilled user can make it return to the place from which it was thrown, if it misses its target (requires a passed Accurate test, made as a Free Action). In the depths of Davokar, throwing wings made from hardened wood are used to hunt small game, while the ones used in combat have a knife-sharp edge of steel all around the wing."
+    },
+    "#431": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Damages: 1D10, Quality: Concealed, Cost: 40 Th.",
+        "nom": "Small Crossbow",
+        "novice": "Among the thieves and gangs of Yndaros, a smaller and easily concealed version of the crossbow is used. It can be held and fired in one hand, but requires two to load and has the same punch as the standard crossbow. Assassins often apply poison to the bolts, making the weapon very effective for its size."
+    },
+    "#432": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Damages: 1D10, Quality: Special, Cost: 40 Th.",
+        "nom": "Repeating Crossbow",
+        "novice": "The repeating crossbow is a mechanically advanced version of the crossbow. The weapon has a push lever underneath, for quicker reloading. Only the most skilled blacksmiths are able to construct such technically advanced weaponry. A repeating crossbow is reloaded as a free action, without losing the striking power of the regular crossbow."
+    },
+    "#433": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Damages: 1D8, Quality: Precise, Cost: 50 Th.",
+        "nom": "Horseman’s Bow",
+        "novice": "During The Great War the need for a powerful bow that could be used by mounted warriors arose. The traditional longbow was too ungainly – it was so long that it interfered with the horse, or vice versa. To solve this, the asymmetrical horseman’s bow was developed. The lower limb of the bow is shorter than the upper, allowing the bow to be maneuvered back and forth over the horse’s back without losing any of its punch. The weapon is tilted forward when it is aimed and fired, in order to maintain equal tension between the two limbs. In Ambria, the horseman’s bow is primarily used in the west, against the forays of the wagon riding Saars. There, the traditional longbow companies are used as defensive troops, but in order to hunt the plunderers down riders are needed, preferably armed with bows."
+    },
+    "#434": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Damages: 1D8+1, Quality: Deep-Impact, Cost: 25 Th.",
+        "nom": "Composite Bow",
+        "novice": "Among the wagon-riding Varaks and Saars who live on the plains west of Davokar, bow-making is a highly esteemed art form. The composite bow is made from layers of horn and sinews over a wooden core; it is shorter and not as precise as the longbow but more powerful. Its size makes it perfect for use while on horseback, the driver’s seat or the narrow platform of a battle chariot."
+    },
+    "#435": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Damages: 1D12, Quality: Unwieldy, Massive, Cost: 50 Th.",
+        "nom": "Ballista",
+        "novice": "Essentially, the ballista is a massive, stationary crossbow, intended to fire at fixed targets, troop formations on the field and monsters of the most robust sort. In The Great War, the ballista was used against the undead draft beasts of the Dark Lords, with the intent of stopping their siege towers from reaching the ramparts. This continued during the colonization of Ambria, with the tame beasts of the barbarian warlords as the primary targets. Even today, ballistae are aimed towards Davokar from atop outposts and wall-towers."
+    },
+    "#436": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Damages: 1D8, Quality: Long, Ensnaring, Cost: 15 Th.",
+        "nom": "Chain Staff",
+        "novice": "The chain staff was developed by elves and has been adopted by some barbarian clans. The weapon is composed of a staff with a short chain attached to each end, making it possible to use the weapon to ensnare a target. The chains often end in a weight or a short blade, making it even more deadly."
+    },
+    "#437": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Damages: 1D10, Quality: Burning, Area Effect (radius), Cost: 200 Th. + 50 per charge",
+        "nom": "Missile Battery",
+        "novice": "The missile battery is a siege weapon unsuitable for use by anyone but trained sappers. It consists of a wooden frame into which hundreds of alchemical missiles can be loaded. When ignited, the burning, screeching missiles rain down on the enemy troops. Every creature caught in the rain of missiles must pass a Defense test or get hit by a flaming arrow. If hit, the target rolls again, until a Defense test succeeds – then he or she is not hit by any additional arrows."
+    },
+    "#438": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Damages: 1D6, Quality: Special, Cost: 2 Th.",
+        "nom": "Bolas",
+        "novice": "A bolas is used in Davokar when someone wants to capture the prey alive; or in order to slow down a target before moving in for the kill. The bolas is made of two or more weights tied together with ropes. It is aimed at the target’s legs or arms in order to hinder movement. Normally, it is thrown at the legs and the attack test is [Accurate←Quick]; if the test succeeds, the target cannot move. It is harder to hit the arms of the target – this requires a passed [Accurate←Quick+3] and if successful the target has a second chance to fail all success test involving the use of the arms. Removing the bolas counts as a combat action and requires a passed Quick test."
+    },
+    "#439": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Damages: 1D12, Quality: Wrecking or Burning, Unwieldy, Area Effect (radius), Cost: 250 Th. + 50 per charge",
+        "nom": "Catapult",
+        "novice": "Ballistic devices have long been employed in Alberetor’s many wars, and most frequently used, then and now, is the catapult. Compared to its bigger cousin, the trebuchet, it is relatively easy to transport but still very effective against both structures and troops. It takes someone with the ability Siege Expert to load, aim and fire a catapult; it can be loaded with boulders or with breaching pots, the former crushing buildings and the latter more effective against weaker but flammable targets, including hostile troop formations on the field of battle."
+    },
+    "#440": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Damages: 1D10, Quality: Precise, Unwieldy, Massive, Cost: 50 Th.",
+        "nom": "Executioner’s Sword",
+        "novice": "This giant sword is used by executioners to end the lives of nobles – the axe is for merchants and artisans, the rope for commoners – but there are also those who wield the weapon on the battlefield."
+    },
+    "#441": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Damages: 1D8+1, Quality: Deep-Impact, Cost: 25 Th.",
+        "nom": "Estoc",
+        "novice": "The Estoc is a fencing sword but with a tapered blade that ends in a wedge-shaped tip, intended to penetrate the target’s armor."
+    },
+    "#442": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Damages: 1D10, Quality: Unwieldy, Jointed, Massive, Cost: 50 Th.",
+        "nom": "Heavy Flail",
+        "novice": "The heavy flail is a larger version of the battle flail. As might be expected, the heavier flail is slower but has a greater impact on the unfortunates who are hit by its massive head."
+    },
+    "#443": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Cost: 5 Sh.",
+        "nom": "Arrows and Bolts",
+        "description": "Besides regular bolts and arrows, a number of special projectiles have been developed. It is not unusual for Ambrian archers to carry two quivers, one with regular arrows and another with a collection of specialized ones.",
+        "novice": "Precision Arrow: An arrow (or bolt) with the quality Precise, which is especially well-balanced, making it easier to hit the mark.<br/>Flame Arrow: A projectile with an ignitable head. It is often used to set fire to the target, whether it be a living creature, a building or a field of grain (see the quality Flaming for details).<br/>Snaring Arrow: A barbed arrowhead and a thin silk thread attached to the arrow make it possible to ensnare a target using this projectile. Pulling it out takes a movement action and requires a passed [Strong<–Damage] test; if successful the target suffers 1d4 damage but the arrow is out. Moving around with a snaring arrow imbedded in one’s flesh deals 1 damage per turn, ignoring armor.<br/>Hammer Head: The ball-shaped head of this arrow is meant to stun, rather than damage, the target. After a successful hit, damage is rolled as usual, but the outcome is used to decide if the target is stunned [Strong<–Damage]. If the target is stunned, he or she may not perform any kind of actions in the following turn. Armor-piercing Head This projectile has a head which makes it easier to punch through armor. It has the quality Deep Impact on targets with 1+ in Armor value.<br/>Rope Cutter: A Y-shaped tip makes it possible to cut ropes. Hitting the rope is difficult (–5 on the attack test), but a success means that the rope is cut.<br/>Swallow’s Tail: The head of this projectile is wide and meant to cause bleeding wounds. The downside is that it is less effective against armored targets. Targets get a +1d4 Armor bonus against the Swallow’s Tail, but if damaged he or she will bleed like described in the quality Blood-letting.<br/>Whistler: The arrow whistles while flying, as a signal to allies.<br/>Grappling Hook: The arrow sends a grappling hook flying a maximum of ten vertical meters or thirty horizontal meters. A thin silk thread makes it possible to hoist a sturdier rope up to the grappling hook, and once this rope is latched onto the hook it can be used for climbing."
+    },
+    "#444": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Damages: 1D6, Quality: Articulé, Ensnaring, Blunt, Cost: 10 Th.",
+        "nom": "Long-Whip",
+        "novice": "The long-whip has been adapted from the common herding or slave-driving whip; its function is not only to drive but also to snare the target. Also, its length gives it a considerable flicking power able to wound lightly armored targets."
+    },
+    "#445": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Damages: 1D10+1, Quality: Bastard Weapon, Deep-Impact, Unwieldy, Precise, Cost: 50 Th.",
+        "nom": "Grappling Axe",
+        "novice": "This long-shafted axe is a bastard weapon used during assaults. It can be held one-handed, together with a shield, or alone when climbing ladders to the battlement where it is gripped in both hands to clear the top of the wall. Older models from The Great War were used in sea battles and have a grappling hook on the back of the axe head, in order to secure safe passage from one ship to another."
+    },
+    "#446": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Damages: 1D10, Quality: Flaming, Area Effect (radius), Cost: 1 Th.",
+        "nom": "Alchemical Grenade",
+        "novice": "The alchemical grenade is the smaller cousin of the breaching pot – a sturdy ceramic vessel is filled with volatile substances that explode when ignited with a fuse or when the vessel is crushed. The grenade is fist-sized and is thrown by hand or with a sling. The thrower aims at one target and may also roll to hit anyone within melee range from the targeted creature. With a successful attack roll, those who are hit suffer full damage, plus damage from fire as an ongoing effect. Should the attack test instead fail, all who manage to defend themselves suffer only half damage and no ongoing effect from fire. Anyone can use an alchemical grenade, but an untrained user (i.e. who has not learned Alchemy, Siege Expert or Pyrotechnics) are at risk of triggering a catastrophic failure (see Alchemical Weapons, page 98."
+    },
+    "#447": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Damages: 1D6, Quality: Concealed, Short, Cost: 5 Th.",
+        "nom": "Assassin's Blade",
+        "novice": "The slender grip and the thin feather steel of the blade makes the Assassin’s Blade easy to conceal without sacrificing its bite. It is easily strapped to the wrist or ankle, or even attached behind the neck with a lump of resin. Special girdles or hidden pockets in clothes work just as well. The weapon can be smuggled past guards, to be used on secret missions or to be handed over to a prisoner."
+    },
+    "#448": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Damages: 1D8, Quality: Bastard Weapon (Precise), Long, Cost: 15 Th.",
+        "nom": "Lance",
+        "novice": "The value of the lance should not be underestimated – the largest monstrosities of the Dark Lords were often slain by lances in the hands of brave knights. The weapon was also used by the Ambrian cavalry to gain dominance over the lowlands and drive barbarians, packs of predators and abominations into the forest of Davokar. The lance is an elongated spear, with a grip and quillon adapted for use on horseback. When riding a horse the lance has the quality Long, even if gripped in one hand. On foot, the lance is too long to be wielded in only one hand."
+    },
+    "#449": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Damages: 1D10, Quality: Blood-letting, Massive, Unwieldy, Cost: 50 Th.",
+        "nom": "Warhammer",
+        "novice": "Warhammer is the collective name for a series of two-handed weapons of considerable weight and length. In most cases they are actual hammers, often with long spikes on the hitting surface of the hammer head. Another member of the Warhammer family is the portable alchemical firetube, when used as a melee weapon."
+    },
+    "#450": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Damages: 1D8 (1D10), Quality: Bastard Weapon (Massive, Precise), Unwieldy, Cost: 50 Th.",
+        "nom": "Long-Hammer",
+        "novice": "The mighty Long-hammer can be used in one hand together with a shield but will – like all bastard weapons – come into its own only when held in a two-handed grip."
+    },
+    "#451": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Damages: 1D412, Quality: Wrecking (if buried) or Flaming, Area Effect (radius), Cost: 100 Th.",
+        "nom": "Breaching Pot",
+        "novice": "The breaching pot is a jar filled with volatile substances that explode when ignited or crushed. If the breaching pot has been buried close to a structure it has the quality Wrecking; if it detonates in open air, it has an Area Effect instead. Note that whoever sets off a breaching pot must use a fuse to avoid suffering from the effect. Anyone can use a breaching pot but only those with the ability Siege Expert or Pyrotechnics can do so without risking a catastrophic failure. See the rules on Alchemical Weapons on page 98. Breaching pots can also be used as ammunition for catapults, in which case they have an Area Effect on impact."
+    },
+    "#452": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Quality: Special, Cost: 2 Th.",
+        "nom": "Blowpipe",
+        "novice": "The purpose of the blowpipe is to fire a poisoned dart towards a target. The dart deals no damage itself, but penetrates any protection if rolling higher than the target’s Armor value with 1d8 (1d10 with the ability Marksman)."
+    },
+    "#453": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Damages: 1D12, Quality: Wrecking, Unwieldy, Massive, Cost: 1250 Th.",
+        "nom": "Trebuchet",
+        "novice": "The queen of siege weapons is the mighty trebuchet, a ballistic device with power enough to raze the sturdiest walls, at least after a number of shots. The trebuchet can only be handled by someone with the ability Siege Expert at adept level."
+    },
+    "#454": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Damages: 1D12, Quality: Flaming, Massive, Area Effect (cone), Cost: 250 Th. + 1 par charge",
+        "nom": "Alchemical Firetube, Stationary",
+        "novice": "The stationary firetube consists of a cylinder – usually a hollowed log, but fully cast versions also exist – which is loaded with alchemical flammables that when ignited turn the weapon into a devastating flamethrower. The flames can hit all enemies in front of the device; one test is made for each target. Those who are hit suffer full damage, plus damage from fire as an ongoing effect; those who manage to defend themselves suffer half damage and no ongoing effect from fire. Only persons with the ability Siege Expert at adept level can operate a stationary alchemical firetube (see Alchemical Weapons, page 98)."
+    },
+    "#455": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Damages: 1D12, Quality: Flaming, Area Effect (cone), Cost: 10 Th. + 1 par charge",
+        "nom": "Alchemical Firetube, Portable",
+        "novice": "The portable alchemical firetube is a lighter version of the stationary siege weapon with the same name. The portable version is made of a solid pipe, which is loaded with alchemical flammables that when ignited turn the weapon into a flamethrower. The firetube flames can hit all enemies in front of the carrier; one test is made for each target. Those who are hit suffer full damage, plus damage from fire as an ongoing effect; those who manage to defend themselves suffer half damage and no ongoing effect from fire. Anyone can use an alchemical firetube, but users who do not have the ability Siege Expert at adept level are at risk of triggering a catastrophic failure. For more details, see the rules on Alchemical Weapons on page 98."
+    },
+    "#456": {
+        "type": "armure",
+        "livre": "gdj",
+        "tradition": "Protection: 1D8+1, Type: Heavy (-4), Quality: Reinforced, Cost: 50 Th.",
+        "nom": "Field Armor",
+        "novice": "Field armor is a full plate forged with pleated sheets, making it less flexible than full plate, but even more impervious to slashing strikes and blows."
+    },
+    "#457": {
+        "type": "armure",
+        "livre": "gdj",
+        "tradition": "Protection: 1D8+1, Type: Heavy (-2), Quality: Reinforced, Flexible, Cost: 250 Th.",
+        "nom": "Field Armor of the Pansars",
+        "novice": "The master smiths working for the Pansars can forge full plate armor using pleated steel sheets while retaining the flexibility of standard plated armor. "
+    },
+    "#458": {
+        "type": "armure",
+        "livre": "gdj",
+        "tradition": "Protection: 1D8, Type: Heavy (-4), Quality: Retributive, Cost: 100 Th.",
+        "nom": "Wrath Armor",
+        "novice": "The reinforced chainmail worn by the warriors in the Guard of the Slumbering Wrath has vengeful mystical energies forged into the rings. The retributive incantations, according to legend created by the huldra Bovosin more than four centuries ago, give the steel its characteristic blood-red shade – as if the warriors just came from the scene of a tough battle, painted in the blood of their enemies."
+    },
+    "#459": {
+        "type": "armure",
+        "livre": "gdj",
+        "tradition": "Protection: 1D8 (+1D4), Type: Heavy (-4), Quality: Hallowed, Cost: 100 Th.",
+        "nom": "Templar Full Plate",
+        "novice": "The armor of the templars is a full plate forged, blessed and carried by the order’s inner circle. This elite among the elite inherit their armor from a predecessor that fell in battle or, more uncommonly, who died a solemn death in their alcove in Templewall. The armor gives its wearer the protection of Prios, through blessings forged into the steel and by the hallowing blood of both enemies and martyrs."
+    },
+    "#460": {
+        "type": "armure",
+        "livre": "gdj",
+        "tradition": "Protection: 1D4, Type: Light (0), Quality: Concealed, Flexible, Cost: 50 Th.",
+        "nom": "Concealed Armor",
+        "novice": "Sorcerers have many reasons to stay hidden. To do this, they often weave mystically reinforced threads into their cloths, resulting in tunics and capes that look ordinary but offer protection. Other groups, such as spies, would love to have access to such garments, so they can avoid unwanted attention while still being ready for battle."
+    },
+    "#461": {
+        "type": "armure",
+        "livre": "gdj",
+        "tradition": "Protection: 1D6+1, Type: Medium (-3), Quality: Reinforced, Cost: 25 Th.",
+        "nom": "Laminated Armor",
+        "novice": "Laminated armor is an older armor-type, nowadays often replaced by the cheaper scale mail or the flexible chain mail. However, some old laminated sets of armor are still around and there are blacksmiths who actually prefer them because of their greater protective capability. Some of Ambria’s noble houses still dress in this type of armor, for sentimental… or, as they claim, ”traditional” reasons. Laminated armor can only protect the torso, shoulders and hips – arms and legs are usually dressed in studded leather to maintain mobility"
+    },
+    "#462": {
+        "type": "armure",
+        "livre": "gdj",
+        "tradition": "Protection: 1D6+1, Type: Medium (-1), Quality: Reinforced, Flexible, Cost: 125 Th.",
+        "nom": "Double Chainmail",
+        "novice": "Double-threaded chainmail can only be crafted by the most skilled blacksmiths; with thinner rings that interlock in layers they craft an armor which is as flexible as chainmail but even more durable."
+    },
+    "#463": {
+        "type": "armure",
+        "livre": "gdj",
+        "tradition": "Protection: 1D4+1, Type: Light (0), Quality: Reinforced, Flexible, Cost: 50 Th.",
+        "nom": "Skald’s Cuira",
+        "novice": "Troll singers are often warrior poets and many carry a flexible armor of woven cloth- or leather-strips, strengthened with protective harmonies. The Skald’s Cuirass is durable without hampering the wearers’ movement, making it popular among other groups as well. For instance, wealthy duelists in Yndaros often color their cuirasses in personal colors, so that they can be recognized from afar."
+    },
+    "#464": {
+        "type": "armure",
+        "livre": "gdj",
+        "tradition": "Protection: 1D4+1, Type: Light (-2), Quality: Reinforced, Cost: 10 Th.",
+        "nom": "Studded Leather",
+        "novice": "No description."
     }
 }

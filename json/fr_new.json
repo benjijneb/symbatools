@@ -1035,7 +1035,7 @@
         "livre": "gdj",
         "tradition": "Mystique",
         "description": "Les traditions mystiques des trolls s'expriment au travers du chant, accompagné parfois par de la musique jouée par des cors, des flûtes ou des cornemuses. D'après le chant éducatif des trolls, la tradition provient des chants sonores utilisés par les trolls pour communiquer sur de longues distances dans le Monde Inférieur.",
-        "novice": "<span class='text-success'>Novice</span> Spécial. Le chanteur ne subit pas de Corruption permanente lors de l'apprentissage des chants troll au niveau Novice, mais n'est pas protégé contre la Corruption temporaire engendrée lorsqu'il ou elle les chante. En outre, une fois par scène, tous les chanteurs trolls bénéficient d'une deuxième chance de réussir un test visant à influencer ou affecter un esprit (autrement dit, des situations dans lesquelles l'adversaire se défend en utilisant sa Volonté). La relance ne peut pas être utilisée pour créer ou maintenir un enchaînement d'effets mystiques.",
+        "novice": "<span class='text-success'>Novice</span> Spécial. Le chanteur ne subit pas de Corruption permanente lors de l'apprentissage des rituels ou pouvois du chant troll au niveau Novice, mais n'est pas protégé contre la Corruption temporaire engendrée lorsqu'il ou elle les chante. En outre, une fois par scène, tous les chanteurs trolls bénéficient d'une deuxième chance de réussir un test visant à influencer ou affecter un esprit (autrement dit, des situations dans lesquelles l'adversaire se défend en utilisant sa Volonté). La relance ne peut pas être utilisée pour créer ou maintenir un enchaînement d'effets mystiques.",
         "adepte": "<span class='text-info'>Adepte</span> Spécial. Le chanteur ne subit pas de Corruption permanente lors de l'apprentissage des chants troll au niveau Adepte. L'adepte bénéficie également d'une deuxième chance de réussir un test visant à influencer ou affecter un esprit (autrement dit, des situations dans lesquelles l'adversaire se défend en utilisant sa Volonté), même s'il tente de créer ou de maintenir un enchaînement d'effets mystiques.",
         "maitre": "<span class='text-danger'>Maître</span> Spécial. Le chanteur ne subit pas de Corruption permanente lors de l'apprentissage des chants troll au niveau Maître. Le maître bénéficie d'une deuxième chance de réussir l'ensemble de ses tests visant à influencer ou affecter un esprit (autrement dit, des situations dans lesquelles l'adversaire se défend en utilisant sa Volonté), même s'il tente de créer ou de maintenir un enchaînement d'effets mystiques.",
         "nom": "Chant des trolls"
@@ -1068,7 +1068,7 @@
         "description": "Dans les bas-fonds des plus vastes cités d'Albérétor, des techniques particulières d'auto-défense ont émergé. Ces techniques continuent d'être pratiquées aujourd'hui au sein des gangs d'Yndaros.",
         "novice": "<span class='text-success'>Novice</span> Active. Les coups bas tels que « le baiser du caniveau » (coup de tête) ou « presser le gobelin » (coup de pied dans l'entrejambe) sont des réflexes lorsque le personnage est dans une situation oppressante. Ces ruses infligent 1D6 points de dégâts, et si l'adversaire subit des dégâts, le personnage bénéficie également d'une Attaque gratuite contre lui.",
         "adepte": "<span class='text-info'>Adepte</span> Réactive. Le personnage effectue une attaque de mêlée normale et, s'il inflige des dégâts, il ajoute un croche-pied ou un tacle. La manoeuvre fait chuter l'adversaire si le personnage réussit un test de [Astuce ← Agilité].",
-        "maitre": "<span class='text-danger'>Maître</span> Réactive. Chaque ennemi qui s'attaque au corpsà- corps au personnage subit une riposte brutale infligeant 1D6 points de dégâts immédiatement après son attaque. La riposte atteint toujours un point faible et, par conséquent, ignore l'armure.",
+        "maitre": "<span class='text-danger'>Maître</span> Réactive. Chaque ennemi qui s'attaque au corpsà- corps au personnage subit une riposte brutale immédiatement après chaque attaque, infligeant 1D6 points de dégâts si elle réussit. La riposte atteint toujours un point faible et, par conséquent, ignore l'armure.",
         "attribut": "AST <- AGI",
         "nom": "Coup bas"
     },
@@ -1100,7 +1100,7 @@
         "description": "Limiter la liberté de mouvement des ennemis ou d'une proie est une chose que les barbares maîtrisent, en utilisant des armes telles que les bolas, les filets ou le fouet long. Cette technique est également connue chez les Ambriens : les armes de type fléau sont, par exemple, utilisées au cours d'interminables combats-spectacles dans les arènes des gladiateurs et par de nombreux chasseurs de prime. On rencontre parfois des Adoptés (humains enlevés) équipés de bâtons articulés leur permettant d'entraver leurs ennemis. Le personnage maîtrise les techniques d'entrave visant à lui donner l'Avantage en mêlée ou à capturer sa proie vivante.",
         "novice": "<span class='text-success'>Novice</span> Active. Le personnage bénéficie d'une deuxième chance d'entraver sa cible (requiert une arme dotée de la Qualité Immobilisant, voir en page 118).",
         "adepte": "<span class='text-info'>Adepte</span> Active. Le personnage bénéficie d'une deuxième chance de mettre à terre un adversaire entravé (requiert une arme dotée de la Qualité Immobilisant, voir en page 118).",
-        "maitre": "<span class='text-danger'>Maître</span> Réactive. La précision du personnage dans le maniement des armes d'entrave est telle que chaque attaque de ce type est considérée comme touchant la cible au cou et engendre donc un effet de strangulation ; en plus de l'effet d'entrave et de la possibilité d'être mis à terre, l'ennemi subit 1D6 points de dégâts ignorant l'armure. Si l'Endurance de la cible descend à zéro, le personnage peut choisir de la rendre inconsciente au lieu de la tuer.",
+        "maitre": "<span class='text-danger'>Maître</span> Réactive. La précision du personnage dans le maniement des armes d'entrave est telle que chaque attaque de ce type touche la cible au cou et a un effet de strangulation; en plus de l'effet d'entrave et de la possibilité d'être mis à terre, la cible subit 1D6 points de dégâts par tour ignorant l'armure. Si l'Endurance de la cible descend à zéro, le personnage peut choisir de la rendre inconsciente au de morte/mourante.",
         "nom": "Entrave"
     },
     "#118": {
@@ -1128,7 +1128,7 @@
         "livre": "gdj",
         "description": "En Ambria, il y a deux façons de faire la guerre : sur le champ de bataille et en assiégeant l'ennemi. Les armes de siège sont utilisées dans les deux cas, même si c'est au cours d'un siège qu'elles sont les plus utiles. Ce Talent englobe l'utilisation de balistes, tours de siège et catapultes ainsi que la capacité d'entreprendre l'intégralité de la construction de ces engins. L'expert en armes de siège peut prévoir de creuser des tranchées protectrices et des tunnels de sape destinés à fragiliser les murailles ennemies. Ce Talent permet également d'utiliser des armes d'assaut alchimiques : grenades alchimiques, pots à feu, batteries de missiles et canons à feu alchimique, qu'ils soient statiques ou mobiles. Toutes les armes d'assaut et de siège sont décrites dans la section Armes en page 110.",
         "novice": "<span class='text-success'>Novice</span> Spécial. Le personnage a été formé à l'utilisation de la baliste et peut construire des tours de siège sur le terrain. Le personnage peut manipuler des grenades alchimiques sans risquer de les faire exploser par erreur, contrairement aux utilisateurs inexpérimentés.",
-        "adepte": "<span class='text-info'>Adepte</span> Spécial. Le personnage peut organiser les travaux de construction et utiliser efficacement des armes de sièges plus complexes, telles que la catapulte et son massif cousin, le trébuchet. Sur les lieux d'un siège, le personnage peut planifier et mener les travaux de construction de tranchées protectrices et de tunnels de sape. Le personnage a appris les secrets bien gardés de l'art des armes de siège – des écrans de fumée alchimique dissimulant les troupes d'assaut des archers ennemis ; l'utilisation du pot à feu alchimique qui explose et perce les fortifications ennemies ; et les canons à feu alchimique qui projettent leur feu mortel sur quiconque passe devant eux. En outre, la version mobile des canons à feu alchimique peut être manipulée sans risque, même sous la pression, sans s'exposer à des conséquences catastrophiques.",
+        "adepte": "<span class='text-info'>Adepte</span> Spécial. Le personnage peut organiser les travaux de construction et utiliser efficacement des armes de sièges plus complexes, telles que la catapulte et son massif cousin, le trébuchet. Sur les lieux d'un siège, le personnage peut planifier et mener les travaux de construction de tranchées protectrices et de tunnels de sape. Le personnage a appris les secrets bien gardés de l'art des armes de siège – des bombes fumigènes alchimiques dissimulant les troupes d'assaut des archers ennemis ; l'utilisation du pot à feu alchimique qui explose et perce les fortifications ennemies ; et les canons à feu alchimique qui projettent leur feu mortel sur quiconque passe devant eux. En outre, la version mobile des canons à feu alchimique peut être manipulée sans risque, même sous la pression, sans s'exposer à des conséquences catastrophiques.",
         "maitre": "<span class='text-danger'>Maître</span> Spécial. Le personnage possède une maîtrise impressionnante des armes alchimiques et elles obtiennent toutes la Qualité Massif si elles ne la possèdent pas encore.",
         "nom": "Expert en armes de siège"
     },
@@ -1255,7 +1255,7 @@
         "description": "Les Roublards ont peu de choses en commun, si ce n'est leur volonté de survie – que ce soit parce qu'ils tiennent particulièrement à leur vie ou parce qu'ils se démènent pour atteindre leurs buts. Cette rage de vivre les a menés à développer de nombreux moyens variés d'éviter de subir des dégâts.",
         "novice": "<span class='text-success'>Novice</span> Réactive. Lorsque le personnage se trouve dans une situation dans laquelle il subit un effet qui peut lui infliger soit la totalité, soit la moitié des dégâts (comme des grenades alchimiques ou le pouvoir Cascade de Soufre), le personnage subit la moitié des dégâts au lieu de la totalité et ne subit aucun dégât au lieu de la moitié. Par exemple, s'il est frappé par le pouvoir Cascade de Soufre, qui inflige normalement 1D12 dégâts en cas de réussite et 1D6 en cas d'échec, ces dégâts se transforment en 1D6 en cas de réussite et aucun dégât en cas d'échec.",
         "adepte": "<span class='text-info'>Adepte</span> Réactive. Le Roublard évite les attaques de mêlée de son ennemi et se faufile jusqu'à se retrouver dans son dos ; la réussite d'un test de Défense permet au Roublard d'échanger sa place avec celle de son ennemi, si le joueur le souhaite. De cette façon, le Roublard s'éloigne afin d'éviter d'être encerclé sans avoir à subir d'Attaque gratuite. En outre, son ennemi se retrouve lui-même encerclé si un allié se tenait à côté du Roublard.",
-        "maitre": "<span class='text-danger'>Maître</span> Gratuite. Les réflexes du Roublard expérimenté sont si aiguisés qu'il ou elle ignore l'ordre habituel du tour et agit toujours en premier ; seuls les personnages possédant ce Talent et une valeur supérieure en Agilité ou en Vigilance sont susceptibles d'agir avant le Roublard.",
+        "maitre": "<span class='text-danger'>Maître</span> Passive. Les réflexes du Roublard expérimenté sont si aiguisés qu'il ou elle ignore l'ordre habituel du tour et agit toujours en premier ; seuls les personnages possédant ce Talent et une valeur supérieure en Agilité ou en Vigilance sont susceptibles d'agir avant le Roublard.",
         "nom": "Réflexes rapides"
     },
     "#133": {
@@ -1274,7 +1274,7 @@
         "tradition": "Guerrier",
         "description": "Les graveurs de runes du clan Vajvod, dans le Davokar oriental, tatouent souvent leur corps et ceux de leurs alliés avec de puissantes runes. Ces runes semblent presque vivantes et luisent d'un éclat rouge feu lorsqu'elles sont activées en combat. Le personnage porte de tels tatouages, qu'il les ait dessinés lui-même (requiert le Rituel Gravure de tatouage runique) ou qu'ils lui aient été offerts en cadeau ou en guise de récompense, vraisemblablement suite à un service de grande valeur rendu au Symboliste qui les a tracés. Tatouage runique requiert l'utilisation du Rituel Gravure de tatouage runique sur le personnage. Si le personnage possède ce Talent dès le départ, cela signifie que le tatouage est déjà tracé.",
         "novice": "<span class='text-success'>Novice</span> Réactive. Le tatouage runique procure 1D4 points d'armure supplémentaires contre les attaques, mais uniquement si le personnage choisit de l'activer. Activer cet effet inflige un point de Corruption temporaire à chaque attaque qui touche et le personnage doit décider de l'utiliser ou non avant d'effectuer les lancers pour les autres types d'armures. En outre, la rune protège le personnage des intempéries et du vent de la même façon que des vêtements.",
-        "adepte": "<span class='text-info'>Adepte</span> Réaction. Le tatouage runique est attiré par les blessures sur le corps du personnage et flamboie autour des plaies. Le personnage régénère d'un point d'Endurance par tour ; chaque point ainsi soigné inflige un point de Corruption temporaire. Le guerrier tatoué peut mettre fin au processus de régénération quand il le souhaite.",
+        "adepte": "<span class='text-info'>Adepte</span> Gratuite. Le tatouage runique est attiré par les blessures sur le corps du personnage et flamboie autour des plaies. Le personnage régénère d'un point d'Endurance par tour ; chaque point ainsi soigné inflige un point de Corruption temporaire. Le guerrier tatoué peut mettre fin au processus de régénération quand il le souhaite.",
         "maitre": "<span class='text-danger'>Maître</span> Réaction. Le tatouage runique octroie plus de puissance aux attaques du guerrier. Lorsqu'un ennemi est touché, et si le personnage le souhaite, le tatouage flamboyant s'infiltre dans l'arme, infligeant 1D4 points de dégâts supplémentaires, et autant de points de Corruption temporaire au personnage.",
         "nom": "Tatouage runique"
     },
@@ -1479,7 +1479,7 @@
         "materiel": "Matériel : Un petit segment de chaîne rouillée",
         "description": "Les âmes noires résonnent de cris de douleur et de Ténèbres ; un Inquisiteur entraîné peut faire usage de ces Ténèbres contre l'ennemi pour, dans le meilleur des cas, noyer sa cible dans sa propre noirceur intérieure.",
         "novice": "<span class='text-success'>Novice</span> Active. Le Mystique contraint sa cible à lancer 1D20 contre sa propre Corruption totale (voir Livre de base p132). Un échec provoque des douleurs aiguës qui empêchent la cible d'agir pendant un tour entier. À la place, les créatures profondément corrompues subissent automatiquement, 1D6 points de dégâts, ignorant l'Armure.",
-        "adepte": "<span class='text-info'>Adepte</span> Active. Le Mystique contraint toutes les cibles en vue à lancer 1D20 contre leur propre Corruption totale. Un échec provoque des douleurs aiguës qui empêchent les cibles d'agir pendant un tour entier. À la place, les créatures profondément corrompues subissent automatiquement, 1D6 points de dégâts, ignorant l'Armure.",
+        "adepte": "<span class='text-info'>Adepte</span> Active. Le Mystique contraint tous les ennemis en vue à lancer 1D20 contre leur propre Corruption totale. Un échec provoque des douleurs aiguës qui empêchent les cibles d'agir pendant un tour entier. À la place, les créatures profondément corrompues subissent automatiquement, 1D6 points de dégâts, ignorant l'Armure.",
         "maitre": "<span class='text-danger'>Maître</span> Réactive. Le Mystique punit automatiquement tous les ennemis en vue, qui attirent la Corruption. Le Mystique peut exclure autant d'alliés qu'il souhaite de cet effet. Chaque point de Corruption subi suite à l'utilisation de Pouvoirs ou d'artéfacts mystiques inflige la même quantité de dégâts physiques à l'ennemi, ignorant l'Armure.",
         "nom": "Purgatoire"
     },
@@ -1499,7 +1499,7 @@
         "livre": "gdj",
         "tradition": "Mages au bâton, Symbolisme",
         "materiel": "Matériel : Une description des runes",
-        "description": "Les runes du Mystique émettent des énergies protectrices qui l'enveloppent, ainsi que ses alliés aux niveaux supérieurs.",
+        "description": "Les runes du Mystique émettent des énergies protectrices qui l'enveloppent, et punissent ses ennemis aux niveaux supérieurs.",
         "novice": "<span class='text-success'>Novice</span> Active. La puissance des runes procure +1D4 d'Armure au Mystique jusqu'à ce qu'il rate un test de Volonté ou qu'il perde sa concentration en échouant à un test de [Volonté ← Dégâts]. Le dé de bonus d'Armure est lancé séparément chaque fois que le Mystique est touché et vient s'ajouter à toute autre Armure.",
         "adepte": "<span class='text-info'>Adepte</span> Active. Les runes procurent +1D4 d'Armure (voir niveau Novice). Un effet de riposte inflige également 1D4 points de dégâts à chaque ennemi qui blesse la créature protégée, ignorant l'Armure. Les effets durent jusqu'à ce que le Mystique rate un test de Volonté ou perde sa concentration en échouant à un test de [Volonté ← Dégâts].",
         "maitre": "<span class='text-danger'>Maître</span> Active. Les effets de protection et de riposte sont de 1D6 au lieu d'1D4 et durent jusqu'à ce que le Mystique rate un test de Volonté.",
@@ -2851,51 +2851,51 @@
         "type": "elixir",
         "livre": "ldb",
         "tradition": "Coût : 1 Th. (F), 2 Th. (M), 3 Th. (P)",
-        "novice": "(Faible) Un antidote faible diminue d'un niveau l'effet d'un poison : un poison puissant devient modéré, un poison modéré devient faible et un poison faible est totalement neutralisé. L'antidote n'a aucun effet sur les dégâts déjà subis par le personnage. Nécessite un jet d'Astuce réussi pour faire effet.",
-        "adepte" : "(Modéré) Un antidote modéré diminue l'effet d'un poison de deux niveaux : un poison puissant devient faible et les poisons modérés et faibles sont complètement neutralisés. L'antidote n'a aucun effet sur les dégâts déjà subis par le personnage. Nécessite un jet d'Astuce réussi pour faire effet.",
-        "maitre": "(Puissant) Un antidote puissant diminue l'effet d'un poison de trois niveaux. Cela signifie en général que le poison est totalement neutralisé. L'antidote n'a aucun effet sur les dégâts déjà subis par le personnage. Nécessite un jet d'Astuce réussi pour faire effet.",
+        "novice": "(N:Faible) Un antidote faible diminue d'un niveau l'effet d'un poison : un poison puissant devient modéré, un poison modéré devient faible et un poison faible est totalement neutralisé. L'antidote n'a aucun effet sur les dégâts déjà subis par le personnage. Nécessite un jet d'Astuce réussi pour faire effet.",
+        "adepte" : "(A:Modéré) Un antidote modéré diminue l'effet d'un poison de deux niveaux : un poison puissant devient faible et les poisons modérés et faibles sont complètement neutralisés. L'antidote n'a aucun effet sur les dégâts déjà subis par le personnage. Nécessite un jet d'Astuce réussi pour faire effet.",
+        "maitre": "(M:Puissant) Un antidote puissant diminue l'effet d'un poison de trois niveaux. Cela signifie en général que le poison est totalement neutralisé. L'antidote n'a aucun effet sur les dégâts déjà subis par le personnage. Nécessite un jet d'Astuce réussi pour faire effet.",
         "nom": "Antidote"
     },
     "#362": {
         "type": "elixir",
         "livre": "ldb",
         "tradition": "Coût : 2 Th.",
-        "novice": "La bombe à spores est spécifiquement utilisée avec le Talent Étrangleur.",
+        "novice": "(M) La bombe à spores est spécifiquement utilisée avec le Talent Étrangleur.",
         "nom": "Bombe à spores"
     },
     "#363": {
         "type": "elixir",
         "livre": "ldb",
         "tradition": "Coût : 2 Th.",
-        "novice": "La fumée de cette bougie rend visibles les objets invisibles situés dans un lieu ou une pièce.",
+        "novice": "(A) La fumée de cette bougie rend visibles les objets invisibles situés dans un lieu ou une pièce.",
         "nom": "Bougie fantomatique"
     },
     "#364": {
         "type": "elixir",
         "livre": "ldb",
         "tradition": "Coût : 1 Th.",
-        "novice": "Une dose d'essence mystique pure. Après avoir été consommé, le concentré de magie offre à un Mystique la possibilité de relancer un jet de Volonté la prochaine fois qu'il utilisera ses pouvoirs mystiques.",
+        "novice": "(A) Une dose d'essence mystique pure. Après avoir été consommé, le concentré de magie offre à un Mystique la possibilité de relancer un jet de Volonté la prochaine fois qu'il utilisera ses pouvoirs mystiques.",
         "nom": "Concentré de magie"
     },
     "#365": {
         "type": "elixir",
         "livre": "ldb",
         "tradition": "Coût : 6 Th.",
-        "novice": "Consommer un Élixir de vie donne au personnage des pouvoirs de régénération. Il peut ainsi guérir 1D6 points d'Endurance pendant 1D6 tours lors du tour d'initiative du personnage. Malheureusement, le personnage subit aussi 1 point de Corruption temporaire à chaque tour où l'élixir fait effet.",
+        "novice": "(M) Consommer un Élixir de vie donne au personnage des pouvoirs de régénération. Il peut ainsi guérir 1D6 points d'Endurance pendant 1D6 tours lors du tour d'initiative du personnage. Malheureusement, le personnage subit aussi 1 point de Corruption temporaire à chaque tour où l'élixir fait effet.",
         "nom": "Élixir de vie"
     },
     "#366": {
         "type": "elixir",
         "livre": "ldb",
         "tradition": "Coût : 2 Th.",
-        "novice": "Une fois appliquée sur, au choix, une arme, quatre armes de lancer, ou tous les carreaux ou flèches d'un carquois, ils infligent 1D4 de dégâts supplémentaires pendant une scène entière. L'alchimiste doit, avant cela, choisir quel élément il désire préparer : feu, froid, acide ou éclair.",
+        "novice": "(A) Une fois appliquée sur, au choix, une arme, quatre armes de lancer, ou tous les carreaux ou flèches d'un carquois, ils infligent 1D4 de dégâts supplémentaires pendant une scène entière. L'alchimiste doit, avant cela, choisir quel élément il désire préparer : feu, froid, acide ou éclair.",
         "nom": "Essence élémentaire"
     },
     "#367": {
         "type": "elixir",
         "livre": "ldb",
         "tradition": "Coût : 2 Th.",
-        "novice": "Ces gouttes redonnent immédiatement la vue à une créature rendue temporairement aveugle.",
+        "novice": "(A) Ces gouttes redonnent immédiatement la vue à une créature rendue temporairement aveugle.",
         "nom": "Gouttes de vision"
     },
     "#368": {
@@ -2903,44 +2903,44 @@
         "livre": "ldb",
         "tradition": "Coût : 2 Th.",
         "nom": "Huile de Protection",
-        "novice": "L'huile alchimique protège contre les dégâts élémentaires. Elle offre 1D4 de protection supplémentaire contre un élément précis pendant la durée de la scène. L'alchimiste doit, au préalable, choisir l'élément contre lequel l'huile est efficace : feu, froid, acide ou éclairs."
+        "novice": "(A) L'huile alchimique protège contre les dégâts élémentaires. Elle offre 1D4 de protection supplémentaire contre un élément précis pendant la durée de la scène. L'alchimiste doit, au préalable, choisir l'élément contre lequel l'huile est efficace : feu, froid, acide ou éclairs."
     },
     "#369": {
         "type": "elixir",
         "livre": "ldb",
         "tradition": "Coût : 1 Th.",
         "nom": "Pain de voyage",
-        "novice": "Une miche de ce pain de voyage correspond à une semaine de rations pour une personne."
+        "novice": "(N) Une miche de ce pain de voyage correspond à une semaine de rations pour une personne."
     },
     "#370": {
         "type": "elixir",
         "livre": "ldb",
         "tradition": "Coût : 2 Th. (F), 4 Th. (M), 6 Th. (P)",
         "nom": "Poison",
-        "novice": "(Faible) Un poison faible inflige 1D4 dégâts pendant 1D4 tours.",
-        "adepte": "(Modéré) Un poison modéré inflige 1D6 dégâts pendant 1D6 tours.",
-        "maitre": "(Puissant) Un poison puissant inflige 1D8 dégâts pendant 1D8 tours."
+        "novice": "(N:Faible) Un poison faible inflige 1D4 dégâts pendant 1D4 tours.",
+        "adepte": "(A:Modéré) Un poison modéré inflige 1D6 dégâts pendant 1D6 tours.",
+        "maitre": "(M:Puissant) Un poison puissant inflige 1D8 dégâts pendant 1D8 tours."
     },
     "#371": {
         "type": "elixir",
         "livre": "ldb",
         "tradition": "Coût : 2 Th.",
         "nom": "Poussière de spectre",
-        "novice": "La poussière de spectre oblige un être immatériel (une créature avec le Trait monstrueux Forme éthérée) à se matérialiser pour la durée de la scène. La poussière doit être lancée grâce à test réussi de [Accurate←Defense]; si cela touche, l'esprit subit des dégâts comme une créature vivante."
+        "novice": "(M) La poussière de spectre oblige un être immatériel (une créature avec le Trait monstrueux Forme éthérée) à se matérialiser pour la durée de la scène. La poussière doit être lancée grâce à test réussi de [Accurate←Defense]; si cela touche, l'esprit subit des dégâts comme une créature vivante."
     },
     "#372": {
         "type": "elixir",
         "livre": "ldb",
         "tradition": "Coût : 1 Th.",
         "nom": "Remède à base de plantes",
-        "novice": "Un remède à base de plantes correspond à un cataplasme alchimique associé à des bandages. L'odeur en est abominable, mais cela soigne 1 point d'Endurance. La cure par les plantes est plus efficace lorsqu'elle est utilisée par un personnage possédant le Talent Medicus."
+        "novice": "(N) Un remède à base de plantes correspond à un cataplasme alchimique associé à des bandages. L'odeur en est abominable, mais cela soigne 1 point d'Endurance. La cure par les plantes est plus efficace lorsqu'elle est utilisée par un personnage possédant le Talent Medicus."
     },
     "#373": {
         "type": "elixir",
         "livre": "ldb",
         "tradition": "Coût : 2 Th.",
         "nom": "Spores asphyxiantes",
-        "novice": "Les spores asphyxiantes sont produites à partir de lichens et de champignons de Davokar. Cet élixir est spécifiquement utilisé avec le Talent Étrangleur."
+        "novice": "(A) Les spores asphyxiantes sont produites à partir de lichens et de champignons de Davokar. Cet élixir est spécifiquement utilisé avec le Talent Étrangleur."
     },
     "#374": {
         "type": "arme",
@@ -2980,16 +2980,9 @@
     "#379": {
         "type": "arme",
         "livre": "ldb",
-        "tradition": "Dégâts : 1D10, Qualité : Précise, Coût : 50 Th.",
+        "tradition": "Dégâts : 1D8 (1D10), Qualité : Arme Bâtarde (Précise), Coût : 50 Th.",
         "nom": "Épée bâtarde",
         "novice": "Les maîtres forgerons des Pansars forgent les meilleures armes d'Ambria et l'épée bâtarde de la Garde de la reine en est le parfait exemple, tout du moins lorsque le guerrier qui la tient sait s'en servir correctement. L'arme est de préférence maniée à deux mains (comme toute autre arme lourde), mais peut aussi être utilisée à une seule main avec un bouclier dans l'autre. Lorsqu'elle est tenue à une main, l'épée bâtarde perd sa qualité d'arme Précise et inflige des dégâts comme une arme une main."
-    },
-    "#380": {
-        "type": "arme",
-        "livre": "ldb",
-        "tradition": "Dégâts : 1D10, Qualité : Flexible, Coût : 50 Th.",
-        "nom": "Fléau d'armes lourd",
-        "novice": "Le fléau d'armes lourd est une arme Flexible constituée d'un manche à deux mains auquel est rattachée, au moyen d'une chaîne, une boule de métal — souvent hérissée de pointes — qui sert à frapper l'ennemi. Parer l'attaque d'un fléau d'armes n'est pas simple puisque la chaîne permet à la boule de frapper ailleurs que sur l'arme ou sur le bouclier pour atteindre sa cible. Il existe de nombreux modèles de fléaux d'armes lourds comme le fléau d'armes traditionnel avec un manche en bois et une chaîne qui se termine par une tête d'acier hérissée de pointes. Mais il existe aussi des variantes où plusieurs pièces de métal hérissées sont reliées entre elles, et d'autres où deux ou trois chaînes avec des têtes en métal sont reliées au même manche. Néanmoins, sans prendre en compte leur aspect, ces modèles sont tous aussi lourds et possèdent comme point commun d'être difficiles à bloquer."
     },
     "#381": {
         "type": "arme",
@@ -3120,78 +3113,470 @@
     "#399": {
         "type": "armure",
         "livre": "ldb",
-        "tradition": "Protection: 1D4, Qualité : Gênante (-2), Coût : 2 Th.",
+        "tradition": "Protection: 1D4, Type: Légère (-2), Coût : 2 Th.",
         "nom": "Armure légère",
         "novice": "Les armures légères sont faciles à trouver et ne gênent pas beaucoup les capacités du porteur lors d'acrobaties ou de manœuvres de discrétion. Cependant, elles conservent un effet négatif lors de l'utilisation de pouvoirs mystiques. Les broignes, le cuir bouilli et le cuir clouté sont des armures légères."
     },
     "#400": {
         "type": "armure",
         "livre": "ldb",
-        "tradition": "Protection: 1D4, Qualité : Pratique (0), Coût : 10 Th.",
+        "tradition": "Protection: 1D4, Type: Légère (0), Qualité : Pratique, Coût : 10 Th.",
         "nom": "Aube Bénie",
         "novice": "Les aubes de prêtre portées par les théurges sont bénies et protégées par des forces bienveillantes. Ainsi l'élite de l'Église peut voyager en toute sécurité à travers le royaume et au-delà."
     },
     "#401": {
         "type": "armure",
         "livre": "ldb",
-        "tradition": "Protection: 1D4, Qualité : Pratique (0), Coût : 10 Th.",
+        "tradition": "Protection: 1D4, Type: Légère (0), Qualité : Pratique, Coût : 10 Th.",
         "nom": "Cape de l'Ordre",
         "novice": "La plupart des mages novices de l'Ordo Magica reçoivent une cape de protection au moment de leur premier grand voyage. Ces capes sont brodées de runes de protection qui donnent au novice un peu plus de chance de survivre et, de ce fait, de mener à bien son importante mission."
     },
     "#402": {
         "type": "armure",
         "livre": "ldb",
-        "tradition": "Protection: 1D4, Qualité : Pratique (0), Coût : 10 Th.",
+        "tradition": "Protection: 1D4, Type: Légère (0), Qualité : Pratique, Coût : 10 Th.",
         "nom": "Robe de sorcière",
         "novice": "Les sorcières lient des esprits protecteurs à des fragments d'os et au crâne de leurs ennemis morts. Elles cousent ensuite tout cela à leurs vêtements pour bénéficier de leur protection."
     },
     "#403": {
         "type": "armure",
         "livre": "ldb",
-        "tradition": "Protection: 1D4, Qualité : Pratique (0), Coût : 10 Th.",
+        "tradition": "Protection: 1D4, Type: Légère (0), Qualité : Pratique, Coût : 10 Th.",
         "nom": "Soie tissée",
         "novice": "La soie tissée est la meilleure armure légère disponible. Cela s'explique par les mailles serrées de ce tissu qui résiste mieux aux entailles et aux coups de poignard que son poids ne le laisse croire. La soie tissée est utilisée depuis très longtemps par les Ambriens, mais aussi par les barbares. Certains érudits soupçonnent que les secrets de sa fabrication proviennent des elfes, remontant ainsi à l'époque du Pacte de Fer."
     },
     "#404": {
         "type": "armure",
         "livre": "ldb",
-        "tradition": "Protection: 1D4, Qualité : Encombrante (-3), Coût : 1 Th.",
+        "tradition": "Protection: 1D4, Type: Légère (-3), Qualité : Encombrante, Coût : 1 Th.",
         "nom": "Peau de loup",
         "novice": "Pour un éclaireur barbare sans le sou, la peau de loup, peu pratique, mais néanmoins bon marché, est un choix assez répandu. Il s'agit d'un amas de peaux de bêtes tannées de manière très rudimentaire, puis cousues ensemble pour fournir une protection convenable."
     },
     "#405": {
         "type": "armure",
         "livre": "ldb",
-        "tradition": "Protection: 1D6, Qualité : Gênante (-3), Coût : 5 Th.",
+        "tradition": "Protection: 1D6, Type: Moyenne (-3), Coût : 5 Th.",
         "nom": "Armure moyenne",
         "novice": "Les armures moyennes offrent une plus grande protection que les armures légères mais gênent bien plus les mouvements de ceux qui en portent. Néanmoins, la plupart des combattants au corps à corps considèrent cette restriction comme un bon compromis. Les armures d'écailles et les cottes de mailles sont des exemples d'armures moyennes."
     },
     "#406": {
         "type": "armure",
         "livre": "ldb",
-        "tradition": "Protection: 1D6, Qualité : Encombrante (-4), Coût : 2 Th.",
+        "tradition": "Protection: 1D6, Type: Moyenne (-4), Qualité : Encombrante, Coût : 2 Th.",
         "nom": "Armure du corbeau",
         "novice": "Les armures moyennes étant bien plus chères que les légères, de nombreux guerriers récupèrent, rivettent et attachent ensemble différentes pièces pour ainsi constituer par eux-mêmes ce qu'ils appellent une « armure du corbeau ». Bon marché, elles sont cependant bien moins pratiques pour se mouvoir."
     },
     "#407": {
         "type": "armure",
         "livre": "ldb",
-        "tradition": "Protection: 1D6, Qualité : Pratique (-1), Coût : 25 Th.",
+        "tradition": "Protection: 1D6, Type: Moyenne (-1), Qualité : Pratique, Coût : 25 Th.",
         "nom": "Cuirasse en soie laquée",
         "novice": "Les guerriers barbares qui ont gagné leur place dans la garde d'un chef de clan riche et prestigieux peuvent parfois être aperçus vêtus d'une cuirasse en soie laquée, une armure qui, malgré son aspect, protège aussi bien que le plastron de plates. D'après la légende, le secret de la soie laquée aurait été transmis aux hommes par les elfes en un temps où le Pacte de Fer était encore puissant, et où les humains combattaient les ténèbres grouillantes de Symbaroum."
     },
     "#408": {
         "type": "armure",
         "livre": "ldb",
-        "tradition": "Protection: 1D8, Qualité : Gênante (-4), Coût : 10 Th.",
+        "tradition": "Protection: 1D8, Type: Lourde (-4), Coût : 10 Th.",
         "nom": "Armure lourde",
         "novice": "Les combattants au corps à corps qui peuvent se le permettre ont tendance à préférer une meilleure protection à leur liberté de mouvement. Tout bon chevalier qui se respecte porte une cotte de mailles renforcées par des plaques au niveau des épaules, des genoux et des coudes. Ceux qui en ont les moyens, en revanche, préfèrent se faire forger une armure de plates complète sur mesure."
     },
     "#409": {
         "type": "armure",
         "livre": "ldb",
-        "tradition": "Protection: 1D8, Qualité : Pratique (-2), Coût : 50 Th.",
+        "tradition": "Protection: 1D8, Type: Lourde (-2), Qualité : Pratique, Coût : 50 Th.",
         "nom": "Armure de plates complète",
         "novice": "Une armure de plates complète fabriquée sur mesure offre, à ceux qui en ont les moyens, la meilleure protection possible avec une gêne moins importante qu'avec une armure lourde traditionnelle."
+    },
+    "#410": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Coût : 12 Th.",
+        "novice": "(M) Cette substance miraculeuse peut uniquement être préparée par un personnage possédant le Talent Alchimie au niveau Maître. Cette décoction est mélangée dans un chaudron, mais ce sont les vapeurs qui sont mises en bouteille, pas le liquide. La fumée d'un blanc grisâtre est captée dans de petites jarres de céramique et inhalée lors de son utilisation. Allié spirituel octroie à celui qui le consomme le Trait monstrueux Forme éthérée au niveau I. L'effet dure 1D4 tours, au prix d'autant de points de Corruption temporaire.",
+        "nom": "Allié spirituel"
+    },
+    "#411": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Coût (marché noir) : 4 Th.",
+        "novice": "(A) Une poignée de ces graines est jetée au sol et, un tour plus tard, 1D4 bestioles d'épines apparaissent pour servir l'utilisateur. Ces petites créatures composées d'épines sont vaguement humanoïdes. Elles ne parlent pas mais craquent et grincent comme des brindilles pliées et frottées entre elles. Ces bestioles vivent durant une scène avant de sécher et de ressembler à ces poupées de sorcière en épines. L'invocation des Bestioles d'épines est une violation de l'ordre naturel, ce qui signifie que celui qui utilise ces graines subit 1D6 points de Corruption temporaire. Pour les stats, cf. GDJ page 120.",
+        "nom": "Bestioles d'épines"
+    },
+    "#412": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Coût : 2 Th.",
+        "novice": "(A) Le fumigène est un récipient de céramique qui émet une fumée alchimique dense lorsqu'il est brisé et utilisé avec le Talent Pyrotechnique au niveau Adepte. La fumée envahit une pièce ou recouvre un groupe de personnes engagées dans un combat au corps-à-corps.",
+        "nom": "Fumigène"
+    },
+    "#413": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Coût : 8 Th. (F), 9 Th. (M)",
+        "novice": "(A/M) Lorsqu'elle est allumée cette bougie émet des vapeurs qui fonctionnent comme antidote pour tout ce qui l'entoure. Un antidote Faible affecte toute créature empoisonnée à proximité et réduit les effets continus du poison d'un niveau (un poison Puissant devient Modéré, un Modéré devient Faible et un Faible est neutralisé). Une bougie antidote Modérée fait la même chose mais réduit les effets de deux niveaux (un poison Puissant devient Faible, donc un poison Modéré ou Faible est neutralisé). Attention, cela n'annule pas les dégâts déjà subis.",
+        "nom": "Bougie antidote"
+    },
+    "#414": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Coût : 8 Th., 12 Th. (M)",
+        "novice": "(A/M) Cette bougie d'apparence ordinaire émet une fumée empoisonnée lorsqu'elle est allumée. Elle est décelée par un test réussi de [Vigilance←Discrétion de l'Alchimiste]. Le poison est aérien et affecte toute personne dans la pièce ou à proximité. La bougie doit brûler durant 1D4 tours avant que le poison ne soit diffusé, l'assassin peut donc l'allumer et sortir de la pièce avant qu'il ne fasse effet. Une bougie à poison Faible inflige 2 points de dégâts par tour, à poison Modéré 3 points de dégâts par tour.",
+        "nom": "Bougie empoisonnée"
+    },
+    "#415": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Coût : 1 Th.",
+        "novice": "(N) L'Alchimiste recouvre un carreau d'arbalète de paralysant musculaire ; toute personne atteinte par le carreau doit faire un test [Force ← Dégâts] ou tombera sur le sol. Le Trait monstrueux Robuste apporte un bonus de +2 par niveau lors du test.",
+        "nom": "Carreau paralysant"
+    },
+    "#416": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Coût : 1 Th.",
+        "novice": "(N) La Chique sauvage est une gomme à mâcher rouge qui possède des propriétés stimulantes, rendant le mâcheur plus vif, moins prudent, et beaucoup plus agressif. Une dose enlève 2 points de Discrétion, d'Astuce et de Volonté pour les rajouter à l'Agilité, la Force et la Précision pour le restant de la scène. L'utilisateur est cependant exténué à la scène suivante, et reçoit de ce fait un malus de -2 à tous ses Attributs. La Chique sauvage devient extrêmement addictive avec le temps et un utilisateur doit en consommer au moins une dose chaque semaine sous peine d'être atteint d'effets de manque qui peuvent mener à la démence et à la mort. Aucun traitement connu n'existe.",
+        "nom": "Chique sauvage"
+    },
+    "#417": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Coût (marché noir) : 2 Th. (F), 4 Th. (M), 6 Th. (P)",
+        "description": "Ce puissant élixir mutagène qui transforme en monstre le corps de l'utilisateur. Pour la durée d'une scène, la victime est déformée en une créature à moitié bestiale et subit dès lors une seconde chance de rater tous ses tests de Persuasion jusqu'à ce que les effets s'estompent. Cet élixir offre à l'utilisateur un Trait monstrueux pour le reste de la scène. Le niveau de ce Trait est déterminé par la puissance de l'élixir. Chaque dose consommée apporte également de la Corruption temporaire, également déterminée par sa puissance. Bien entendu, la transformation physique endurée et l'apport de Corruption sont des raisons suffisantes pour restreindre la vente de cette potion aux marchés noirs d'Ambria. Les Traits monstrueux suivants peuvent être acquis, selon ce que l'Alchimiste a décidé en concoctant l'élixir : Ailes, Arme naturelle, Armure naturelle et Robuste.",
+        "novice": "(N:Faible) L'élixir apporte le Trait sélectionné au niveau I et 1D4 points de Corruption temporaire.",
+        "adepte" : "(A:Modéré) L'élixir apporte le Trait sélectionné au niveau II et 1D6 points de Corruption temporaire.",
+        "maitre": "(M:Puissant) L'élixir apporte le Trait sélectionné au niveau III et 1D8 points de Corruption temporaire.",
+        "nom": "Cuvée mutagène"
+    },
+    "#418": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Coût : 2 Th.",
+        "novice": "(A) L'eau bénite, contenant la Lumière de Prios, peut guérir les blessures et apaiser les âmes. Cela fonctionne comme un Remède à base de plante (voir Livre de base page 157) avec +1 sur le test d'effet (c'est-à-dire +2 en Endurance avec le Talent Medicus), et elle efface également 1 point de Corruption temporaire.",
+        "nom": "Eau bénite"
+    },
+    "#419": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Coût : 1 Th.",
+        "novice": "(N) Ces sels changent la couleur du feu dans lequel ils sont lancés. Cela peut être utilisé pour faire des signaux à longue distance, si les couleurs ont auparavant reçu une signification particulière connue de l'utilisateur et d'un observateur allié. Ils sont également utilisés pour distraire les riches et par les charlatans espérant épater les plus crédules.",
+        "nom": "Feu multicolore"
+    },
+    "#420": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Coût : 2 Th.",
+        "novice": "(N) L'Alchimiste fait mariner une flèche dans des essences de guidage, créant ainsi une flèche qui évite les autres combattants, ne requérant pas, par conséquent, pas une ligne de vue entièrement dégagée. Mais l'archer doit apercevoir au moins une partie quelconque de la cible et doit effectuer un test normal d'Attaque pour réussir son tir.",
+        "nom": "Flèche guidée"
+    },
+    "#421": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Coût (marché noir) : 2 Th.",
+        "novice": "(N) Une graine est plantée et, le jour suivant, un minuscule serviteur jailli du sol. L'homoncule a la taille d'un enfant, aucun Talent et ses valeurs d'Attributs sont toutes de 5 (+5). Il servira loyalement son créateur puis se flétrira un mois plus tard, ne laissant derrière lui qu'un tas de saletés. Créer un homoncule est une violation de l'ordre naturel, ce qui signifie que celui qui utilise cette graine subira 1D6 points de Corruption temporaire.",
+        "nom": "Homoncule"
+    },
+    "#422": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Coût : 2 Th.",
+        "novice": "(N) C'est une bougie de cire qui, lorsqu'elle est allumée, fait briller les créatures vivantes (ce qui n'inclut ni les morts-vivants ni les abominations) dans le noir, rendant difficile leur dissimulation (elles ont donc une deuxième chance d'échouer aux tests visant à surprendre quelqu'un, ainsi qu'une deuxième chance de réussir les tests visant à découvrir quelqu'un tentant de les surprendre). Cela affecte toute créature vivante dans la salle ou à proximité, y compris celui qui allume la bougie.",
+        "nom": "Lumière révélatrice"
+    },
+    "#423": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Coût : 2 Th.",
+        "novice": "(N) Ces peintures mystiques peuvent aider un guerrier en combat. Elles ajoutent un bonus de +1, soit à Agilité soit à Force durant une scène entière. Le guerrier décide quel Attribut renforcer lorsque la peinture est appliquée sur son corps.",
+        "nom": "Peintures de guerre"
+    },
+    "#424": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Coût : 1 Th.",
+        "novice": "(N) Cette poudre fine émet une lumière aveuglante lorsqu'elle est lancée. La Poudre fulgurante est spécifiquement utilisée avec le Talent Pyrotechnique au niveau Novice.",
+        "nom": "Poudre fulgurante"
+    },
+    "#425": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Coût : 4 Th.",
+        "novice": "(A) La Rosée de Songe est un élixir concocté à partir de spores ronflantes, mais contient des accélérants. Une personne ingérant une dose de cet élixir s'endort immédiatement si elle ne réussit pas un test de Force, et reste assoupie pendant une heure, ou jusqu'à ce qu'elle subisse des dégâts. Si le test est réussi, elle reste tout de même désorientée pendant une heure, tombant à une action par tour et l'empêchant de faire usage de ses Talents actifs.",
+        "nom": "Rosée de Songe"
+    },
+    "#426": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Coût : 4 Th. (F), 8 Th. (M), 16 Th. (P)",
+        "description": "La sève pourpre est fabriquée à partir d'une décoction de muguet, une fleur dont les propriétés de purification et de la résistance à la Corruption ont été découvertes, il y a bien longtemps, par les sorcières de Davokar. Cet élixir est cher, à la fois à cause de la rareté de cet ingrédient et parce qu'il n'existe que peu d'Alchimistes assez compétents pour le concocter. Cet élixir n'a aucun effet sur la Corruption permanente ou les stigmates déjà présents sur l'utilisateur.",
+        "novice": "(N:Faible) Un Alchimiste Novice peut concocter une potion qui efface immédiatement 1D4 points de Corruption temporaire de l'âme de l'utilisateur.",
+        "adepte" : "(A:Modéré) Concocté par un Adepte, l'élixir efface immédiatement 1D6 points de Corruption temporaire.",
+        "maitre": "(M:Puissant) Cette version faite par un Maître ôte 1D8 points de Corruption temporaire.",
+        "nom": "Sève pourpre"
+    },
+    "#427": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Coût : 12 Th.",
+        "novice": "(M) Il s'agit d'un extrait de feuilles et de tiges séchées du si rare Chardon du Crépuscule. Jusqu'à récemment, la rareté de cette plante (on en trouvait une ou deux tiges parmi d'autres offrandes dans les ruines de Davokar, pas des sites de pousse) et ses effets médicaux modérés n'en faisaient pas une espèce très recherchée. Sa consommation semblait avoir un effet sur certains eczémas et peut-être sur la sénilité. Quoiqu'il en soit avec l'avancée en âge de la Reine-Mère, la demande de la cour augmenta. Bien sûr l'histoire de Lasifor Noirenuit ayant acheté les terres sur lesquelles Fort Chardon est construit pour une brassée de Chardons du Crépuscule, augmenta la popularité de cette plante parmi les chasseurs de trésor. Dernièrement, un autre groupe d'utilisateurs s'est intéressé à la consommation de cette Teinture et ses autres effets : il a été prouvé qu'elle peut dissimuler un certain nombre de symptômes liés à la condition de mort-vivant. Certains malheureux, dont certains Alchimistes, recherchaient désespérément des moyens de cacher leurs marques de putréfaction et quelqu'un découvrit que la Teinture de Crépuscule (ingérée, pas appliquée sur la peau) pouvait raviver temporairement un corps de mort-vivant : la peau regagne sa couleur rosée, la température du corps remonte et l'odeur de l'haleine s'améliore très nettement. Les effets perdurent une semaine par test réussi de [Force ← Corruption permanente]. Si le test échoue, ils persistent une journée supplémentaire avant de se dissiper complètement. Sur les créatures profondément corrompues, les effets ne durent qu'une journée par dose et aucun test n'est pratiqué.",
+        "nom": "Teinture de crépuscule"
+    },
+    "#428": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Coût : 3 Th.",
+        "novice": "(A) Cet élixir visqueux et répugnant connu sous le nom de Teinture d'Ombre demande un niveau Adepte en Alchimie afin d'être créé. Les Mystiques l'utilisaient autrefois pour dissimuler à quel point ils étaient près de succomber à la Corruption, et il pourrait se révéler fort utile dans l'arsenal de décoctions mystiques d'un Conjureur. L'Ombre de quiconque se force à avaler ce liquide vaseux deviendra déformée, la faisant apparaître comme si son total de Corruption était plus bas de 1D6 points qu'il ne l'est réellement, le temps d'une scène.",
+        "nom": "Teinture d'Ombre"
+    },
+    "#429": {
+        "type": "elixir",
+        "livre": "gdj",
+        "tradition": "Coût : 3 Th.",
+        "novice": "(M) Cette charge alchimique nécessite le niveau Maître du Talent Pyrotechnique. Une fois lancée, elle explose comme un coup de tonnerre aveuglant.",
+        "nom": "Sphère de tempête"
+    },
+    "#430": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Dégâts : 1D6, Qualité : Boomerang, Coût : 10 Th.",
+        "nom": "Aile tranchante",
+        "novice": "L'aile tranchante est conçue de façon à ce qu'un utilisateur entraîné puisse la faire revenir à l'endroit d'où elle a été lancée, si la cible est manquée (requiert la réussite d'un test de Précision, effectué en Action gratuite). Dans les profondeurs de Davokar, des ailes tranchantes en bois renforcé sont utilisées pour chasser le petit gibier, tandis que celles utilisées en combat possèdent un rebord en métal aiguisé sur tout le pourtour."
+    },
+    "#431": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Dégâts : 1D10, Qualité : Dissimulé, Coût : 40 Th.",
+        "nom": "Arbalète (petite)",
+        "novice": "Dans les rangs des voleurs et des gangs d'Yndaros, une version compacte et facilement dissimulable de l'arbalète est utilisée. Elle peut être manipulée et déclenchée d'une seule main, mais nécessite l'utilisation des deux mains pour être chargée et possède le même impact que l'arbalète standard. Les assassins enduisent souvent les carreaux de poison, rendant l'arme très efficace pour une si petite taille."
+    },
+    "#432": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Dégâts : 1D10, Qualité : Spécial, Coût : 40 Th.",
+        "nom": "Arbalète à répétition",
+        "novice": "L'arbalète à répétition est une version mécaniquement perfectionnée de l'arbalète. L'arme est équipée d'un levier sur son côté inférieur, permettant un rechargement rapide. Seuls les forgerons les plus talentueux sont capables de fabriquer des armes aussi perfectionnées. Une arbalète à répétition se recharge avec une Action Gratuite, sans perdre la puissance de frappe d'une arbalète classique."
+    },
+    "#433": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Dégâts : 1D8, Qualité : Précis, Coût : 50 Th.",
+        "nom": "Arc long cavalier",
+        "novice": "Pendant la Grande Guerre, la nécessité de posséder des arcs utilisables par les cavaliers se fit ressentir. L'arc long traditionnel était trop incommode – il était si long qu'il gênait le cheval ou vice-versa. Afin de résoudre ce problème, l'arc long cavalier asymétrique fut développé. La partie inférieure de l'arc est plus courte que la partie supérieure, il peut ainsi être manoeuvré par-dessus le dos du cheval sans perdre de sa puissance de frappe. L'arme est inclinée vers l'avant au moment de la visée et du tir, afin de maintenir une tension équivalente dans les deux membres. En Ambria, l'arc long cavalier est principalement utilisé dans l'Ouest contre les tentatives d'incursion des Saars sur leurs chariots. Dans cette région, les troupes équipées d'arcs longs traditionnels sont utilisées en défense, mais des cavaliers sont nécessaires afin de poursuivre les pillards, armés de préférence d'arcs."
+    },
+    "#434": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Dégâts : 1D8+1, Qualité : Éventreur, Coût : 25 Th.",
+        "nom": "Arc composite",
+        "novice": "Chez les Varaks et les Saars, les chevaucheurs de chariots qui demeurent dans les plaines à l'ouest de Davokar, la fabrication d'arcs est un art hautement respecté. L'arc composite est fait de couches de corne et de tendons qui recouvrent une structure en bois ; il est plus court et moins précis que l'arc long, mais plus puissant. Sa taille le rend idéal pour l'utilisation à cheval ainsi que du côté conducteur ou sur l'étroite plate-forme d'un chariot de combat."
+    },
+    "#435": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Dégâts : 1D12, Qualité : Déséquilibré, Massif, Coût : 50 Th.",
+        "nom": "Baliste",
+        "novice": "La baliste n'est qu'une énorme arbalète fixe, destinée à faire feu sur des cibles immobiles, des troupes en formation sur un champ de bataille et de très gros monstres. Durant la Grande Guerre, les balistes ont été utilisées contre les bêtes de traits mortes-vivantes des Sombres Seigneurs, pour empêcher leurs tours de siège d'atteindre les remparts, puis durant la colonisation d'Ambria, contre les bêtes apprivoisées des chefs barbares. Aujourd'hui encore, les balistes sont dirigées depuis les tours de guet et les avantpostes vers Davokar."
+    },
+    "#436": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Dégâts : 1D8, Qualité : Long, Immobilisant, Coût : 15 Th.",
+        "nom": "Bâton articulé",
+        "novice": "Le bâton articulé a été conçu par les elfes, puis adopté par certaines tribus barbares. L'arme est composée d'un bâton et de petites chaînes attachées à chaque extrémité. Le bout des chaînes est souvent constitué d'un poids ou d'une lame courte afin d'augmenter son effet fouettant et pour que l'arme puisse être utilisée pour entraver la cible."
+    },
+    "#437": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Dégâts : 1D10, Qualité : Enflammé, Zone d'effet (rayon), Coût : 200 Th. + 50 par charge",
+        "nom": "Batterie de missiles",
+        "novice": "La batterie de missiles est une arme de siège ne pouvant être utilisée que par des sapeurs-miniers entraînés. Elle est constituée d'une structure de bois à l'intérieur de laquelle des centaines de missiles alchimiques peuvent être chargés. Lorsqu'on l'allume, une pluie de missiles enflammés et sifflants s'abat sur les troupes ennemies. Toute créature atteinte par la pluie de missiles doit réussir un test de Défense ou être atteinte par une flèche enflammée. Si elle est touchée, la cible effectue un nouveau jet jusqu'à ce qu'un test de Défense réussisse – elle cesse alors d'être atteinte par des flèches supplémentaires."
+    },
+    "#438": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Dégâts : 1D6, Qualité : Spécial, Coût : 2 Th.",
+        "nom": "Bola",
+        "novice": "Les plaquages immobilisants infligés par la bola sont utilisés à Davokar lorsque quelqu'un souhaite capturer une proie vivante ; ou afin de ralentir une cibla avant d'aller l'achever. La bola est constituée de deux poids — ou plus — noués ensemble à l'aide de cordes. La bola est orientée en direction des jambes ou des bras de la cible afin d'entraver ses mouvements. Elle est généralement lancée vers les jambes et le test d'Attaque est [Précision ← Agilité] ; si le test réussit, la cible ne peut plus bouger. Il est plus difficile d'atteindre les bras de la cible – cela nécessite la réussite d'un test de [Précision ← Agilité +3] et, en cas de réussite, la cible a une deuxième chance d'échouer à tous les tests de réussite qui impliquent l'usage de ses bras. Retirer la bola compte comme une Action de combat et nécessite la réussite d'un test d'Agilité."
+    },
+    "#439": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Dégâts : 1D12, Qualité : Destructeur ou Enflammé, Déséquilibré, Zone d'effet (rayon), Coût : 250 Th. + 50 par charge",
+        "nom": "Catapulte",
+        "novice": "Depuis de longues années, les engins balistiques sont employés au cours de nombreuses guerres en Albérétor, et la plus utilisée, hier comme aujourd'hui, est la catapulte. Comparée à son massif cousin le trébuchet, elle est relativement facile à transporter tout en restant très efficace contre les structure et les troupes. La catapulte doit être chargée, manoeuvrée et déclenchée par quelqu'un possédant le Talent Expert en armes de siège ; elle peut être chargée avec des rochers ou des pots à feu, le premier détruisant les bâtiments, tandis que le second est plus efficace contre les cibles plus faibles mais inflammables, y compris les troupes hostiles sur le champ de bataille."
+    },
+    "#440": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Dégâts : 1D10, Qualité : Précis, Déséquilibré, Massif, Coût : 50 Th.",
+        "nom": "Épée de bourreau",
+        "novice": "Cette épée colossale est utilisée par les bourreaux pour exécuter les nobles – la hache est pour les marchands et les artisans, la corde pour les gens du peuple — mais certains s'équipent de cette arme sur le champ de bataille."
+    },
+    "#441": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Dégâts : 1D8+1, Qualité : Éventreur, Coût : 25 Th.",
+        "nom": "Estoc",
+        "novice": "L'estoc est une épée de duel dont la lame effilée s'achève par une pointe en forme de coin conçue pour pénétrer l'armure de la cible."
+    },
+    "#442": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Dégâts : 1D10, Qualité : Déséquilibré, Flexible, Massif, Coût : 50 Th.",
+        "nom": "Fléau lourd",
+        "novice": "Le fléau lourd est une version plus large du fléau de bataille. Bien entendu, le fléau lourd est plus lent mais son impact est plus violent sur les malheureux frappés par sa tête massive."
+    },
+    "#443": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Coût : 5 Sh.",
+        "nom": "Flèches et carreaux",
+        "description": "Outre les carreaux et les flèches classiques, de nombreux projectiles spéciaux ont été développés. Il n'est pas rare de voir les archers ambriens équipés de deux carquois, l'un contenant des flèches normales et l'autre une sélection de flèches spéciales.",
+        "novice": "Aile d'hirondelle : La pointe de ce projectile est large et conçue pour infliger des blessures hémorragiques. L'inconvénient, c'est qu'elle est moins efficace contre les cibles équipées d'une armure. Les victimes bénéficient d'un bonus de 1D4 d'Armure contre l'aile d'hirondelle, mais lorsqu'elles sont touchées, elles saignent de la même façon qu'avec l'effet Saigneur.<br/>Coupe-corde : Une pointe en forme de Y permet de couper les cordes. Atteindre la corde est difficile (-5 sur le test d'Attaque), mais un succès signifie que la corde est rompue.<br/>Crochet : La flèche envoie un crochet à une hauteur pouvant aller jusqu'à dix mètres ou à une distance pouvant atteindre trente mètres. Un fin fil de soie permet de hisser une corde plus solide jusqu'au crochet, et une fois cette corde fixée au crochet, elle peut être utilisée.<br/>Flèche à pointe lestée : La pointe bombée de cette flèche est conçue pour étourdir plutôt que pour infliger des dégâts à la cible. Après un test d'Attaque réussi, les dégâts sont lancés normalement, mais le résultat sert à déterminer si la cible est étourdie ou non [Force ← Dégâts]. Si le test est réussi, la cible est étourdie pendant un tour et ne peut accomplir aucune action.<br/>Flèche enflammée : Un projectile dont la pointe est inflammable. Souvent utilisée pour mettre le feu à la cible, qu'il s'agisse d'une créature vivante, d'un bâtiment ou d'un champ de céréales (voir la Qualité Enflammé pour plus d'informations).<br/>Flèche immobilisante : Une pointe barbelée et un fin fil de soie attaché à la flèche permettent d'entraver une cible lorsque l'on utilise ce projectile. Une Action de mouvement et la réussite d'un test de [Force ← Dégâts] sont nécessaires pour la retirer ; si la cible y parvient, elle subit 1D4 dégâts mais la flèche est retirée. Se déplacer avec une flèche immobilisante dans le corps inflige 1 dégât par tour, ignorant l'Armure.<br/>Flèche de précision : Une flèche (ou un carreau) qui possède la Qualité Précis, est particulièrement bien équilibrée et permet d'atteindre la cible plus facilement."
+    },
+    "#444": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Dégâts : 1D6, Qualité : Articulé, Immobilisant, Contondant, Coût : 10 Th.",
+        "nom": "Fouet long",
+        "novice": "Le fouet long a été développé à partir du fouet commun servant à guider les troupeaux ou les groupes d'esclaves ; sa fonction n'est pas seulement de guider mais également d'entraver la cible. En outre, sa longueur lui procure un effet fouettant considérable pouvant blesser les cibles équipées d'une armure légère."
+    },
+    "#445": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Dégâts : 1D10+1, Qualité : Arme Bâtarde, Éventreur, Déséquilibré, Précis, Coût : 50 Th.",
+        "nom": "Grappin",
+        "novice": "Cette hache au long manche est une arme bâtarde utilisée pendant l'assaut. Elle peut être manipulée d'une seule main, avec un bouclier ou seule en escaladant des échelles jusqu'aux remparts où elle est empoignée à deux mains afin de dégager le haut de la muraille. D'anciens modèles datant de la Grande Guerre étaient utilisés dans les batailles maritimes et possèdent un crochet au dos de la tête de la hache permettant de sécuriser un accès jusqu'au bastingage du navire ennemi."
+    },
+    "#446": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Dégâts : 1D10, Qualité : Enflammé, Zone d'effet (rayon), Coût : 1 Th.",
+        "nom": "Grenade alchimique",
+        "novice": "La grenade alchimique est la petite soeur du pot à feu, un solide vase en céramique rempli de substances volatiles qui explosent lorsqu'on y met le feu avec une mèche, ou lorsque le pot est écrasé. La grenade, elle, a la taille du poing, lancée à la main ou à l'aide d'une fronde. Le lanceur vise une cible et peut aussi faire un jet pour toucher n'importe qui à portée au corpsà- corps de la créature visée. Si le jet d'Attaque est réussi, ceux qui sont touchés subissent la totalité des dégâts, plus les dégâts du feu comme effet continu. Si le jet d'Attaque échoue, tous ceux qui réussissent à se défendre ne subissent que la moitié des dégâts et aucun effet continu du feu. N'importe qui peut utiliser un tube incendiaire alchimique, mais les utilisateurs inexpérimentés (qui ne possèdent pas les Talents Alchimie, Expert en armes de siège ou Pyrotechnique) risquent de déclencher un échec catastrophique. Pour plus de détails, consultez les règles sur les Armes alchimiques, page 98."
+    },
+    "#447": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Dégâts : 1D6, Qualité : Dissimulé, Court, Coût : 5 Th.",
+        "nom": "Lame/dague de poche",
+        "novice": "Sa poignée étroite et sa lame d'acier aussi fine qu'une plume rendent la dague de poche facile à dissimuler sans sacrifier son tranchant. Elle peut être fixée au poignet ou à la cheville, ou même dans le cou à l'aide d'un peu de résine. Des ceintures adaptées ou des poches secrètes dans les vêtements sont également fonctionnelles. L'arme peut être introduite clandestinement sans alerter les gardes, être utilisée durant des missions secrètes ou remise à un prisonnier."
+    },
+    "#448": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Dégâts : 1D8, Qualité : Arme bâtarde (Précis), Long, Coût : 15 Th.",
+        "nom": "Lance",
+        "novice": "La valeur de la lance ne devrait pas être sous-estimée – les monstruosités les plus colossales des Sombres Seigneurs ont souvent été abattues par les lances de braves chevaliers. L'arme était également utilisée au sein de la cavalerie ambrienne pour prendre le contrôle des basses terres et repousser les barbares, les hordes de prédateurs et les abominations vers la forêt de Davokar. La lance est une pique rallongée possédant une poignée et un quillon adaptés à l'utilisation à cheval. Manipulée par un cavalier, la lance possède la Qualité Long, bien qu'étant tenue à une seule main. À pied, la lance est beaucoup trop longue pour être utilisée d’une seule main."
+    },
+    "#449": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Dégâts : 1D10, Qualité : Saigneur, Massif, Déséquilibré, Coût : 50 Th.",
+        "nom": "Marteau de guerre",
+        "novice": "Le nom de marteau de guerre est donné à une série d'armes à deux mains d'une longueur et d'un poids considérable. Dans la plupart des cas, ce sont réellement des marteaux, souvent dotés de longues pointes sur la surface de frappe de la tête de l'arme. La catégorie des marteaux de guerre comprend également le tube incendiaire alchimique portable, lorsqu'il est utilisé comme arme de corps-à-corps."
+    },
+    "#450": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Dégâts : 1D8 (1D10), Qualité : Arme bâtarde (Massif, Précis), Déséquilibré, Coût : 50 Th.",
+        "nom": "Marteau long",
+        "novice": "Le marteau long est une version bâtarde du marteau de guerre. Il peut être manipulé d'une seule main avec un bouclier mais, comme toutes les armes bâtardes, c'est à deux mains qu'il prendra tout son intérêt."
+    },
+    "#451": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Dégâts : 1D412, Qualité : Destructeur (si enterré) ou Enflammé, Zone d'effet (rayon), Coût : 100 Th.",
+        "nom": "Pot à feu",
+        "novice": "Le pot à feu est une jarre remplie de substance volatiles qui explosent lorsqu'on y met le feu. Si le pot à feu a été enterré près d'une structure, il possède la Qualité Destructeur ; s'il explose en plein air, il possède une Zone d'effet à la place. Notez que quiconque fait détoner un pot à feu doit utiliser une mèche afin de ne pas en subir lui-même les effets. N'importe qui peut utiliser un pot à feu, mais seuls ceux qui possèdent le Talent Expert en armes de siège ou Pyrotechnique peuvent le faire sans risquer d'échec catastrophique. Pour plus d'informations, consultez les règles sur les Armes alchimiques en page 98. Les pots à feu peuvent également servir de munition pour les catapultes, dans ce cas ils gagnent la qualité Zone d'effet (rayon) à l'impact."
+    },
+    "#452": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Qualité : Spécial, Coût : 2 Th.",
+        "nom": "Sarbacane",
+        "novice": "La sarbacane possède un usage unique : tirer une fléchette empoisonnée sur une cible. La fléchette n'inflige pas elle-même de dégâts, mais pénètre n'importe quelle protection si le résultat du jet est plus élevé que la valeur d'Armure de la cible, sur 1D8 (1D10 avec le Talent Tireur d'élite)."
+    },
+    "#453": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Dégâts : 1D12, Qualité : Destructeur, Déséquilibré, Massif, Coût : 1250 Th.",
+        "nom": "Trébuchet",
+        "novice": "Le roi des armes de sièges est le puissant trébuchet, un engin balistique dont la force destructrice peut raser les murs les plus solides, après un certain nombre de tirs. Le trébuchet ne peut être manoeuvré que par quelqu'un possédant le Talent Expert en armes de siège."
+    },
+    "#454": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Dégâts : 1D12, Qualité : Enflammé, Massif, Zone d'effet (cône), Coût : 250 Th. + 1 par charge",
+        "nom": "Tube incendiaire alchimique, fixe",
+        "novice": "Le Tube incendiaire alchimique fixe est composé d'un cylindre, en général une bûche creusée mais des versions en métal existent également. Il est bourré d'éléments alchimiques inflammables qui, une fois allumés, font de l'arme un très dangereux lance-flammes. Les flammes du tube incendiaire atteignent tous les ennemis se trouvant face à l'utilisateur. Un test est effectué pour chaque cible. Ceux qui sont touchés encaissent la totalité des dégâts, plus ceux du feu comme effet continu ; ceux qui arrivent à se défendre subissent la moitié des dégâts sans effet continu. Seules les personnes possédant le Talent Expert en armes de siège au niveau Adepte peuvent utiliser sans encombre un tube incendiaire alchimique fixe (voir Armes alchimiques, page 98)."
+    },
+    "#455": {
+        "type": "arme",
+        "livre": "gdj",
+        "tradition": "Dégâts : 1D12, Qualité : Enflammé, Zone d'effet (cône), Coût : 10 Th. + 1 par charge",
+        "nom": "Tube incendiaire alchimique, Portable",
+        "novice": "Les tubes incendiaires portables d'origine alchimique sont une forme allégée de l'arme de siège du même nom. La version portable est composée d'un tube solide, bourré d'éléments alchimiques inflammables qui, lorsqu'ils sont allumés, changent l'arme en lance-flammes. Les flammes sortant du tube peuvent atteindre tous les ennemis face au porteur de l'arme. Un test est effectué pour chaque cible. Ceux qui sont touchés encaissent la totalité des dégâts, plus ceux du feu comme effet continu ; ceux qui arrivent à se défendre subissent la moitié des dégâts sans effet continu. N'importe qui peut utiliser un tube incendiaire alchimique, mais les utilisateurs qui ne possèdent pas le Talent Expert en armes de siège au niveau Adepte risquent de déclencher un échec catastrophique. Pour plus de détails, consultez les règles sur les Armes alchimiques, page 98. Un tube incendiaire portable utilisé au corps-àcorps compte comme un Marteau de combat."
+    },
+    "#456": {
+        "type": "armure",
+        "livre": "gdj",
+        "tradition": "Protection: 1D8+1, Type : Lourde (-4), Qualité : Renforcé, Coût : 50 Th.",
+        "nom": "Armure de combat",
+        "novice": "L'armure de combat est une armure de plates complète renforcée par des plaques de métal. Elle n'est certes, pas aussi flexible qu'une armure de plates complète mais elle est encore plus résistante aux lacérations et aux coups."
+    },
+    "#457": {
+        "type": "armure",
+        "livre": "gdj",
+        "tradition": "Protection: 1D8+1, Type : Lourde (-2), Qualité : Renforcé, Pratique, Coût : 250 Th.",
+        "nom": "Armure de combat des Pansars",
+        "novice": "Les maîtres forgerons travaillant au service des Pansars ont découvert une méthode pour fabriquer des armures de plates complètes renforcées par des plaques d'acier mais qui restent aussi flexibles que les plates complètes standard."
+    },
+    "#458": {
+        "type": "armure",
+        "livre": "gdj",
+        "tradition": "Protection: 1D8, Type : Lourde (-4), Qualité : Punitif, Coût : 100 Th.",
+        "nom": "Armure de la Rage Assoupie",
+        "novice": "La cotte de maille renforcée portée par les guerriers de la Garde de la Rage Assoupie possède des énergies mystiques vengeresses incrustées dans ses anneaux. Les incantations punitives, créées, selon la légende, par la Huldra Borovin, il y a plus de quatre siècles, donnent à l'acier sa nuance rouge sang caractéristique – comme si les guerriers revenaient à peine d'un combat ardu, couverts du sang de leurs ennemis."
+    },
+    "#459": {
+        "type": "armure",
+        "livre": "gdj",
+        "tradition": "Protection: 1D8 (+1D4), Type : Lourde (-4), Qualité : Sanctifié, Coût : 100 Th.",
+        "nom": "Armure de plates complète de Templier",
+        "novice": "L'armure des Templiers est une armure de plates complète forgée, sanctifiée et portée par les membres du cercle supérieur de l'Ordre. Ces guerriers d'élite héritent de leur armure à la mort d'un de leurs prédécesseurs tombé au combat ou, plus rarement, décédé dignement dans sa chambre à Fort-le-Temple. L'armure offre à son porteur la protection de Prios, grâce à ses bénédictions incrustées dans l'acier et le sang sanctifié des ennemis et des martyrs."
+    },
+    "#460": {
+        "type": "armure",
+        "livre": "gdj",
+        "tradition": "Protection: 1D4, Type : Légère (0), Qualité : Dissimulé, Pratique, Coût : 50 Th.",
+        "nom": "Armure dissimulée",
+        "novice": "Les Conjureurs ont de bonnes raisons de vouloir rester cachés et le meilleur moyen d'y parvenir consiste bien souvent à avoir l'air ordinaire. C'est pour cette raison qu'ils tissent souvent dans leurs vêtements des fils renforcés mystiquement, créant ainsi des tuniques et des capes semblant ordinaires mais offrant une protection. D'autres groupes, tels que les espions, souhaiteraient avoir accès à ce type de vêtements, afin d'éviter d'attirer l'attention tout en demeurant prêt pour le combat."
+    },
+    "#461": {
+        "type": "armure",
+        "livre": "gdj",
+        "tradition": "Protection: 1D6+1, Type : Moyenne (-3), Qualité : Renforcé, Coût : 25 Th.",
+        "nom": "Armure feuilletée",
+        "novice": "L'armure feuilletée est un ancien type d'armure, de nos jours souvent remplacée par l'armure d'écailles moins onéreuse ou la cotte de maille plus flexible. Toutefois, il est encore possible de trouver d'anciennes armures feuilletées et certains forgerons les préfèrent mêmes aux autres types d'armures à cause de leur capacité de protection supérieure. En outre, quelques nobles maisons ambriennes continuent de porter ce type d'armure pour des raisons sentimentales... pardon, traditionnelles. L'armure ne peut protéger que le torse, les épaules et les hanches – les bras et les jambes sont généralement équipés de cuir clouté afin de conserver une certaine mobilité."
+    },
+    "#462": {
+        "type": "armure",
+        "livre": "gdj",
+        "tradition": "Protection: 1D6+1, Type : Moyenne (-1), Qualité : Renforcé, Pratique, Coût : 125 Th.",
+        "nom": "Cotte de mailles double",
+        "novice": "Le tissage double de cette cotte de maille ne peut être fabriqué que par les forgerons les plus talentueux ; grâce à des anneaux plus fins reliés deux par deux, ils conçoivent une armure aussi flexible qu'une cotte de maille mais encore plus résistante."
+    },
+    "#463": {
+        "type": "armure",
+        "livre": "gdj",
+        "tradition": "Protection: 1D4+1, Type : Légère (0), Qualité : Renforcé, Pratique, Coût : 50 Th.",
+        "nom": "Cuirasse de scalde",
+        "novice": "Les Scaldes trolls sont souvent des guerriers poètes et nombre d'entre eux portent une armure flexible d'étoffe tissée – ou de lanières de cuir, renforcée par des harmonies protectrices. La cuirasse de scalde résiste sans entraver les mouvements de son porteur, ce qui la rend populaire au sein de bien d'autres groupes. Par exemple, les duellistes fortunés d'Yndaros teignent souvent leur cuirasse de couleurs personnelles, afin d'être reconnaissables de loin."
+    },
+    "#464": {
+        "type": "armure",
+        "livre": "gdj",
+        "tradition": "Protection: 1D4+1, Type : Légère (-2), Qualité : Renforcé, Coût : 10 Th.",
+        "nom": "Cuirasse clouté",
+        "novice": "Aucune description."
     }
 }
