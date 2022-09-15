@@ -762,20 +762,38 @@
     "#138": {
         "type": "talent",
         "livre": "cdx",
-        "description": "Il n'est pas rare que les chasseurs de sorcières et les manteaux noires combattent avec une épée dans une main et un fouet dans l'autre. C'est un combinaison efficace qui avec de la pratique, peut être utilisé pour vaincre même les combattants en armures lourdes.",
-        "novice": "<span class='text-success'>Novice</span> : Actif. Une attaque avec un fouet dans une main et une arme à une main dans l'autre. Si l'attaque au fouet touche, le personnage gagne une attaque gratuite avec l'autre arme, que l'attaque au fouet fasse ou non des dégâts.",
-        "adepte": "<span class='text-info'>Adepte</span> : Actif. Comme Novice, mais le fouet gène les mouvements de la cible; l'attaque gratuite touche automatiquement.",
-        "maitre": "<span class='text-danger'>Maître</span> : Actif. Comme Adepte, mais le fouet tire la cible vers le personnage; la cible de l'attaque subit +1D6 dégâts.",
-        "nom": "Combattant au fouet"
+        "description": "Il n'est pas rare que les chasseurs de sorcières et les Manteaux noirs se battent avec une épée dans une main et un fouet dans l'autre. C'est une association aussi efficace que mortelle. Entre les mains d'une personne ayant eu l'entraînement adéquat, il est même possible de faire mordre la poussière à un adversaire en armure.",
+        "novice": "<span class='text-success'>Novice</span> : Active. Les attaques sont effectuées avec un fouet dans une main et une arme à une main dans l'autre. Si l'attaque du fouet touche, le personnage gagne une Attaque gratuite avec l'arme à une main, que le fouet inflige ou non des dégâts.",
+        "adepte": "<span class='text-info'>Adepte</span> : Active. Similaire à Novice, mais le fouet entrave les mouvements de l'ennemi permettant à l'Attaque gratuite de toucher automatiquement.",
+        "maitre": "<span class='text-danger'>Maître</span> : Active. Similaire à Adepte, mais le maître du fouet attire à lui son ennemi impliquant que l'Attaque gratuite inflige également +1D6 dégâts.",
+        "nom": "Maîtrise du fouet"
     },
     "#359": {
         "type": "talent",
         "livre": "cdx",
-        "description": "placeholder",
-        "novice": "<span class='text-success'>Novice</span> : placeholder",
-        "adepte": "<span class='text-info'>Adepte</span> : placeholder",
-        "maitre": "<span class='text-danger'>Maître</span> : placeholder",
-        "nom": "placeholder"
+        "description": "La plupart des personnes se battant avec une arme à deux mains comptent sur son poids considérable, mais certains s'entraînent pour manier leur lourde épée à deux mains avec finesse. Ceux qui y parviennent sont capables d'utiliser à leur avantage la longueur de leur arme contre tous types d'adversaires.",
+        "novice": "<span class='text-success'>Novice</span> : Passive. Entre les mains du novice, l'épée à deux mains gagne la Qualité Longue et peut donc être utilisée avec le Talent Maîtrise des armes d'hast.",
+        "adepte": "<span class='text-info'>Adepte</span> : Réactive. Une fois par tour, après avoir réussi un test de Défense, effectuez un test de [Force ← Force] pour pousser l'ennemi hors du combat avec l'épée. L'ennemi subit 1D6 dégâts, est repoussé de quelques mètres et doit une nouvelle fois subir la Qualité Longue.",
+        "maitre": "<span class='text-danger'>Maître</span> : Active. Les coups fluides du maître comptent comme un enchainement d'attaques. Si un ennemi est touché, une attaque est effectuée contre le suivant, et ainsi de suite jusqu'à ce qu'une attaque échoue.",
+        "nom": "Finesse à deux mains"
+    },
+    "#468": {
+        "type": "talent",
+        "livre": "adv",
+        "description": "Les bénédictions représentent la tradition mystique enseignée et pratiquée par tous les prêtres tendant vers le mystique du lointain Royaume de l'Ordre. Par essence, elle combine des pouvoirs de la Sorcellerie et de la Théurgie avec une variété de bénédictions uniques au clergé des jeunes dieux. Notez que la tradition en elle-même sera décrite en détail dans de futurs livres.",
+        "novice": "<span class='text-success'>Novice</span> : Spéciale. Le prêtre ne souffre plus de Corruption permanente en apprenant des bénédictions de niveau Novice, ni en apprenant les rituels de la tradition. Malgré cela, le personnage n'a pas de protection contre la Corruption temporaire qui survient en accomplissant ces mêmes bénédictions et rituels.",
+        "adepte": "<span class='text-info'>Adepte</span> : Spéciale. Le prêtre ne souffre plus de Corruption permanente en apprenant des bénédictions de niveau Adepte. L'Adepte a également appris à se servir des pouvoirs sacrés et des rituels selon la volonté des dieux, et souffre seulement d'un (1) Corruption temporaire en les accomplissant.",
+        "maitre": "<span class='text-danger'>Maître</span> : Spéciale. La profonde connaissance du prêtre du divin augmente l'effet de tous les soins et des pouvoirs sacrés de 1D4, y compris les dégâts contre les Abominations et les Morts-Vivants. Le prêtre ne souffre pas de Corruption en apprenant des bénédictions de niveau Maître.",
+        "nom": "Bénédictions"
+    },
+    "#465": {
+        "type": "talent",
+        "livre": "adv",
+        "description": "Le personnage joueur est entraîné à utiliser son armure au maximum de ses possibilités. Ce talent peut uniquement être utilisé avec au moins une armure moyenne mais s'avère très efficace contre des adversaires en armure et lorsque son possesseur se déplace au milieu d'une bataille.",
+        "novice": "<span class='text-success'>Novice</span> : Mouvement. Portant au moins une armure moyenne, le personnage dispose de +1D6 en Armure contre tous les coups ennemis pendant son mouvement.",
+        "adepte": "<span class='text-info'>Adepte</span> : Active. Faites un test d'attaque pour saisir et maîtriser un ennemi jusqu'à l'échec d'un test de [Force ← Force]. Une attaque avec une arme Courte peut être effectuée à partir du deuxième tour, l'ennemi maîtrisé peut seulement se défendre et son Armure est ignorée s'il est touché.",
+        "maitre": "<span class='text-danger'>Maître</span> : Active. Faites un test d'attaque pour saisir et, avec un test concomitant de [Force ← Force], jeter au sol un ennemi, votre personnage lui tombe ensuite dessus (1D6 de dégâts d'écrasement, ignorant l'Armure). Vous pouvez alors le maîtriser et attaquer comme au niveau Adepte, l'ennemi n'étant pas capable de se défendre le premier tour suivant sa chute.",
+        "nom": "Lutte en Armure"
     },
     "#47": {
         "type": "pouvoir mystique",
@@ -1316,6 +1334,58 @@
         "maitre": "<span class='text-danger'>Maître</span> Active. Le Mystique décide d'invoquer une bête de Résistance Éprouvante, 1D4 Bêtes de Résistance ordinaire ou 1D6 Bêtes de Résistance faible à ses côtés.",
         "nom": "Traque sauvage"
     },
+    "#469": {
+        "tradition": "Benediction",
+        "materiel": "Matériel : Un symbole sacré",
+        "type": "pouvoir mystique",
+        "livre": "adv",
+        "description": "Avec des gestes amples et des psalmodies, le mystique peut demander à la terre elle-même d'attaquer ceux qui menacent un serviteur des dieux. Des rochers sortent du sol et de l'herbe pour être jetés avec puissance sur la cible impie.",
+        "novice": "<span class='text-success'>Novice</span> Active. Le mystique jette un énorme rocher aux bords tranchants, issu de la terre, sur une cible. Avec un test de [Volonté ← Agilité], l'attaque touche et cause 1D8 dégâts.",
+        "adepte": "<span class='text-info'>Adepte</span> Active.  Comme pour Novice mais le mystique tire 1D4 rochers de la terre qui peuvent être lancés sur une seule cible ou sur plusieurs. Chaque rocher compte comme une attaque séparée.",
+        "maitre": "<span class='text-danger'>Maître</span> Active. Comme pour Adepte mais à la place de rochers, une nuée de roches plus petites est jetée sur la/les victime(s). Les projectiles sont petits et assez tranchants pour toucher leur cible à travers de petits trous, plis et fissures, ignorant par là même l'Armure.",
+        "nom": "Frappe de la Terre"
+    },
+    "#470": {
+        "tradition": "Benediction",
+        "materiel": "Matériel : Une poignée de terre",
+        "type": "pouvoir mystique",
+        "livre": "adv",
+        "description": "Pierre, sol, plantes et minerais peuvent immobiliser ceux qui menacent un serviteur des dieux. Le mystique peut laisser l'impie s'enfoncer dans le sol, assez profondément pour prévenir tout mouvement et sûrement assez fort pour le blesser.",
+        "novice": "<span class='text-success'>Novice</span> Gratuite. Une fois par tour, avec un test de Volonté réussi, le mystique peut laisser une cible s'enfoncer dans le sol et s'y trouver captive. La créature emprisonnée est incapable de bouger mais peut utiliser des armes à longue portée et des pouvoirs mystiques. La créature reste emprisonnée jusqu'à ce que le mystique perde sa concentration ou échoue à un test de [Volonté ← Force].",
+        "adepte": "<span class='text-info'>Adepte</span> Gratuite. Une fois par tour le mystique peut établir une chaîne d'étreinte de la Terre. S'il réussit à emprisonner une cible avec un test de Volonté, il peut tenter d'en emprisonner une autre et ainsi de suite jusqu'à l'échec. Les cibles affectées restent emprisonnées jusqu'à ce que le mystique perde sa concentration ou échoue à un test de [Volonté ← Force].",
+        "maitre": "<span class='text-danger'>Maître</span> Gratuite. Comme pour Adepte mais le sol étreint si fort les jambes de la victime qu'elle subit également 1D6 dégâts par tour (ignore l'Armure).",
+        "nom": "Étreinte de la Terre"
+    },
+    "#478": {
+        "tradition": "Benediction",
+        "type": "pouvoir mystique",
+        "livre": "adv",
+        "description": "La beauté de la nature est infinie : un brin d'herbe qui se balance dans le vent, une fourmi qui se faufile sur le sol ou les nuages qui dérivent dans le ciel en sont la preuve, et les agents de l'Hôtesse peuvent s'en servir à la fois pour piéger ses ennemis et pour soulager les adeptes dans le besoin. Le pouvoir n'a aucun effet sur les abominations.",
+        "novice": "<span class='text-success'>Novice</span> Active. Avec un Test réussi [Volonté←Volonté], le Mystique peut envoûter même la plus furieuse des créatures, qui devient immédiatement passive, s'affaisse au sol, et guérit 1 point d'Endurance. La créature peut se défendre, mais toutes les attaques contre elle sont faites avec l'Avantage. La créature demeure passive et ne peut pas effectuer de mouvements, d'actions actives et réactives liées à un Talent, ou faire quoi que ce soit d'autre jusqu'à ce qu'elle subisse des dégâts, ou que le Mystique perde sa concentration ou échoue au Test [Volonté←Volonté].",
+        "adepte": "<span class='text-info'>Adepte</span> Active. Similaire au niveau Novice, mais la cible guérit 1d4 Endurance et le pouvoir diminue également d'un niveau la puissance de tout poison affectant la victim.",
+        "maitre": "<span class='text-danger'>Maître</span> Active. Similaire au niveau Adepte, mais la cible guérit 1d6 Endurance et reste passive pendant 1d6 tours ou jusqu'à ce qu'elle subisse des dégâts. Toutes les attaques sur la créature touchent automatiquement.",
+        "nom": "Sérénité"
+    },
+    "#480": {
+        "tradition": "Symbolisme",
+        "type": "pouvoir mystique",
+        "livre": "adv",
+        "description": "Les motifs cryptiques provoquent de fortes douleurs d'estomac qui réduisent la mobilité et la concentration de la victime, et peuvent même lui infliger des dommages physiques.",
+        "novice": "<span class='text-success'>Novice</span> Active. Le symbole déclenche une série de douleurs lancinantes; la victime la plus proche du symbole sou!re en premier [Volonté←Volonté]; si la victime est affectée, un nouveau test est e!ectué pour l'ennemi suivant, et ainsi de suite jusqu'à ce que quelqu'un puisse résister aux énergies. L'effet dure un tour et empêche les victimes d'effectuer toute action active.",
+        "adepte": "<span class='text-info'>Adepte</span> Active. . Comme Novice, mais la douleur est si vive que les victimes ont deux chances d'échouer à toutes les actions en réaction (comme la Défense).",
+        "maitre": "<span class='text-danger'>Maître</span> Active. Comme pour Adepte, mais la douleur est maintenant si forte qu'elle a des conséquences physiques, infligeant 1D6 points de dégâts à l'Endurance (ignore l'Armure).",
+        "nom": "Marque du tourment"
+    },
+    "#481": {
+        "tradition": "Symbolisme",
+        "type": "pouvoir mystique",
+        "livre": "adv",
+        "description": "Toute personne qui voit le motif exaltant du symbole ressent une envie brûlante de se battre qui, à moins qu'elle ne puisse résister à l'effet, la plonge dans une rage de berserker impitoyable, et peut-être même suicidaire.",
+        "novice": "<span class='text-success'>Novice</span> Active. Le symbole remplit une chaîne de créatures d'une envie incontrôlable de se battre; la victime la plus proche du symbole est a!ectée en premier [Volonté←Volonté]; si la victime est a!ectée, un nouveau test est e!ectué pour l'ennemi suivant, et ainsi de suite jusqu'à ce que quelqu'un puisse résister aux énergies. L'e!et dure un tour et fait que la victime attaque immédiatement l'individu le plus proche, ami ou ennemi.",
+        "adepte": "<span class='text-info'>Adepte</span> Active. Comme Novice, mais l'effet dure jusqu'à ce que le mystique échoue à un test de Volonté ou perde sa concentration [Volonté-Dégâts].",
+        "maitre": "<span class='text-danger'>Maître</span> Active. Comme Adepte, mais les personnes affectées sont tellement consumées par la soif de sang qu'elles ne parviennent pas à se défendre contre les attaques; toutes les attaques contre les personnes affectées touchent automatiquement.",
+        "nom": "Symbole de bataille"
+    },
     "#72": {
         "tradition": "Conjuration",
         "type": "rituel",
@@ -1778,10 +1848,66 @@
         "novice": "Le niveau supérieur du Rituel Clairvoyance permet au Mentaliste d'ouvrir un tunnel mystique jusqu'au lieu observé. Par le biais de ce tunnel, tous les Pouvoirs mystiques qui ne requièrent pas de toucher leur cible peuvent être utilisés. En outre, les alliés du Mentaliste peuvent utiliser le tunnel afin d'utiliser des Pouvoirs mystiques sur le lieu observé. Le tunnel fonctionnant dans les deux sens, les gens qui se trouvent à l'autre extrémité sont par conséquent susceptibles de contre-attaquer. Les armes à distance ne peuvent pas tirer de projectiles à travers le tunnel, seuls les Pouvoirs et les Traits fonctionnant comme des Pouvoirs peuvent le traverser. Le tunnel mystique reste actif pendant toute la durée d'une scène, mais il peut être refermé prématurément grâce au pouvoir Anathème.",
         "nom": "Tunnel mystique"
     },
+    "#471": {
+        "type": "rituel",
+        "livre": "adv",
+        "tradition": "Sorcellerie",
+        "novice": "Dans les derniers jours de Symbaroum, il n'était pas rare d'invoquer de puissants démons et d'en perdre le contrôle. Ces démons risquaient de détruire des régions entières avant d'être bannis ou de retourner d'eux-mêmes dans les sombres abysses, forçant ainsi les humains à développer des contre-mesures extrêmes. L'une de ces mesures est le rituel de Capture du Feu. C'est un suicide rituel qui permet à un individu de sacrifier sa vie pour en sauver des centaines ou même des milliers d'autres. Les traits, talents et nouvelles valeurs d'attributs ci-dessous remplacent ou sont ajoutés à celles du martyr, mais il ne vivra que pour une scène après l'exécution du rituel. Il sera ensuite la victime d'un long et terrible trépas lorsque la protection contre ses flammes diminuera et que son corps et son âme brûleront lentement dans une intense agonie jusqu'à devenir cendres.<i><br/>Traits Apparition corporelle (III), Arme naturelle (II), Forme éthérée (III), Souffle de feu (III) <br/>Force 18 (−8), Volonté 18 (−8) <br/>Talents Berserker (maître), Épreuve de force (maître), Poigne de fer (maître) <br/>Armes Griffes embrasées 11 (Ardent), Souffle de feu (voir page 61) <br/>Armure Aucune (ne subit que la moitié des dégâts infligés par les pouvoirs mystiques et les armes magiques) <br/>Endurance 23 Résist. à la douleur 9</i>",
+        "nom": "Capture du Feu"
+    },
+    "#472": {
+        "type": "rituel",
+        "livre": "adv",
+        "tradition": "Conjuration",
+        "novice": "Ce rituel est effectué sur un nouveau-né elfe ou humain qui subit alors de profonds changements physiques et mentaux. Physiquement, il obtient le trait Métamorphe et le mystique peut bloquer l'évolution de son apparence pour longtemps, l'effet commence à se dissiper après 10+1d4 années. Le rituel affaiblit également la vitalité de l'enfant. Pour les elfes du printemps, cela signifie qu'ils n'atteindront jamais le prochain stade de leur cycle de vie elfique, quant aux humains, ils verront leur espérance de vie réduite à 30+1d10 années. Pour les changements mentaux, un lien mystique est créé entre le siraph et le ritualiste qui pourra l'utiliser plus tard pour prendre le contrôle de sa création. La victime de ce rituel n'est pas consciente de ce lien, même lorsqu'il est activé. Techniquement, la Création de siraph fonctionne comme le rituel de Possession, mais il n'est pas nécessaire d'effectuer un test [Volonté ← Volonté]. Une autre différence est que la victime demeure indéfiniment sous le contrôle du mystique, tant que ce dernier laisse suffisamment de périodes de repos au siraph. Il n'y a aucune protection contre un rituel aussi brutal que la Création de siraph. Chaque fois qu'il effectue ce rituel, le mystique souffre d'un (1) point de Corruption permanente, et chaque fois que le mystique prend le contrôle d'une de ses créations, il souffre de 1d4 points de Corruption temporaire, peu importe sa tradition ou ses protections.",
+        "nom": "Création de siraph,"
+    },
+    "#473": {
+        "type": "rituel",
+        "livre": "adv",
+        "tradition": "Sorcellerie",
+        "novice": "Le mystique invoque les sombres esprits du châtiment et les lie à un objet, punissant quiconque tente de le voler ou même de le toucher. En procédant, il détermine les conditions de déclenchement de l'effet, d'ordinaire lorsque l'objet est bougé ou endommagé. Le mystique n'est pas touché par le châtiment, tout comme les personnes présentes lorsque le rituel a été effectué. Si l'effet se déclenche, tous ceux à portée d'une Action de Mouvement souffrent de 1d10 points de Corruption temporaire. Seuls le mystique qui a effectué le rituel et ceux immunisés à ses pouvoirs peuvent l'annuler en utilisant le rituel de Rupture du Lien.",
+        "nom": "La condamnation du Corbeau,"
+    },
+    "#474": {
+        "type": "rituel",
+        "livre": "adv",
+        "tradition": "Chant des trolls",
+        "novice": "Dans les temps anciens, les trolls utilisaient cette mélodie lente et plaintive comme convocation, pour rassembler les leurs pour affronter un danger ou les convier à des festivals d'importance. Les autres trolls se joignaient souvent au chant alors qu'ils étaient en route vers le lieu où il avait commencé, ainsi le message pouvait atteindre un plus grand nombre d'individus. Le mystique chantant doit décider quelle chanson utiliser. Il y a une chanson pour chaque famille de créatures : elfes, créatures ailées, morts-vivants, humains, reptiles, araignées, abominations, trolls et prédateurs (voir tableau 29 page 215 du livre de base). Toutes les créatures de la famille sélectionnée à une journée de marche du chanteur sont appelées à venir le rejoindre. Cependant, ceux qui entendent la musique sont parfaitement libres de l'ignorer s'ils ont des affaires plus urgentes à régler.",
+        "nom": "Convocation mélodique,"
+    },
+    "#475": {
+        "type": "rituel",
+        "livre": "adv",
+        "tradition": "Conjuration",
+        "novice": "Le Mystique écorche une personne décédée pour se confectionner une seconde peau, lambeau par lambeau. Ceci fait, le Mystique ressemble trait pour trait à la personne décédée, mais conserve néanmoins ses yeux et sa voix propres, ce qui limite l'usage qu'il peut faire de sa nouvelle apparence. Pour tromper un interlocuteur qui connaissait la personne décédée, un test [Discrétion←Vigilance] est nécessaire. Les effets durent 24 heures, après quoi la peau morte se détache.",
+        "nom": "Linceul de sang,"
+    },
+    "#466": {
+        "type": "rituel",
+        "livre": "adv",
+        "tradition": "Conjuration",
+        "novice": "Le Mystique invoque des rythmes lancinants qui séduisent les personnes présentes dans la zone ; la musique peut être entendue de loin, mais seuls ceux qui se trouvent à moins d'une centaine de mètres sont vraiment affectés. Toutes les personnes neutres vis-à-vis du Mystique doivent réussir un test de Volonté ou succomber à la danse. Le Mystique lui-même est immunisé mais ses alliés ne le sont pas. Les alliés du Mystique comme ses ennemis directs ont une chance supplémentaire de réussir le test de Volonté. Le Mystique ne contrôle pas réellement les créatures prises dans la Danse de la Mort, mais elles ont fortement tendance à obéir à ses ordres : tant que les ordres en question impliquent de se montrer violent envers quelqu'un n'étant pas considéré comme un ami par les Danseurs de la Mort, ils attaqueront. Les Danseurs de la Mort effectuent un test de Volonté chaque fois qu'ils tuent une autre créature et chaque fois qu'ils subissent des dégâts. La Danse de la Mort est liée au Mystique et se déplace avec lui. La danse dure aussi longtemps que le souhaite le Mystique, mais les danseurs perdent 1D4 Endurance par heure de danse. Le Rituel peut être stoppé grâce à Rupture du Lien. Les Danseurs de la Mort peuvent être libérés individuellement grâce au Rituel Exorcisme, mais le Pouvoir mystique Anathème serait plus efficace.",
+        "nom": "Danse de la Mort"
+    },
+    "#467": {
+        "type": "rituel",
+        "livre": "adv",
+        "tradition": "Conjuration",
+        "novice": "On raconte que ce rituel fut à l'origine offert à des Mystiques ayant fait un pacte avec des démons, qui ne pouvaient ou ne voulaient pas eux-mêmes voyager entre les mondes. Et cela semble possible sachant combien il est dangereux pour des humains de visiter l'Outremonde, même s'ils savent à quoi s'attendre… Comme d'habitude, il faut une heure pour exécuter le rituel mais pour y parvenir, le Mystique doit d'abord s'être rendu à sa destination ou posséder un objet en provenant. Dans ce cas, il pourrait s'agir d'une urne de poussière ou d'un don plus personnel offert par un démon allié. Dans le premier cas, le Mystique peut par exemple utiliser le pouvoir mystique Téléportation pour identifier un site d'entrée sûr (pour le moment). Le rituel doit être répété lorsque le Mystique (et les personnes jusqu'à [Volonté/2] pouvant l'accompagner dans ce voyage) veut s'en retourner. En d'autres termes, les voyageurs sont piégés dans l'Outremonde durant au moins une heure, ce qui explique pourquoi aussi peu de marcheurs dimensionnels en reviennent. Là-bas, beaucoup de choses peuvent survenir pendant la période nécessaire au rituel. Le Meneur de Jeu décide de ce que les personnages joueurs devront affronter ou fait un lancer sur le Tableau 5 toutes les demi-heures.",
+        "nom": "Marche dimensionnelle"
+    },
+    "#479": {
+        "type": "rituel",
+        "livre": "adv",
+        "tradition": "Benediction",
+        "novice": "En réussissant un Test de Volonté, le Mystique peut effectuer un rituel pour accéder aux motivations les plus profondes d'un autre individu et obtenir un aperçu clair de ses désirs les plus intimes. Ce rituel nécessite un lien mystique avec la cible : une touffe de cheveux, quelques gouttes de sang ou un bien personnel précieux. Si le Test réussit, le Meneur de jeu doit décrire fidèlement, mais en termes abstraits, ce que la personne veut plus que tout au monde. Par exemple : l'amour, le pouvoir, le plaisir, la justice, etc.",
+        "nom": "Désir du cœur"
+    },
     "#280": {
         "type": "trait/atout",
         "livre": "ldb",
-        "novice": "Le personnage sait survivre avec très peu et a l'habitude de trouver de quoi se nourrir et s'abriter dans un environnement hostile. Grâce à la réussite d'un test de Vigilance, le personnage peut trouver suffisamment de nourriture et d'eau pour survivre seul lorsqu'il évolue en pleine nature ou dans les ruines de Davokar. Si le personnage fait partie d'un petit groupe (jusqu'à cinq individus), il peut trouver de la nourriture et de l'eau pour l'ensemble du groupe, mais cela lui prendra beaucoup plus longtemps. Le groupe ne peut pas se déplacer pendant ce temps.",
+        "novice": "Le personnage sait survivre avec très peu et a l'habitude de trouver de quoi se nourrir et s'abriter dans un environnement hostile. Grâce à la réussite d'un test de Vigilance, le personnage peut trouver suffisamment de nourriture et d'eau pour survivre seul lorsqu'il évolue en pleine nature ou dans les ruines de Davokar. Si le personnage fait partie d'un petit groupe (jusqu'à cinq individus), il peut trouver de la nourriture et de l'eau pour l'ensemble du groupe, mais cela lui prendra beaucoup plus longtemps. Le groupe ne peut pas se déplacer pendant ce temps. La personne peut lire les signes de la nature, sait quels sont les endroits à éviter et est habituée à trouver de la nourriture, de l'eau et un abri dans des environnements hostiles. Lorsqu'elle se déplace à travers des ruines ou des zones sauvages, cette personne doit réussir un Test de Vigilance pour recueillir 1d6 rations de nourriture et d'eau par jour, ou 1d10 rations si c'est son seul objectif (pas durant un trajet). Art de la survie peut être acquis plusieurs fois, auquel cas il peut être utilisé dans des environnements de plus en plus hostiles. Par exemple, le niveau I correspond à des endroits tels que le Davokar clair et la périphérie des montagnes ; le niveau II au Davokar sauvage et aux vallées très encaissées des montagnes ; le niveau III au Davokar sombre et au monde souterrain (à l'appréciation du Meneur de jeu). Notez qu'il faut avoir passé une période prolongée sur un terrain spécifique (par exemple, le Davokar sombre) pour bénéficier des niveaux supérieurs.",
         "nom": "Art de la survie"
     },
     "#281": {
@@ -2434,6 +2560,20 @@
         "novice": "(M) Cette charge alchimique nécessite le niveau Maître du Talent Pyrotechnique. Une fois lancée, elle explose comme un coup de tonnerre aveuglant.",
         "nom": "Sphère de tempête"
     },
+    "#476": {
+        "type": "elixir",
+        "livre": "adv",
+        "tradition": "Coût : 4 Th.",
+        "novice": "(A) La Poussière de fée est une poudre scintillante qui a le pouvoir de couvrir les traces. Une dose suffit à empêcher quiconque de remonter une piste par des moyens conventionnels. Les Rituels ne sont toutefois pas affectés. La Poussière de fée est un élixir qui peut être fabriqué au niveau Adepte et qui coûte 4 thalers auprès d'un alchimiste.",
+        "nom": "Poussière de fée"
+    },
+    "#477": {
+        "type": "elixir",
+        "livre": "adv",
+        "tradition": "Coût : ? Th.",
+        "novice": "(A) Il faut un Adepte alchimiste pour créer un puissant sérum de vérité. Ceux qui (volontairement ou non) inhalent cette poudre ou en boivent une solution perdent leur lucidité, ce qui a pour conséquence –5 en Volonté pour la résistance aux interrogatoires lorsque l'autre personne utilise Persuasion ou le Rituel Interrogatoire télépathique. Avec un test réussi de Force, le modificateur passe à -3. Si le sérum a été concocté par un véritableMaître alchimiste, le modificateur passe à -8 ou à -5 avec un test réussi de Force. L'effet persiste une scène entière. ",
+        "nom": "Sérum de vérité"
+    },
     "#374": {
         "type": "arme",
         "livre": "ldb",
@@ -2727,7 +2867,7 @@
         "livre": "gdj",
         "tradition": "Dégâts : 1D8, Qualité : Arme bâtarde (Précis), Long, Coût : 15 Th.",
         "nom": "Lance",
-        "novice": "La valeur de la lance ne devrait pas être sous-estimée – les monstruosités les plus colossales des Sombres Seigneurs ont souvent été abattues par les lances de braves chevaliers. L'arme était également utilisée au sein de la cavalerie ambrienne pour prendre le contrôle des basses terres et repousser les barbares, les hordes de prédateurs et les abominations vers la forêt de Davokar. La lance est une pique rallongée possédant une poignée et un quillon adaptés à l'utilisation à cheval. Manipulée par un cavalier, la lance possède la Qualité Long, bien qu'étant tenue à une seule main. À pied, la lance est beaucoup trop longue pour être utilisée d’une seule main."
+        "novice": "La valeur de la lance ne devrait pas être sous-estimée – les monstruosités les plus colossales des Sombres Seigneurs ont souvent été abattues par les lances de braves chevaliers. L'arme était également utilisée au sein de la cavalerie ambrienne pour prendre le contrôle des basses terres et repousser les barbares, les hordes de prédateurs et les abominations vers la forêt de Davokar. La lance est une pique rallongée possédant une poignée et un quillon adaptés à l'utilisation à cheval. Manipulée par un cavalier, la lance possède la Qualité Long, bien qu'étant tenue à une seule main. À pied, la lance est beaucoup trop longue pour être utilisée d'une seule main."
     },
     "#449": {
         "type": "arme",

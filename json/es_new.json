@@ -764,20 +764,38 @@
 		 "type": "talent",
 		 "livre": "cdx",
 		 "description": "It is not uncommon for witch hunters and black cloaks to fight with a sword in one hand and a whip in the other. This is an effective and deadly combination; in the hands of someone with the proper training, it can even bring down wellarmored opponents.",
-		 "novice": "<span class='text-success'>Novice</span> : Active. Attack with a whip in one hand and a one-handed weapon in the other. If the whip attack hits, the character gets a Free Attack with the one-handed weapon, regardless of whether or not the whip deals damage.",
-		 "adepte": "<span class='text-info'>Adepte</span> : Active. As Novice, but the whip hinders the enemy's movements so that the Free Attack hits automatically.",
-		 "maitre": "<span class='text-danger'>Maître</span> : Active. As Adept, but the whip fighter pulls the enemy toward himself/herself so that the Free Attack also deals +1D6 damage.",
+		 "novice": "<span class='text-success'>Novice</span> Active. Attack with a whip in one hand and a one-handed weapon in the other. If the whip attack hits, the character gets a Free Attack with the one-handed weapon, regardless of whether or not the whip deals damage.",
+		 "adepte": "<span class='text-info'>Adepte</span> Active. As Novice, but the whip hinders the enemy's movements so that the Free Attack hits automatically.",
+		 "maitre": "<span class='text-danger'>Maître</span> Active. As Adept, but the whip fighter pulls the enemy toward himself/herself so that the Free Attack also deals +1D6 damage.",
 		 "nom": "Whip Fighter"
 	 },
 	 "#359": {
 		 "type": "talent",
 		 "livre": "cdx",
 		 "description": "Most people fighting with a two-handed weapon rely on its considerable weight, but there are also those who cultivate the ability to wield huge two-handed swords with great finesse. Those who possess this ability belong to that category, and can use the length of the weapon to combat all sorts of opponents.",
-		 "novice": "<span class='text-success'>Novice</span> : Passive. In the hands of the novice, two-handed swords gain the quality Long and can therefore be used with the Polearm Mastery ability.",
-		 "adepte": "<span class='text-info'>Adepte</span> : Reaction. After one successful Defense per turn, pass a [Strong←Strong] test to push enemies out of melee combat with the sword. The enemy takes 1D6 damage, is pushed back a couple of meters, and must once again face the quality Long.",
-		 "maitre": "<span class='text-danger'>Maître</span> : Active. The master's flowing strikes count as a chain of attacks against enemies within melee distance – if an enemy is hit, an attack is made against the next one, and so on until an attack fails.",
+		 "novice": "<span class='text-success'>Novice</span> Passive. In the hands of the novice, two-handed swords gain the quality Long and can therefore be used with the Polearm Mastery ability.",
+		 "adepte": "<span class='text-info'>Adepte</span> Reaction. After one successful Defense per turn, pass a [Strong←Strong] test to push enemies out of melee combat with the sword. The enemy takes 1D6 damage, is pushed back a couple of meters, and must once again face the quality Long.",
+		 "maitre": "<span class='text-danger'>Maître</span> Active. The master's flowing strikes count as a chain of attacks against enemies within melee distance – if an enemy is hit, an attack is made against the next one, and so on until an attack fails.",
 		 "nom": "Two-handed Finesse"
 	 },
+	 "#468": {
+        "type": "talent",
+        "livre": "adv",
+        "description": "Blessings represent the mystical tradition taught and practiced by all mystically inclined priests from the faraway Realm of the Order. In essence, it combines powers from both Witchcraft and Theurgy with a variety of blessings unique to the clergy of the Young Gods. Note that the tradition itself will be described in more detail in future books.",
+        "novice": "<span class='text-success'>Novice</span> Special. The priest no longer suffers permanent Corruption when learning blessings at Novice level, nor when learning the rituals of the tradition. Despite this, the character has no protection against the temporary Corruption that comes from performing the blessings and rituals of the tradition.",
+        "adepte": "<span class='text-info'>Adepte</span> Special. The priest no longer suffers permanent Corruption when learning blessings at Adept level. The Adept has also learned to use the holy powers and rituals according to the will of the gods, and now only suffers one (1) temporary Corruption when performing them.",
+        "maitre": "<span class='text-danger'>Maître</span> Special. The priest's profound insight into the divine increases the effect of all healing and holy powers by 1D4, including damage dealt against Abominations and Undead. The priest suffers no Corruption when learning blessings at master level.",
+        "nom": "Blessings"
+    },
+	 "#465": {
+        "type": "talent",
+        "livre": "adv",
+        "description": "The player character is trained in using his/her armor to maximum effect. The ability can only be used with at least medium armor, but can be very effective, not least against armored opponents and when the user moves through the midst of a battle.",
+        "novice": "<span class='text-success'>Novice</span> Movement. Wearing at least medium armor, the character has +1D6 in Armor against all enemy hits during the movement.",
+        "adepte": "<span class='text-info'>Adepte</span> Active. Roll an attack test to grab and restrain an enemy until failing a [Strong←Strong] test. Each turn after the first, an attack with a Short weapon can be made; while restrained the enemy may only defend, and if hit Armor is ignored.",
+        "maitre": "<span class='text-danger'>Maître</span> Active. Roll an attack test to grab and with a following [Strong←Strong] test throw an enemy to the ground; the character lands on top (1D6 crushing damage, ignoring Armor). The character may then restrain and attack as on Adept level, aside from the enemy not being able to defend during the first turn after the throw.",
+        "nom": "Armor Wrestling"
+    },
 	"#47":{
 	   "type":"pouvoir mystique",
 	   "livre":"ldb",
@@ -1317,6 +1335,58 @@
 		"maitre":"<span class='text-danger'>Master</span> Active. The mystic calls one challenging beast, 1D4 ordinary beasts or 1D6 weak beasts to aid him or her in combat.",
 		"nom":"Wild hunt"
 	 },
+	 "#469": {
+        "tradition": "Bendición",
+        "materiel": "Material: A holy symbol",
+        "type": "pouvoir mystique",
+        "livre": "adv",
+        "description": "With wild gestures and chanting song, the mystic can make the earth itself attack those who threaten a servant of the gods – rocks are pulled from underneath soil and grass, and hurled forcefully at the unrighteous target.",
+        "novice": "<span class='text-success'>Novice</span> Active. The mystic pulls a sharp-edged boulder from the earth and hurls it at a target. With a successful [Resolute←Quick] test the attack hits, dealing 1D8 damage.",
+        "adepte": "<span class='text-info'>Adept</span> Active. Like Novice, but the mystic pulls 1D4 boulders from the ground, which may be hurled at either one or multiple targets. Each rock counts as a separate attack.",
+        "maitre": "<span class='text-danger'>Master</span> Active. Like Adept, but instead of boulders, swarms of smaller rocks are hurled forcefully at the victim/victims. The projectiles are small and sharp enough to hit their target through tiny gaps, creases, and cracks, thereby ignoring Armor.",
+        "nom": "Earth Shot"
+    },
+    "#470": {
+        "tradition": "Bendición",
+        "materiel": "Material: A fistful of soil",
+        "type": "pouvoir mystique",
+        "livre": "adv",
+        "description": "Stone, soil, plants and ore can bind those who threaten a servant of the gods. The mystic can let the unrighteous sink into the ground, deep enough to prevent all movement, possibly in such a tight grip that it harms the target.",
+        "novice": "<span class='text-success'>Novice</span> Free. Once per turn, with a successful Resolute test, the mystic can let a target sink into, and get stuck in, the ground. The bound creature is unable to move, but may use ranged weapons and mystical powers. The creature remains bound until the mystic loses concentration or fails a [Resolute←Strong] test.",
+        "adepte": "<span class='text-info'>Adept</span> Free. Once per turn the mystic can establish a chain of earthbinds. If the mystic manages to bind a target with a Resolute test, he or she may attempt to bind another one, and so on until an attempt fails. Affected targets remain bound until the mystic loses concentration or fails a [Resolute←Strong] test.",
+        "maitre": "<span class='text-danger'>Master</span> Free. Like Adept, but the ground is clamped so tightly around the victim's legs that he or she also takes 1D6 damage per turn (ignoring Armor).",
+        "nom": "Earthbinding"
+    },
+    "#478": {
+        "tradition": "Bendición",
+        "type": "pouvoir mystique",
+        "livre": "adv",
+        "description": "The beauty of nature is infinite: a blade of grass swaying in the wind, an ant scuttling across the ground, or the clouds drifting in the sky are all proof thereof, and the instruments of the Hostess can use them to both snare its enemies and provide relief to harrowed followers in need. The power has no effect on abominations.",
+        "novice": "<span class='text-success'>Novice</span> Active. With a successful [Resolute←Resolute] the mystic can spellbind even the most furious of creatures, which immediately becomes passive, sags to the ground, and heals 1 point of Toughness. The creature may defend itself, but all attacks against it are made from Advantage. The creature remains passive and may not perform movement actions, active and reactive abilities, or do anything else until it takes damage, or the mystic loses concentration or fails the [Resolute←Resolute] test.",
+        "adepte": "<span class='text-info'>Adept</span> Active. Like novice, except the spellbound heals 1D4 Toughness and the power also decreases the potency of any poisons affecting the victim by one step.",
+        "maitre": "<span class='text-danger'>Master</span> Active. Like adept, except the spellbound heals 1D6 Toughness and remains passive for 1D6 turns or until it takes damage. All attacks on the creature hit automatically.",
+        "nom": "Serenity"
+    },
+    "#480": {
+        "tradition": "Simbolismo",
+        "type": "pouvoir mystique",
+        "livre": "adv",
+        "description": "Cryptic patterns cause severe stomach pain that reduces the victim's mobility and concentration, and can even inflict physical damage.",
+        "novice": "<span class='text-success'>Novice</span> Active. The symbol triggers a chain of twinging pains; the victim closest to the symbol suffers first [Resolute←Resolute]; if the victim is affected, a new test is made for the next enemy, and so on until someone can resist the energies. The effect lasts one turn and prevents the victims from performing any active actions.",
+        "adepte": "<span class='text-info'>Adept</span> Active. Like Novice, but the pain is so sharp that the victims get two chances to fail at all reactive actions (such as Defense).",
+        "maitre": "<span class='text-danger'>Master</span> Active. Like Adept, but now the pain is so severe that it has physical consequences, dealing 1D6 damage to Toughness (ignores Armor).",
+        "nom": "Mark of Torment"
+    },
+    "#481": {
+        "tradition": "Simbolismo",
+        "type": "pouvoir mystique",
+        "livre": "adv",
+        "description": "Anyone who sees the rousing motif of the symbol feels a burning urge to fight which, unless they can resist the effect, drives them into a ruthless and possibly even suicidal berserker rage.",
+        "novice": "<span class='text-success'>Novice</span> Active. The symbol fills a chain of creatures with an uncontrollable urge to fight; the victim closest to the symbol is affected first [Resolute←Resolute]; if the victim is affected, a new test is made for the next enemy, and so on until someone can resist the energies. The effect lasts one turn and causes the victim to immediately attack the nearest individual, friend or foe.",
+        "adepte": "<span class='text-info'>Adept</span> Active. Like Novice, but the effect lasts until the mystic fails a Resolute test or loses concentration [Resolute –Damage].",
+        "maitre": "<span class='text-danger'>Master</span> Active. Like Adept, but the affected are so consumed with bloodlust that they fail to defend themselves against incoming attacks; all attacks against the affected hit automatically.",
+        "nom": "Battle Symbol"
+    },
 	"#89":{
 	   "type":"rituel",
 	   "livre":"ldb",
@@ -1779,6 +1849,62 @@
 		"novice":"The advanced version of the ritual Flaming Servant allows the Pyromancer to have two f laming servants. These are handled like two separate, additional characters by the player, and they gain Experience from adventuring just like all flaming servants do.",
 		"nom":"Twin Servants"
 	 },
+	 "#471": {
+        "type": "rituel",
+        "livre": "adv",
+        "tradition": "Brujería",
+        "novice": "In the final days of Symbaroum, it was not uncommon for careless humans to summon and lose control of powerful daemons. These could threaten to destroy entire regions before they were banished or willingly returned to the dark abyss – eventually forcing the humans to develop extreme countermeasures. One such measure is the Catching Fire ritual. It is a suicide ritual that makes it possible for an individual to sacrifice his/her own life to save hundreds or even thousands of others. The values below replace or are added to the martyr's own, but he or she will only live for one scene after the ritual has been performed. The martyr then suffers a terrible death, as the protection from his/her own flames diminishes and the poor soul slowly burns to cinders in tremendous agony.<br/><i>Trait Fire Breather (III), Manifestation (III), Natural Weapon (II), Spirit Form (III) <br/>Strong 18 (−8), Resolute 18 (−8)<br/>Abilities Berserker (master), Iron Fist (master), Feat of Strength (master)<br/>Weapons Glowing claws 11 (Flaming), Fire Breather, (see page 61) <br/>Armor None, is only harmed by mystical powers/ magic weapons, which deal half damage. <br/>Toughness 23 Pain Threshold 9</i>",
+        "nom": "Catching Fire"
+    },
+    "#472": {
+        "type": "rituel",
+        "livre": "adv",
+        "tradition": "Hechicería",
+        "novice": "This ritual is performed on a newborn child, who then undergoes both physical and mental changes. Physically, it acquires the Shapeshifter trait, and the mystic may lock its appearance for a long time; the effect begins to wear off after 10+1d4 years. The ritual also weakens the child's vitality. For spring elves, this means that they will never reach the next stage of their elven life cycle, while humans would have their lifespan shortened to 30+1d10 years. As for the mental changes, a mystical link is established between the siraph and the mystic, who can later use it to take control of his/her creation. The victim of the ritual is not aware of this link, not even when it is activated. Technically, Create Siraph works the same way as the Possess ritual, except that it requires no [Resolute←Resolute] test. Another difference is that the victim remains under the mystic's control indefinitely, so long as the mysticallows the host enough rest. There is no protection against such a brutal ritual as Create Siraph. Each time the ritual is performed, the mystic suffers one (1) point of permanent corruption, and each time mystics take control of their creations, they suffer 1d4 temporary corruption, regardless of traditions or other forms of protection.",
+        "nom": "Create Siraph"
+    },
+    "#473": {
+        "type": "rituel",
+        "livre": "adv",
+        "tradition": "Brujería",
+        "novice": "The mystic summons the dark spirits of retribution and binds them to an object, punishing anyone trying to steal or meddle with it. In doing so, one determines the conditions for triggering the effect – usually the object being moved or damaged. The mystic himself/herself is exempt from triggering the punishment; as are other people who were present when the ritual was being performed. If the effect is triggered, everyone within a Movement Action's reach suffers 1d10 temporary corruption. Only the mystic who performed the ritual and those who are immune to its powers can dispel it, using the Break Link ritual.",
+        "nom": "The Raven's Doom"
+    },
+    "#474": {
+        "type": "rituel",
+        "livre": "adv",
+        "tradition": "Cantar Troll",
+        "novice": "In ancient times, the trolls used this slow, wailing tune as a summoning call, to muster their kin in the face of danger or gather them for important festivals. Other trolls would often join in the singing as they walked toward the place where it first begun – that way, the song's message could reach a greater number of individuals. The singing mystic must decide which tune to sing. There is a song for each family of creatures: Elves, Winged creatures, Undead, Humans, Reptiles, Spiders, Abominations, Trolls or Predators (see table 30 on page 209 in the Core Rulebook). All creatures of the selected family who are within a day's march from the singer are called to his or her location. However, those who hear the song are perfectly free to ignore it, if they have more pressing matters to attend to.",
+        "nom": "Melodic Summoning"
+    },
+    "#475": {
+        "type": "rituel",
+        "livre": "adv",
+        "tradition": "Hechicería",
+        "novice": "The mystic flays a dead person and dresses in its skin, one sliver at a time. After that, the mystic looks exactly like the dead person but has his own voice and his own eyes, which limits its uses. To trick an individual who was acquainted to the diseased and who talks to the mystic, a test against [Discreet←Vigilant] must be made. The effect lasts for 24 hours, then the dead skin falls off.",
+        "nom": "Blood Shrouding"
+    },
+	 "#466": {
+        "type": "rituel",
+        "livre": "adv",
+        "tradition": "Hechicería",
+        "novice": "The mystic may summon heavy rhythms that seduce people present in the area; the music is heard far and wide, but only those within a hundred meters are actually affected. Every person neutral to the mystic must pass a test against Resolute or be drawn into the dance. The mystic is immune, but his or her allies are not. The allies, as well as direct enemies, get a second chance to pass the test against Resolute (roll twice, use the best outcome). Death-dancers are not controlled per se, but highly inclined to obey the mystic's commands; as long as they involve violence against someone not considered a friend, they will attack. Death dancers may roll against Resolute every time they kill another creature, and also every time they suffer damage. The Dance of Death is bound to the mystic, and follows wherever he or she goes. The dance lasts as long as the mystic wishes, but dancers lose 1d4 Toughness with every hour. The ritual can be stopped entirely with Break Link. Individual death dancers can be freed with the ritual Exorcism, but the mystical power Anathema would be more effective.",
+        "nom": "Dance of death"
+    },
+    "#467": {
+        "type": "rituel",
+        "livre": "adv",
+        "tradition": "Hechicería",
+        "novice": "It is said that knowledge of this ritual was first given to pact-making mystics from daemons who themselves could not, or did not want to, travel through the space between worlds. And it seems plausible, considering how dangerous it is for humans to visit the Yonderworld, even when they know what to expect… As usual, the ritual takes an hour to perform, but to do so successfully the mystic must either have visited the destination or possess an object taken from there. In the latter case, it could be an urn of dust or a more personal gift from an allied daemon. As for the former, one can for example use the mystical power Teleport to identify a (for the moment) safe landing site. The ritual must be repeated when the mystic (and the up to [Resolute/2] individuals who can be brought along on the journey) wants to return. In other words, the travelers are stuck in the Yonderworld for at least an hour, which explains why so few dimension walkers ever return. In the Yonderworld much can happen in the time it takes to perform a ritual; the Game Master decides what the player characters are faced with, or makes a roll on Table 5 every half hour.",
+        "nom": "Dimension walk"
+    },
+    "#479": {
+        "type": "rituel",
+        "livre": "adv",
+        "tradition": "Bendición",
+        "novice": "With a successful Resolute test the mystic can perform a ritual to contemplate the innermost motivations of another individual and gain a clear insight into that person's deepest desires. The ritual requires a mystical link to the target: a tuft of hair, a pool o blood, or some cherished personal possession. If the test succeeds, the Game Master must truthfully, but in abstract terms, describe what the person wants more than anything in the world. For example: love, power, pleasure, justice, and so forth.",
+        "nom": "Heart's Desire"
+    },
 	"#280":{
 	   "type":"trait/atout",
 	   "livre":"ldb",
@@ -2326,7 +2452,7 @@
         "type": "elixir",
         "livre": "gdj",
         "tradition": "Cost: 8 Th., 12 Th. (M)",
-        "novice": "(A/M) A seemingly ordinary candle that emits poisonous fumes when lit; revealed with a passed [Vigilant←alchemist’s Discreet]. The poison is airborne and affects everyone in the room or in the vicinity. The candle must burn for 1d4 turns before the poison is released, so the assassin can light it and leave the room before it takes effect. A weak poison candle deals 2 damage per turn, a moderate 3 damage per turn.",
+        "novice": "(A/M) A seemingly ordinary candle that emits poisonous fumes when lit; revealed with a passed [Vigilant←alchemist's Discreet]. The poison is airborne and affects everyone in the room or in the vicinity. The candle must burn for 1d4 turns before the poison is released, so the assassin can light it and leave the room before it takes effect. A weak poison candle deals 2 damage per turn, a moderate 3 damage per turn.",
         "nom": "Poison Candle"
     },
     "#415": {
@@ -2347,7 +2473,7 @@
         "type": "elixir",
         "livre": "gdj",
         "tradition": "Cost (black market): 2 Th. (F), 4 Th. (M), 6 Th. (P)",
-        "description": "This is a powerful mutagen which transforms the body of the user in a monstrous way. During a scene the user is twisted into a bestial half-creature and has a second chance to fail all Persuasive tests until the effect wears off. The draught gives the user a monstrous trait for the rest of the scene; the level of the trait is decided by the strength of the elixir. In addition, each dose consumed deals temporary corruption, also determined by the strength of the elixir. Of course, the physical transformation and the corrupting effect is reason enough for the elixir to be banned and only available on Ambria’s black market. The following monstrous traits can be acquired, decided by the alchemist when brewing the elixir: Armored, Natural Weapon, Robust and Wings.",
+        "description": "This is a powerful mutagen which transforms the body of the user in a monstrous way. During a scene the user is twisted into a bestial half-creature and has a second chance to fail all Persuasive tests until the effect wears off. The draught gives the user a monstrous trait for the rest of the scene; the level of the trait is decided by the strength of the elixir. In addition, each dose consumed deals temporary corruption, also determined by the strength of the elixir. Of course, the physical transformation and the corrupting effect is reason enough for the elixir to be banned and only available on Ambria's black market. The following monstrous traits can be acquired, decided by the alchemist when brewing the elixir: Armored, Natural Weapon, Robust and Wings.",
         "novice": "(N:Weak) The draught gives the selected trait at level I, to the cost of 1d4 temporary corruption.",
         "adepte" : "(A:Moderate) The draught gives the selected trait at level II, to the cost of 1d6 temporary corruption.",
         "maitre": "(M:Strong) The draught gives the selected trait at level III, to the cost of 1d8 temporary corruption.",
@@ -2414,9 +2540,9 @@
         "livre": "gdj",
         "tradition": "Cost: 4 Th. (F), 8 Th. (M), 16 Th. (P)",
         "description": "The Purple Sap is made from a decoction of a purple Lily of the Valley, a flower whose cleansing properties and resistance to corruption were discovered by the witches of Davokar long ago. Purchasing the elixir is expensive, because the ingredient is so rare and few alchemists are skilled enough to brew it. The elixir has no effect on permanent corruption or on blight-marks which have already appeared on the user.",
-        "novice": "(N:Weak) A novice alchemist can brew a potion which immediately removes 1d4 temporary corruption from the user’s soul.",
+        "novice": "(N:Weak) A novice alchemist can brew a potion which immediately removes 1d4 temporary corruption from the user's soul.",
         "adepte" : "(A:Moderate) When made by an adept, the elixir immediately removes 1d6 temporary corruption.",
-        "maitre": "(M:Strong) The master’s version removes 1d8 temporary corruption.",
+        "maitre": "(M:Strong) The master's version removes 1d8 temporary corruption.",
         "nom": "Purple Sap"
     },
     "#427": {
@@ -2430,7 +2556,7 @@
         "type": "elixir",
         "livre": "gdj",
         "tradition": "Cost: 3 Th.",
-        "novice": "(A) This horribly sickening elixir was once used by mystics wanting to hide just how close they were to becoming thoroughly corrupt, making it a welcomed addition to all sorcerers’ collections of mystical decoctions. Whomever manages to force down the sludge, distorts his or her shadow for a whole scene, making it appear as if the value in total corruption is 1d6 points lower.",
+        "novice": "(A) This horribly sickening elixir was once used by mystics wanting to hide just how close they were to becoming thoroughly corrupt, making it a welcomed addition to all sorcerers' collections of mystical decoctions. Whomever manages to force down the sludge, distorts his or her shadow for a whole scene, making it appear as if the value in total corruption is 1d6 points lower.",
         "nom": "Shadow Tint"
     },
     "#429": {
@@ -2439,6 +2565,20 @@
         "tradition": "Cost: 3 Th.",
         "novice": "(M) An alchemical load that is thrown and detonates amidst a sudden, loud flash, used with the master level of the ability Pyrotechnics.",
         "nom": "Thunder Ball"
+    },
+    "#476": {
+        "type": "elixir",
+        "livre": "adv",
+        "tradition": "Cost: 4 Th.",
+        "novice": "(A) Pixie Dust is a glittering powder with the power to hide tracks. One dose is enough to make a trail impossible to follow with conventional techniques. Rituals are not affected. Pixie Dust is an elixir crafted at the adept level and costs 4 thaler if purchased from the alchemist who made it.",
+        "nom": "Pixie Dust"
+    },
+    "#477": {
+        "type": "elixir",
+        "livre": "adv",
+        "tradition": "Cost: ? Th.",
+        "novice": "(A) It takes an adept alchemist to create a potent truth serum. Those who (willingly or not) inhale this powder, or drink a solution of it, are robbed of their mental clarity, giving them –5 to Resolute as they try to resist interrogations where the other person uses Persuasive or the Telepathic Interrogation ritual. With a successful Strong test, the modifier becomes –3. If the serum was made by a true master alchemist, the modifier becomes –8, or –5 after a successful Strong test. The effect lasts for an entire scene",
+        "nom": "Truth Serum"
     },
     "#374": {
         "type": "arme",
@@ -2633,15 +2773,15 @@
         "type": "arme",
         "livre": "gdj",
         "tradition": "Damages: 1D8, Quality: Precise, Cost: 50 Th.",
-        "nom": "Horseman’s Bow",
-        "novice": "During The Great War the need for a powerful bow that could be used by mounted warriors arose. The traditional longbow was too ungainly – it was so long that it interfered with the horse, or vice versa. To solve this, the asymmetrical horseman’s bow was developed. The lower limb of the bow is shorter than the upper, allowing the bow to be maneuvered back and forth over the horse’s back without losing any of its punch. The weapon is tilted forward when it is aimed and fired, in order to maintain equal tension between the two limbs. In Ambria, the horseman’s bow is primarily used in the west, against the forays of the wagon riding Saars. There, the traditional longbow companies are used as defensive troops, but in order to hunt the plunderers down riders are needed, preferably armed with bows."
+        "nom": "Horseman's Bow",
+        "novice": "During The Great War the need for a powerful bow that could be used by mounted warriors arose. The traditional longbow was too ungainly – it was so long that it interfered with the horse, or vice versa. To solve this, the asymmetrical horseman's bow was developed. The lower limb of the bow is shorter than the upper, allowing the bow to be maneuvered back and forth over the horse's back without losing any of its punch. The weapon is tilted forward when it is aimed and fired, in order to maintain equal tension between the two limbs. In Ambria, the horseman's bow is primarily used in the west, against the forays of the wagon riding Saars. There, the traditional longbow companies are used as defensive troops, but in order to hunt the plunderers down riders are needed, preferably armed with bows."
     },
     "#434": {
         "type": "arme",
         "livre": "gdj",
         "tradition": "Damages: 1D8+1, Quality: Deep-Impact, Cost: 25 Th.",
         "nom": "Composite Bow",
-        "novice": "Among the wagon-riding Varaks and Saars who live on the plains west of Davokar, bow-making is a highly esteemed art form. The composite bow is made from layers of horn and sinews over a wooden core; it is shorter and not as precise as the longbow but more powerful. Its size makes it perfect for use while on horseback, the driver’s seat or the narrow platform of a battle chariot."
+        "novice": "Among the wagon-riding Varaks and Saars who live on the plains west of Davokar, bow-making is a highly esteemed art form. The composite bow is made from layers of horn and sinews over a wooden core; it is shorter and not as precise as the longbow but more powerful. Its size makes it perfect for use while on horseback, the driver's seat or the narrow platform of a battle chariot."
     },
     "#435": {
         "type": "arme",
@@ -2669,20 +2809,20 @@
         "livre": "gdj",
         "tradition": "Damages: 1D6, Quality: Special, Cost: 2 Th.",
         "nom": "Bolas",
-        "novice": "A bolas is used in Davokar when someone wants to capture the prey alive; or in order to slow down a target before moving in for the kill. The bolas is made of two or more weights tied together with ropes. It is aimed at the target’s legs or arms in order to hinder movement. Normally, it is thrown at the legs and the attack test is [Accurate←Quick]; if the test succeeds, the target cannot move. It is harder to hit the arms of the target – this requires a passed [Accurate←Quick+3] and if successful the target has a second chance to fail all success test involving the use of the arms. Removing the bolas counts as a combat action and requires a passed Quick test."
+        "novice": "A bolas is used in Davokar when someone wants to capture the prey alive; or in order to slow down a target before moving in for the kill. The bolas is made of two or more weights tied together with ropes. It is aimed at the target's legs or arms in order to hinder movement. Normally, it is thrown at the legs and the attack test is [Accurate←Quick]; if the test succeeds, the target cannot move. It is harder to hit the arms of the target – this requires a passed [Accurate←Quick+3] and if successful the target has a second chance to fail all success test involving the use of the arms. Removing the bolas counts as a combat action and requires a passed Quick test."
     },
     "#439": {
         "type": "arme",
         "livre": "gdj",
         "tradition": "Damages: 1D12, Quality: Wrecking or Burning, Unwieldy, Area Effect (radius), Cost: 250 Th. + 50 per charge",
         "nom": "Catapult",
-        "novice": "Ballistic devices have long been employed in Alberetor’s many wars, and most frequently used, then and now, is the catapult. Compared to its bigger cousin, the trebuchet, it is relatively easy to transport but still very effective against both structures and troops. It takes someone with the ability Siege Expert to load, aim and fire a catapult; it can be loaded with boulders or with breaching pots, the former crushing buildings and the latter more effective against weaker but flammable targets, including hostile troop formations on the field of battle."
+        "novice": "Ballistic devices have long been employed in Alberetor's many wars, and most frequently used, then and now, is the catapult. Compared to its bigger cousin, the trebuchet, it is relatively easy to transport but still very effective against both structures and troops. It takes someone with the ability Siege Expert to load, aim and fire a catapult; it can be loaded with boulders or with breaching pots, the former crushing buildings and the latter more effective against weaker but flammable targets, including hostile troop formations on the field of battle."
     },
     "#440": {
         "type": "arme",
         "livre": "gdj",
         "tradition": "Damages: 1D10, Quality: Precise, Unwieldy, Massive, Cost: 50 Th.",
-        "nom": "Executioner’s Sword",
+        "nom": "Executioner's Sword",
         "novice": "This giant sword is used by executioners to end the lives of nobles – the axe is for merchants and artisans, the rope for commoners – but there are also those who wield the weapon on the battlefield."
     },
     "#441": {
@@ -2690,7 +2830,7 @@
         "livre": "gdj",
         "tradition": "Damages: 1D8+1, Quality: Deep-Impact, Cost: 25 Th.",
         "nom": "Estoc",
-        "novice": "The Estoc is a fencing sword but with a tapered blade that ends in a wedge-shaped tip, intended to penetrate the target’s armor."
+        "novice": "The Estoc is a fencing sword but with a tapered blade that ends in a wedge-shaped tip, intended to penetrate the target's armor."
     },
     "#442": {
         "type": "arme",
@@ -2705,7 +2845,7 @@
         "tradition": "Cost: 5 Sh.",
         "nom": "Arrows and Bolts",
         "description": "Besides regular bolts and arrows, a number of special projectiles have been developed. It is not unusual for Ambrian archers to carry two quivers, one with regular arrows and another with a collection of specialized ones.",
-        "novice": "Precision Arrow: An arrow (or bolt) with the quality Precise, which is especially well-balanced, making it easier to hit the mark.<br/>Flame Arrow: A projectile with an ignitable head. It is often used to set fire to the target, whether it be a living creature, a building or a field of grain (see the quality Flaming for details).<br/>Snaring Arrow: A barbed arrowhead and a thin silk thread attached to the arrow make it possible to ensnare a target using this projectile. Pulling it out takes a movement action and requires a passed [Strong<–Damage] test; if successful the target suffers 1d4 damage but the arrow is out. Moving around with a snaring arrow imbedded in one’s flesh deals 1 damage per turn, ignoring armor.<br/>Hammer Head: The ball-shaped head of this arrow is meant to stun, rather than damage, the target. After a successful hit, damage is rolled as usual, but the outcome is used to decide if the target is stunned [Strong<–Damage]. If the target is stunned, he or she may not perform any kind of actions in the following turn. Armor-piercing Head This projectile has a head which makes it easier to punch through armor. It has the quality Deep Impact on targets with 1+ in Armor value.<br/>Rope Cutter: A Y-shaped tip makes it possible to cut ropes. Hitting the rope is difficult (–5 on the attack test), but a success means that the rope is cut.<br/>Swallow’s Tail: The head of this projectile is wide and meant to cause bleeding wounds. The downside is that it is less effective against armored targets. Targets get a +1d4 Armor bonus against the Swallow’s Tail, but if damaged he or she will bleed like described in the quality Blood-letting.<br/>Whistler: The arrow whistles while flying, as a signal to allies.<br/>Grappling Hook: The arrow sends a grappling hook flying a maximum of ten vertical meters or thirty horizontal meters. A thin silk thread makes it possible to hoist a sturdier rope up to the grappling hook, and once this rope is latched onto the hook it can be used for climbing."
+        "novice": "Precision Arrow: An arrow (or bolt) with the quality Precise, which is especially well-balanced, making it easier to hit the mark.<br/>Flame Arrow: A projectile with an ignitable head. It is often used to set fire to the target, whether it be a living creature, a building or a field of grain (see the quality Flaming for details).<br/>Snaring Arrow: A barbed arrowhead and a thin silk thread attached to the arrow make it possible to ensnare a target using this projectile. Pulling it out takes a movement action and requires a passed [Strong<–Damage] test; if successful the target suffers 1d4 damage but the arrow is out. Moving around with a snaring arrow imbedded in one's flesh deals 1 damage per turn, ignoring armor.<br/>Hammer Head: The ball-shaped head of this arrow is meant to stun, rather than damage, the target. After a successful hit, damage is rolled as usual, but the outcome is used to decide if the target is stunned [Strong<–Damage]. If the target is stunned, he or she may not perform any kind of actions in the following turn. Armor-piercing Head This projectile has a head which makes it easier to punch through armor. It has the quality Deep Impact on targets with 1+ in Armor value.<br/>Rope Cutter: A Y-shaped tip makes it possible to cut ropes. Hitting the rope is difficult (–5 on the attack test), but a success means that the rope is cut.<br/>Swallow's Tail: The head of this projectile is wide and meant to cause bleeding wounds. The downside is that it is less effective against armored targets. Targets get a +1d4 Armor bonus against the Swallow's Tail, but if damaged he or she will bleed like described in the quality Blood-letting.<br/>Whistler: The arrow whistles while flying, as a signal to allies.<br/>Grappling Hook: The arrow sends a grappling hook flying a maximum of ten vertical meters or thirty horizontal meters. A thin silk thread makes it possible to hoist a sturdier rope up to the grappling hook, and once this rope is latched onto the hook it can be used for climbing."
     },
     "#444": {
         "type": "arme",
@@ -2733,7 +2873,7 @@
         "livre": "gdj",
         "tradition": "Damages: 1D6, Quality: Concealed, Short, Cost: 5 Th.",
         "nom": "Assassin's Blade",
-        "novice": "The slender grip and the thin feather steel of the blade makes the Assassin’s Blade easy to conceal without sacrificing its bite. It is easily strapped to the wrist or ankle, or even attached behind the neck with a lump of resin. Special girdles or hidden pockets in clothes work just as well. The weapon can be smuggled past guards, to be used on secret missions or to be handed over to a prisoner."
+        "novice": "The slender grip and the thin feather steel of the blade makes the Assassin's Blade easy to conceal without sacrificing its bite. It is easily strapped to the wrist or ankle, or even attached behind the neck with a lump of resin. Special girdles or hidden pockets in clothes work just as well. The weapon can be smuggled past guards, to be used on secret missions or to be handed over to a prisoner."
     },
     "#448": {
         "type": "arme",
@@ -2768,7 +2908,7 @@
         "livre": "gdj",
         "tradition": "Quality: Special, Cost: 2 Th.",
         "nom": "Blowpipe",
-        "novice": "The purpose of the blowpipe is to fire a poisoned dart towards a target. The dart deals no damage itself, but penetrates any protection if rolling higher than the target’s Armor value with 1d8 (1d10 with the ability Marksman)."
+        "novice": "The purpose of the blowpipe is to fire a poisoned dart towards a target. The dart deals no damage itself, but penetrates any protection if rolling higher than the target's Armor value with 1d8 (1d10 with the ability Marksman)."
     },
     "#453": {
         "type": "arme",
@@ -2894,7 +3034,7 @@
         "livre": "gdj",
         "tradition": "Protection: 1D8 (+1D4), Type: Heavy (-4), Quality: Hallowed, Cost: 100 Th.",
         "nom": "Templar Full Plate",
-        "novice": "The armor of the templars is a full plate forged, blessed and carried by the order’s inner circle. This elite among the elite inherit their armor from a predecessor that fell in battle or, more uncommonly, who died a solemn death in their alcove in Templewall. The armor gives its wearer the protection of Prios, through blessings forged into the steel and by the hallowing blood of both enemies and martyrs."
+        "novice": "The armor of the templars is a full plate forged, blessed and carried by the order's inner circle. This elite among the elite inherit their armor from a predecessor that fell in battle or, more uncommonly, who died a solemn death in their alcove in Templewall. The armor gives its wearer the protection of Prios, through blessings forged into the steel and by the hallowing blood of both enemies and martyrs."
     },
     "#460": {
         "type": "armure",
@@ -2908,7 +3048,7 @@
         "livre": "gdj",
         "tradition": "Protection: 1D6+1, Type: Medium (-3), Quality: Reinforced, Cost: 25 Th.",
         "nom": "Laminated Armor",
-        "novice": "Laminated armor is an older armor-type, nowadays often replaced by the cheaper scale mail or the flexible chain mail. However, some old laminated sets of armor are still around and there are blacksmiths who actually prefer them because of their greater protective capability. Some of Ambria’s noble houses still dress in this type of armor, for sentimental… or, as they claim, ”traditional” reasons. Laminated armor can only protect the torso, shoulders and hips – arms and legs are usually dressed in studded leather to maintain mobility"
+        "novice": "Laminated armor is an older armor-type, nowadays often replaced by the cheaper scale mail or the flexible chain mail. However, some old laminated sets of armor are still around and there are blacksmiths who actually prefer them because of their greater protective capability. Some of Ambria's noble houses still dress in this type of armor, for sentimental… or, as they claim, ”traditional” reasons. Laminated armor can only protect the torso, shoulders and hips – arms and legs are usually dressed in studded leather to maintain mobility"
     },
     "#462": {
         "type": "armure",
@@ -2921,8 +3061,8 @@
         "type": "armure",
         "livre": "gdj",
         "tradition": "Protection: 1D4+1, Type: Light (0), Quality: Reinforced, Flexible, Cost: 50 Th.",
-        "nom": "Skald’s Cuira",
-        "novice": "Troll singers are often warrior poets and many carry a flexible armor of woven cloth- or leather-strips, strengthened with protective harmonies. The Skald’s Cuirass is durable without hampering the wearers’ movement, making it popular among other groups as well. For instance, wealthy duelists in Yndaros often color their cuirasses in personal colors, so that they can be recognized from afar."
+        "nom": "Skald's Cuira",
+        "novice": "Troll singers are often warrior poets and many carry a flexible armor of woven cloth- or leather-strips, strengthened with protective harmonies. The Skald's Cuirass is durable without hampering the wearers' movement, making it popular among other groups as well. For instance, wealthy duelists in Yndaros often color their cuirasses in personal colors, so that they can be recognized from afar."
     },
     "#464": {
         "type": "armure",
