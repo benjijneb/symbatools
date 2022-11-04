@@ -3245,6 +3245,18 @@
         "novice": "L'arme ou l'armure a été forgée dans le feu des Ténèbres et possède des pouvoirs plus importants contre les créatures non corrompues. Une créature blessée doit lancer 1D20 en-dessous de sa valeur totale de Corruption, ou subir +1D4 dégâts. Et lorsque quelqu'un équipé d'une armure souillée est touché par une attaque réussie, l'attaquant doit lancer 1D20 en-dessous de sa valeur totale de Corruption ; si le résultat est supérieur ou égal, l'armure protège de +1D4 contre l'attaque. Les créatures profondément corrompues réussissent systématiquement ces tests, tout comme les créatures non corrompues (zéro en Corruption) les ratent toujours.",
         "nom": "Souillé"
     },
+    "#482": {
+        "type": "qualite",
+        "livre": "adv",
+        "novice": "L'arme de mêlée est entièrement gravée de runes, qui, lorsque l'épée est brandie, peuvent avoir un effet hypnotisant sur un adversaire à courte portée. Si l'attaque réussit avec une différence de 5 ou plus, ce dernier se voit refuser sa prochaine Action de Combat. Les mouvements et les réactions sont cependant toujours possibles.",
+        "nom": "Hypnotique"
+    },
+    "#483": {
+        "type": "qualite",
+        "livre": "adv",
+        "novice": "Le son métallique produit par une arme de mêlée Rompeuse heurtant du métal est constitué d'harmonies affaiblissantes qui détruisent graduellement armures ou boucliers. La valeur d'Armure d'une pièce d'armure est réduite de 1 à chaque coup, un bouclier a quant à lui 25 % de risques d'être inutilisable après chaque Défense réussie [1-5 sur 1D20].",
+        "nom": "Rompeur"
+    },
     "#224": {
         "type": "trait monstrueux",
         "livre": "ldb",

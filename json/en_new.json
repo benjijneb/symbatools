@@ -3251,6 +3251,18 @@
         "novice": "The weapon is instilled with storming, thunderous energies. Each hit echoes with the powers of lightning and deals 1d8 damage, rolled separately from the normal damage caused by the attack. Abilities do not add to this extra damage effect. If any of the damage from this quality penetrates the armor the target also has to pass a Strong test or lose an action because of the force unleashed by the Thundering hit.",
         "nom": "Thundering"
     },
+    "#482": {
+        "type": "qualite",
+        "livre": "adv",
+        "novice": "The melee weapon is covered with engraved runes which, when the weapon is swung, can have a hypnotizing effect on a melee opponent. Whenever the attack succeeds with a difference of 5 or more, the opponent is denied his/her next Combat Action. Movements and reactions are still possible.",
+        "nom": "Hypnotic"
+    },
+    "#483": {
+        "type": "qualite",
+        "livre": "adv",
+        "novice": "The clanging sound emitted when a Breaching melee weapon hits metal contains weakening harmonies which gradually destroy armor or shields. The Armor value of a piece of armor is decreased by 1 for every hit, while a shield has a 25% chance of being rendered unusable with every successful Defense [1–5 on 1d20].",
+        "nom": "Breaching"
+    },
     "#228": {
         "type": "trait monstrueux",
         "livre": "ldb",
