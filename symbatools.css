@@ -1,14 +1,13 @@
 #carac {
     padding-bottom: 3px;
+    border-bottom: 2px solid lightslategray;
  }
 #carac.std {
     background-color: white;
-    border-bottom: 2px solid lightslategray;
 }
 
 #carac.dark {
     background-color: #222222;
-    border-bottom: 2px solid lightslategray;
 }
 
 /*.input-group-xs>.form-control,
@@ -68,9 +67,9 @@
 .hovertext {
     position: relative;
     border-bottom: 1px dotted black;
-  }
-  
-  .hovertext:before {
+}
+
+.hovertext:before {
     content: attr(data-hover);
     visibility: hidden;
     opacity: 0;
@@ -82,10 +81,10 @@
     z-index: 1;
     right: 0;
     top: 110%;
-  }
-  
-  .hovertext:hover:before {
+}
+
+.hovertext:hover:before {
     opacity: 1;
     visibility: visible;
     right: 0;
-  }
+}

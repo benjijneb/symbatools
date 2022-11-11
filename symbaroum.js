@@ -157,9 +157,26 @@ symbaroum.factory('globalService', function () {
 	};
 });
 
+symbaroum.factory('auth', function() {
+	
+	var authenticationService = {};
+
+    authenticationService.username;
+	authenticationService.password;
+	authenticationService.authenticated = false;
+
+	authenticationService.isAuthenticated = function() {
+		return authenticationService.authenticated;
+	}
+
+    return authenticationService;
+});
+
 var routeAppControllers = angular.module('routeAppControllers', []);
 
-routeAppControllers.controller('Index', function ($scope, $rootScope, $translate) {
+routeAppControllers.controller('Index', function ($scope, $rootScope, $translate, $http, auth) {
+
+	$scope.isAuthenticated = auth.isAuthenticated;
 
 	$rootScope.theme = (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) ? 'dark' : 'std';
 
@@ -198,6 +215,45 @@ routeAppControllers.controller('Index', function ($scope, $rootScope, $translate
 	$scope.lightmode = function () {
 
 		$scope.theme = "std";
+	}
+
+	$scope.login = function() {
+
+		console.log($scope.signup);
+		if ($scope.signup) {
+
+			$http.post('https://symbatools.azurewebsites.net/users/inscription', {"username": $scope.username, "password": $scope.password}).
+				then(
+					function(response) {
+
+						alert("registered")
+						$scope.loginAlert = null;
+					},
+					function(response) {
+						$scope.loginAlert = response.data.error;
+					}
+			);
+		} else {
+			$http.post('https://symbatools.azurewebsites.net/auth/login', {"username": $scope.username, "password": $scope.password}).
+				then(
+					function(response) {
+						auth.authenticated = true;
+						auth.username = $scope.username;
+						auth.password = $scope.password;
+						$scope.loginAlert = null;
+					},
+					function(response) {
+						$scope.loginAlert = response.data.error;
+					}
+			);
+		}
+	}
+
+	$scope.logout = function() {
+
+		auth.authenticated = false;
+		$scope.username = auth.username = null;
+		$scope.password = auth.password = null;
 	}
 });
 
@@ -252,7 +308,7 @@ routeAppControllers.controller('Help', function ($scope, $translate, $routeParam
 	$scope.lang = $routeParams.lang;
 });
 
-routeAppControllers.controller('Recherche', function ($scope, $http, $q, $routeParams, $rootScope, $translate, globalService) {
+routeAppControllers.controller('Recherche', function ($scope, $http, $q, $routeParams, $rootScope, $translate, globalService, auth) {
 
 	var symboles = {
 		
@@ -396,7 +452,7 @@ routeAppControllers.controller('Recherche', function ($scope, $http, $q, $routeP
 	
 				$scope.epingleSeulement = true;
 				(jsonImporter.integrated) ? $scope.calculsStatBlock(false) : $scope.calculsStatBlock(true);
-				$('#importJson').modal('hide');
+				//$('#importJson').modal('hide');
 			}
 		}, function errorCallback(response) {
 
@@ -513,9 +569,13 @@ routeAppControllers.controller('Recherche', function ($scope, $http, $q, $routeP
 
 		window.open('#!/help?lang=' + $rootScope.lang, '_blank').focus();
 	}
+	
+	$scope.openB64LinkPage = function() {
+
+		window.open($scope.b64, '_blank').focus();
+	}
+
 	$scope.getSpentPoints = function() {
-
-
 
 		return parseMyInt($scope.agi) + parseMyInt($scope.forc) + parseMyInt($scope.pre)
 				+ parseMyInt($scope.vol) + parseMyInt($scope.vig) + parseMyInt($scope.dis)
@@ -680,6 +740,66 @@ routeAppControllers.controller('Recherche', function ($scope, $http, $q, $routeP
 		$scope.statBlockProps.abilitiesTexts = abilitiesTexts;
 	};
 
+	$scope.getMyPcNpc = function() {
+
+		$http.post('https://symbatools.azurewebsites.net/json/list', { "username": auth.username, "password": auth.password }).then(
+			function(response) {
+
+				$scope.myPcNpcArr = response.data;
+			},
+			function(error) {
+
+				$scope.myPcNpcArr = null;
+			}
+		)
+	}
+
+	$scope.loadPcNpc = function(name) {
+
+		$http.post('https://symbatools.azurewebsites.net/json/get', { "username": auth.username, "password": auth.password, "name": name }).then(
+			function(response) {
+				
+				$scope.importer(JSON.stringify(response.data));
+			},
+			function(error) {
+
+				console.log(error.data);
+			}
+		);
+	}
+
+	$scope.deletePcNpc = function(name) {
+
+		if (confirm("Are you sure to delete this ?")) {
+
+			$http.post('https://symbatools.azurewebsites.net/json/delete', { "username": auth.username, "password": auth.password, "name": name }).then(
+				function(response) {
+				
+					$scope.getMyPcNpc();
+				},
+				function(error) {
+
+					console.log(error.data);
+				}
+			);
+		}
+	}
+
+	$scope.savePcNpc = function() {
+
+		$http.post('https://symbatools.azurewebsites.net/json/save', { "username": auth.username, "password": auth.password, "jsonData": $scope.getDataToExport() }).then(
+			function(response) {
+				
+			},
+			function(error) {
+
+				console.log(error.data)
+			}
+		);
+	}
+
+	$scope.isAuthenticated = auth.isAuthenticated;
+	
 	$scope.talents = {};
 
 	$scope.filtreNomTalent = "";
@@ -802,6 +922,129 @@ routeAppControllers.controller('Test', function ($scope, $q, $http) {
 
 routeAppControllers.controller('Davokar', function ($scope, $q, $routeParams, $translate, globalService) {
 
+	// ORIENTATION et MISFORTUNE
+	const tableData = { "tableOrientation" : [
+		["1", "The Camp Site", "The characters find an abandoned camp site. Is it truly abandoned? Is there any valuable equipment left behind, or something dangerous?"],
+		["2", "The Corpse", "The characters come across the remains of a dead fortune-hunter who was not prepared for the challenges of Davokar. What killed her? Do the characters recognize the deceased?"],
+		["3", "A Distant Howl", "An inhuman howl is heard way out in the woods; soon thereafter it is heard again, closer this time. How do the members of the expedition react?"],
+		["4", "A Bad Omen", "The characters encounter signs indicating a clear and present danger. What kind of signs – footprints, cadavers, mucus, blood? And how fresh are they?"],
+		["5", "Sudden silence", "Suddenly the forest holds its breath and a tense silence falls over the expedition. Why?"],
+		["6", "Stuck", "One of the expedition’s carts or part of their equipment gets stuck, in mud, in a crack or under a falling giant tree. It takes two people, each of them rolling a test against Strong, to remedy the situation. If one of the tests fails, the company will travel ten kilometers shorter this day; if both tests fail, it takes a whole day before they can continue forth."],
+		["7", "Shadowed", "The expedition is being followed, which can be noticed with a test against Vigilant. Who is spying on them, and with what intent?"],
+		["8", "Thorns", "The expedition stops at the edge of a vast field of dense thorn bushes. They can go around, thereby cutting the day’s traveling distance in half. If they try to force their way through, all members must roll two tests against Discreet – each failure deals 1d4 damage (ignoring Armor)."],
+		["9", "The Patrol", "A unit from the Queen’s Rangers orders the expedition to halt. They rummage through packs and other bags and demand to see the group’s Explorer’s License. Are they really rangers of the Queen? If yes, are they corrupt?"],
+		["10", "Mosquito swarm", "During the day’s walk, the characters are harassed by a swarm of mosquitos. What they don’t know is that the insects are exposing them to a disease. See rules on Disease in Symbaroum (page 169 in the Monster Codex) and roll 1d6 – 1–3 Weak Disease; 4–5 Moderate Disease; 6 Strong Disease."],
+		["11", "Downpour", "A strange, icy rain hammers down on the forest and the expedition is soaked. The characters can choose to test Strong or Resolute; a failure means that the person catches a chill and suffers –3 to all success tests until he or she gets warm by sitting close to a fire."],
+		["12", "Lost", "The characters have to admit that they have lost their bearings. As usual, the guide rolls one Orientation test per day, but with a –5 modification. If failed, the group wanders in circles and makes no progress at all; if successful, they progress at normal speed. It takes three successful tests with a –5 modification before they escape the bewildering area and hence are free from the negative modification. What makes the terrain so difficult to navigate?"],
+		["13", "Sick Animals", "The animals of the expedition seem exhausted and throw up all they eat. A character with Beast Lore can help them by successfully rolling a Cunning test – one test per day and animal. If the company travels with one or more sick animals, they only move a quarter of the normal distance. Maybe they have to leave some animals behind?"],
+		["14", "Marshland", "Suddenly, the characters reach a vast marshland which will take half a day to circumvent. If they choose to proceed, the guide must roll a Vigilant test; if failed, a random expedition member starts to sink and one of the others must pass two Strong tests to save him or her. If three tests fail before two successes are rolled, the unlucky one disappears into the muck."],
+		["15", "Ambush", "Hostiles in the area are planning to ambush the characters, which may be noted with a [Vigilant –5] test. Who is the enemy and what is its goal?"],
+		["16", "Spoiling Food", "The characters discover that something has consumed some of their supplies while they were sleeping or traveling, or the provisions are attacked by aggressive microbes which cause part of the stock to rot. The expedition loses 1d20 rations."],
+		["17", "Wildfire", "Without warning, a wildfire spreads toward the expedition at an alarming rate. Each person must pass two Quick tests to reach a safe location. Anyone who fails one or more tests takes 1d4 damage for 1d4 turns (ignoring Armor) before getting to safety; note that they cannot stop and try to extinguish the flames before then. What happens to the pack animals and/or the contracted carriers?"],
+		["18", "From Bad to Worse", "Roll two times on this table and use both outcomes."],
+		["19", "Discord in the Ranks", "The strenuous journey is starting to get on peoples’nerves. Two non-player characters in the expedition start fighting violently. What has happened? Is one of them infected by something?"],
+		["20", "Sacred Ground", "The ground that the characters are traversing is considered taboo for strangers by the local population – the trespassers must die! Who lives in the area? Why the taboo?"],
+		["21", "Corrupted Soil", "The environment suddenly feels twisted and sick; soon it can be seen, on the dark veins and black leaves of the vegetation. The area is blight-stricken; the characters can turn back and choose another way (loses one day), or they can proceed and roll a Strong test each – a failure means they suffer 1d6 points of temporary corruption that do not leave the body until they have left the corrupted area behind."],
+		["22", "Hangman’s Hill", "Without warning you see them hanging there, in nooses from the lower branches, gutted and mutilated: the members of a large expedition. The characters’ companions must be persuaded [Persuasive←Resolute] not to turn around and leave. Who has done this, and why?"],
+		["23", "Sabotage", "During the night, a lone saboteur tries to access the expedition’s members, provisions and/or animals. Who is the saboteur? What is the target? Can the characters thwart the attempt?"],
+		["24", "The Ironsworn’s Ultimatum", "They appear as if from out of the very air, along the path where the characters are walking – an Iron Pact warband, arrows pointing at the travelers. The leader of the elves gives an ultimatum: turn around and take a long detour (two days) or face the Ironsworn’s wrath. Why? Can an agreement be reached, such as being blindfolded and escorted through the area?"],
+		["25", "Lair of Evil", "Something in this region attracts aggressive monsters and adversaries – roll an extra time on Table 28: Enemies in Davokar (page 99). What is attracting these creatures to the area?"],
+		["26", "Delirium", "The characters start hearing and seeing what isn’t there; horrifying figures connected to their own history. If a character openly questions what he or she sees and hears, they can roll a [Resolute –3] test; success means that the hallucinations subside. The Game Master decides how much time passes before the group can resume the journey. Is the delirium caused by something they have eaten, or by something in the air or water?"],
+		["27", "The Eternal Contagion", "Everything in the area is dead or twisted beyond recognition. This place is horribly corrupt; even if the characters decide to turn back and go around (losing one day), they must pass a Strong test or suffer one point of permanent corruption. If proceeding and failing the Strong test, they suffer 1d4 points of permanent corruption; should the test succeed, they are instead plagued by 1d6 temporary corruption that lingers all day. In both cases, all provisions are automatically infected – each ration consumed deals one point of temporary corruption that does not go away until the afflicted has eaten pure food for a week."],
+		["28", "Disappearance", "An expedition member (character, companion or animal with supplies) suddenly disappears, as if evaporated into nothing. Was it transferred to another place, time or world? Who or what caused the disappearance, and why?"],
+		["29", "Heart of Darkness", "A member of the expedition encounters something that makes him or her crazy (bug bite, spores, foul air or similar). Select a non-player or player character at random, who then must roll a Resolute test: the character suffers 1d4 permanent corruption if the test is successful, or 1d10 if it fails. Irrespective of which, the victim will attack the closest person with the intent of killing him or her – a state that remains for the duration of the scene."],
+		["30", "The Eye of the Forest", "All who travel the area feel as if they are being watched by the forest itself, as if it is assessing them, searching for weaknesses. Suddenly the feeling grows many times stronger, becomes threatening, like the whole world is out to get them. All who fail a [Resolute –5] test are struck by panic and start fleeing in different directions. The panic persists for 1d4 hours, and during that time the expedition members become scattered, alone in the depths of Davokar…"]
+	]}
+
+	// RUINE et TRESOR
+	var tableRuine = [
+		["1–7", "None", 0, 0],
+		["1–7", "None", 0, 0],
+		["1–7", "None", 0, 0],
+		["1–7", "None", 0, 0],
+		["1–7", "None", 0, 0],
+		["1–7", "None", 0, 0],
+		["1–7", "None", 0, 0],
+		["8–10", "Completely crumbled or already ransacked", 0, 0],
+		["8–10", "Completely crumbled or already ransacked", 0, 0],
+		["8–10", "Completely crumbled or already ransacked", 0, 0],
+		["11–12", "Small, badly damaged", 1, 4],
+		["11–12", "Small, badly damaged", 1, 4],
+		["13–14", "Small, dilapidated", 1, 6],
+		["13–14", "Small, dilapidated", 1, 6],
+		["15–16", "Small, well-preserved", 1, 8],
+		["15–16", "Small, well-preserved", 1, 8],
+		["17–18", "Medium, badly damaged", 2, 6],
+		["17–18", "Medium, badly damaged", 2, 6],
+		["19", "Medium, dilapidated", 2, 8],
+		["20", "Medium, dilapidated", 2, 10],
+		["21", "Grand, badly damaged", 3, 8],
+		["22", "Grand, dilapidated", 3, 10],
+		["23", "Grand, well-preserved", 3, 12]
+	];
+
+	// RENCONTRE
+	var tableRencontre = [
+		[1, "Hunting party", "1D6+2", 0, false, 1, 6, 2],
+		[2, "Missionaries", "PC+1D6", 3, true, 1, 6, 0],
+		[3, "Treasure hunters", "PC+1D6", 1, true, 1, 6, 0],
+		[4, "Local settlement", "1D20+20", 5, false, 1, 20, 20],
+		[5, "Rangers", "PC+2", 0, true, 0, 0, 2],
+		[6, "Large expedition", "PC+1D6", 3, true, 1, 6, 0],
+		[7, "Nomadic goblins", "1D20+20", -1, false, 1, 20, 20],
+		[8, "Diplomatic elves, Civilized trolls or Peaceful bestiaals", "PC+1D10", -5, true, 1, 10, 0]
+	];
+
+	// ENNEMIS
+	var tableEnnemi = [
+		[9, "Weak", "Fortune Hunters, Jakaars, Frost Lights"],
+		[10, "Weak", "Fortune Hunters, Jakaars, Frost Lights"],
+		[11, "Weak, with Ordinary leader", "Robber chief + Robbers"],
+		[12, "Weak, with Ordinary leader", "Robber chief + Robbers"],
+		[13, "Ordinary", "Village Warriors, Kotkas, Blightborn Humans"],
+		[14, "Ordinary", "Village Warriors, Kotkas, Blightborn Humans"],
+		[15, "Ordinary, with Challenging leader", "Necromage + Dragouls"],
+		[16, "Ordinary, with Challenging leader", "Necromage + Dragouls"],
+		[17, "Challenging", "Rage Trolls, Ferbers, Killer Shrubs"],
+		[18, "Challenging", "Rage Trolls, Ferbers, Killer Shrubs"],
+		[19, "Challenging, with Strong leader", "Lindworm + Aboars"],
+		[20, "Challenging, with Strong leader", "Lindworm + Aboars"],
+		[21, "Strong", "Hunger Wolves, Colossi, Stone Boars"],
+		[22, "Strong", "Hunger Wolves, Colossi, Stone Boars"],
+		[23, "Strong, with Mighty leader", "Skullbiter Queen + Skullbiter Crushers"],
+		[24, "Mighty enemies, or Strong x 2", "Ravenous Willow old crushers, Primal Blight Beasts, Liege Trolls"],
+		[25, "Mighty enemies, with Legendary leader", "The World Serpent + World Serpent swallowers"]
+	]
+
+	// TERRAIN
+	var tableTerrain = [
+		["1–10", "Nothing special."],
+		["1–10", "Nothing special."],
+		["1–10", "Nothing special."],
+		["1–10", "Nothing special."],
+		["1–10", "Nothing special."],
+		["1–10", "Nothing special."],
+		["1–10", "Nothing special."],
+		["1–10", "Nothing special."],
+		["1–10", "Nothing special."],
+		["1–10", "Nothing special."],
+		["11–12", "Easily traversable : The party covers 10 km more."],
+		["11–12", "Easily traversable : The party covers 10 km more."],
+		["13–14", "Swamp/marsh : The party covers 5 km less."],
+		["13–14", "Swamp/marsh : The party covers 5 km less."],
+		["15–16", "Sinkhole : Everyone tests Vigilant. Failure causes 1D8 falling damage."],
+		["15–16", "Sinkhole : Everyone tests Vigilant. Failure causes 1D8 falling damage."],
+		["17–18", "Poisonous : spores Everyone tests Strong. Failure causes 3 damage for 3 turns."],
+		["17–18", "Poisonous : spores Everyone tests Strong. Failure causes 3 damage for 3 turns."],
+		["19–20", "Vengeful terrain : PC number of creatures, suiting the location."],
+		["19–20", "Vengeful terrain : PC number of creatures, suiting the location."],
+		["21", "Slightly corrupted nature : One roll on Table 2 in the Symbaroum Monster Codex (page 25)."],
+		["22", "Corrupted nature : Three rolls on Table 2 in the Symbaroum Monster Codex (page 25)."],
+		["23+", "Severely corrupted nature : Five rolls on Table 2 in the Symbaroum Monster Codex (page 25)."],
+		["23+", "Severely corrupted nature : Five rolls on Table 2 in the Symbaroum Monster Codex (page 25)."],
+		["23+", "Severely corrupted nature : Five rolls on Table 2 in the Symbaroum Monster Codex (page 25)."]
+	]
+
 	$scope.data = {};
 
 	$scope.data.vigilance = 10;
@@ -830,6 +1073,11 @@ routeAppControllers.controller('Davokar', function ($scope, $q, $routeParams, $t
 	$scope.encoder = function () {
 
 		$scope.b64 = globalService.encoding($scope.data, 'davokar');
+	}
+
+	$scope.fillInfo = function (info, index) {
+
+		$scope.modalInfo = $scope.data.jours[index][info];
 	}
 
 	$scope.chercherTresor = function (index) {
@@ -934,39 +1182,6 @@ routeAppControllers.controller('Davokar', function ($scope, $q, $routeParams, $t
 		$scope.data.logs.push("Modifier written source : " + modSourceEcrite);
 		$scope.data.logs.push("Modifier Davokar level : " + modDavokar);
 
-		// ORIENTATION et MISFORTUNE
-		var tableOrientation = [
-			["1", "The Camp Site", "The characters find an abandoned camp site. Is it truly abandoned? Is there any valuable equipment left behind, or something dangerous?"],
-			["2", "The Corpse", "The characters come across the remains of a dead fortune-hunter who was not prepared for the challenges of Davokar. What killed her? Do the characters recognize the deceased?"],
-			["3", "A Distant Howl", "An inhuman howl is heard way out in the woods; soon thereafter it is heard again, closer this time. How do the members of the expedition react?"],
-			["4", "A Bad Omen", "The characters encounter signs indicating a clear and present danger. What kind of signs – footprints, cadavers, mucus, blood? And how fresh are they?"],
-			["5", "Sudden silence", "Suddenly the forest holds its breath and a tense silence falls over the expedition. Why?"],
-			["6", "Stuck", "One of the expedition’s carts or part of their equipment gets stuck, in mud, in a crack or under a falling giant tree. It takes two people, each of them rolling a test against Strong, to remedy the situation. If one of the tests fails, the company will travel ten kilometers shorter this day; if both tests fail, it takes a whole day before they can continue forth."],
-			["7", "Shadowed", "The expedition is being followed, which can be noticed with a test against Vigilant. Who is spying on them, and with what intent?"],
-			["8", "Thorns", "The expedition stops at the edge of a vast field of dense thorn bushes. They can go around, thereby cutting the day’s traveling distance in half. If they try to force their way through, all members must roll two tests against Discreet – each failure deals 1d4 damage (ignoring Armor)."],
-			["9", "The Patrol", "A unit from the Queen’s Rangers orders the expedition to halt. They rummage through packs and other bags and demand to see the group’s Explorer’s License. Are they really rangers of the Queen? If yes, are they corrupt?"],
-			["10", "Mosquito swarm", "During the day’s walk, the characters are harassed by a swarm of mosquitos. What they don’t know is that the insects are exposing them to a disease. See rules on Disease in Symbaroum (page 169 in the Monster Codex) and roll 1d6 – 1–3 Weak Disease; 4–5 Moderate Disease; 6 Strong Disease."],
-			["11", "Downpour", "A strange, icy rain hammers down on the forest and the expedition is soaked. The characters can choose to test Strong or Resolute; a failure means that the person catches a chill and suffers –3 to all success tests until he or she gets warm by sitting close to a fire."],
-			["12", "Lost", "The characters have to admit that they have lost their bearings. As usual, the guide rolls one Orientation test per day, but with a –5 modification. If failed, the group wanders in circles and makes no progress at all; if successful, they progress at normal speed. It takes three successful tests with a –5 modification before they escape the bewildering area and hence are free from the negative modification. What makes the terrain so difficult to navigate?"],
-			["13", "Sick Animals", "The animals of the expedition seem exhausted and throw up all they eat. A character with Beast Lore can help them by successfully rolling a Cunning test – one test per day and animal. If the company travels with one or more sick animals, they only move a quarter of the normal distance. Maybe they have to leave some animals behind?"],
-			["14", "Marshland", "Suddenly, the characters reach a vast marshland which will take half a day to circumvent. If they choose to proceed, the guide must roll a Vigilant test; if failed, a random expedition member starts to sink and one of the others must pass two Strong tests to save him or her. If three tests fail before two successes are rolled, the unlucky one disappears into the muck."],
-			["15", "Ambush", "Hostiles in the area are planning to ambush the characters, which may be noted with a [Vigilant –5] test. Who is the enemy and what is its goal?"],
-			["16", "Spoiling Food", "The characters discover that something has consumed some of their supplies while they were sleeping or traveling, or the provisions are attacked by aggressive microbes which cause part of the stock to rot. The expedition loses 1d20 rations."],
-			["17", "Wildfire", "Without warning, a wildfire spreads toward the expedition at an alarming rate. Each person must pass two Quick tests to reach a safe location. Anyone who fails one or more tests takes 1d4 damage for 1d4 turns (ignoring Armor) before getting to safety; note that they cannot stop and try to extinguish the flames before then. What happens to the pack animals and/or the contracted carriers?"],
-			["18", "From Bad to Worse", "Roll two times on this table and use both outcomes."],
-			["19", "Discord in the Ranks", "The strenuous journey is starting to get on peoples’nerves. Two non-player characters in the expedition start fighting violently. What has happened? Is one of them infected by something?"],
-			["20", "Sacred Ground", "The ground that the characters are traversing is considered taboo for strangers by the local population – the trespassers must die! Who lives in the area? Why the taboo?"],
-			["21", "Corrupted Soil", "The environment suddenly feels twisted and sick; soon it can be seen, on the dark veins and black leaves of the vegetation. The area is blight-stricken; the characters can turn back and choose another way (loses one day), or they can proceed and roll a Strong test each – a failure means they suffer 1d6 points of temporary corruption that do not leave the body until they have left the corrupted area behind."],
-			["22", "Hangman’s Hill", "Without warning you see them hanging there, in nooses from the lower branches, gutted and mutilated: the members of a large expedition. The characters’ companions must be persuaded [Persuasive←Resolute] not to turn around and leave. Who has done this, and why?"],
-			["23", "Sabotage", "During the night, a lone saboteur tries to access the expedition’s members, provisions and/or animals. Who is the saboteur? What is the target? Can the characters thwart the attempt?"],
-			["24", "The Ironsworn’s Ultimatum", "They appear as if from out of the very air, along the path where the characters are walking – an Iron Pact warband, arrows pointing at the travelers. The leader of the elves gives an ultimatum: turn around and take a long detour (two days) or face the Ironsworn’s wrath. Why? Can an agreement be reached, such as being blindfolded and escorted through the area?"],
-			["25", "Lair of Evil", "Something in this region attracts aggressive monsters and adversaries – roll an extra time on Table 28: Enemies in Davokar (page 99). What is attracting these creatures to the area?"],
-			["26", "Delirium", "The characters start hearing and seeing what isn’t there; horrifying figures connected to their own history. If a character openly questions what he or she sees and hears, they can roll a [Resolute –3] test; success means that the hallucinations subside. The Game Master decides how much time passes before the group can resume the journey. Is the delirium caused by something they have eaten, or by something in the air or water?"],
-			["27", "The Eternal Contagion", "Everything in the area is dead or twisted beyond recognition. This place is horribly corrupt; even if the characters decide to turn back and go around (losing one day), they must pass a Strong test or suffer one point of permanent corruption. If proceeding and failing the Strong test, they suffer 1d4 points of permanent corruption; should the test succeed, they are instead plagued by 1d6 temporary corruption that lingers all day. In both cases, all provisions are automatically infected – each ration consumed deals one point of temporary corruption that does not go away until the afflicted has eaten pure food for a week."],
-			["28", "Disappearance", "An expedition member (character, companion or animal with supplies) suddenly disappears, as if evaporated into nothing. Was it transferred to another place, time or world? Who or what caused the disappearance, and why?"],
-			["29", "Heart of Darkness", "A member of the expedition encounters something that makes him or her crazy (bug bite, spores, foul air or similar). Select a non-player or player character at random, who then must roll a Resolute test: the character suffers 1d4 permanent corruption if the test is successful, or 1d10 if it fails. Irrespective of which, the victim will attack the closest person with the intent of killing him or her – a state that remains for the duration of the scene."],
-			["30", "The Eye of the Forest", "All who travel the area feel as if they are being watched by the forest itself, as if it is assessing them, searching for weaknesses. Suddenly the feeling grows many times stronger, becomes threatening, like the whole world is out to get them. All who fail a [Resolute –5] test are struck by panic and start fleeing in different directions. The panic persists for 1d4 hours, and during that time the expedition members become scattered, alone in the depths of Davokar…"]
-		];
 		// ORIENTATION : Calcul malus selon difference entre niveau survie et davokar
 		var texteOrientation = jetOrientation = "N/A";
 		if (!$scope.data.rester) {
@@ -1001,7 +1216,7 @@ routeAppControllers.controller('Davokar', function ($scope, $q, $routeParams, $t
 
 				$scope.data.logs.push("Rolled misfortune (after Davokar modifier) : " + misfortune);
 
-				texteOrientation = tableOrientation[misfortune - 1][1] + " : " + tableOrientation[misfortune - 1][2];
+				texteOrientation = tableData.tableOrientation[misfortune - 1][1] + " : " + tableData.tableOrientation[misfortune - 1][2];
 			}
 
 			// Réussi > 5
@@ -1059,33 +1274,6 @@ routeAppControllers.controller('Davokar', function ($scope, $q, $routeParams, $t
 
 		$scope.data.provisions = parseInt($scope.data.provisions) - parseInt($scope.data.pjs);
 
-		// RUINE et TRESOR
-		var tableRuine = [
-			["1–7", "None", 0, 0],
-			["1–7", "None", 0, 0],
-			["1–7", "None", 0, 0],
-			["1–7", "None", 0, 0],
-			["1–7", "None", 0, 0],
-			["1–7", "None", 0, 0],
-			["1–7", "None", 0, 0],
-			["8–10", "Completely crumbled or already ransacked", 0, 0],
-			["8–10", "Completely crumbled or already ransacked", 0, 0],
-			["8–10", "Completely crumbled or already ransacked", 0, 0],
-			["11–12", "Small, badly damaged", 1, 4],
-			["11–12", "Small, badly damaged", 1, 4],
-			["13–14", "Small, dilapidated", 1, 6],
-			["13–14", "Small, dilapidated", 1, 6],
-			["15–16", "Small, well-preserved", 1, 8],
-			["15–16", "Small, well-preserved", 1, 8],
-			["17–18", "Medium, badly damaged", 2, 6],
-			["17–18", "Medium, badly damaged", 2, 6],
-			["19", "Medium, dilapidated", 2, 8],
-			["20", "Medium, dilapidated", 2, 10],
-			["21", "Grand, badly damaged", 3, 8],
-			["22", "Grand, dilapidated", 3, 10],
-			["23", "Grand, well-preserved", 3, 12]
-		];
-
 		// Ruine
 		var texteRuine = jetRuine = "N/A";
 		var tresorsRestants = 0;
@@ -1114,18 +1302,6 @@ routeAppControllers.controller('Davokar', function ($scope, $q, $routeParams, $t
 			tresorsRestants = $scope.data.jours[$scope.data.jours.length - 1].tresorsRestants;
 		}
 
-		// RENCONTRE
-		var tableRencontre = [
-			[1, "Hunting party", "1D6+2", 0, false, 1, 6, 2],
-			[2, "Missionaries", "PC+1D6", 3, true, 1, 6, 0],
-			[3, "Treasure hunters", "PC+1D6", 1, true, 1, 6, 0],
-			[4, "Local settlement", "1D20+20", 5, false, 1, 20, 20],
-			[5, "Rangers", "PC+2", 0, true, 0, 0, 2],
-			[6, "Large expedition", "PC+1D6", 3, true, 1, 6, 0],
-			[7, "Nomadic goblins", "1D20+20", -1, false, 1, 20, 20],
-			[8, "Diplomatic elves, Civilized trolls or Peaceful bestiaals", "PC+1D10", -5, true, 1, 10, 0]
-		];
-
 		var texteRencontre = $translate.instant('DAV_NONE');
 
 		var jetRencontre = $scope.jetDe(20);
@@ -1152,27 +1328,6 @@ routeAppControllers.controller('Davokar', function ($scope, $q, $routeParams, $t
 				texteRencontre += $translate.instant('DAV_REPERE');
 			}
 		}
-
-		// ENNEMIS
-		var tableEnnemi = [
-			[9, "Weak", "Fortune Hunters, Jakaars, Frost Lights"],
-			[10, "Weak", "Fortune Hunters, Jakaars, Frost Lights"],
-			[11, "Weak, with Ordinary leader", "Robber chief + Robbers"],
-			[12, "Weak, with Ordinary leader", "Robber chief + Robbers"],
-			[13, "Ordinary", "Village Warriors, Kotkas, Blightborn Humans"],
-			[14, "Ordinary", "Village Warriors, Kotkas, Blightborn Humans"],
-			[15, "Ordinary, with Challenging leader", "Necromage + Dragouls"],
-			[16, "Ordinary, with Challenging leader", "Necromage + Dragouls"],
-			[17, "Challenging", "Rage Trolls, Ferbers, Killer Shrubs"],
-			[18, "Challenging", "Rage Trolls, Ferbers, Killer Shrubs"],
-			[19, "Challenging, with Strong leader", "Lindworm + Aboars"],
-			[20, "Challenging, with Strong leader", "Lindworm + Aboars"],
-			[21, "Strong", "Hunger Wolves, Colossi, Stone Boars"],
-			[22, "Strong", "Hunger Wolves, Colossi, Stone Boars"],
-			[23, "Strong, with Mighty leader", "Skullbiter Queen + Skullbiter Crushers"],
-			[24, "Mighty enemies, or Strong x 2", "Ravenous Willow old crushers, Primal Blight Beasts, Liege Trolls"],
-			[25, "Mighty enemies, with Legendary leader", "The World Serpent + World Serpent swallowers"]
-		]
 
 		var texteEnnemi = "";
 		var jetEnnemi = "N/A";
@@ -1217,35 +1372,6 @@ routeAppControllers.controller('Davokar', function ($scope, $q, $routeParams, $t
 				texteEnnemi = $translate.instant('DAV_NONE');
 			}
 		}
-
-		// TERRAIN
-		var tableTerrain = [
-			["1–10", "Nothing special."],
-			["1–10", "Nothing special."],
-			["1–10", "Nothing special."],
-			["1–10", "Nothing special."],
-			["1–10", "Nothing special."],
-			["1–10", "Nothing special."],
-			["1–10", "Nothing special."],
-			["1–10", "Nothing special."],
-			["1–10", "Nothing special."],
-			["1–10", "Nothing special."],
-			["11–12", "Easily traversable : The party covers 10 km more."],
-			["11–12", "Easily traversable : The party covers 10 km more."],
-			["13–14", "Swamp/marsh : The party covers 5 km less."],
-			["13–14", "Swamp/marsh : The party covers 5 km less."],
-			["15–16", "Sinkhole : Everyone tests Vigilant. Failure causes 1D8 falling damage."],
-			["15–16", "Sinkhole : Everyone tests Vigilant. Failure causes 1D8 falling damage."],
-			["17–18", "Poisonous : spores Everyone tests Strong. Failure causes 3 damage for 3 turns."],
-			["17–18", "Poisonous : spores Everyone tests Strong. Failure causes 3 damage for 3 turns."],
-			["19–20", "Vengeful terrain : PC number of creatures, suiting the location."],
-			["19–20", "Vengeful terrain : PC number of creatures, suiting the location."],
-			["21", "Slightly corrupted nature : One roll on Table 2 in the Symbaroum Monster Codex (page 25)."],
-			["22", "Corrupted nature : Three rolls on Table 2 in the Symbaroum Monster Codex (page 25)."],
-			["23+", "Severely corrupted nature : Five rolls on Table 2 in the Symbaroum Monster Codex (page 25)."],
-			["23+", "Severely corrupted nature : Five rolls on Table 2 in the Symbaroum Monster Codex (page 25)."],
-			["23+", "Severely corrupted nature : Five rolls on Table 2 in the Symbaroum Monster Codex (page 25)."]
-		]
 
 		var texteTerrain = "";
 		var jetTerrain = "N/A";

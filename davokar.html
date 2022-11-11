@@ -1,86 +1,172 @@
 <section class="davokar">
+
+			<!-- Modal -->
+			<div class="modal" id="tresorsModal" tabindex="-1">
+				<div class="modal-dialog">
+				  <div class="modal-content">
+					<div class="modal-header">
+					  <h5 class="modal-title" id="tresorsModalLabel">{{'DAV_TRESORS' | translate}}</h5>
+					</div>
+					<div class="modal-body">
+					  <ul>
+						<li ng-repeat="tresorTrouve in data.tresorsTrouves">
+						  {{tresorTrouve}}
+						</li>
+					  </ul>
+					</div>
+					<div class="modal-footer">
+					  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{'PAN_CLOSE' | translate}}</button>
+					</div>
+				  </div>
+				</div>
+			  </div>
+  
+			  <!-- Modal -->
+			  <div class="modal" id="b64" tabindex="-1">
+				<div class="modal-dialog">
+				  <div class="modal-content">
+					<div class="modal-header">
+					  <h5 class="modal-title" id="b64ModalLabel">{{'B84_PAN_TITLE' | translate}}</h5>
+					</div>
+					<div class="modal-body">
+						  <a href="{{b64}}" data-bs-dismiss="modal">{{'B84_PAN_LINK' | translate}}</a>
+					</div>
+					<div class="modal-footer">
+					  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{'PAN_CLOSE' | translate}}</button>
+					</div>
+				  </div>
+				</div>
+			  </div>
+  
+			  <!-- Modal -->
+			  <div class="modal" id="reglesModal" tabindex="-1">
+				<div class="modal-dialog modal-lg">
+				  <div class="modal-content">
+					<div class="modal-header">
+					  <h5 class="modal-title" id="reglesModalLabel">{{'HELP' | translate}}</h5>
+					</div>
+					<div class="modal-body">
+				Cet outil permet de générer des journées de voyage en suivant les règles fournies dans le Game Master Guide (EN) de Symbaroum.
+				Le GMG est nécessaire pour bien comprendre les règles utilisées.
+				<ul>
+					<li>Davokar : "Type" de Davokar dans lequel générer une journée.</li>
+					<li>Survie : Niveau du talent "Art de la survie" du personnage faisant office de guide en Davokar.</li>
+					<li>Vigilance : Vigilance du personnage faisant office de guide en Davokar.</li>
+					<li>Discrétion : Discrétion du personnage le plus discret du groupe.</li>
+					<li>Provisions : Nombre de provisions du groupe.</li>
+					<li>Nb. PJ : Nombre de personnages joueurs du groupe.</li>
+					<li>Rester sur place : Permet de générer une journée sans voyager, permet notamment de rester sur place dans une ruine.</li>
+					<li>Information : Permet d'indiquer que les PJ disposent d'informations sur leur voyage, receuillies préalablement.</li>
+				</ul>
+					</div>
+					<div class="modal-footer">
+					  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{'PAN_CLOSE' | translate}}</button>
+					</div>
+				  </div>
+				</div>
+			</div>
+
+			<!-- Modal -->
+			<div class="modal" id="infoModal" tabindex="-1">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-body">
+							{{modalInfo}}
+						</div>
+					</div>
+				</div>
+			</div>
+
 			<div class="row">
 				<div class="col-1"></div>
 				<div class="col-10">
 					<form>
-						<div class="form-row align-items-center">
-							<div class="input-group col-2">
-								<div class="input-group-prepend">
+						<div class="row align-items-center">
+							<div class="col-2">
+								<div class="input-group">
 									<div class="input-group-text">Davokar</div>
+									<select class="form-control" ng-model="data.davokar">
+										<option value="clair">{{'DAV_CLAIR' | translate}}</option>
+										<option value="sauvage">{{'DAV_SAUVAGE' | translate}}</option>
+										<option value="sombre">{{'DAV_SOMBRE' | translate}}</option>
+									</select>
 								</div>
-								<select class="form-control" ng-model="data.davokar">
-									<option value="clair">{{'DAV_CLAIR' | translate}}</option>
-									<option value="sauvage">{{'DAV_SAUVAGE' | translate}}</option>
-									<option value="sombre">{{'DAV_SOMBRE' | translate}}</option>
-								</select>
 							</div>
-							<div class="input-group col-2">
-								<div class="input-group-prepend">
+							<div class="col-2">
+								<div class="input-group">
 									<div class="input-group-text">{{'DAV_SURVIE' | translate}}</div>
+									<select class="form-control" ng-model="data.survie">
+										<option value="novice">{{'NOVICE' | translate}}</option>
+										<option value="adepte">{{'ADEPTE' | translate}}</option>
+										<option value="maitre">{{'MAITRE' | translate}}</option>
+									</select>
 								</div>
-								<select class="form-control" ng-model="data.survie">
-									<option value="novice">{{'NOVICE' | translate}}</option>
-									<option value="adepte">{{'ADEPTE' | translate}}</option>
-									<option value="maitre">{{'MAITRE' | translate}}</option>
-								</select>
 							</div>
-							<div class="input-group col-2">
-								<div class="input-group-prepend">
+							<div class="col-2">
+								<div class="input-group">
 									<div class="input-group-text">{{'ATTR_VIG' | translate}}</div>
+									<input type="text" class="form-control" id="vigilance" ng-model="data.vigilance" />
 								</div>
-								<input type="text" class="form-control" id="vigilance" ng-model="data.vigilance" />
 							</div>
-							<div class="input-group col-2">
-								<div class="input-group-prepend">
+							<div class="col-2">
+								<div class="input-group">
 									<div class="input-group-text">{{'ATTR_DIS' | translate}}</div>
+									<input type="text" class="form-control" id="discretion" ng-model="data.discretion" />
 								</div>
-								<input type="text" class="form-control" id="discretion" ng-model="data.discretion" />
 							</div>
-							<div class="input-group col-2">
-								<div class="input-group-prepend">
+							<div class="col-2">
+								<div class="input-group">
 									<div class="input-group-text">{{'DAV_PROV' | translate}}</div>
+									<input type="text" class="form-control" id="provisions" ng-model="data.provisions" />
 								</div>
-								<input type="text" class="form-control" id="provisions" ng-model="data.provisions" />
 							</div>
-							<div class="input-group col-2">
-								<div class="input-group-prepend">
+							<div class="col-2">
+								<div class="input-group">
 									<div class="input-group-text">{{'DAV_NBPJ' | translate}}</div>
+									<input type="text" class="form-control" id="pjs" ng-model="data.pjs" />
 								</div>
-								<input type="text" class="form-control" id="pjs" ng-model="data.pjs" />
 							</div>
 						</div>
-						<div class="form-row align-items-center">
-							<div class="input-group col-2">
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="" id="rester" ng-model="data.rester">
-									<label class="form-check-label" for="rester">{{'DAV_SURPLACE' | translate}}</label>
+						<div class="row align-items-center">
+							<div class="col-2">
+								<div class="input-group">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" value="" id="rester" ng-model="data.rester" />
+										<label class="form-check-label" for="rester">{{'DAV_SURPLACE' | translate}}</label>
+									</div>
 								</div>
 							</div>
-							<div class="input-group col-2">
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="" id="information" ng-model="data.information">
-									<label class="form-check-label" for="information">{{'DAV_INFO' | translate}}</label>
+							<div class="col-2">
+								<div class="input-group">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" value="" id="information" ng-model="data.information" />
+										<label class="form-check-label" for="information">{{'DAV_INFO' | translate}}</label>
+									</div>
 								</div>
 							</div>
-							<div class="input-group col-2">
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="" id="sourceEcrite" ng-model="data.sourceEcrite">
-									<label class="form-check-label" for="sourceEcrite">{{'DAV_INFO_ECRITE' | translate}}</label>
-								</div>&nbsp;&nbsp;
-								<div class="form-check" ng-if="data.sourceEcrite">
-									<input class="form-check-input" type="checkbox" value="" id="sourceEcriteSup5" ng-model="data.sourceEcriteSup5">
-									<label class="form-check-label" for="sourceEcriteSup5">{{'DAV_INFO_ECRITE_SUP5' | translate}}</label>
+							<div class="col-2">
+								<div class="input-group">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" value="" id="sourceEcrite" ng-model="data.sourceEcrite" />
+										<label class="form-check-label" for="sourceEcrite">{{'DAV_INFO_ECRITE' | translate}}</label>
+									</div>&nbsp;&nbsp;
+									<div class="form-check" ng-if="data.sourceEcrite">
+										<input class="form-check-input" type="checkbox" value="" id="sourceEcriteSup5" ng-model="data.sourceEcriteSup5" />
+										<label class="form-check-label" for="sourceEcriteSup5">{{'DAV_INFO_ECRITE_SUP5' | translate}}</label>
+									</div>
 								</div>
 							</div>
 							<div class="col-6"></div>
 						</div>
 						<br/>
-						<div class="form-row align-items-center">
-							<button type="button" class="btn btn-dark btn-sm" ng-click="genJour()">{{'DAV_JOURNEE' | translate}}</button>&nbsp;
-							<button type="button" class="btn btn-dark btn-sm" ng-click="reset()">Reset</button>&nbsp;
-							<button type="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#tresorsModal">{{'DAV_TRESORS' | translate}}</button>&nbsp;
-							<button type="button" class="btn btn-dark btn-sm" ng-click="encoder()" data-toggle="modal" data-target="#b64" title="B64">{{'B64' | translate}}</button>&nbsp;
-							<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#reglesModal" title="Aide">{{'HELP' | translate}}</button>
+						<div class="row">
+							<div class="col-12">
+								<button type="button" class="btn btn-dark btn-sm" ng-click="genJour()">{{'DAV_JOURNEE' | translate}}</button>&nbsp;
+								<button type="button" class="btn btn-dark btn-sm" ng-click="reset()">Reset</button>&nbsp;
+								<button type="button" class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target="#tresorsModal">{{'DAV_TRESORS' | translate}}</button>&nbsp;
+								<button type="button" class="btn btn-dark btn-sm" ng-click="encoder()" data-bs-toggle="modal" data-bs-target="#b64" title="B64">{{'B64' | translate}}</button>&nbsp;
+								<button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#reglesModal" title="Aide">{{'HELP' | translate}}</button>
+							</div>
 						</div>
 					</form>
 				</div>
@@ -91,186 +177,62 @@
 
 			<div class="row">
 				<div class="col-1"></div>
-				<table class="table col-10">
-				  <thead>
-					<tr>
-					  <th scope="col">Davokar</th>
-					  <th scope="col">{{'DAV_SURPLACE' | translate}}</th>
-					  <th scope="col">{{'DAV_ORIENTATION' | translate}} (p. 92-94)</th>
-					  <th scope="col">{{'DAV_PROV' | translate}}</th>
-					  <th scope="col">{{'DAV_RUINE' | translate}} (p. 98)</th>
-					  <th scope="col">{{'DAV_TRESOR' | translate}} (p. 100-103)</th>
-					  <th scope="col">{{'DAV_RENCONTRE' | translate}} (p. 99)</th>
-					  <th scope="col">{{'DAV_ENNEMI' | translate}} (p. 99)</th>
-					  <th scope="col">{{'DAV_TERRAIN' | translate}} (p. 99)</th>
-					</tr>
-				  </thead>
-				  <tbody>
-					<tr ng-repeat="jour in data.jours">
-					  <td>{{jour.davokar}}</td>
-					  <td>{{jour.rester}}</td>
-					  <td>{{jour.jetOrientation}}
-						&nbsp;<a href="" class="text-decoration-none" ng-if="!jour.resterBool" data-toggle="modal" ng-attr-data-target="{{ '#orientation-' + $index }}">
-							<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-question-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-								<path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
-								<path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"></path>
-							</svg>
-						</a>
-						<div ng-if="!jour.resterBool" class="modal fade" ng-attr-id="{{ 'orientation-' + $index }}" tabindex="-1" aria-hidden="true">
-						  <div class="modal-dialog">
-							<div class="modal-content">
-							  <div class="modal-body">
-								{{jour.orientation}}
-							  </div>
-							</div>
-						  </div>
-						</div>
-					  </td>
-					  <td>{{jour.provisions}}</td>
-					  <td>{{jour.jetRuine}}
-						&nbsp;<a href="" class="text-decoration-none" ng-if="!jour.resterBool" data-toggle="modal" ng-attr-data-target="{{ '#ruine-' + $index }}">
-							<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-question-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-								<path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
-								<path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"></path>
-							</svg>
-						</a>
-						<div ng-if="!jour.resterBool" class="modal fade" ng-attr-id="{{ 'ruine-' + $index }}" tabindex="-1" aria-hidden="true">
-						  <div class="modal-dialog">
-							<div class="modal-content">
-							  <div class="modal-body">
-								{{jour.ruine}}
-							  </div>
-							</div>
-						  </div>
-						</div>
-					  </td>
-					  <td>
-					    <form class="form-inline">
-							{{'DAV_TRES_RESTANT' | translate}} : {{jour.tresorsRestants}}&nbsp;&nbsp;
-						  <button type="button" class="btn btn-dark btn-sm" ng-click="chercherTresor($index)">{{'SEARCH' | translate}}</button>&nbsp;
-						  <input type="text" class="form-control form-control-sm" style="width:60px" ng-model="jour.vigilancePJTresor" placeholder="VIG PJ"/>
-						</form>
-					  </td>
-					  <td>{{jour.jetRencontre}}
-						&nbsp;<a href="" class="text-decoration-none" data-toggle="modal" ng-attr-data-target="{{ '#rencontre-' + $index }}">
-							<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-question-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-								<path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
-								<path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"></path>
-							</svg>
-						</a>
-						<div class="modal fade" ng-attr-id="{{ 'rencontre-' + $index }}" tabindex="-1" aria-hidden="true">
-						  <div class="modal-dialog">
-							<div class="modal-content">
-							  <div class="modal-body">
-								{{jour.rencontre}}
-							  </div>
-							</div>
-						  </div>
-						</div>
-					  </td>
-					  <td>{{jour.jetEnnemi}}
-						&nbsp;<a href="" class="text-decoration-none" data-toggle="modal" ng-attr-data-target="{{ '#ennemi-' + $index }}">
-							<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-question-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-								<path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
-								<path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"></path>
-							</svg>
-						</a>
-						<div class="modal fade" ng-attr-id="{{ 'ennemi-' + $index }}" tabindex="-1" aria-hidden="true">
-						  <div class="modal-dialog">
-							<div class="modal-content">
-							  <div class="modal-body">
-								{{jour.ennemi}}
-							  </div>
-							</div>
-						  </div>
-						</div>
-					  </td>
-					  <td>{{jour.jetTerrain}}
-						&nbsp;<a href="" class="text-decoration-none" ng-if="!jour.resterBool" data-toggle="modal" ng-attr-data-target="{{ '#terrain-' + $index }}">
-							<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-question-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-								<path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
-								<path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"></path>
-							</svg>
-						</a>
-						<div ng-if="!jour.resterBool" class="modal fade" ng-attr-id="{{ 'terrain-' + $index }}" tabindex="-1" aria-hidden="true">
-						  <div class="modal-dialog">
-							<div class="modal-content">
-							  <div class="modal-body">
-								{{jour.terrain}}
-							  </div>
-							</div>
-						  </div>
-						</div>
-					  </td>
-					</tr>
-				  </tbody>
-				</table>
+				<div class="col-10">
+					<table class="table">
+					<thead>
+						<tr>
+						<th scope="col">Davokar</th>
+						<th scope="col">{{'DAV_SURPLACE' | translate}}</th>
+						<th scope="col">{{'DAV_ORIENTATION' | translate}} (p. 92-94)</th>
+						<th scope="col">{{'DAV_PROV' | translate}}</th>
+						<th scope="col">{{'DAV_RUINE' | translate}} (p. 98)</th>
+						<th scope="col">{{'DAV_TRESOR' | translate}} (p. 100-103)</th>
+						<th scope="col">{{'DAV_RENCONTRE' | translate}} (p. 99)</th>
+						<th scope="col">{{'DAV_ENNEMI' | translate}} (p. 99)</th>
+						<th scope="col">{{'DAV_TERRAIN' | translate}} (p. 99)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="jour in data.jours">
+						<td>{{jour.davokar}}</td>
+						<td>{{jour.rester}}</td>
+						<td>{{jour.jetOrientation}}
+							&nbsp;<a href="" class="text-decoration-none" ng-if="!jour.resterBool" data-bs-toggle="modal" data-bs-target="#infoModal" ng-click="fillInfo('orientation', $index)">
+								💬
+							</a>
+						</td>
+						<td>{{jour.provisions}}</td>
+						<td>{{jour.jetRuine}}
+							&nbsp;<a href="" class="text-decoration-none" ng-if="!jour.resterBool" data-bs-toggle="modal" data-bs-target="#infoModal" ng-click="fillInfo('ruine', $index)">
+								💬
+							</a>
+						</td>
+						<td>
+							<form class="row">
+								<div class="col-auto">{{'DAV_TRES_RESTANT' | translate}} : {{jour.tresorsRestants}}</div>
+								<div class="col-auto"><button type="button" class="btn btn-dark btn-sm" ng-click="chercherTresor($index)">{{'SEARCH' | translate}}</button></div>
+								<div class="col-auto"><input type="text" class="form-control form-control-sm" style="width:60px;" ng-model="jour.vigilancePJTresor" placeholder="VIG PJ" /></div>
+							</form>
+						</td>
+						<td>{{jour.jetRencontre}}
+							&nbsp;<a href="" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#infoModal" ng-click="fillInfo('rencontre', $index)">
+								💬
+							</a>
+						</td>
+						<td>{{jour.jetEnnemi}}
+							&nbsp;<a href="" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#infoModal" ng-click="fillInfo('ennemi', $index)">
+								💬
+							</a>
+						</td>
+						<td>{{jour.jetTerrain}}
+							&nbsp;<a href="" class="text-decoration-none" ng-if="!jour.resterBool" data-bs-toggle="modal" data-bs-target="#infoModal" ng-click="fillInfo('terrain', $index)">
+								💬
+							</a>
+						</td>
+						</tr>
+					</tbody>
+					</table>
+				</div>
 				<div class="col-1"></div>
-			</div>
-
-			<!-- Modal -->
-			<div class="modal fade" id="tresorsModal" tabindex="-1" role="dialog" aria-labelledby="tresorsModalLabel" aria-hidden="true">
-			  <div class="modal-dialog" role="document">
-				<div class="modal-content">
-				  <div class="modal-header">
-					<h5 class="modal-title" id="tresorsModalLabel">{{'DAV_TRESORS' | translate}}</h5>
-				  </div>
-				  <div class="modal-body">
-					<ul>
-					  <li ng-repeat="tresorTrouve in data.tresorsTrouves">
-						{{tresorTrouve}}
-					  </li>
-					</ul>
-				  </div>
-				  <div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">{{'PAN_CLOSE' | translate}}</button>
-				  </div>
-				</div>
-			  </div>
-			</div>
-
-			<!-- Modal -->
-			<div class="modal fade" id="b64" tabindex="-1" role="dialog" aria-labelledby="b64ModalLabel" aria-hidden="true">
-			  <div class="modal-dialog" role="document">
-				<div class="modal-content">
-				  <div class="modal-header">
-					<h5 class="modal-title" id="b64ModalLabel">{{'B84_PAN_TITLE' | translate}}</h5>
-				  </div>
-				  <div class="modal-body">
-						<a href="{{b64}}" data-dismiss="modal">{{'B84_PAN_LINK' | translate}}</a>
-				  </div>
-				  <div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">{{'PAN_CLOSE' | translate}}</button>
-				  </div>
-				</div>
-			  </div>
-			</div>
-
-			<!-- Modal -->
-			<div class="modal fade" id="reglesModal" tabindex="-1" role="dialog" aria-labelledby="reglesModalLabel" aria-hidden="true">
-			  <div class="modal-dialog modal-lg" role="document">
-				<div class="modal-content">
-				  <div class="modal-header">
-					<h5 class="modal-title" id="reglesModalLabel">{{'HELP' | translate}}</h5>
-				  </div>
-				  <div class="modal-body">
-			  Cet outil permet de générer des journées de voyage en suivant les règles fournies dans le Game Master Guide (EN) de Symbaroum.
-			  Le GMG est nécessaire pour bien comprendre les règles utilisées.
-			  <ul>
-				  <li>Davokar : "Type" de Davokar dans lequel générer une journée.</li>
-				  <li>Survie : Niveau du talent "Art de la survie" du personnage faisant office de guide en Davokar.</li>
-				  <li>Vigilance : Vigilance du personnage faisant office de guide en Davokar.</li>
-				  <li>Discrétion : Discrétion du personnage le plus discret du groupe.</li>
-				  <li>Provisions : Nombre de provisions du groupe.</li>
-				  <li>Nb. PJ : Nombre de personnages joueurs du groupe.</li>
-				  <li>Rester sur place : Permet de générer une journée sans voyager, permet notamment de rester sur place dans une ruine.</li>
-				  <li>Information : Permet d'indiquer que les PJ disposent d'informations sur leur voyage, receuillies préalablement.</li>
-			  </ul>
-				  </div>
-				  <div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">{{'PAN_CLOSE' | translate}}</button>
-				  </div>
-				</div>
-			  </div>
 			</div>
 	</section>
