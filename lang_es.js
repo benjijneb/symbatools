@@ -127,6 +127,7 @@ var translationsES = {
     SIGN_UP: "Registro",
     PWD: "Contraseña",
     EMAIL: "Correo electrónico",
+    LOGOUT: "cerrar sesión",
 
     // SymbatooTools API errors
     ERR_LOG_1: "Correo electrónico desconocida.",
