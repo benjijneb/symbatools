@@ -20,26 +20,25 @@
 	<div ng-controller="Index">
 		<div class="offcanvas offcanvas-start" tabindex="-1" id="loginCanvas">
 			<div class="offcanvas-header">
-				<h5 class="offcanvas-title" id="offcanvasLabel">{{ isAuthenticated() ? username : 'Log in / Sign up'}}</h5>
+				<h5 class="offcanvas-title" id="offcanvasLabel">{{ isAuthenticated() ? username : ('LOG_IN' | translate) + " / " + ('SIGN_UP' | translate) }}</h5>
 				<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 			</div>
 			<div class="offcanvas-body">
-				<p><b>Be aware that this Web site does not manage sessions, so do not refresh or you will need to reauthenticate.</b></p>
+				<p><b>{{ 'SESSION_MSG' | translate }}</b></p>
 				<form ng-show="!isAuthenticated()">
 					<div class="mb-3">
-					  <label for="inputEmail" class="form-label">Email address</label>
+					  <label for="inputEmail" class="form-label">{{ 'EMAIL' | translate }}</label>
 					  <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" ng-model="username"/>
-					  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
 					</div>
 					<div class="mb-3">
-					  <label for="inputPwd" class="form-label">Password</label>
+					  <label for="inputPwd" class="form-label">{{ 'PWD' | translate }}</label>
 					  <input type="password" class="form-control" id="inputPwd" ng-model="password"/>
 					</div>
 					<div class="mb-3 form-check">
 					  <input type="checkbox" id="signupCheck" class="form-check-input" ng-model="signup">
-					  <label class="form-check-label" for="signupCheck">Sign me up</label>
+					  <label class="form-check-label" for="signupCheck">{{ 'SIGN_UP' | translate }}</label>
 					</div>
-					<button type="submit" class="btn btn-primary" ng-click="login()">Submit</button>
+					<button type="submit" class="btn btn-primary" ng-click="login()">OK</button>
 					<div class="alert alert-danger" role="alert" ng-show="loginAlert">
 						{{ loginAlert }}
 					</div>
@@ -75,24 +74,24 @@
 								</svg>
 							</a>
 						</li>
-						<li class="nav-item me-3">Mode&nbsp;:&nbsp;
+						<!--<li class="nav-item me-3">Mode&nbsp;:&nbsp;
 							<a ng-if="theme == 'std'" href="" ng-click="darkmode()" target="_self">
 								<svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="white" class="bi bi-sun" viewBox="0 0 16 16">
 									<path d="M3.5 8a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0z"/>
 									<path d="M8.202.28a.25.25 0 0 0-.404 0l-.91 1.255a.25.25 0 0 1-.334.067L5.232.79a.25.25 0 0 0-.374.154l-.36 1.51a.25.25 0 0 1-.282.188l-1.532-.244a.25.25 0 0 0-.286.286l.244 1.532a.25.25 0 0 1-.189.282l-1.509.36a.25.25 0 0 0-.154.374l.812 1.322a.25.25 0 0 1-.067.333l-1.256.91a.25.25 0 0 0 0 .405l1.256.91a.25.25 0 0 1 .067.334L.79 10.768a.25.25 0 0 0 .154.374l1.51.36a.25.25 0 0 1 .188.282l-.244 1.532a.25.25 0 0 0 .286.286l1.532-.244a.25.25 0 0 1 .282.189l.36 1.508a.25.25 0 0 0 .374.155l1.322-.812a.25.25 0 0 1 .333.067l.91 1.256a.25.25 0 0 0 .405 0l.91-1.256a.25.25 0 0 1 .334-.067l1.322.812a.25.25 0 0 0 .374-.155l.36-1.508a.25.25 0 0 1 .282-.19l1.532.245a.25.25 0 0 0 .286-.286l-.244-1.532a.25.25 0 0 1 .189-.282l1.508-.36a.25.25 0 0 0 .155-.374l-.812-1.322a.25.25 0 0 1 .067-.333l1.256-.91a.25.25 0 0 0 0-.405l-1.256-.91a.25.25 0 0 1-.067-.334l.812-1.322a.25.25 0 0 0-.155-.374l-1.508-.36a.25.25 0 0 1-.19-.282l.245-1.532a.25.25 0 0 0-.286-.286l-1.532.244a.25.25 0 0 1-.282-.189l-.36-1.509a.25.25 0 0 0-.374-.154l-1.322.812a.25.25 0 0 1-.333-.067L8.203.28zM8 2.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11z"/>
 								</svg>
 							</a>
-							<!--<a href="" ng-if="theme == 'dark'" ng-click="lightmode()" target="_self">
+							<a href="" ng-if="theme == 'dark'" ng-click="lightmode()" target="_self">
 								<svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="white" class="bi bi-moon" viewBox="0 0 16 16">
 									<path fill-rule="evenodd" d="M14.53 10.53a7 7 0 0 1-9.058-9.058A7.003 7.003 0 0 0 8 15a7.002 7.002 0 0 0 6.53-4.47z"/>
 								</svg>
-							</a>-->
-						</li>
+							</a>
+						</li>-->
 						<li class="nav-item">
 							<button ng-show="!isAuthenticated()" id="logButton" type="button" class="btn btn-sm btn-primary" data-bs-toggle="offcanvas" data-bs-target="#loginCanvas">
-								Sign up / Log in
+								{{ ('LOG_IN' | translate) + " / " + ('SIGN_UP' | translate) }}
 							</button>
-							<button ng-show="isAuthenticated()" type="button" class="btn btn-sm btn-danger" ng-click="logout()">Logout</button>
+							<button ng-show="isAuthenticated()" type="button" class="btn btn-sm btn-danger" ng-click="logout()">{{ 'LOGOUT' | translate }}</button>
 						</li>
 					</ul>
 				</div>
@@ -115,7 +114,9 @@
 	<script src="angular-translate.min.js"></script>
 
 	<!-- Load Others -->
-	<script src="lang.js"></script>
+	<script src="lang_en.js"></script>
+	<script src="lang_fr.js"></script>
+	<script src="lang_es.js"></script>
 	<script src="lz-string.min.js"></script>
 	<script src="symbaroum.js"></script>
 	

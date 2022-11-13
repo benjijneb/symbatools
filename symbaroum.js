@@ -230,7 +230,7 @@ routeAppControllers.controller('Index', function ($scope, $rootScope, $translate
 						$scope.loginAlert = null;
 					},
 					function(response) {
-						$scope.loginAlert = response.data.error;
+						$scope.loginAlert = $translate.instant(response.data.error);
 					}
 			);
 		} else {
@@ -243,7 +243,7 @@ routeAppControllers.controller('Index', function ($scope, $rootScope, $translate
 						$scope.loginAlert = null;
 					},
 					function(response) {
-						$scope.loginAlert = response.data.error;
+						$scope.loginAlert = $translate.instant(response.data.error);
 					}
 			);
 		}

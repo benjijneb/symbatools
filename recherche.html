@@ -259,8 +259,8 @@
         <div class="row" style="margin-top:2px;margin-bottom: 5px;">
             <div class="d-none d-lg-flex col-auto">
                 <div class="btn-group btn-group-sm" role="group">
-                    <button type="button" class="btn btn-outline-dark" title="Open" ng-click="getMyPcNpc()" data-bs-toggle="offcanvas" data-bs-target="#pcNpcCanvas" ng-show="isAuthenticated()">
-                        📂&nbsp;Open
+                    <button type="button" class="btn btn-outline-dark" title="{{'OPEN' | translate}}" ng-click="getMyPcNpc()" data-bs-toggle="offcanvas" data-bs-target="#pcNpcCanvas" ng-show="isAuthenticated()">
+                        📂&nbsp;{{'OPEN' | translate}}
                     </button>
                     <button type="button" class="btn btn-outline-dark" title="{{'SAVE' | translate}}" ng-click="savePcNpc()" ng-show="isAuthenticated()">
                         💾&nbsp;{{'SAVE' | translate}}
@@ -340,11 +340,11 @@
 
     <div class="offcanvas offcanvas-start" tabindex="-1" id="pcNpcCanvas">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasLabel">My Creations</h5>
+            <h5 class="offcanvas-title" id="offcanvasLabel">{{ 'MY_PC_NPC' | translate }}</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-            <p><b>Be aware that this Web site does not manage sessions, so do not refresh or you will need to reauthenticate.</b></p>
+            <p><b>{{ 'SESSION_MSG' | translate }}</b></p>
             <p ng-repeat="pcNpcName in myPcNpcArr">
                 <a href="" ng-click="loadPcNpc(pcNpcName)">{{pcNpcName}}</a>
                 <a href="" ng-click="deletePcNpc(pcNpcName)">🔪</a>
@@ -374,7 +374,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <br/><br/><i>FoundryVTT system : <a href="https://foundryvtt.com/packages/symbaroum" target="_blank">https://foundryvtt.com/packages/symbaroum</a></i>
+                            <br/><br/><i>Symbaroum FoundryVTT: <a href="https://foundryvtt.com/packages/symbaroum" target="_blank">https://foundryvtt.com/packages/symbaroum</a></i>
                         </div>
                     </div>
                 </div>
