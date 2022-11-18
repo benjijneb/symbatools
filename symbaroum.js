@@ -48,9 +48,9 @@ symbaroum.config(['$routeProvider',
 				templateUrl: 'statBlock.html',
 				controller: 'Recherche'
 			})
-			.when('/test', {
-				templateUrl: 'test.html',
-				controller: 'Test'
+			.when('/lostPwd', {
+				templateUrl: 'lostPwd.html',
+				controller: 'LostPwd'
 			})
 			.otherwise({
 				redirectTo: '/search'
@@ -162,10 +162,10 @@ symbaroum.factory('auth', function() {
 	var authenticationService = {};
 
     authenticationService.username;
-	authenticationService.password;
 	authenticationService.authenticated = false;
 
 	authenticationService.isAuthenticated = function() {
+		
 		return authenticationService.authenticated;
 	}
 
@@ -177,6 +177,9 @@ var routeAppControllers = angular.module('routeAppControllers', []);
 routeAppControllers.controller('Index', function ($scope, $rootScope, $translate, $http, auth) {
 
 	$scope.isAuthenticated = auth.isAuthenticated;
+
+	$scope.pwdPattern = "(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}";
+	$scope.everythingPattern = ".*";
 
 	$rootScope.theme = (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) ? 'dark' : 'std';
 
@@ -205,8 +208,6 @@ routeAppControllers.controller('Index', function ($scope, $rootScope, $translate
 		$rootScope.$broadcast('changeLanguage');
 	};
 
-	$scope.titre = "Symbaroum Tools";
-
 	$scope.darkmode = function () {
 
 		$scope.theme = "dark";
@@ -218,11 +219,17 @@ routeAppControllers.controller('Index', function ($scope, $rootScope, $translate
 	}
 
 	$scope.login = function() {
+	
+		$('form[name="loginForm"]').addClass("was-validated");
 
-		console.log($scope.signup);
+		if (!$scope.loginForm.$valid) {
+			
+			return;
+		}
+
 		if ($scope.signup) {
 
-			$http.post('https://symbatools.azurewebsites.net/users/inscription', {"username": $scope.username, "password": $scope.password}).
+			$http.post('http://localhost:3000/users/inscription', {"username": $scope.username, "password": $scope.password}).
 				then(
 					function(response) {
 
@@ -234,12 +241,11 @@ routeAppControllers.controller('Index', function ($scope, $rootScope, $translate
 					}
 			);
 		} else {
-			$http.post('https://symbatools.azurewebsites.net/auth/login', {"username": $scope.username, "password": $scope.password}).
+			$http.post('http://localhost:3000/auth/login', {"username": $scope.username, "password": $scope.password}).
 				then(
 					function(response) {
 						auth.authenticated = true;
 						auth.username = $scope.username;
-						auth.password = $scope.password;
 						$scope.loginAlert = null;
 					},
 					function(response) {
@@ -247,13 +253,15 @@ routeAppControllers.controller('Index', function ($scope, $rootScope, $translate
 					}
 			);
 		}
+
+		$('form[name="loginForm"]').removeClass("was-validated");
 	}
 
 	$scope.logout = function() {
 
 		auth.authenticated = false;
 		$scope.username = auth.username = null;
-		$scope.password = auth.password = null;
+		$scope.password = null;
 	}
 });
 
@@ -742,7 +750,7 @@ routeAppControllers.controller('Recherche', function ($scope, $http, $q, $routeP
 
 	$scope.getMyPcNpc = function() {
 
-		$http.post('https://symbatools.azurewebsites.net/json/list', { "username": auth.username, "password": auth.password }).then(
+		$http.get('http://localhost:3000/json/list').then(
 			function(response) {
 
 				$scope.myPcNpcArr = response.data;
@@ -756,7 +764,7 @@ routeAppControllers.controller('Recherche', function ($scope, $http, $q, $routeP
 
 	$scope.loadPcNpc = function(name) {
 
-		$http.post('https://symbatools.azurewebsites.net/json/get', { "username": auth.username, "password": auth.password, "name": name }).then(
+		$http.post('http://localhost:3000/json/get', { "name": name }).then(
 			function(response) {
 				
 				$scope.importer(JSON.stringify(response.data));
@@ -772,7 +780,7 @@ routeAppControllers.controller('Recherche', function ($scope, $http, $q, $routeP
 
 		if (confirm("Are you sure to delete this ?")) {
 
-			$http.post('https://symbatools.azurewebsites.net/json/delete', { "username": auth.username, "password": auth.password, "name": name }).then(
+			$http.post('http://localhost:3000/json/delete', { "name": name }).then(
 				function(response) {
 				
 					$scope.getMyPcNpc();
@@ -787,7 +795,7 @@ routeAppControllers.controller('Recherche', function ($scope, $http, $q, $routeP
 
 	$scope.savePcNpc = function() {
 
-		$http.post('https://symbatools.azurewebsites.net/json/save', { "username": auth.username, "password": auth.password, "jsonData": $scope.getDataToExport() }).then(
+		$http.post('http://localhost:3000/json/save', { "jsonData": $scope.getDataToExport() }).then(
 			function(response) {
 				
 			},
@@ -914,6 +922,84 @@ routeAppControllers.controller('Recherche', function ($scope, $http, $q, $routeP
 		$scope.importer();
 	}
 });
+
+routeAppControllers.controller('LostPwd', function ($scope, $translate, $http) {
+
+	$scope.pwdReset = () => {
+
+		$('form[name="pwdResetForm"]').addClass("was-validated");
+
+		if (!$scope.pwdResetForm.$valid) {
+			return;
+		}
+
+		$http.post('http://localhost:3000/users/pwdReset', { "username": $scope.email }).then(
+			function(response) {
+				
+				$scope.emailSent = true;
+				$scope.message =  $translate.instant('MSG_RES_EMAIL_SENT');
+				$('#staticBackdrop').modal('show');
+			},
+			function(response) {
+				
+				$scope.message = $translate.instant(response.data.error);
+				$('#staticBackdrop').modal('show');
+			}
+		);
+
+		$('form[name="pwdResetForm"]').removeClass("was-validated");
+	}
+
+	$scope.validateToken = () => {
+
+		$('form[name="tokenForm"]').addClass("was-validated");
+		
+		if (!$scope.tokenForm.$valid) {
+			return;
+		}
+
+		$http.post('http://localhost:3000/users/pwdReset/validation/' + $scope.token, { "username": $scope.email }).then(
+			function(response) {
+				
+				$scope.tokenValidated = true;
+				$scope.message =  $translate.instant('MSG_RES_TOKEN_OK');
+				$('#staticBackdrop').modal('show');
+			},
+			function(response) {
+
+				$scope.message = $translate.instant(response.data.error);
+				$('#staticBackdrop').modal('show');
+			}
+		);
+
+		$('form[name="pwdResetForm"]').removeClass("was-validated");
+	}
+
+	$scope.changePwd = () => {
+
+		$('form[name="pwdChangeForm"]').addClass("was-validated");
+
+		if ($scope.pwd1 !== $scope.pwd2) {
+
+			$scope.pwdChangeForm.pwd2.$setValidity('pwd', false);
+		}
+
+		if (!$scope.pwdChangeForm.$valid) {
+			return;
+		}
+
+		$http.post('http://localhost:3000/users/pwdReset/changePwd', { "username": $scope.email, "newPassword": $scope.pwd1, "token": $scope.token }).then(
+			function(response) {
+				$('#cardBodyPwdChange').text($scope.message =  $translate.instant('MSG_RES_PWD_CHANGED'));
+			},
+			function(response) {
+
+				$scope.message = $translate.instant(response.data.error);
+				$('#staticBackdrop').modal('show');
+			}
+			);
+	}
+})
 
 routeAppControllers.controller('Test', function ($scope, $q, $http) {
 

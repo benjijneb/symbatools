@@ -1,0 +1,68 @@
+<div class="container d-flex flex-column">
+    <div class="row align-items-center justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+            <div class="card shadow-sm mt-3">
+                <div class="card-body" id="cardBodyPwdChange">
+                    <div class="mb-4">
+                        <h5>Hey, I lost my password, please help me !</h5>
+                        <p class="mb-2">Enter your registered email ID to reset the password</p>
+                    </div>
+                    <form name="pwdResetForm" novalidate ng-show="!emailSent && !tokenValidated" ng-submit="pwdReset()">
+                        <div>
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" ng-model="email" required>
+                            <div class="invalid-feedback">
+                                Mus be a valid email format
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                    <form name="tokenForm" novalidate ng-show="emailSent && !tokenValidated" ng-submit="validateToken()">
+                        <div class="mt-3">
+                            <label for="token" class="form-label">Token</label>
+                            <input type="text" class="form-control" id="token" ng-model="token" required>
+                        </div>
+                        <div class="mt-3">
+                            <button type="submit" class="btn btn-primary">Validate Token</button>
+                        </div>
+                    </form>
+                    <form name="pwdChangeForm" novalidate ng-show="tokenValidated" ng-submit="changePwd()">
+                        <div class="mt-3">
+                            <label for="pwd1" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="pwd1" name="pwd1" ng-model="pwd1"
+                                pattern="(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                            <div class="invalid-feedback">
+                                Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <label for="pwd2" class="form-label">Password Confirmation</label>
+                            <input type="password" class="form-control" id="pwd2" name="pwd2" ng-model="pwd2" required>
+                            <div class="invalid-feedback">
+                                Different from the password
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <button type="submit" class="btn btn-primary">Change Passwod</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                {{ message }}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>

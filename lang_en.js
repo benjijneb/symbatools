@@ -168,4 +168,10 @@ var translationsEN = {
     ERR_REG_3: "Email address already registered.",
     ERR_REG_4: "Validation email not sent, please contact the administrator.",
     ERR_RES_1: "Password reset email not sent, please contact the administrator.",
+    ERR_API_1: "The request was sent but is not valid, please contact the administrator.",
+
+    // SymbaTools reset pwd messages
+    MSG_RES_EMAIL_SENT: 'An email has been sent to you with the token to enter.',
+    MSG_RES_TOKEN_OK: 'The token has been validated, please enter you new password.',
+    MSG_RES_PWD_CHANGED: 'Your password has been successfully updated.'
 };

@@ -137,5 +137,12 @@ var translationsES = {
     ERR_REG_2: "Formato de correo electrónico no válido.",
     ERR_REG_3: "Correo electrónico ya registrado.",
     ERR_REG_4: "No se envió el correo electrónico de validación, comuníquese con el administrador.",
-    ERR_RES_1: "No se envió el correo electrónico de restablecimiento de contraseña, comuníquese con el administrador."
+    ERR_RES_1: "No se envió el correo electrónico de restablecimiento de contraseña, comuníquese con el administrador.",
+    ERR_API_1: "Petición enviada pero no válida, comuníquese con el administrador.",
+
+    // SymbaTools reset pwd messages
+    MSG_RES_EMAIL_SENT: 'Se le ha enviado un correo electrónico con el token para ingresar.',
+    MSG_RES_TOKEN_OK: 'El token ha sido validado, ingrese su nueva contraseña.',
+    MSG_RES_PWD_CHANGED: 'Su contraseña ha sido actualizada satisfactoriamente.'
+
 };

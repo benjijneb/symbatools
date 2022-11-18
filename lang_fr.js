@@ -167,4 +167,10 @@ var translationsFR = {
     ERR_REG_3: "Adresse email déjà enregistrée.",
     ERR_REG_4: "Email de validation non envoyé, merci de contacter l'administrateur.",
     ERR_RES_1: "Email de reset de mot de passe non envoyé, merci de contacter l'administrateur.",
+    ERR_API_1: "La requête a été envoyée mais n'est pas valide, merci de contacter l'administrateur.",
+
+    // SymbaTools reset pwd messages
+    MSG_RES_EMAIL_SENT: 'Un email vous a été envoyé avec le token à saisir.',
+    MSG_RES_TOKEN_OK: 'Le token a été validé, merci de saisir votre nouveau mot de passe.',
+    MSG_RES_PWD_CHANGED: 'Votre mot de passe a été mis à jour avec succès.'
 };
