@@ -24,13 +24,12 @@
 				<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 			</div>
 			<div class="offcanvas-body">
-				<p><b>{{ 'SESSION_MSG' | translate }}</b></p>
 				<form name="loginForm" ng-show="!isAuthenticated()" novalidate ng-submit="login(form)">
 					<div class="mb-3 form-floating">
 					  <input type="email" class="form-control" id="inputEmail" placeholder="{{ 'EMAIL' | translate }}" ng-model="username" required />
 					  <label for="inputEmail">{{ 'EMAIL' | translate }}</label>
 					  <div class="invalid-feedback">
-						Mus be a valid email format
+						{{ 'MSG_EMAIl_FORMAT' | translate }}
 					  </div>
 					</div>
 					<div class="mb-3 form-floating">
@@ -38,19 +37,48 @@
 							ng-attr-pattern="{{ signup ? pwdPattern : everythingPattern }}" required />
 					  <label for="inputPwd">{{ 'PWD' | translate }}</label>
 					  <div class="invalid-feedback">
-						Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters
+						{{ 'MSG_PWD_STR' | translate }}
 					  </div>
 					</div>
-					
 					<div class="mb-3 form-check">
 					  <input type="checkbox" id="signupCheck" class="form-check-input" ng-model="signup">
 					  <label class="form-check-label" for="signupCheck">{{ 'SIGN_UP' | translate }}</label>
+					</div>
+					<div ng-show="signup" class="mb-3 g-recaptcha" data-sitekey="6Lca5x8jAAAAAD5wDWTxprTgdTNaAQUqWv_asHXN">
 					</div>
 					<button type="submit" class="btn btn-primary mb-3">OK</button>
 					<div class="alert alert-danger" role="alert" ng-show="loginAlert">
 						{{ loginAlert }}
 					</div>
 				  </form>
+				  <p>
+					<a ng-href="#!/lostPwd">{{'LOST_PWD' | translate}}</a>
+				  </p>
+			</div>
+		</div>
+		<div class="modal fade" id="messagesCard" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-body">
+						{{ indexMessage }}
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="helpUser" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-body">
+						<p>It is now possible to create an account to save the PC/NPC/Monsters that you can create with the Search page.</p>
+						<p>Fel </p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+					</div>
+				</div>
 			</div>
 		</div>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flex py-0">
@@ -125,6 +153,7 @@
 	<script src="angular-translate.min.js"></script>
 
 	<!-- Load Others -->
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 	<script src="lang_en.js"></script>
 	<script src="lang_fr.js"></script>
 	<script src="lang_es.js"></script>

@@ -147,16 +147,24 @@ var translationsFR = {
     NEW_TAB: "Ouvrir dans un nouvel onglet",
     MANAGE_INTEGRATED: "Gérer les talents intégrés",
     INTEGRATED: "Intégré",
-    SPENT_POINTS: "Pts. Dépensés : ",
+    SPENT_POINTS: "Pts. dépensés : ",
     STD_ARRAY: "Répartition classique : ",
     OPEN: "Ouvrir",
     MY_PC_NPC: "Mes PJ/PNJ/Monstres",
+
+    // User management
     SESSION_MSG: "Attention, ce site Web ne gère pas les sessions, ne rafraichissez pas la page ou il sera nécessaire de se réauthentifier.",
     LOG_IN: "Connexion",
     SIGN_UP: "Inscription",
     PWD: "Mot de passe",
+    PWD_CONFIRM: "Confirmation du mot de passe",
     EMAIL: "Adresse email",
     LOGOUT: "Déconnexion",
+    MSG_EMAIl_FORMAT: "Doit être une adresse email valide",
+    MSG_PWD_STR: "Doit contenir au moins un chiffre et une lettre majuscule et minuscule, et au moins 8 caractères ou plus",
+    CHANGE_PWD: "Changer le mot de passe",
+    MSG_PWD_DIFF: "Les valeurs sont différentes",
+    TOOKEN_VAL: "Valider",
     
     // SymbatooTools API errors
     ERR_LOG_1: "Adresse email inconnue.",
@@ -168,6 +176,8 @@ var translationsFR = {
     ERR_REG_4: "Email de validation non envoyé, merci de contacter l'administrateur.",
     ERR_RES_1: "Email de reset de mot de passe non envoyé, merci de contacter l'administrateur.",
     ERR_API_1: "La requête a été envoyée mais n'est pas valide, merci de contacter l'administrateur.",
+    MSG_LOST_PWD: "Hé, j'ai perdu mon mot de passe, à l'aide s'il vous plait !",
+    LOST_PWD: "J'ai oublié mon mot de passe",
 
     // SymbaTools reset pwd messages
     MSG_RES_EMAIL_SENT: 'Un email vous a été envoyé avec le token à saisir.',

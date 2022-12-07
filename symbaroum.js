@@ -176,6 +176,19 @@ var routeAppControllers = angular.module('routeAppControllers', []);
 
 routeAppControllers.controller('Index', function ($scope, $rootScope, $translate, $http, auth) {
 
+	$http.get('https://localhost:3000/auth/isLoggedIn', { withCredentials: true }).
+		then((response) => {
+			auth.authenticated = true;
+			auth.username = response.username;
+		},
+		(response) => {}
+	);
+	
+	if (localStorage.getItem("userHelp") == null) {
+		$('#helpUser').modal('show');
+		localStorage.setItem("userHelp", "visited");
+	}
+
 	$scope.isAuthenticated = auth.isAuthenticated;
 
 	$scope.pwdPattern = "(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}";
@@ -221,6 +234,7 @@ routeAppControllers.controller('Index', function ($scope, $rootScope, $translate
 	$scope.login = function() {
 	
 		$('form[name="loginForm"]').addClass("was-validated");
+		$scope.loginAlert = null;
 
 		if (!$scope.loginForm.$valid) {
 			
@@ -229,26 +243,26 @@ routeAppControllers.controller('Index', function ($scope, $rootScope, $translate
 
 		if ($scope.signup) {
 
-			$http.post('http://localhost:3000/users/inscription', {"username": $scope.username, "password": $scope.password}).
-				then(
-					function(response) {
+			if (grecaptcha.getResponse() != "") {
 
-						alert("registered")
-						$scope.loginAlert = null;
+				$http.post('https://localhost:3000/users/inscription', {"username": $scope.username, "password": $scope.password, "reCaptchaV2": grecaptcha.getResponse()}).
+				then((response) => {
+						$('#messagesCard').modal('show');
+						$scope.indexMessage = "You are now being registered, please check your emails.";
+						$scope.username = $scope.password = $scope.loginAlert= null;
 					},
 					function(response) {
 						$scope.loginAlert = $translate.instant(response.data.error);
 					}
 			);
+			}
 		} else {
-			$http.post('http://localhost:3000/auth/login', {"username": $scope.username, "password": $scope.password}).
-				then(
-					function(response) {
+			$http.post('https://localhost:3000/auth/login', {"username": $scope.username, "password": $scope.password}, { withCredentials: true }).
+				then((response) => {
 						auth.authenticated = true;
 						auth.username = $scope.username;
-						$scope.loginAlert = null;
 					},
-					function(response) {
+					(response) => {
 						$scope.loginAlert = $translate.instant(response.data.error);
 					}
 			);
@@ -257,8 +271,9 @@ routeAppControllers.controller('Index', function ($scope, $rootScope, $translate
 		$('form[name="loginForm"]').removeClass("was-validated");
 	}
 
-	$scope.logout = function() {
+	$scope.logout = () => {
 
+		$http.get('https://localhost:3000/auth/logout', { withCredentials: true });
 		auth.authenticated = false;
 		$scope.username = auth.username = null;
 		$scope.password = null;
@@ -750,7 +765,7 @@ routeAppControllers.controller('Recherche', function ($scope, $http, $q, $routeP
 
 	$scope.getMyPcNpc = function() {
 
-		$http.get('http://localhost:3000/json/list').then(
+		$http.get('https://localhost:3000/json/list', { withCredentials: true }).then(
 			function(response) {
 
 				$scope.myPcNpcArr = response.data;
@@ -764,7 +779,7 @@ routeAppControllers.controller('Recherche', function ($scope, $http, $q, $routeP
 
 	$scope.loadPcNpc = function(name) {
 
-		$http.post('http://localhost:3000/json/get', { "name": name }).then(
+		$http.post('https://localhost:3000/json/get', { "name": name }, { withCredentials: true }).then(
 			function(response) {
 				
 				$scope.importer(JSON.stringify(response.data));
@@ -780,7 +795,7 @@ routeAppControllers.controller('Recherche', function ($scope, $http, $q, $routeP
 
 		if (confirm("Are you sure to delete this ?")) {
 
-			$http.post('http://localhost:3000/json/delete', { "name": name }).then(
+			$http.post('https://localhost:3000/json/delete', { "name": name }, { withCredentials: true }).then(
 				function(response) {
 				
 					$scope.getMyPcNpc();
@@ -795,7 +810,7 @@ routeAppControllers.controller('Recherche', function ($scope, $http, $q, $routeP
 
 	$scope.savePcNpc = function() {
 
-		$http.post('http://localhost:3000/json/save', { "jsonData": $scope.getDataToExport() }).then(
+		$http.post('https://localhost:3000/json/save', { "jsonData": $scope.getDataToExport() }, { withCredentials: true }).then(
 			function(response) {
 				
 			},
@@ -933,7 +948,7 @@ routeAppControllers.controller('LostPwd', function ($scope, $translate, $http) {
 			return;
 		}
 
-		$http.post('http://localhost:3000/users/pwdReset', { "username": $scope.email }).then(
+		$http.post('https://localhost:3000/users/pwdReset', { "username": $scope.email }).then(
 			function(response) {
 				
 				$scope.emailSent = true;
@@ -958,7 +973,7 @@ routeAppControllers.controller('LostPwd', function ($scope, $translate, $http) {
 			return;
 		}
 
-		$http.post('http://localhost:3000/users/pwdReset/validation/' + $scope.token, { "username": $scope.email }).then(
+		$http.post('https://localhost:3000/users/pwdReset/validation/' + $scope.token, { "username": $scope.email }).then(
 			function(response) {
 				
 				$scope.tokenValidated = true;
@@ -988,7 +1003,7 @@ routeAppControllers.controller('LostPwd', function ($scope, $translate, $http) {
 			return;
 		}
 
-		$http.post('http://localhost:3000/users/pwdReset/changePwd', { "username": $scope.email, "newPassword": $scope.pwd1, "token": $scope.token }).then(
+		$http.post('https://localhost:3000/users/pwdReset/changePwd', { "username": $scope.email, "newPassword": $scope.pwd1, "token": $scope.token }).then(
 			function(response) {
 				$('#cardBodyPwdChange').text($scope.message =  $translate.instant('MSG_RES_PWD_CHANGED'));
 			},
@@ -997,13 +1012,53 @@ routeAppControllers.controller('LostPwd', function ($scope, $translate, $http) {
 				$scope.message = $translate.instant(response.data.error);
 				$('#staticBackdrop').modal('show');
 			}
-			);
+		);
 	}
 })
 
 routeAppControllers.controller('Test', function ($scope, $q, $http) {
+/*
+	$scope.jsonAllLang = {};
 
-	$scope.json2 = {};
+	$http({
+
+		method: 'GET',
+		url: window.location.origin + '/json/en_new.json'
+	}).then(function successCallback(response) {
+
+		jsonAllLang = response;
+
+		for () {
+			
+			$http({
+
+				method: 'GET',
+				url: window.location.origin + '/json/fr_new.json'
+			}).then(function successCallback(response) {
+		
+				$http({
+	
+					method: 'GET',
+					url: window.location.origin + '/json/es_new.json'
+				}).then(function successCallback(response) {
+			
+					$scope.jsonAllLang[key].type = 
+				}, function errorCallback(response) {
+			
+					console.log(response);
+				});
+			}, function errorCallback(response) {
+		
+				console.log(response);
+			});
+		}
+
+
+	}, function errorCallback(response) {
+
+		console.log(response);
+	});
+*/	
 })
 
 routeAppControllers.controller('Davokar', function ($scope, $q, $routeParams, $translate, globalService) {
