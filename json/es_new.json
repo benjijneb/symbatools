@@ -2217,7 +2217,7 @@
 		"novice":"The character is a gifted storyteller and no matter if he narrates legends, religious myths or burlesque tales he will impress the audience. The storyteller gains a +1 bonus on Persuasive tests when attempting to weave a credible story to impress listeners, and is skilled enough to earn an income from his performances (see Income from Boons, page 103). Storyteller can be acquired multiple times, up to a maximum bonus of +3 on relevant tests.",
 		"nom":"Storyteller"
 	 },
-	 "Gazette":{
+	 "#301":{
 		"type":"atout",
 		"livre":"gdj",
 		"novice":"The character has ears and a tongue for gossip and can sniff out rumors and also pass them on to new places. He or she gets a +1 bonus to all tests in connection to hearing, spreading or realizing the truth behind rumors. Telltale can be acquired multiple times, up to a maximum bonus of +3 on relevant tests.",

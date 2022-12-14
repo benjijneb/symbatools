@@ -303,11 +303,11 @@
     <div class="row" style="margin-top:2px;">
         <div class="col-lg-6 col-xl-3"
             ng-repeat="(key, talent) in talents | rechercheFilter:{nom: filtreNomTalent, epingleSeulement: epingleSeulement,
-                filtreType: filtreType, filtreLivre: filtreLivre, filtreTrad: filtreTrad, filtreAttr: filtreAttr}">
-            <div class="card border-info h-100">
+                filtreType: filtreType, filtreLivre: filtreLivre, filtreTrad: filtreTrad, filtreAttr: filtreAttr, lang: lang}">
+            <div class="card border-info h-100" ng-if="talent[lang].nom">
                 <div class="card-header bg-dark text-white small py-2 pl-2">
                     <div class="row">
-                        <div class="col-11">{{talent.nom}}{{talent.mod}} [{{tradType(talent.type)}}]</div>
+                        <div class="col-11">{{talent[lang].nom}}{{talent.mod}} [{{tradType(talent.type)}}]</div>
                         <div class="col-1">
                             <div class="form-check d-none d-lg-inline-flex">
                                 <input class="form-check-input position-static" type="checkbox" title="{{'PINS_TITLE_ALL' | translate}}" ng-model="talent.epingle" />
@@ -316,22 +316,22 @@
                     </div>
                 </div>
                 <ul class="list-group list-group-flush bg-light small">
-                    <li class="list-group-item py-1 pl-2" ng-if="afficherDescription && talent.description">
-                        <i><span ng-bind-html="talent.description"></span></i>
+                    <li class="list-group-item py-1 pl-2" ng-if="afficherDescription && talent[lang].description">
+                        <i><span ng-bind-html="talent[lang].description"></span></i>
                     </li>
-                    <li class="list-group-item py-1 pl-2" ng-if="talent.source"><span ng-bind-html="talent.source"></span></li>
-                    <li class="list-group-item py-1 pl-2" ng-if="talent.tradition">{{talent.tradition}}</li>
-                    <li class="list-group-item py-1" ng-if="(talent.novice && !epingleSeulement) || (epingleSeulement && (talent.epingle || talent.epinglen))">
+                    <li class="list-group-item py-1 pl-2" ng-if="talent[lang].source"><span ng-bind-html="talent[lang].source"></span></li>
+                    <li class="list-group-item py-1 pl-2" ng-if="talent[lang].tradition">{{talent[lang].tradition}}</li>
+                    <li class="list-group-item py-1" ng-if="(talent[lang].novice && !epingleSeulement) || (epingleSeulement && (talent.epingle || talent.epinglen))">
                         &nbsp;<input class="form-check-input d-none d-lg-inline-flex" type="checkbox" title="{{'PINS_TITLE_NOV' | translate}}" ng-model="talent.epinglen">
-                        <span ng-bind-html="talent.novice"></span>
+                        <span ng-bind-html="talent[lang].novice"></span>
                     </li>
-                    <li class="list-group-item py-1" ng-if="(talent.adepte && !epingleSeulement) || (epingleSeulement && (talent.epingle || talent.epinglea))">
+                    <li class="list-group-item py-1" ng-if="(talent[lang].adepte && !epingleSeulement) || (epingleSeulement && (talent.epingle || talent.epinglea))">
                         &nbsp;<input class="form-check-input d-none d-lg-inline-flex" type="checkbox" title="{{'PINS_TITLE_ADP' | translate}}" ng-model="talent.epinglea">
-                        <span ng-bind-html="talent.adepte"></span>
+                        <span ng-bind-html="talent[lang].adepte"></span>
                     </li>
-                    <li class="list-group-item py-1" ng-if="(talent.maitre && !epingleSeulement) || (epingleSeulement && (talent.epingle || talent.epinglem))">
+                    <li class="list-group-item py-1" ng-if="(talent[lang].maitre && !epingleSeulement) || (epingleSeulement && (talent.epingle || talent.epinglem))">
                         &nbsp;<input class="form-check-input d-none d-lg-inline-flex" type="checkbox" title="{{'PINS_TITLE_MAI' | translate}}" ng-model="talent.epinglem">
-                        <span ng-bind-html="talent.maitre"></span>
+                        <span ng-bind-html="talent[lang].maitre"></span>
                     </li>
                 </ul>
             </div>
