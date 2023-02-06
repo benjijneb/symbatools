@@ -52,11 +52,11 @@
     text-align: center;
 }
 
-#statBlock .even {
+.even {
     background-color: #E8E3D6;
 }
 
-#statBlock .odd {
+.odd {
     background-color: #F1E8D3;
 }
 
