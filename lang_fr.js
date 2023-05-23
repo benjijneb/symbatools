@@ -151,7 +151,7 @@ var translationsFR = {
     STD_ARRAY: "Répartition classique : ",
     OPEN: "Ouvrir",
     MY_PC_NPC: "Mes PJ/PNJ/Monstres",
-
+    
     // User management
     SESSION_MSG: "Attention, ce site Web ne gère pas les sessions, ne rafraichissez pas la page ou il sera nécessaire de se réauthentifier.",
     LOG_IN: "Connexion",

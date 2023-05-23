@@ -31,16 +31,9 @@
                         <div class="mt-3">
                             <label for="pwd1" class="form-label">{{ 'PWD' | translate }}</label>
                             <input type="password" class="form-control" id="pwd1" name="pwd1" ng-model="pwd1"
-                                pattern="(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                            ng-attr-pattern="{{ pwdPattern }}" required>
                             <div class="invalid-feedback">
                                 {{ 'MSG_PWD_STR' | translate }}
-                            </div>
-                        </div>
-                        <div class="mt-3">
-                            <label for="pwd2" class="form-label">{{ 'PWD_CONFIRM' | translate }}</label>
-                            <input type="password" class="form-control" id="pwd2" name="pwd2" ng-model="pwd2" required>
-                            <div class="invalid-feedback">
-                                {{ 'MSG_PWD_DIFF' | translate }}
                             </div>
                         </div>
                         <div class="mt-3">

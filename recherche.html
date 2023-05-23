@@ -307,7 +307,9 @@
             <div class="card border-info h-100"><!-- ng-if="talent[lang].nom" -->
                 <div class="card-header bg-dark text-white small py-2 pl-2">
                     <div class="row">
-                        <div class="col-11">{{ getFieldValue(talent, 'nom', lang) }}{{ talent.mod }} [{{ tradType(talent.type) }}]</div>
+                        <div class="col-11">{{ getFieldValue(talent, 'nom', lang) }}{{ talent.mod }} [{{ tradType(talent.type) }}] <a href="" ng-click="copyTalentTextToClipboard(talent, lang)">
+                            <img src="copy-icon.svg" height="15px" width="15px" title="copy text"/>
+                        </a></div>
                         <div class="col-1">
                             <div class="form-check d-none d-lg-inline-flex">
                                 <input class="form-check-input position-static" type="checkbox" title="{{'PINS_TITLE_ALL' | translate}}" ng-model="talent.epingle" />

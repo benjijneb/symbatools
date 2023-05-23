@@ -356,6 +356,118 @@ routeAppControllers.controller('Help', function ($scope, $translate, $routeParam
 	$scope.lang = $routeParams.lang;
 });
 
+routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $rootScope, $translate, globalService, auth) {
+
+	$scope.charTalents = [];
+	$scope.charTraitsBoonsBurdens = [];
+	$scope.charEquipments = [];
+
+	$scope.tradType = function ($type) {
+
+		var ret = [];
+		if ($type) {
+
+			for (let type of $type.split("/")) {
+
+				ret.push(symboles[type] + $translate.instant('TYPE_' + type.replace(' ', '_').toUpperCase()));
+			}
+
+			return ret.join("/");
+		}
+
+		return '';
+	}
+
+	$scope.loadJson = function () {
+
+		var deferred = $q.defer();
+		$http({
+
+			method: 'GET',
+			url: window.location.origin + '/json/all.json'
+		}).then(function successCallback(response) {
+
+			deferred.resolve(response);
+		}, function errorCallback(response) {
+
+			console.log(response);
+			deferred.reject("nok");
+		});
+
+		return deferred.promise;
+	}
+
+	$scope.getFieldValue = (talent, field, lang) => {
+
+		if (undefined != talent[lang] && undefined != talent[lang][field]) {
+
+			return talent[lang][field];
+		} else {
+
+			return talent['en'][field];
+		}
+	}
+
+	$scope.addTalentToChar =  function(key) {
+
+		if ($scope.charTalents.filter(function(talent){ return talent.id == key.id; }).length == 0) {
+			$scope.charTalents.push(key);
+		}
+	}
+
+	$scope.removeTalentFromChar =  function(key) {
+
+		$scope.charTalents = $scope.charTalents.filter(function(talent){ 
+			return talent.id != key;
+		});
+	}
+
+	$scope.addTraitBoonBurdenToChar =  function(key) {
+
+		console.log(key)
+		if ($scope.charTraitsBoonsBurdens.filter(function(traitBoonBurden){ return traitBoonBurden.id == key.id; }).length == 0) {
+			$scope.charTraitsBoonsBurdens.push(key);
+			console.log("yep")
+		} else {
+			console.log("nope")
+		}
+	}
+
+	$scope.removeTraitBoonBurdenFromChar =  function(key) {
+
+		$scope.charTraitsBoonsBurdens = $scope.charTraitsBoonsBurdens.filter(function(traitBoonBurden){ 
+			return traitBoonBurden.id != key;
+		});
+	}
+
+	$scope.calcXp = function() {
+
+		$scope.spentXp = 0;
+		$scope.charTalents.forEach(talent => {
+
+			if (talent.niveau) {
+
+				$scope.spentXp += talent.niveau * 10;
+			}
+		});
+	}
+
+	$scope.filtreNomTalent = "";
+	$scope.filtreNomTab2 = "";
+	$scope.filtreNomTab3 = "";
+	$scope.epingleSeulement = false;
+	$scope.filtreType = "talent";
+	$scope.filtreTypeTab2 = "atout";
+	$scope.filtreTypeTab3 = "arme";
+	$scope.filtreLivre = "tous";
+	$scope.filtreTrad = "tous";
+	$scope.filtreAttr = "tous";
+
+	$scope.loadJson().then(function successCallback(response) {
+		$scope.talents = response.data;
+	});
+});
+
 //TODO https://selectize.dev/ for the search ? could be a good idea
 //TODO Filtres recherches dans l'url
 routeAppControllers.controller('Recherche', function ($scope, $http, $q, $routeParams, $rootScope, $translate, globalService, auth) {
@@ -415,35 +527,28 @@ routeAppControllers.controller('Recherche', function ($scope, $http, $q, $routeP
 		}
 
 		if ($fileContent) {
-			
+				
 			function getIndex(item) {
-				if ("v2" === this.version) { return item.id == this.id; } else { return $scope.getFieldValue(item, 'nom', this.lang) == this.id }
+
+				if ("v2" === this.version) { return item.id == this.id; } else { return item[this.lang].nom == this.id }
 			}
 			
-			if (jsonImporter.epingles) {
-				jsonImporter.epingles.forEach(tmp => {
-					let i = $scope.talents.findIndex(getIndex, { "id": tmp, "version": jsonImporter.format, "lang": jsonImporter.lang });
-					if (i >= 0) { $scope.talents[i].epingle = true; }
-				})
-			}
-			if (jsonImporter.epinglesn) {
-				jsonImporter.epinglesn.forEach(tmp => {
-					let i = $scope.talents.findIndex(getIndex, {"id": tmp, "version": jsonImporter.format, "lang": jsonImporter.lang });
-					if (i >= 0) { $scope.talents[i].epinglen = true; }
-				})
-			}
-			if (jsonImporter.epinglesa) {
-				jsonImporter.epinglesa.forEach(tmp => {
-					let i = $scope.talents.findIndex(getIndex, {"id": tmp, "version": jsonImporter.format, "lang": jsonImporter.lang });
-					if (i >= 0) { $scope.talents[i].epinglea = true; }
-				})
-			}
-			if (jsonImporter.epinglesm) {
-				jsonImporter.epinglesm.forEach(tmp => {
-					let i = $scope.talents.findIndex(getIndex, {"id": tmp, "version": jsonImporter.format, "lang": jsonImporter.lang });
-					if (i >= 0) { $scope.talents[i].epinglem = true; }
-				})
-			}
+			jsonImporter.epingles.forEach(tmp => {
+				let i = $scope.talents.findIndex(getIndex, { "id": tmp, "version": jsonImporter.format, "lang": jsonImporter.lang });
+				if (i >= 0) { $scope.talents[i].epingle = true; }
+			})
+			jsonImporter.epinglesn.forEach(tmp => {
+				let i = $scope.talents.findIndex(getIndex, {"id": tmp, "version": jsonImporter.format, "lang": jsonImporter.lang });
+				if (i >= 0) { $scope.talents[i].epinglen = true; }
+			})
+			jsonImporter.epinglesa.forEach(tmp => {
+				let i = $scope.talents.findIndex(getIndex, {"id": tmp, "version": jsonImporter.format, "lang": jsonImporter.lang });
+				if (i >= 0) { $scope.talents[i].epinglea = true; }
+			})
+			jsonImporter.epinglesm.forEach(tmp => {
+				let i = $scope.talents.findIndex(getIndex, {"id": tmp, "version": jsonImporter.format, "lang": jsonImporter.lang });
+				if (i >= 0) { $scope.talents[i].epinglem = true; }
+			})
 
 			$scope.epingleSeulement = true;
 			(jsonImporter.integrated) ? $scope.calculsStatBlock(false) : $scope.calculsStatBlock(true);
@@ -477,30 +582,12 @@ routeAppControllers.controller('Recherche', function ($scope, $http, $q, $routeP
 
 	$scope.getFieldValue = (talent, field, lang) => {
 
-		let ruleSet = ($scope.rulesSet != undefined) ? $scope.rulesSet : "";
+		if (undefined != talent[lang + $scope.rulesSet] && undefined != talent[lang + $scope.rulesSet][field]) {
 
-		if (talent.type == "arme" && field == "tradition") {
-
-			let caracs = [];
-			if (undefined != talent.caracs.degats && talent.caracs.degats != "") { caracs.push("Damages: " + talent.caracs.degats) }
-			if (undefined != talent.caracs.cost && talent.caracs.cost != "") { caracs.push("Cost: " + talent.caracs.cost) }
-
-			if (undefined != talent[lang + ruleSet] && undefined != talent[lang + ruleSet]["qualites"] && talent[lang + ruleSet]["qualites"] != "") {
-
-				caracs.push("Qualities: " + talent[lang + ruleSet]["qualites"]);
-			} else if (talent['en']["qualites"] != "") {
-	
-				caracs.push("Qualities: " +  talent['en']["qualites"]);
-			}
-			return caracs.join(" / ");
+			return talent[lang + $scope.rulesSet][field];
 		} else {
-			if (undefined != talent[lang + ruleSet] && undefined != talent[lang + ruleSet][field]) {
 
-				return talent[lang +ruleSet][field];
-			} else {
-	
-				return talent['en'][field];
-			}
+			return talent['en'][field];
 		}
 	}
 
@@ -615,7 +702,6 @@ ${($scope.getFieldValue(talent, 'maitre', lang)) ? $scope.getFieldValue(talent, 
 	}
 
 	//TODO Atouts, Fardeaux
-	//TODO FIX IT
 	$scope.calculsStatBlock = function($resetIntegrated) {
 		
 		let abilitiesTexts =  "";
@@ -632,13 +718,12 @@ ${($scope.getFieldValue(talent, 'maitre', lang)) ? $scope.getFieldValue(talent, 
 		$scope.talents.forEach(talent => {
 
 			let type = talent.type;
-			let nom = $scope.getFieldValue(talent, 'nom', $rootScope.lang);
-
+			let nom = talent[$rootScope.lang].nom;
 			if (talent.epinglen && !talent.epinglea && !talent.epinglem) {
 
 				if (type === "talent") {
 
-					abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'novice', $rootScope.lang));
+					abilitiesTexts += getLibelleForStatBlock(nom, talent[$rootScope.lang].novice);
 					let name = nom + " (" + $translate.instant('NOVICE').toLowerCase() + ")";
 					$scope.statBlockProps.abilities.push(name);
 					if ($resetIntegrated || !$scope.statBlockProps.integrated[name])
@@ -647,7 +732,7 @@ ${($scope.getFieldValue(talent, 'maitre', lang)) ? $scope.getFieldValue(talent, 
 						integrated[name] = $scope.statBlockProps.integrated[name];
 				} else if (type === "pouvoir mystique") {
 
-					abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'novice', $rootScope.lang));
+					abilitiesTexts += getLibelleForStatBlock(nom, talent[$rootScope.lang].novice);
 					$scope.statBlockProps.mysticalPowers.push(nom + " (" + $translate.instant('NOVICE').toLowerCase() + ")");
 				 } else if (type === "rituel") {
 
@@ -655,7 +740,7 @@ ${($scope.getFieldValue(talent, 'maitre', lang)) ? $scope.getFieldValue(talent, 
 				} else if (type === "trait monstrueux" || (type === "trait" && (talent[$rootScope.lang].adepte || talent[$rootScope.lang].maitre))) {
 					
 					let name  = nom + " (I)";
-					abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'novice', $rootScope.lang));
+					abilitiesTexts += getLibelleForStatBlock(name, talent[$rootScope.lang].novice);
 					$scope.statBlockProps.traits.push(name);
 					if ($resetIntegrated || !$scope.statBlockProps.integrated[name])
 						integrated[name] = false;
@@ -663,7 +748,7 @@ ${($scope.getFieldValue(talent, 'maitre', lang)) ? $scope.getFieldValue(talent, 
 						integrated[name] = $scope.statBlockProps.integrated[name];
 				} else if ((type === "trait" || type.startsWith("trait/")) && !$scope.statBlockProps.traits.includes(keyName)) {
 
-					abilitiesTexts += "<b><i>" + nom + "</i></b><br/>" + $scope.getFieldValue(talent, 'novice', $rootScope.lang) + "<br/><br/>";
+					abilitiesTexts += "<b><i>" + nom + "</i></b><br/>" + talent[$rootScope.lang].novice + "<br/><br/>";
 					$scope.statBlockProps.traits.push(nom);
 					if ($resetIntegrated || !$scope.statBlockProps.integrated[name])
 						integrated[name] = false;
@@ -684,15 +769,15 @@ ${($scope.getFieldValue(talent, 'maitre', lang)) ? $scope.getFieldValue(talent, 
 						integrated[name] = $scope.statBlockProps.integrated[name];
 
 					if (talent.epinglen)
-						abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'novice', $rootScope.lang));
-					abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'adepte', $rootScope.lang));
+						abilitiesTexts += getLibelleForStatBlock(nom, talent[$rootScope.lang].novice);
+					abilitiesTexts += getLibelleForStatBlock(nom, talent[$rootScope.lang].adepte);
 				} else if (type === "pouvoir mystique") {
 
 					$scope.statBlockProps.mysticalPowers.push(nom + " (" + $translate.instant('ADEPTE').toLowerCase() + ")");
 
 					if (talent.epinglen)
-						abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'novice', $rootScope.lang));
-					abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'adepte', $rootScope.lang));
+						abilitiesTexts += getLibelleForStatBlock(nom, talent[$rootScope.lang].novice);
+					abilitiesTexts += getLibelleForStatBlock(nom, talent[$rootScope.lang].adepte);
 					
 				} else if (type === "trait monstrueux" || type === "trait") {
 
@@ -704,8 +789,8 @@ ${($scope.getFieldValue(talent, 'maitre', lang)) ? $scope.getFieldValue(talent, 
 						integrated[name] = $scope.statBlockProps.integrated[name];;
 					
 					if (talent.epinglen)
-						abilitiesTexts += getLibelleForStatBlock(nom + " (I)", $scope.getFieldValue(talent, 'novice', $rootScope.lang));
-					abilitiesTexts += getLibelleForStatBlock(name, $scope.getFieldValue(talent, 'adepte', $rootScope.lang));
+						abilitiesTexts += getLibelleForStatBlock(nom + " (I)", talent.novice);
+					abilitiesTexts += getLibelleForStatBlock(name, talent[$rootScope.lang].adepte);
 				}
 			}
 
@@ -722,23 +807,23 @@ ${($scope.getFieldValue(talent, 'maitre', lang)) ? $scope.getFieldValue(talent, 
 						integrated[name] = $scope.statBlockProps.integrated[name];
 
 					if (talent.epinglen)
-						abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'novice', $rootScope.lang));
+						abilitiesTexts += getLibelleForStatBlock(nom, talent[$rootScope.lang].novice);
 					if (talent.epinglea)
-						abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'adepte', $rootScope.lang));
-					abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'maitre', $rootScope.lang));
+						abilitiesTexts += getLibelleForStatBlock(nom, talent[$rootScope.lang].adepte);
+					abilitiesTexts += getLibelleForStatBlock(nom, talent[$rootScope.lang].maitre);
 				} else if (type === "pouvoir mystique") {
 
 					$scope.statBlockProps.mysticalPowers.push(nom + " (" + $translate.instant('MAITRE').toLowerCase() + ")");
 
 					if (talent.epinglen)
-						abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'novice', $rootScope.lang));
+						abilitiesTexts += getLibelleForStatBlock(nom, talent[$rootScope.lang].novice);
 					if (talent.epinglea)
-						abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'adepte', $rootScope.lang));
-					abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'maitre', $rootScope.lang));
+						abilitiesTexts += getLibelleForStatBlock(nom, talent[$rootScope.lang].adepte);
+					abilitiesTexts += getLibelleForStatBlock(nom, talent[$rootScope.lang].maitre);
 				} else if (type === "rituel") {
 
 					$scope.statBlockProps.rituals.push(nom);
-				} else if (type === "trait monstrueux" || (type === "trait" && ($scope.getFieldValue(talent, 'adepte', $rootScope.lang) || $scope.getFieldValue(talent, 'maitre', $rootScope.lang)))) {
+				} else if (type === "trait monstrueux" || (type === "trait" && (talent[$rootScope.lang].adepte || talent[$rootScope.lang].maitre))) {
 
 					let name = nom + " (III)";
 					$scope.statBlockProps.traits.push(name);
@@ -747,21 +832,21 @@ ${($scope.getFieldValue(talent, 'maitre', lang)) ? $scope.getFieldValue(talent, 
 					else
 						integrated[name] = $scope.statBlockProps.integrated[name];
 
-					if ((talent.epingle && ($scope.getFieldValue(talent, 'adepte', $rootScope.lang) || $scope.getFieldValue(talent, 'maitre', $rootScope.lang))) || talent.epinglem) {
+					if ((talent.epingle && (talent[$rootScope.lang].adepte || talent[$rootScope.lang].maitre)) || talent.epinglem) {
 
 						if (talent.epinglen)
-							abilitiesTexts += getLibelleForStatBlock(nom + " (I)", $scope.getFieldValue(talent, 'novice', $rootScope.lang));
+							abilitiesTexts += getLibelleForStatBlock(nom + " (I)", talent[$rootScope.lang].novice);
 						if (talent.epinglea)
-							abilitiesTexts += getLibelleForStatBlock(nom + " (II)", $scope.getFieldValue(talent, 'adepte', $rootScope.lang));
-						abilitiesTexts += getLibelleForStatBlock(name, $scope.getFieldValue(talent, 'maitre', $rootScope.lang));
+							abilitiesTexts += getLibelleForStatBlock(nom + " (II)", talent[$rootScope.lang].adepte);
+						abilitiesTexts += getLibelleForStatBlock(name, talent.maitre);
 					} else {
 						
-						abilitiesTexts += getLibelleForStatBlock(nom + " (I)", $scope.getFieldValue(talent, 'novice', $rootScope.lang));
+						abilitiesTexts += getLibelleForStatBlock(nom + " (I)", talent.novice);
 					}
 					
 				} else if ((type === "trait" || type.startsWith("trait/")) && !$scope.statBlockProps.traits.includes(nom)) {
 
-					abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'novice', $rootScope.lang));
+					abilitiesTexts += getLibelleForStatBlock(nom, talent[$rootScope.lang].novice);
 					$scope.statBlockProps.traits.push(nom);
 					if ($resetIntegrated || !$scope.statBlockProps.integrated[name])
 						integrated[name] = false;
@@ -930,18 +1015,6 @@ ${($scope.getFieldValue(talent, 'maitre', lang)) ? $scope.getFieldValue(talent, 
 
 	$scope.loadJson().then(function successCallback(response) {
 		$scope.talents = response.data;
-
-
-		if ($routeParams.b64) {
-
-			$scope.importer(globalService.decoding($routeParams.b64));
-		} else if ($routeParams.id) {
-
-
-		} else {
-			
-			$scope.importer();
-		}
 	});
 
 	$scope.statBlockProps.abilitiesTexts = "";
@@ -953,12 +1026,18 @@ ${($scope.getFieldValue(talent, 'maitre', lang)) ? $scope.getFieldValue(talent, 
 	$scope.statBlockProps.mysticalPowers = [];
 	$scope.statBlockProps.rituals = [];
 	$scope.statBlockProps.traits = [];
+
+	if ($routeParams.b64) {
+
+		$scope.importer(globalService.decoding($routeParams.b64));
+	} else {
+
+		$scope.importer();
+	}
 });
 
 routeAppControllers.controller('LostPwd', function ($scope, $translate, $http) {
 
-	$scope.pwdPattern = "(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}";
-	
 	$scope.pwdReset = () => {
 
 		$('form[name="pwdResetForm"]').addClass("was-validated");
@@ -1013,6 +1092,11 @@ routeAppControllers.controller('LostPwd', function ($scope, $translate, $http) {
 
 		$('form[name="pwdChangeForm"]').addClass("was-validated");
 
+		if ($scope.pwd1 !== $scope.pwd2) {
+
+			$scope.pwdChangeForm.pwd2.$setValidity('pwd', false);
+		}
+
 		if (!$scope.pwdChangeForm.$valid) {
 			return;
 		}
@@ -1027,9 +1111,53 @@ routeAppControllers.controller('LostPwd', function ($scope, $translate, $http) {
 				$('#staticBackdrop').modal('show');
 			}
 		);
-
-		$('form[name="pwdChangeForm"]').removeClass("was-validated");
 	}
+})
+
+routeAppControllers.controller('Test', function ($scope, $q, $http) {
+	$scope.loadJson = function () {
+
+		let deferred = $q.defer();
+		$http({
+
+			method: 'GET',
+			url: window.location.origin + '/json/all.json'
+		}).then(function successCallback(response) {
+
+			deferred.resolve(response);
+		}, function errorCallback(response) {
+
+			console.log(response);
+			deferred.reject("nok");
+		});
+
+		return deferred.promise;
+	}
+	$scope.loadJson().then(function successCallback(response) {
+		const all = response.data;
+		let result = [];
+		let armes = all.filter(function(talent){ return talent.type == 'arme'; });
+		armes.forEach(function(arme) {
+
+			var qualRegex = /(?<=Quality: )(.*)(?=, Cost)/;
+			var found = arme['en'].tradition.match(qualRegex);
+			arme['en'].qualites = (found != null) ? found[0] : "";
+
+			var damRegex = /(?<=Damages: )(.*)(?=, Quality)/;
+			found = arme['en'].tradition.match(damRegex);
+			var damages = (found != null) ? found[0] : "";
+
+			var costRegex = /(?<=Cost: )(.*)(?= Th.)/;
+			found = arme['en'].tradition.match(costRegex);
+			var cost = (found != null) ? found[0] : "";
+
+			arme.caracs = {'degats': damages, 'cost': cost}
+			delete arme['en'].tradition;
+			result.push(arme);
+		});
+		$scope.armes = armes;
+	});
+	
 })
 
 routeAppControllers.controller('Davokar', function ($scope, $q, $routeParams, $translate, globalService) {
@@ -1295,8 +1423,7 @@ routeAppControllers.controller('Davokar', function ($scope, $q, $routeParams, $t
 		$scope.data.logs.push("Modifier Davokar level : " + modDavokar);
 
 		// ORIENTATION : Calcul malus selon difference entre niveau survie et davokar
-		let jetOrientation = "N/A";
-		let texteOrientation = "N/A";
+		let texteOrientation = jetOrientation = "N/A";
 		if (!$scope.data.rester) {
 
 			// ORIENTATION : Ajout bonus si detention information orale & source écrite
@@ -1307,9 +1434,8 @@ routeAppControllers.controller('Davokar', function ($scope, $q, $routeParams, $t
 				malus = malus - 1;
 
 			// ORIENTATION : Test vigilance
-			jetOrientation = $scope.jetDe(20);
-			let misfortune = $scope.jetDe(20);
-
+			let jetOrientation = $scope.jetDe(20);
+			
 			$scope.data.logs.push("Orientation Roll : " + jetOrientation + " <= " + $scope.data.vigilance + " (VIG) + " + malus
 					+ " (Davokar Malus) -> "  + (jetOrientation <= ($scope.data.vigilance - malus)));
 
@@ -1319,7 +1445,7 @@ routeAppControllers.controller('Davokar', function ($scope, $q, $routeParams, $t
 				orientation = false;
 
 				// ORIENTATION : Jet MISFORTUNE
-
+				let misfortune = $scope.jetDe(20);
 				$scope.data.logs.push("Rolled misfortune (no modifier) : " + misfortune);
 
 				if ($scope.data.davokar === "sauvage")
@@ -1387,6 +1513,34 @@ routeAppControllers.controller('Davokar', function ($scope, $q, $routeParams, $t
 		}
 
 		$scope.data.provisions = parseInt($scope.data.provisions) - parseInt($scope.data.pjs);
+
+		// Ruine
+		let texteRuine = jetRuine = "N/A";
+		let tresorsRestants = 0;
+		if (!$scope.data.rester) {
+
+			let bonusOrientation = (orientation && !diffDavokarSurvie) ? 2 : 0;
+			$scope.data.logs.push("Orientation bonus for Ruins : " + bonusOrientation);
+			let jetRuine = $scope.jetDe(20) + bonusOrientation + modDavokar;
+			$scope.data.logs.push("Ruin Roll : " + jetRuine);
+			if (jetTerrain <= 0) jetTerrain = 1;
+			
+			let id = (jetRuine > 22) ? 22 : (jetRuine - 1);
+			texteRuine = tableRuine[id][1] + ".";
+
+			for (let i = 0; i < tableRuine[id][2]; i++) {
+
+				tresorsRestants += $scope.jetDe(tableRuine[id][3]);
+			}
+			
+			if (tresorsRestants > 0) {
+
+				tresorsRestants += 2;
+			}
+		} else {
+
+			tresorsRestants = $scope.data.jours[$scope.data.jours.length - 1].tresorsRestants;
+		}
 
 		let texteRencontre = $translate.instant('DAV_NONE');
 
@@ -1492,35 +1646,6 @@ routeAppControllers.controller('Davokar', function ($scope, $q, $routeParams, $t
 			texteTerrain = tableTerrain[jetTerrain - 1][1];
 		}
 
-		// Ruine
-		let jetRuine = "N/A";
-		let texteRuine = "N/A";
-		let tresorsRestants = 0;
-		if (!$scope.data.rester) {
-
-			let bonusOrientation = (orientation && !diffDavokarSurvie) ? 2 : 0;
-			$scope.data.logs.push("Orientation bonus for Ruins : " + bonusOrientation);
-			jetRuine = $scope.jetDe(20) + bonusOrientation + modDavokar;
-			$scope.data.logs.push("Ruin Roll : " + jetRuine);
-			if (jetTerrain <= 0) jetTerrain = 1;
-			
-			let id = (jetRuine > 22) ? 22 : (jetRuine - 1);
-			texteRuine = tableRuine[id][1] + ".";
-
-			for (let i = 0; i < tableRuine[id][2]; i++) {
-
-				tresorsRestants += $scope.jetDe(tableRuine[id][3]);
-			}
-			
-			if (tresorsRestants > 0) {
-
-				tresorsRestants += 2;
-			}
-		} else {
-
-			tresorsRestants = $scope.data.jours[$scope.data.jours.length - 1].tresorsRestants;
-		}
-
 		// ET UN JOUR DE PLUS EN DAVOKAR : Toujours vivant ?
 		$scope.data.jours[$scope.data.jour] = {
 			davokar: $translate.instant('DAV_' + $scope.data.davokar.toUpperCase()),
@@ -1570,281 +1695,3 @@ routeAppControllers.controller('Davokar', function ($scope, $q, $routeParams, $t
 		return Math.floor(Math.random() * Math.floor(max)) + 1;
 	}
 });
-
-routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $rootScope, $translate, globalService, auth) {
-
-	$scope.charTalents = [];
-	$scope.charTraitsBoonsBurdens = [];
-	$scope.charWeapons = [];
-
-	$scope.tradType = function ($type) {
-
-		var ret = [];
-		if ($type) {
-
-			for (let type of $type.split("/")) {
-
-				ret.push(symboles[type] + $translate.instant('TYPE_' + type.replace(' ', '_').toUpperCase()));
-			}
-
-			return ret.join("/");
-		}
-
-		return '';
-	}
-
-	$scope.loadJson = function () {
-
-		var deferred = $q.defer();
-		$http({
-
-			method: 'GET',
-			url: window.location.origin + '/json/all.json'
-		}).then(function successCallback(response) {
-
-			deferred.resolve(response);
-		}, function errorCallback(response) {
-
-			console.log(response);
-			deferred.reject("nok");
-		});
-
-		return deferred.promise;
-	}
-
-	$scope.getFieldValue = (talent, field, lang) => {
-
-		let ruleSet = ($scope.rulesSet != undefined) ? $scope.rulesSet : "";
-
-		if (talent.type == "arme" && field == "tradition") {
-
-			let caracs = [];
-			if (undefined != talent.caracs.degats && talent.caracs.degats != "") { caracs.push("Damages: " + talent.caracs.degats) }
-			if (undefined != talent.caracs.cost && talent.caracs.cost != "") { caracs.push("Cost: " + talent.caracs.cost) }
-
-			if (undefined != talent[lang + ruleSet] && undefined != talent[lang + ruleSet]["qualites"] && talent[lang + ruleSet]["qualites"] != "") {
-
-				caracs.push("Qualities: " + talent[lang + ruleSet]["qualites"]);
-			} else if (talent['en']["qualites"] != "") {
-	
-				caracs.push("Qualities: " +  talent['en']["qualites"]);
-			}
-			return caracs.join(" / ");
-		} else {
-			if (undefined != talent[lang + ruleSet] && undefined != talent[lang + ruleSet][field]) {
-
-				return talent[lang +ruleSet][field];
-			} else {
-	
-				return talent['en'][field];
-			}
-		}
-	}
-
-	$scope.addTalentToChar =  function(key) {
-
-		if ($scope.charTalents.filter(function(talent){ return talent.id == key.id; }).length == 0) {
-			$scope.charTalents.push(key);
-		}
-	}
-
-	$scope.removeTalentFromChar =  function(key) {
-
-		$scope.charTalents = $scope.charTalents.filter(function(talent){ 
-			return talent.id != key;
-		});
-	}
-
-	$scope.addTraitBoonBurdenToChar =  function(key) {
-
-		if ($scope.charTraitsBoonsBurdens.filter(function(traitBoonBurden){ return traitBoonBurden.id == key.id; }).length == 0) {
-			$scope.charTraitsBoonsBurdens.push(key);
-		}
-	}
-
-	$scope.removeTraitBoonBurdenFromChar =  function(key) {
-
-		$scope.charTraitsBoonsBurdens = $scope.charTraitsBoonsBurdens.filter(function(traitBoonBurden){ 
-			return traitBoonBurden.id != key;
-		});
-	}
-
-	$scope.addWeapon = function(key) {
-
-		$scope.charWeapons.push({"id": Math.random() * (999999999 - 100000000) + 100000000, "value": key["en"].nom + " / " + $scope.getFieldValue(key, 'tradition', $rootScope.lang)});
-	}
-
-	$scope.addCustomWeapon = function() {
-
-		$scope.charWeapons.push({"id": Math.random() * (999999999 - 100000000) + 100000000, "value": ""});
-	}
-
-	$scope.removeWeapon = function(index) {
-
-		$scope.charWeapons.splice(index, 1);
-	}
-
-	$scope.calcXp = function() {
-
-		$scope.spentXp = 0;
-		$scope.charTalents.forEach(talent => {
-
-			if (talent.niveau) {
-
-				$scope.spentXp += talent.niveau * 10;
-			}
-		});
-	}
-
-	$scope.importer = function ($fileContent) {
-
-		let jsonImporter = {};
-		if ($fileContent) {
-
-			jsonImporter = JSON.parse($fileContent);
-
-			$scope.nom = jsonImporter.nom;
-			$scope.joueur = jsonImporter.joueur;
-			$scope.agi = jsonImporter.agi;
-			$scope.forc = jsonImporter.forc;
-			$scope.pre = jsonImporter.pre;
-			$scope.vol = jsonImporter.vol;
-			$scope.vig = jsonImporter.vig;
-			$scope.dis = jsonImporter.dis;
-			$scope.ast = jsonImporter.ast;
-			$scope.per = jsonImporter.per;
-			$scope.ini = jsonImporter.ini;
-			$scope.typ = jsonImporter.typ;
-			$scope.def = jsonImporter.def;
-			$scope.end = jsonImporter.end;
-			$scope.sd = jsonImporter.sd;
-			$scope.sc = jsonImporter.sc;
-			$scope.cp = jsonImporter.cp;
-			$scope.ct = jsonImporter.ct;
-
-			$scope.rulesSet = jsonImporter.regles; // TODO
-
-			if (jsonImporter.lang) {
-				$rootScope.lang = jsonImporter.lang;
-				$translate.use(jsonImporter.lang);
-			}
-		}
-
-		if ($fileContent) {
-			
-			function getIndex(item) {
-				if ("v2" === this.version) { return item.id == this.id; } else { return $scope.getFieldValue(item, 'nom', this.lang) == this.id }
-			}
-			
-			if (jsonImporter.epingles) {
-				jsonImporter.epingles.forEach(tmp => {
-					let i = $scope.talents.findIndex(getIndex, { "id": tmp, "version": jsonImporter.format, "lang": jsonImporter.lang });
-					if (i >= 0) { let tmp = $scope.talents[i]; tmp.niveau = "6"; $scope.charTalents.push(tmp) }
-				})
-			}
-			if (jsonImporter.epinglesn) {
-				jsonImporter.epinglesn.forEach(tmp => {
-					let i = $scope.talents.findIndex(getIndex, {"id": tmp, "version": jsonImporter.format, "lang": jsonImporter.lang });
-					if (i >= 0) { let tmp = $scope.talents[i]; tmp.niveau = "1"; $scope.charTalents.push(tmp) }
-				})
-			}
-			if (jsonImporter.epinglesa) {
-				jsonImporter.epinglesa.forEach(tmp => {
-					let i = $scope.talents.findIndex(getIndex, {"id": tmp, "version": jsonImporter.format, "lang": jsonImporter.lang });
-					if (i >= 0) { let tmp = $scope.talents[i]; tmp.niveau = "3"; $scope.charTalents.push(tmp) }
-				})
-			}
-			if (jsonImporter.epinglesm) {
-				jsonImporter.epinglesm.forEach(tmp => {
-					let i = $scope.talents.findIndex(getIndex, {"id": tmp, "version": jsonImporter.format, "lang": jsonImporter.lang });
-					if (i >= 0) { let tmp = $scope.talents[i]; tmp.niveau = "6"; $scope.charTalents.push(tmp) }
-				})
-			}
-		}
-	}
-
-	$scope.filtreNomTalent = "";
-	$scope.filtreNomTab2 = "";
-	$scope.filtreNomTab3 = "";
-	$scope.epingleSeulement = false;
-	$scope.filtreType = "talent";
-	$scope.filtreTypeTab2 = "atout";
-	$scope.filtreTypeTab3 = "arme";
-	$scope.filtreLivre = "tous";
-	$scope.filtreTrad = "tous";
-	$scope.filtreAttr = "tous";
-
-	$scope.loadJson().then(function successCallback(response) {
-		$scope.talents = response.data;
-	});
-
-	$scope.resize = function($event) {
-
-		$event.target.style["overflow-y"] = "hidden";
-		$event.target.style.height = 0;
-		$event.target.style.height = $event.target.scrollHeight + "px";
-	};
-
-    $scope.$watch('charWeapons', function() {
-
-		setTimeout(() => {
-
-			$(".auto-size").each(function () {
-
-				$(this).css({
-					'overflow-y': 'hidden',
-					height: 0,
-				})
-				$(this).css({
-					height: $(this).prop('scrollHeight') +"px"
-				})
-			})
-		}, 0);
-    }, true);
-});
-
-routeAppControllers.controller('Test', function ($scope, $q, $http) {
-	$scope.loadJson = function () {
-
-		let deferred = $q.defer();
-		$http({
-
-			method: 'GET',
-			url: window.location.origin + '/json/all.json'
-		}).then(function successCallback(response) {
-
-			deferred.resolve(response);
-		}, function errorCallback(response) {
-
-			console.log(response);
-			deferred.reject("nok");
-		});
-
-		return deferred.promise;
-	}
-	$scope.loadJson().then(function successCallback(response) {
-		const all = response.data;
-		let result = [];
-		let armes = all.filter(function(talent){ return talent.type == 'arme'; });
-		armes.forEach(function(arme) {
-
-			var qualRegex = /(?<=Quality: )(.*)(?=, Cost)/;
-			var found = arme['en'].tradition.match(qualRegex);
-			arme['en'].qualites = (found != null) ? found[0] : "";
-
-			var damRegex = /(?<=Damages: )(.*)(?=, Quality)/;
-			found = arme['en'].tradition.match(damRegex);
-			var damages = (found != null) ? found[0] : "";
-
-			var costRegex = /(?<=Cost: )(.*)(?= Th.)/;
-			found = arme['en'].tradition.match(costRegex);
-			var cost = (found != null) ? found[0] : "";
-
-			arme.caracs = {'degats': damages, 'cost': cost}
-			delete arme['en'].tradition;
-			result.push(arme);
-		});
-		$scope.armes = armes;
-	});
-	
-})
