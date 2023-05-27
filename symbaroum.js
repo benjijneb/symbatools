@@ -105,6 +105,9 @@ symbaroum.filter('rechercheFilter', function () {
 
 	return function (items, query) {
 
+		if (undefined == items)
+			return;
+
 		let filtered = [];
 		
 		if ((!(query.nom === "") && !(query.nom === undefined)) || query.epingleSeulement || !(query.filtreType === "tous" && query.filtreLivre === "tous" && query.filtreTrad === "tous" && query.filtreAttr === "tous")) {
@@ -615,7 +618,6 @@ ${($scope.getFieldValue(talent, 'maitre', lang)) ? $scope.getFieldValue(talent, 
 	}
 
 	//TODO Atouts, Fardeaux
-	//TODO FIX IT
 	$scope.calculsStatBlock = function($resetIntegrated) {
 		
 		let abilitiesTexts =  "";
@@ -1571,11 +1573,74 @@ routeAppControllers.controller('Davokar', function ($scope, $q, $routeParams, $t
 	}
 });
 
-routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $rootScope, $translate, globalService, auth) {
+routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $rootScope, $translate, $window, auth) {
 
 	$scope.charTalents = [];
 	$scope.charTraitsBoonsBurdens = [];
 	$scope.charWeapons = [];
+	$scope.charArmors = [];
+	
+	$scope.spentXp = 0;
+
+	$scope.isAuthenticated = auth.isAuthenticated;
+
+	$scope.getMyPcNpc = function() {
+
+		$http.get('https://symbatools-api.tk/json/list', { withCredentials: true }).then(
+			function(response) {
+
+				$scope.myPcNpcArr = response.data;
+			},
+			function(error) {
+
+				$scope.myPcNpcArr = null;
+			}
+		)
+	}
+	
+	$scope.loadPcNpc = function(name) {
+
+		$http.post('https://symbatools-api.tk/json/get', { "name": name }, { withCredentials: true }).then(
+			function(response) {
+				
+				$scope.importer(JSON.stringify(response.data));
+			},
+			function(error) {
+
+				console.log(error.data);
+			}
+		);
+	}
+
+	$scope.deletePcNpc = function(name) {
+
+		if (confirm("Are you sure to delete this ?")) {
+
+			$http.post('https://symbatools-api.tk/json/delete', { "name": name }, { withCredentials: true }).then(
+				function(response) {
+				
+					$scope.getMyPcNpc();
+				},
+				function(error) {
+
+					console.log(error.data);
+				}
+			);
+		}
+	}
+
+	$scope.savePcNpc = function() {
+
+		$http.post('https://symbatools-api.tk/json/save', { "jsonData": $scope.getDataToExport() }, { withCredentials: true }).then(
+			function(response) {
+				
+			},
+			function(error) {
+
+				console.log(error.data)
+			}
+		);
+	}
 
 	$scope.tradType = function ($type) {
 
@@ -1616,21 +1681,30 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 
 		let ruleSet = ($scope.rulesSet != undefined) ? $scope.rulesSet : "";
 
-		if (talent.type == "arme" && field == "tradition") {
+		if ((talent.type == "arme" || talent.type == "armure") && field == "tradition") {
 
 			let caracs = [];
-			if (undefined != talent.caracs.degats && talent.caracs.degats != "") { caracs.push("Damages: " + talent.caracs.degats) }
-			if (undefined != talent.caracs.cost && talent.caracs.cost != "") { caracs.push("Cost: " + talent.caracs.cost) }
+			if (undefined != talent.caracs.jet && talent.caracs.jet != "") {
+
+				caracs.push(((talent.type == "arme") ? "Damages: " : "Protection: ") + talent.caracs.jet)
+			}
+
+			if (talent.type == "armure") {
+
+				caracs.push("Type: " + talent.caracs.type +" (" + talent.caracs.gene + ")");
+			}
 
 			if (undefined != talent[lang + ruleSet] && undefined != talent[lang + ruleSet]["qualites"] && talent[lang + ruleSet]["qualites"] != "") {
 
 				caracs.push("Qualities: " + talent[lang + ruleSet]["qualites"]);
-			} else if (talent['en']["qualites"] != "") {
+			} else if (undefined != talent['en']["qualites"] && talent['en']["qualites"] != "") {
 	
 				caracs.push("Qualities: " +  talent['en']["qualites"]);
 			}
+			if (undefined != talent.caracs.cost && talent.caracs.cost != "") { caracs.push("Cost: " + talent.caracs.cost) }
 			return caracs.join(" / ");
 		} else {
+
 			if (undefined != talent[lang + ruleSet] && undefined != talent[lang + ruleSet][field]) {
 
 				return talent[lang +ruleSet][field];
@@ -1669,14 +1743,19 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 		});
 	}
 
+	function random(min, max) {
+
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+
 	$scope.addWeapon = function(key) {
 
-		$scope.charWeapons.push({"id": Math.random() * (999999999 - 100000000) + 100000000, "value": key["en"].nom + " / " + $scope.getFieldValue(key, 'tradition', $rootScope.lang)});
+		$scope.charWeapons.push({"id": random(100000000,999999999), "value":  $scope.getFieldValue(key, 'nom', $rootScope.lang) + " / " + $scope.getFieldValue(key, 'tradition', $rootScope.lang)});
 	}
 
 	$scope.addCustomWeapon = function() {
 
-		$scope.charWeapons.push({"id": Math.random() * (999999999 - 100000000) + 100000000, "value": ""});
+		$scope.charWeapons.push({"id": random(100000000,999999999), "value": ""});
 	}
 
 	$scope.removeWeapon = function(index) {
@@ -1684,19 +1763,289 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 		$scope.charWeapons.splice(index, 1);
 	}
 
+	$scope.addArmor = function(key) {
+
+		$scope.charArmors.push({"id": random(100000000,999999999), "value":  $scope.getFieldValue(key, 'nom', $rootScope.lang) + " / " + $scope.getFieldValue(key, 'tradition', $rootScope.lang)});
+	}
+
+	$scope.addCustomArmor = function() {
+
+		$scope.charArmors.push({"id": random(100000000,999999999), "value": ""});
+	}
+
+	$scope.removeArmor = function(index) {
+
+		$scope.charArmors.splice(index, 1);
+	}
+
+	//TODO Atouts, Fardeaux
+	$scope.calculsStatBlock = function($resetIntegrated) {
+		
+		let abilitiesTexts =  "";
+		let integrated = {};
+
+		$scope.statBlockProps.abilities = [];
+		$scope.statBlockProps.mysticalPowers = [];
+		$scope.statBlockProps.traits = [];
+		$scope.statBlockProps.rituals = [];
+
+		if ($resetIntegrated)
+			$scope.statBlockProps.manageIntegrated = false;
+
+		$scope.charTalents.forEach(talent => {
+
+			let type = talent.type;
+			let nom = $scope.getFieldValue(talent, 'nom', $rootScope.lang);
+
+			if (talent.niveau == "1" || talent.niveau == "3" || talent.niveau == "6") {
+
+				if (type === "talent") {
+
+					abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'novice', $rootScope.lang));
+					let name = nom + " (" + $translate.instant('NOVICE').toLowerCase() + ")";
+					$scope.statBlockProps.abilities.push(name);
+					if ($resetIntegrated || !$scope.statBlockProps.integrated[name])
+						integrated[name] = false;
+					else
+						integrated[name] = $scope.statBlockProps.integrated[name];
+				} else if (type === "pouvoir mystique") {
+
+					abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'novice', $rootScope.lang));
+					$scope.statBlockProps.mysticalPowers.push(nom + " (" + $translate.instant('NOVICE').toLowerCase() + ")");
+				 } else if (type === "rituel") {
+
+					$scope.statBlockProps.rituals.push(nom);
+				} else if (type === "trait monstrueux" || (type === "trait" && (talent[$rootScope.lang].adepte || talent[$rootScope.lang].maitre))) {
+					
+					let name  = nom + " (I)";
+					abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'novice', $rootScope.lang));
+					$scope.statBlockProps.traits.push(name);
+					if ($resetIntegrated || !$scope.statBlockProps.integrated[name])
+						integrated[name] = false;
+					else
+						integrated[name] = $scope.statBlockProps.integrated[name];
+				} else if ((type === "trait" || type.startsWith("trait/")) && !$scope.statBlockProps.traits.includes(nom)) {
+
+					abilitiesTexts += "<b><i>" + nom + "</i></b><br/>" + $scope.getFieldValue(talent, 'novice', $rootScope.lang) + "<br/><br/>";
+					$scope.statBlockProps.traits.push(nom);
+					if ($resetIntegrated || !$scope.statBlockProps.integrated[name])
+						integrated[name] = false;
+					else
+						integrated[name] = $scope.statBlockProps.integrated[name];
+				}
+			}
+
+			if (talent.niveau == "3" || talent.niveau == "6") {
+
+				if (type === "talent") {
+
+					let name = nom + " (" + $translate.instant('ADEPTE').toLowerCase() + ")";
+					$scope.statBlockProps.abilities.push(name);
+					if ($resetIntegrated || !$scope.statBlockProps.integrated[name])
+						integrated[name] = false;
+					else
+						integrated[name] = $scope.statBlockProps.integrated[name];
+
+					if (talent.epinglen)
+						abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'novice', $rootScope.lang));
+					abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'adepte', $rootScope.lang));
+				} else if (type === "pouvoir mystique") {
+
+					$scope.statBlockProps.mysticalPowers.push(nom + " (" + $translate.instant('ADEPTE').toLowerCase() + ")");
+
+					if (talent.epinglen)
+						abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'novice', $rootScope.lang));
+					abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'adepte', $rootScope.lang));
+					
+				} else if (type === "trait monstrueux" || type === "trait") {
+
+					let name = nom + " (II)";
+					$scope.statBlockProps.traits.push(name);
+					if ($resetIntegrated || !$scope.statBlockProps.integrated[name])
+						integrated[name] = false;
+					else
+						integrated[name] = $scope.statBlockProps.integrated[name];;
+					
+					if (talent.epinglen)
+						abilitiesTexts += getLibelleForStatBlock(nom + " (I)", $scope.getFieldValue(talent, 'novice', $rootScope.lang));
+					abilitiesTexts += getLibelleForStatBlock(name, $scope.getFieldValue(talent, 'adepte', $rootScope.lang));
+				}
+			}
+
+			if (talent.niveau == "6") {
+
+				if (type === "talent") {
+
+					let name = nom + " (" + $translate.instant('MAITRE').toLowerCase() + ")";
+					$scope.statBlockProps.abilities.push(name);
+					if ($resetIntegrated || !$scope.statBlockProps.integrated[name])
+						integrated[name] = false;
+					else
+						integrated[name] = $scope.statBlockProps.integrated[name];
+
+					if (talent.epinglen)
+						abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'novice', $rootScope.lang));
+					if (talent.epinglea)
+						abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'adepte', $rootScope.lang));
+					abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'maitre', $rootScope.lang));
+				} else if (type === "pouvoir mystique") {
+
+					$scope.statBlockProps.mysticalPowers.push(nom + " (" + $translate.instant('MAITRE').toLowerCase() + ")");
+
+					if (talent.epinglen)
+						abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'novice', $rootScope.lang));
+					if (talent.epinglea)
+						abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'adepte', $rootScope.lang));
+					abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'maitre', $rootScope.lang));
+				} else if (type === "rituel") {
+
+					$scope.statBlockProps.rituals.push(nom);
+				} else if (type === "trait monstrueux" || (type === "trait" && ($scope.getFieldValue(talent, 'adepte', $rootScope.lang) || $scope.getFieldValue(talent, 'maitre', $rootScope.lang)))) {
+
+					let name = nom + " (III)";
+					$scope.statBlockProps.traits.push(name);
+					if ($resetIntegrated || !$scope.statBlockProps.integrated[name])
+						integrated[name] = false;
+					else
+						integrated[name] = $scope.statBlockProps.integrated[name];
+
+					if ((talent.epingle && ($scope.getFieldValue(talent, 'adepte', $rootScope.lang) || $scope.getFieldValue(talent, 'maitre', $rootScope.lang))) || talent.epinglem) {
+
+						if (talent.epinglen)
+							abilitiesTexts += getLibelleForStatBlock(nom + " (I)", $scope.getFieldValue(talent, 'novice', $rootScope.lang));
+						if (talent.epinglea)
+							abilitiesTexts += getLibelleForStatBlock(nom + " (II)", $scope.getFieldValue(talent, 'adepte', $rootScope.lang));
+						abilitiesTexts += getLibelleForStatBlock(name, $scope.getFieldValue(talent, 'maitre', $rootScope.lang));
+					} else {
+						
+						abilitiesTexts += getLibelleForStatBlock(nom + " (I)", $scope.getFieldValue(talent, 'novice', $rootScope.lang));
+					}
+					
+				} else if ((type === "trait" || type.startsWith("trait/")) && !$scope.statBlockProps.traits.includes(nom)) {
+
+					abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'novice', $rootScope.lang));
+					$scope.statBlockProps.traits.push(nom);
+					if ($resetIntegrated || !$scope.statBlockProps.integrated[name])
+						integrated[name] = false;
+					else
+						integrated[name] = $scope.statBlockProps.integrated[name];
+				}
+			}
+		})
+		$scope.statBlockProps.integrated = integrated;
+		$scope.statBlockProps.abilitiesTexts = abilitiesTexts;
+	};
+
+	$scope.statBlockProps = {
+		
+		newTab: function(value) {
+			
+			let jsonToSend = $scope.getDataToExport();
+			jsonToSend.integrated = $scope.statBlockProps.integrated;
+			window.open(globalService.encoding(jsonToSend, 'statblock'), '_blank').focus();
+		},
+		getAbilities: function (value) {
+
+			if ($scope.statBlockProps.abilities.length > 0 || $scope.statBlockProps.mysticalPowers.length > 0 || $scope.statBlockProps.rituals.length > 0) {
+
+				let all = $scope.statBlockProps.abilities.concat($scope.statBlockProps.mysticalPowers.concat($scope.statBlockProps.rituals));
+
+				for (let keyName in $scope.statBlockProps.integrated) {
+
+					let idx = all.indexOf(keyName);
+					if (idx !== -1 && $scope.statBlockProps.integrated[keyName]) {
+						all.splice(idx, 1);
+					}
+				};
+
+				return (all.length > 0) ? all.join(", ") : "-";
+			}
+			else
+				return "-";
+		},
+		getIntegrated: function (value) {
+
+			let integrated = [];
+			for (let keyName in $scope.statBlockProps.integrated) {
+
+				if ($scope.statBlockProps.integrated[keyName])
+					integrated.push(keyName);
+			}
+			return (integrated.length > 0) ? integrated.join(", ") : "-";
+		},
+		getTraits: function (value) {
+
+			if ($scope.statBlockProps.traits.length > 0)
+				return $scope.statBlockProps.traits.join(", ");
+			else
+				return "-";
+		},
+		getDefault: function (value) {
+			if (angular.isDefined(value) && value !== "") {
+				return value;
+			} else {
+				return "N/A";
+			}
+		},
+		getStatBlockColumnsNb: function (value) {
+
+			if (!$scope.statBlockProps.hideAbilities) {
+				return "6";
+			} else {
+				return "12";
+			}
+		}
+	};
+
+	$scope.statBlockProps.abilitiesTexts = "";
+	$scope.statBlockProps.hideAbilities = false;
+
+	$scope.statBlockProps.integrated = {};
+
+	$scope.statBlockProps.abilities = [];
+	$scope.statBlockProps.mysticalPowers = [];
+	$scope.statBlockProps.rituals = [];
+	$scope.statBlockProps.traits = [];
+
 	$scope.calcXp = function() {
 
 		$scope.spentXp = 0;
 		$scope.charTalents.forEach(talent => {
 
-			if (talent.niveau) {
+			if (talent.type == "talent" || talent.type == "pouvoir mystique" || talent.type == "trait monstrueux" || (talent.type == "trait" && talent.coutXp == "oui")) {
+				if (talent.niveau) {
+					$scope.spentXp += talent.niveau * 10;
+				}
+			} else if (talent.type.includes("atout")) {
+				if (talent.niveau) {
+					$scope.spentXp += Math.ceil(talent.niveau / 2) * 5;
+				}
+			} else if (talent.type.includes("fardeau")) {
+				if (talent.niveau) {
+					$scope.spentXp -= 5;
+				}
+			}
+		});
+		$scope.charTraitsBoonsBurdens.forEach(bb => {
 
-				$scope.spentXp += talent.niveau * 10;
+			if (bb.type.includes("atout")) {
+				if (bb.niveau) {
+					$scope.spentXp += Math.ceil(bb.niveau / 2) * 5;
+				}
+			} else if (bb.type.includes("fardeau")) {
+				if (bb.niveau) {
+					$scope.spentXp -= 5;
+				}
 			}
 		});
 	}
 
 	$scope.importer = function ($fileContent) {
+
+		$scope.charTalents = [];
+		$scope.charTraitsBoonsBurdens = [];
+		$scope.charWeapons = [];
+		$scope.charArmors = [];
 
 		let jsonImporter = {};
 		if ($fileContent) {
@@ -1721,6 +2070,15 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 			$scope.sc = jsonImporter.sc;
 			$scope.cp = jsonImporter.cp;
 			$scope.ct = jsonImporter.ct;
+			$scope.xp = jsonImporter.xp;
+			$scope.xpNonDep = jsonImporter.xpNonDep;
+			$scope.maxEnd = jsonImporter.maxEnd;
+			$scope.race = jsonImporter.race;
+			$scope.equipment = jsonImporter.equipment;
+			$scope.notes = jsonImporter.notes;
+			$scope.shadow = jsonImporter.shadow;
+			$scope.bg = jsonImporter.bg;
+			$scope.tactics = jsonImporter.tactics;
 
 			$scope.rulesSet = jsonImporter.regles; // TODO
 
@@ -1728,79 +2086,241 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 				$rootScope.lang = jsonImporter.lang;
 				$translate.use(jsonImporter.lang);
 			}
-		}
 
-		if ($fileContent) {
-			
 			function getIndex(item) {
-				if ("v2" === this.version) { return item.id == this.id; } else { return $scope.getFieldValue(item, 'nom', this.lang) == this.id }
+				if ("v2" === this.version || "v3" === this.version) { return item.id == this.id; } else { return $scope.getFieldValue(item, 'nom', this.lang) == this.id }
 			}
 			
-			if (jsonImporter.epingles) {
-				jsonImporter.epingles.forEach(tmp => {
-					let i = $scope.talents.findIndex(getIndex, { "id": tmp, "version": jsonImporter.format, "lang": jsonImporter.lang });
-					if (i >= 0) { let tmp = $scope.talents[i]; tmp.niveau = "6"; $scope.charTalents.push(tmp) }
-				})
+			if (jsonImporter.format != "v3") {
+				
+				if (jsonImporter.epingles) {
+					jsonImporter.epingles.forEach(tmp => {
+						let i = $scope.talents.findIndex(getIndex, { "id": tmp, "version": jsonImporter.format, "lang": jsonImporter.lang });
+						if (i >= 0) {
+							let talent = $scope.talents[i]; 
+							talent.niveau = "6";
+							if (talent.type == "atout" || talent.type =="fardeau" || talent.type == "trait" || talent.type == "trait/atout" || talent.type == "trait/fardeau") {
+								if (undefined == talent["en"].adepte && undefined == talent["en"].maitre) {
+									talent.niveau = "1";
+								}
+								$scope.charTraitsBoonsBurdens.push(talent);
+							} else {
+								$scope.charTalents.push(talent);
+							}
+						}
+					})
+				}
+				if (jsonImporter.epinglesn) {
+					jsonImporter.epinglesn.forEach(tmp => {
+						let i = $scope.talents.findIndex(getIndex, { "id": tmp, "version": jsonImporter.format, "lang": jsonImporter.lang });
+						if (i >= 0) {
+							let talent = $scope.talents[i];
+							talent.niveau = "1";
+							if (talent.type == "atout" || talent.type =="fardeau" || talent.type == "trait" || talent.type == "trait/atout" || talent.type == "trait/fardeau") {
+								$scope.charTraitsBoonsBurdens.push(talent);
+							} else {
+								$scope.charTalents.push(talent);
+							}
+						}
+					})
+				}
+				if (jsonImporter.epinglesa) {
+					jsonImporter.epinglesa.forEach(tmp => {
+						let i = $scope.talents.findIndex(getIndex, { "id": tmp, "version": jsonImporter.format, "lang": jsonImporter.lang });
+						if (i >= 0) {
+							let talent = $scope.talents[i];
+							talent.niveau = "3";
+							if (talent.type == "atout" || talent.type =="fardeau" || talent.type == "trait" || talent.type == "trait/atout" || talent.type == "trait/fardeau") {
+								$scope.charTraitsBoonsBurdens.push(talent);
+							} else {
+								$scope.charTalents.push(talent);
+							}
+						}
+					})
+				}
+				if (jsonImporter.epinglesm) {
+					jsonImporter.epinglesm.forEach(tmp => {
+						let i = $scope.talents.findIndex(getIndex, { "id": tmp, "version": jsonImporter.format, "lang": jsonImporter.lang });
+						if (i >= 0) {
+							let talent = $scope.talents[i];
+							talent.niveau = "6";
+							if (talent.type == "atout" || talent.type =="fardeau" || talent.type == "trait" || talent.type == "trait/atout" || talent.type == "trait/fardeau") {
+								$scope.charTraitsBoonsBurdens.push(talent);
+							} else {
+								$scope.charTalents.push(talent);
+							}
+						}
+					})
+				}
+			} else {
+				if (jsonImporter.talents) {
+					jsonImporter.talents.forEach(tmp => {
+						let i = $scope.talents.findIndex(getIndex, {"id": tmp.id, "version": jsonImporter.format, "lang": jsonImporter.lang });
+						if (i >= 0) { let talent = $scope.talents[i]; talent.niveau = tmp.niveau; $scope.charTalents.push(talent) }
+					})
+				}
+				if (jsonImporter.boonsburdens) {
+					jsonImporter.boonsburdens.forEach(tmp => {
+						let i = $scope.talents.findIndex(getIndex, {"id": tmp.id, "version": jsonImporter.format, "lang": jsonImporter.lang });
+						if (i >= 0) { let bb = $scope.talents[i]; bb.niveau = tmp.niveau; $scope.charTraitsBoonsBurdens.push(bb) }
+					})
+				}
+				if (jsonImporter.armes) {
+					$scope.charWeapons = jsonImporter.armes;
+				}
+				if (jsonImporter.armures) {
+					$scope.charArmors = jsonImporter.armures;
+				}
 			}
-			if (jsonImporter.epinglesn) {
-				jsonImporter.epinglesn.forEach(tmp => {
-					let i = $scope.talents.findIndex(getIndex, {"id": tmp, "version": jsonImporter.format, "lang": jsonImporter.lang });
-					if (i >= 0) { let tmp = $scope.talents[i]; tmp.niveau = "1"; $scope.charTalents.push(tmp) }
-				})
-			}
-			if (jsonImporter.epinglesa) {
-				jsonImporter.epinglesa.forEach(tmp => {
-					let i = $scope.talents.findIndex(getIndex, {"id": tmp, "version": jsonImporter.format, "lang": jsonImporter.lang });
-					if (i >= 0) { let tmp = $scope.talents[i]; tmp.niveau = "3"; $scope.charTalents.push(tmp) }
-				})
-			}
-			if (jsonImporter.epinglesm) {
-				jsonImporter.epinglesm.forEach(tmp => {
-					let i = $scope.talents.findIndex(getIndex, {"id": tmp, "version": jsonImporter.format, "lang": jsonImporter.lang });
-					if (i >= 0) { let tmp = $scope.talents[i]; tmp.niveau = "6"; $scope.charTalents.push(tmp) }
-				})
-			}
+
+			$scope.resizeTrigger = Date.now();
 		}
+	}
+
+	$scope.getDataToExport = function() {
+
+		let talents = [];	
+		let boonsburdens = [];
+
+		$scope.charTalents.forEach(talent => {
+			talents.push({ "id" : talent.id, "niveau": talent.niveau });
+		})
+
+		$scope.charTraitsBoonsBurdens.forEach(talent => {
+			boonsburdens.push({ "id" : talent.id, "niveau": talent.niveau });
+		})
+
+		return {
+			nom: $scope.nom,
+			joueur: $scope.joueur,
+			agi: $scope.agi,
+			forc: $scope.forc,
+			pre: $scope.pre,
+			vol: $scope.vol,
+			vig: $scope.vig,
+			dis: $scope.dis,
+			ast: $scope.ast,
+			per: $scope.per,
+			ini: $scope.ini,
+			typ: $scope.typ,
+			def: $scope.def,
+			end: $scope.end,
+			sd: $scope.sd,
+			sc: $scope.sc,
+			cp: $scope.cp,
+			ct: $scope.ct,
+			xp: $scope.xp,
+			xpNonDep: $scope.xpNonDep,
+			maxEnd: $scope.maxEnd,
+			race: $scope.race,
+			//regles: $scope.rulesSet,
+			lang: $rootScope.lang,
+			talents: talents,
+			boonsburdens: boonsburdens,
+			armes: $scope.charWeapons,
+			armures: $scope.charArmors,
+			equipment: $scope.equipment,
+			notes: $scope.notes,
+			shadow: $scope.shadow,
+			bg: $scope.bg,
+			tactics: $scope.tactics,
+			format: "v3"
+		};
+	}
+	
+	$scope.exporter = function () {
+
+		download(angular.toJson($scope.getDataToExport()), $scope.nom, 'application/json');
 	}
 
 	$scope.filtreNomTalent = "";
 	$scope.filtreNomTab2 = "";
 	$scope.filtreNomTab3 = "";
+	$scope.filtreNomTab3b = "";
 	$scope.epingleSeulement = false;
 	$scope.filtreType = "talent";
 	$scope.filtreTypeTab2 = "atout";
 	$scope.filtreTypeTab3 = "arme";
+	$scope.filtreTypeTab3b = "armure";
 	$scope.filtreLivre = "tous";
 	$scope.filtreTrad = "tous";
 	$scope.filtreAttr = "tous";
 
 	$scope.loadJson().then(function successCallback(response) {
+
 		$scope.talents = response.data;
 	});
 
+	// Resize textareas on keyup
 	$scope.resize = function($event) {
 
 		$event.target.style["overflow-y"] = "hidden";
 		$event.target.style.height = 0;
 		$event.target.style.height = $event.target.scrollHeight + "px";
 	};
+	
+	// Resize on tab click
+	$scope.resizeCss = function () {
 
-    $scope.$watch('charWeapons', function() {
+		$(".auto-size").each(function () {
+
+			$(this).css({
+				'overflow-y': 'hidden',
+				height: 0,
+			})
+			$(this).css({
+				height: $(this).prop('scrollHeight') +"px"
+			})
+		})
+	}
+
+	// Resize textareas on window resize
+	var appWindow = angular.element($window);
+	appWindow.bind('resize', function () {
+		
+		$scope.resizeCss();
+	});
+
+	// Resize textareas when item added by code in arrays
+    $scope.$watch(function(scope) {
+
+		return {charArmors: scope.charArmors, charWeapons: scope.charWeapons, resizeTrigger: scope.resizeTrigger};
+	  }, function() {
 
 		setTimeout(() => {
-
-			$(".auto-size").each(function () {
-
-				$(this).css({
-					'overflow-y': 'hidden',
-					height: 0,
-				})
-				$(this).css({
-					height: $(this).prop('scrollHeight') +"px"
-				})
-			})
-		}, 0);
+			$scope.resizeCss();
+		}, 10);
     }, true);
+
+	// Watcher for spent XP
+    $scope.$watch(function(scope) {
+
+		return {charTalents: scope.charTalents, charTraitsBoonsBurdens: scope.charTraitsBoonsBurdens};
+	  }, function() {
+
+		$scope.calcXp();
+    }, true);
+	
+	$scope.getSpentPointsClass = function() {
+		if (undefined != $scope.xp && $scope.spentXp > $scope.xp)
+			return "text-danger fw-semibold";
+		else
+			return "";
+	}
+
+	$scope.getAttrsPointsClass = function() {
+		if (undefined != $scope.xp && $scope.spentXp > $scope.xp)
+			return "text-danger fw-semibold";
+		else
+			return "";
+	}
+
+	$scope.getSpentPoints = function() {
+
+		return parseMyInt($scope.agi) + parseMyInt($scope.forc) + parseMyInt($scope.pre)
+				+ parseMyInt($scope.vol) + parseMyInt($scope.vig) + parseMyInt($scope.dis)
+				+ parseMyInt($scope.ast) + parseMyInt($scope.per);
+	}
 });
 
 routeAppControllers.controller('Test', function ($scope, $q, $http) {

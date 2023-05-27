@@ -4705,6 +4705,7 @@
 		"id":"#46",
 		"type":"trait",
 		"livre":"ldb",
+		"coutXp":"oui",
 		"fr":{
 			"nom":"Vigoureux"
 		},
@@ -4729,6 +4730,7 @@
 		"id":"#45",
 		"type":"trait",
 		"livre":"ldb",
+		"coutXp":"oui",
 		"fr":{
 			"nom":"Métamorphe"
 		},
@@ -4767,6 +4769,7 @@
 		"id":"#44",
 		"type":"trait",
 		"livre":"ldb",
+		"coutXp":"oui",
 		"fr":{
 			"nom":"Instinct de survie"
 		},
@@ -4797,6 +4800,7 @@
 		"id":"#106",
 		"type":"trait",
 		"livre":"gdj",
+		"coutXp":"oui",
 		"fr":{
 			"nom":"Sagesse séculaire"
 		},
@@ -4812,6 +4816,7 @@
 		"id":"#485",
 		"type":"trait",
 		"livre":"cdx",
+		"coutXp":"oui",
 		"en":{
 			"description":"The creature has a knack for provoking everyone it meets to such an extent that it can become useful as a distraction during combat. The trait requires no success test if the enemy is already consumed with rage (the Berserker ability); then it succeeds automatically. However, enemies with the Steadfast ability are allowed two attempts to regain their composure every turn.",
 			"tradition":"Andrik",
@@ -6129,7 +6134,7 @@
             "qualites":"Long"
         },
         "caracs":{
-            "degats":"1D8",
+            "jet":"1D8",
             "cost":"3 Th."
         }
     },
@@ -6146,7 +6151,7 @@
             "qualites":"Long, Deep Impact"
         },
         "caracs":{
-            "degats":"1D8+1",
+            "jet":"1D8+1",
             "cost":"15 Th."
         }
     },
@@ -6163,7 +6168,7 @@
             "qualites":"Long, Precise"
         },
         "caracs":{
-            "degats":"1D8",
+            "jet":"1D8",
             "cost":"15 Th."
         }
     },
@@ -6180,7 +6185,7 @@
             "qualites":"Long, Blunt"
         },
         "caracs":{
-            "degats":"1D6",
+            "jet":"1D6",
             "cost":"1 Sh."
         }
     },
@@ -6197,7 +6202,7 @@
             "qualites":""
         },
         "caracs":{
-            "degats":"1D10",
+            "jet":"1D10",
             "cost":"10 Th."
         }
     },
@@ -6214,7 +6219,7 @@
             "qualites":"Bastard (Precise)"
         },
         "caracs":{
-            "degats":"1D10",
+            "jet":"1D10",
             "cost":"50 Th."
         }
     },
@@ -6231,7 +6236,7 @@
             "qualites":"Deep Impact"
         },
         "caracs":{
-            "degats":"1D10+1",
+            "jet":"1D10+1",
             "cost":"50 Th."
         }
     },
@@ -6248,7 +6253,7 @@
             "qualites":""
         },
         "caracs":{
-            "degats":"1D8",
+            "jet":"1D8",
             "cost":"5  Th."
         }
     },
@@ -6265,7 +6270,7 @@
             "qualites":"Precise"
         },
         "caracs":{
-            "degats":"1D8",
+            "jet":"1D8",
             "cost":"25 Th."
         }
     },
@@ -6282,7 +6287,7 @@
             "qualites":"Jointed"
         },
         "caracs":{
-            "degats":"1D8",
+            "jet":"1D8",
             "cost":"25 Th."
         }
     },
@@ -6299,7 +6304,7 @@
             "qualites":"Deep Impact"
         },
         "caracs":{
-            "degats":"1D8+1",
+            "jet":"1D8+1",
             "cost":"25 Th."
         }
     },
@@ -6316,7 +6321,7 @@
             "qualites":"Short"
         },
         "caracs":{
-            "degats":"1D6",
+            "jet":"1D6",
             "cost":"1 Th."
         }
     },
@@ -6333,7 +6338,7 @@
             "qualites":"Short, Balanced"
         },
         "caracs":{
-            "degats":"1D6",
+            "jet":"1D6",
             "cost":"5 Th."
         }
     },
@@ -6350,7 +6355,7 @@
             "qualites":"Short, Deep Impact"
         },
         "caracs":{
-            "degats":"1D6+1",
+            "jet":"1D6+1",
             "cost":"5 Th."
         }
     },
@@ -6367,7 +6372,7 @@
             "qualites":""
         },
         "caracs":{
-            "degats":"1D6",
+            "jet":"1D6",
             "cost":"2 Th."
         }
     },
@@ -6384,7 +6389,7 @@
             "qualites":"Deep Impact"
         },
         "caracs":{
-            "degats":"1D6+1",
+            "jet":"1D6+1",
             "cost":"10 Th."
         }
     },
@@ -6401,7 +6406,7 @@
             "qualites":""
         },
         "caracs":{
-            "degats":"1D8",
+            "jet":"1D8",
             "cost":"5 Th."
         }
     },
@@ -6418,7 +6423,7 @@
             "qualites":""
         },
         "caracs":{
-            "degats":"1D10",
+            "jet":"1D10",
             "cost":"8 Th."
         }
     },
@@ -6435,7 +6440,7 @@
             "qualites":""
         },
         "caracs":{
-            "degats":"1D6",
+            "jet":"1D6",
             "cost":"Free"
         }
     },
@@ -6452,7 +6457,7 @@
             "qualites":"Precise"
         },
         "caracs":{
-            "degats":"1D8",
+            "jet":"1D8",
             "cost":"25 Th."
         }
     },
@@ -6469,7 +6474,7 @@
             "qualites":"Deep Impact"
         },
         "caracs":{
-            "degats":"1D10+1",
+            "jet":"1D10+1",
             "cost":"40 Th."
         }
     },
@@ -6486,7 +6491,7 @@
             "qualites":""
         },
         "caracs":{
-            "degats":"1D4",
+            "jet":"1D4",
             "cost":"Free"
         }
     },
@@ -6503,7 +6508,7 @@
             "qualites":"Short, Deep Impact"
         },
         "caracs":{
-            "degats":"1D4+1",
+            "jet":"1D4+1",
             "cost":"1 Th."
         }
     },
@@ -6568,7 +6573,7 @@
             "qualites":"Returning"
         },
         "caracs":{
-            "degats":"1D6",
+            "jet":"1D6",
             "cost":"10 Th."
         }
     },
@@ -6585,7 +6590,7 @@
             "qualites":"Concealed"
         },
         "caracs":{
-            "degats":"1D10",
+            "jet":"1D10",
             "cost":"40 Th."
         }
     },
@@ -6602,7 +6607,7 @@
             "qualites":"Special"
         },
         "caracs":{
-            "degats":"1D10",
+            "jet":"1D10",
             "cost":"40 Th."
         }
     },
@@ -6619,7 +6624,7 @@
             "qualites":"Precise"
         },
         "caracs":{
-            "degats":"1D8",
+            "jet":"1D8",
             "cost":"50 Th."
         }
     },
@@ -6636,7 +6641,7 @@
             "qualites":"Deep-Impact"
         },
         "caracs":{
-            "degats":"1D8+1",
+            "jet":"1D8+1",
             "cost":"25 Th."
         }
     },
@@ -6653,7 +6658,7 @@
             "qualites":"Unwieldy, Massive"
         },
         "caracs":{
-            "degats":"1D12",
+            "jet":"1D12",
             "cost":"50 Th."
         }
     },
@@ -6670,7 +6675,7 @@
             "qualites":"Long, Ensnaring"
         },
         "caracs":{
-            "degats":"1D8",
+            "jet":"1D8",
             "cost":"15 Th."
         }
     },
@@ -6687,7 +6692,7 @@
             "qualites":"Burning, Area Effect (radius)"
         },
         "caracs":{
-            "degats":"1D10",
+            "jet":"1D10",
             "cost":"200 Th."
         }
     },
@@ -6704,7 +6709,7 @@
             "qualites":"Special"
         },
         "caracs":{
-            "degats":"1D6",
+            "jet":"1D6",
             "cost":"2 Th."
         }
     },
@@ -6721,7 +6726,7 @@
             "qualites":"Wrecking or Burning, Unwieldy, Area Effect (radius)"
         },
         "caracs":{
-            "degats":"1D12",
+            "jet":"1D12",
             "cost":"250 Th."
         }
     },
@@ -6738,7 +6743,7 @@
             "qualites":"Precise, Unwieldy, Massive"
         },
         "caracs":{
-            "degats":"1D10",
+            "jet":"1D10",
             "cost":"50 Th."
         }
     },
@@ -6755,7 +6760,7 @@
             "qualites":"Deep-Impact"
         },
         "caracs":{
-            "degats":"1D8+1",
+            "jet":"1D8+1",
             "cost":"25 Th."
         }
     },
@@ -6772,7 +6777,7 @@
             "qualites":"Unwieldy, Jointed, Massive"
         },
         "caracs":{
-            "degats":"1D10",
+            "jet":"1D10",
             "cost":"50 Th."
         }
     },
@@ -6805,7 +6810,7 @@
             "qualites":"Jointed, Ensnaring, Blunt"
         },
         "caracs":{
-            "degats":"1D6",
+            "jet":"1D6",
             "cost":"10 Th."
         }
     },
@@ -6822,7 +6827,7 @@
             "qualites":"Bastard Weapon, Deep-Impact, Unwieldy, Precise"
         },
         "caracs":{
-            "degats":"1D10+1",
+            "jet":"1D10+1",
             "cost":"50 Th."
         }
     },
@@ -6839,7 +6844,7 @@
             "qualites":"Flaming, Area Effect (radius)"
         },
         "caracs":{
-            "degats":"1D10",
+            "jet":"1D10",
             "cost":"1 Th."
         }
     },
@@ -6856,7 +6861,7 @@
             "qualites":"Concealed, Short"
         },
         "caracs":{
-            "degats":"1D6",
+            "jet":"1D6",
             "cost":"5 Th."
         }
     },
@@ -6873,7 +6878,7 @@
             "qualites":"Long, Bastard Weapon (Precise), Long"
         },
         "caracs":{
-            "degats":"1D8",
+            "jet":"1D8",
             "cost":"15 Th."
         }
     },
@@ -6890,7 +6895,7 @@
             "qualites":"Blood-letting, Massive, Unwieldy"
         },
         "caracs":{
-            "degats":"1D10",
+            "jet":"1D10",
             "cost":"50 Th."
         }
     },
@@ -6907,7 +6912,7 @@
             "qualites":"Bastard Weapon (Massive, Precise), Unwieldy"
         },
         "caracs":{
-            "degats":"1D8 (1D10)",
+            "jet":"1D8 (1D10)",
             "cost":"50 Th."
         }
     },
@@ -6924,7 +6929,7 @@
             "qualites":"Wrecking (if buried) or Flaming, Area Effect (radius)"
         },
         "caracs":{
-            "degats":"1D412",
+            "jet":"1D412",
             "cost":"100 Th."
         }
     },
@@ -6957,7 +6962,7 @@
             "qualites":"Wrecking, Unwieldy, Massive"
         },
         "caracs":{
-            "degats":"1D12",
+            "jet":"1D12",
             "cost":"1250 Th."
         }
     },
@@ -6974,7 +6979,7 @@
             "qualites":"Flaming, Massive, Area Effect (cone)"
         },
         "caracs":{
-            "degats":"1D12",
+            "jet":"1D12",
             "cost":"250 Th."
         }
     },
@@ -6991,7 +6996,7 @@
             "qualites":"Flaming, Area Effect (cone)"
         },
         "caracs":{
-            "degats":"1D12",
+            "jet":"1D12",
             "cost":"10 Th."
         }
     },
@@ -7006,7 +7011,13 @@
 			"tradition":"Protection: 1D4, Type: Light (-2), Cost: 2 Th.",
 			"nom":"Light Armor",
 			"novice":"Light armor is easy to come by and does not limit the wearer's capabilities substantially in acrobatic situations or when performing stealthy maneuvers. Yet it has a negative effect when using mystical powers. Hardened, ring and studded leather are all examples of light armor."
-		}
+		},
+        "caracs":{
+            "jet":"1D4",
+			"type":"light",
+			"gene": "-2",
+            "cost":"2 Th."
+        }
 	},
 	{
 		"id":"#400",
@@ -7018,8 +7029,15 @@
 		"en":{
 			"tradition":"Protection: 1D4, Type: Light (0), Quality: Flexible, Cost: 10 Th.",
 			"nom":"Blessed Robe",
-			"novice":"The priest robes of the theurgs are blessed and protected by benevolent forces so that the Church's finest can travel safely throughout the kingdom, and beyond."
-		}
+			"novice":"The priest robes of the theurgs are blessed and protected by benevolent forces so that the Church's finest can travel safely throughout the kingdom, and beyond.",
+			"qualites":"Flexible"
+		},
+        "caracs":{
+            "jet":"1D4",
+			"type":"light",
+			"gene": "0",
+            "cost":"10 Th."
+        }
 	},
 	{
 		"id":"#401",
@@ -7031,8 +7049,15 @@
 		"en":{
 			"tradition":"Protection: 1D4, Type: Light (0), Quality: Flexible, Cost: 10 Th.",
 			"nom":"Order Cloak",
-			"novice":"Most novice mages of Ordo Magica are given a protective cloak in time for their first long journey. These cloaks are embroidered with warding runes, which increases the chance of the novice surviving to complete its appointed task."
-		}
+			"novice":"Most novice mages of Ordo Magica are given a protective cloak in time for their first long journey. These cloaks are embroidered with warding runes, which increases the chance of the novice surviving to complete its appointed task.",
+			"qualites":"Flexible"
+		},
+        "caracs":{
+            "jet":"1D4",
+			"type":"light",
+			"gene": "0",
+            "cost":"10 Th."
+        }
 	},
 	{
 		"id":"#402",
@@ -7044,8 +7069,15 @@
 		"en":{
 			"tradition":"Protection: 1D4, Type: Light (0), Quality: Flexible, Cost: 10 Th.",
 			"nom":"Witch Gown",
-			"novice":"Witches bind protective spirits in carved pieces of bone and the skulls of fallen enemies, and attach them to their clothing for effective protection."
-		}
+			"novice":"Witches bind protective spirits in carved pieces of bone and the skulls of fallen enemies, and attach them to their clothing for effective protection.",
+			"qualites":"Flexible"
+		},
+        "caracs":{
+            "jet":"1D4",
+			"type":"light",
+			"gene": "0",
+            "cost":"10 Th."
+        }
 	},
 	{
 		"id":"#403",
@@ -7057,8 +7089,15 @@
 		"en":{
 			"tradition":"Protection: 1D4, Type: Light (0), Quality: Flexible, Cost: 10 Th.",
 			"nom":"Woven Silk",
-			"novice":"Woven silk is the finest light armor available, since the close weave of its threads withstands stabs and cuts far better than its weight suggests. Woven silk has been used by both barbarians and Ambrians for a long time and some scholars speculate that the technique originally comes from the elves, possibly dating as far back as the days of the Iron Pact."
-		}
+			"novice":"Woven silk is the finest light armor available, since the close weave of its threads withstands stabs and cuts far better than its weight suggests. Woven silk has been used by both barbarians and Ambrians for a long time and some scholars speculate that the technique originally comes from the elves, possibly dating as far back as the days of the Iron Pact.",
+			"qualites":"Flexible"
+		},
+        "caracs":{
+            "jet":"1D4",
+			"type":"light",
+			"gene": "0",
+            "cost":"10 Th."
+        }
 	},
 	{
 		"id":"#404",
@@ -7070,8 +7109,15 @@
 		"en":{
 			"tradition":"Protection: 1D4, Type: Light (-3), Quality: Cumbersome, Cost: 1 Th.",
 			"nom":"Wolf Skin",
-			"novice":"For poor barbarian scouts the cheap, cumbersome wolf skin armor is a common alternative; skin that has been tanned in the most simple way and sewn together into some kind of passable protection."
-		}
+			"novice":"For poor barbarian scouts the cheap, cumbersome wolf skin armor is a common alternative; skin that has been tanned in the most simple way and sewn together into some kind of passable protection.",
+			"qualites":"Cumbersome"
+		},
+        "caracs":{
+            "jet":"1D4",
+			"type":"light",
+			"gene": "-3",
+            "cost":"1 Th."
+        }
 	},
 	{
 		"id":"#405",
@@ -7084,7 +7130,13 @@
 			"tradition":"Protection: 1D6, Type: Medium (-3), Cost: 5 Th.",
 			"nom":"Medium Armor",
 			"novice":"Medium armor offers better protection than the light versions but at the cost of being more restrictive to the wearer's movements. However, this downside is considered an acceptable trade-off by most melee combatants. Scale- and chainmail are examples of medium armor."
-		}
+		},
+        "caracs":{
+            "jet":"1D6",
+			"type":"medium",
+			"gene": "-3",
+            "cost":"5 Th."
+        }
 	},
 	{
 		"id":"#406",
@@ -7096,8 +7148,15 @@
 		"en":{
 			"tradition":"Protection: 1D6, Type: Medium (-4), Quality: Cumbersome, Cost: 2 Th.",
 			"nom":"Crow Armor",
-			"novice":"Medium armor is more expensive than light, which is the reason why many warriors have picked, riveted and bound together a so-called “Crow Armor” of their own. It is cheap, but far more difficult to move around in."
-		}
+			"novice":"Medium armor is more expensive than light, which is the reason why many warriors have picked, riveted and bound together a so-called “Crow Armor” of their own. It is cheap, but far more difficult to move around in.",
+			"qualites":"Cumbersome"
+		},
+        "caracs":{
+            "jet":"1D6",
+			"type":"medium",
+			"gene": "-4",
+            "cost":"2 Th."
+        }
 	},
 	{
 		"id":"#407",
@@ -7109,8 +7168,15 @@
 		"en":{
 			"tradition":"Protection: 1D6, Type: Medium (-1), Quality: Flexible, Cost: 25 Th.",
 			"nom":"Lacquered Silk Cuirass",
-			"novice":"Barbarian warriors that have earned their place in the guard of a wealthy clan chieftain can sometimes be seen wearing a cuirass of lacquered silk, an armor that despite its apparent lightness protects like a breast plate. According to legend, the secret of lacquered silk was given to humankind by the elves, in a time when the Iron Pact was still strong and humans battled the parasitic darkness of Symbaroum."
-		}
+			"novice":"Barbarian warriors that have earned their place in the guard of a wealthy clan chieftain can sometimes be seen wearing a cuirass of lacquered silk, an armor that despite its apparent lightness protects like a breast plate. According to legend, the secret of lacquered silk was given to humankind by the elves, in a time when the Iron Pact was still strong and humans battled the parasitic darkness of Symbaroum.",
+			"qualites":"Flexible"
+		},
+        "caracs":{
+            "jet":"1D6",
+			"type":"medium",
+			"gene": "-1",
+            "cost":"25 Th."
+        }
 	},
 	{
 		"id":"#408",
@@ -7123,7 +7189,13 @@
 			"tradition":"Protection: 1D8, Type: Heavy (-4), Cost: 10 Th.",
 			"nom":"Heavy Armor",
 			"novice":"Those melee combatants that can afford it usually chose increased protection at the cost of even greater restrictions to their movement. A self-respecting knight wears chainmail enforced by shoulder, knee and elbow plates, while those with the means tend to order themselves a personalized set of full plate armor."
-		}
+		},
+        "caracs":{
+            "jet":"1D8",
+			"type":"heavy",
+			"gene": "-4",
+            "cost":"10 Th."
+        }
 	},
 	{
 		"id":"#409",
@@ -7135,8 +7207,15 @@
 		"en":{
 			"tradition":"Protection: 1D8, Type: Heavy (-2), Quality: Flexible, Cost: 50 Th.",
 			"nom":"Full Plate",
-			"novice":"Personalized full plate armor is available for those of sufficient means, and offers the best protection available with less restriction than many other kinds of heavy armor."
-		}
+			"novice":"Personalized full plate armor is available for those of sufficient means, and offers the best protection available with less restriction than many other kinds of heavy armor.",
+			"qualites":"Flexible"
+		},
+        "caracs":{
+            "jet":"1D8",
+			"type":"heavy",
+			"gene": "-2",
+            "cost":"50 Th."
+        }
 	},
 	{
 		"id":"#456",
@@ -7148,8 +7227,15 @@
 		"en":{
 			"tradition":"Protection: 1D8+1, Type: Heavy (-4), Quality: Reinforced, Cost: 50 Th.",
 			"nom":"Field Armor",
-			"novice":"Field armor is a full plate forged with pleated sheets, making it less flexible than full plate, but even more impervious to slashing strikes and blows."
-		}
+			"novice":"Field armor is a full plate forged with pleated sheets, making it less flexible than full plate, but even more impervious to slashing strikes and blows.",
+			"qualites":"Reinforced"
+		},
+        "caracs":{
+            "jet":"1D8+1",
+			"type":"heavy",
+			"gene": "-4",
+            "cost":"50 Th."
+        }
 	},
 	{
 		"id":"#457",
@@ -7161,8 +7247,15 @@
 		"en":{
 			"tradition":"Protection: 1D8+1, Type: Heavy (-2), Quality: Reinforced, Flexible, Cost: 250 Th.",
 			"nom":"Field Armor of the Pansars",
-			"novice":"The master smiths working for the Pansars can forge full plate armor using pleated steel sheets while retaining the flexibility of standard plated armor. "
-		}
+			"novice":"The master smiths working for the Pansars can forge full plate armor using pleated steel sheets while retaining the flexibility of standard plated armor. ",
+			"qualites":"Reinforced, Flexible"
+		},
+        "caracs":{
+            "jet":"1D8+1",
+			"type":"heavy",
+			"gene": "-2",
+            "cost":"250 Th."
+        }
 	},
 	{
 		"id":"#458",
@@ -7174,8 +7267,15 @@
 		"en":{
 			"tradition":"Protection: 1D8, Type: Heavy (-4), Quality: Retributive, Cost: 100 Th.",
 			"nom":"Wrath Armor",
-			"novice":"The reinforced chainmail worn by the warriors in the Guard of the Slumbering Wrath has vengeful mystical energies forged into the rings. The retributive incantations, according to legend created by the huldra Bovosin more than four centuries ago, give the steel its characteristic blood-red shade – as if the warriors just came from the scene of a tough battle, painted in the blood of their enemies."
-		}
+			"novice":"The reinforced chainmail worn by the warriors in the Guard of the Slumbering Wrath has vengeful mystical energies forged into the rings. The retributive incantations, according to legend created by the huldra Bovosin more than four centuries ago, give the steel its characteristic blood-red shade – as if the warriors just came from the scene of a tough battle, painted in the blood of their enemies.",
+			"qualites":"Retributive"
+		},
+        "caracs":{
+            "jet":"1D8+1",
+			"type":"heavy",
+			"gene": "-4",
+            "cost":"100 Th."
+        }
 	},
 	{
 		"id":"#459",
@@ -7187,8 +7287,15 @@
 		"en":{
 			"tradition":"Protection: 1D8 (+1D4), Type: Heavy (-4), Quality: Hallowed, Cost: 100 Th.",
 			"nom":"Templar Full Plate",
-			"novice":"The armor of the templars is a full plate forged, blessed and carried by the order's inner circle. This elite among the elite inherit their armor from a predecessor that fell in battle or, more uncommonly, who died a solemn death in their alcove in Templewall. The armor gives its wearer the protection of Prios, through blessings forged into the steel and by the hallowing blood of both enemies and martyrs."
-		}
+			"novice":"The armor of the templars is a full plate forged, blessed and carried by the order's inner circle. This elite among the elite inherit their armor from a predecessor that fell in battle or, more uncommonly, who died a solemn death in their alcove in Templewall. The armor gives its wearer the protection of Prios, through blessings forged into the steel and by the hallowing blood of both enemies and martyrs.",
+			"qualites":"Hallowed"
+		},
+        "caracs":{
+            "jet":"1D8(+1D4)",
+			"type":"heavy",
+			"gene": "-4",
+            "cost":"100 Th."
+        }
 	},
 	{
 		"id":"#460",
@@ -7200,8 +7307,15 @@
 		"en":{
 			"tradition":"Protection: 1D4, Type: Light (0), Quality: Concealed, Flexible, Cost: 50 Th.",
 			"nom":"Concealed Armor",
-			"novice":"Sorcerers have many reasons to stay hidden. To do this, they often weave mystically reinforced threads into their cloths, resulting in tunics and capes that look ordinary but offer protection. Other groups, such as spies, would love to have access to such garments, so they can avoid unwanted attention while still being ready for battle."
-		}
+			"novice":"Sorcerers have many reasons to stay hidden. To do this, they often weave mystically reinforced threads into their cloths, resulting in tunics and capes that look ordinary but offer protection. Other groups, such as spies, would love to have access to such garments, so they can avoid unwanted attention while still being ready for battle.",
+			"qualites":"Concealed, Flexible"
+		},
+        "caracs":{
+            "jet":"1D4",
+			"type":"light",
+			"gene": "0",
+            "cost":"50 Th."
+        }
 	},
 	{
 		"id":"#461",
@@ -7213,8 +7327,15 @@
 		"en":{
 			"tradition":"Protection: 1D6+1, Type: Medium (-3), Quality: Reinforced, Cost: 25 Th.",
 			"nom":"Laminated Armor",
-			"novice":"Laminated armor is an older armor-type, nowadays often replaced by the cheaper scale mail or the flexible chain mail. However, some old laminated sets of armor are still around and there are blacksmiths who actually prefer them because of their greater protective capability. Some of Ambria's noble houses still dress in this type of armor, for sentimental… or, as they claim, ”traditional” reasons. Laminated armor can only protect the torso, shoulders and hips – arms and legs are usually dressed in studded leather to maintain mobility"
-		}
+			"novice":"Laminated armor is an older armor-type, nowadays often replaced by the cheaper scale mail or the flexible chain mail. However, some old laminated sets of armor are still around and there are blacksmiths who actually prefer them because of their greater protective capability. Some of Ambria's noble houses still dress in this type of armor, for sentimental… or, as they claim, ”traditional” reasons. Laminated armor can only protect the torso, shoulders and hips – arms and legs are usually dressed in studded leather to maintain mobility",
+			"qualites":"Reinforced"
+		},
+        "caracs":{
+            "jet":"1D6+1",
+			"type":"medium",
+			"gene": "-3",
+            "cost":"25 Th."
+        }
 	},
 	{
 		"id":"#462",
@@ -7226,8 +7347,15 @@
 		"en":{
 			"tradition":"Protection: 1D6+1, Type: Medium (-1), Quality: Reinforced, Flexible, Cost: 125 Th.",
 			"nom":"Double Chainmail",
-			"novice":"Double-threaded chainmail can only be crafted by the most skilled blacksmiths; with thinner rings that interlock in layers they craft an armor which is as flexible as chainmail but even more durable."
-		}
+			"novice":"Double-threaded chainmail can only be crafted by the most skilled blacksmiths; with thinner rings that interlock in layers they craft an armor which is as flexible as chainmail but even more durable.",
+			"qualites":"Reinforced, Flexible"
+		},
+        "caracs":{
+            "jet":"1D6+1",
+			"type":"medium",
+			"gene": "-1",
+            "cost":"125 Th."
+        }
 	},
 	{
 		"id":"#463",
@@ -7239,21 +7367,35 @@
 		"en":{
 			"tradition":"Protection: 1D4+1, Type: Light (0), Quality: Reinforced, Flexible, Cost: 50 Th.",
 			"nom":"Skald's Cuira",
-			"novice":"Troll singers are often warrior poets and many carry a flexible armor of woven cloth- or leather-strips, strengthened with protective harmonies. The Skald's Cuirass is durable without hampering the wearers' movement, making it popular among other groups as well. For instance, wealthy duelists in Yndaros often color their cuirasses in personal colors, so that they can be recognized from afar."
-		}
+			"novice":"Troll singers are often warrior poets and many carry a flexible armor of woven cloth- or leather-strips, strengthened with protective harmonies. The Skald's Cuirass is durable without hampering the wearers' movement, making it popular among other groups as well. For instance, wealthy duelists in Yndaros often color their cuirasses in personal colors, so that they can be recognized from afar.",
+			"qualites":"Reinforced, Flexible"
+		},
+        "caracs":{
+            "jet":"1D4+1",
+			"type":"light",
+			"gene": "0",
+            "cost":"50 Th."
+        }
 	},
 	{
 		"id":"#464",
 		"type":"armure",
 		"livre":"gdj",
 		"fr":{
-			"nom":"Cuirasse clouté"
+			"nom":"Cuirasse cloutée"
 		},
 		"en":{
 			"tradition":"Protection: 1D4+1, Type: Light (-2), Quality: Reinforced, Cost: 10 Th.",
 			"nom":"Studded Leather",
-			"novice":"No description."
-		}
+			"novice":"No description.",
+			"qualites":"Reinforced"
+		},
+        "caracs":{
+            "jet":"1D4+1",
+			"type":"light",
+			"gene": "-2",
+            "cost":"10 Th."
+        }
 	},
 	{
 		"id":"#203",

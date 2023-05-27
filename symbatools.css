@@ -88,3 +88,12 @@
     visibility: visible;
     right: 0;
 }
+
+.btn-symb {
+    --bs-btn-bg: #F1E8D3;
+    --bs-btn-hover-bg: #E8E3D6;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}

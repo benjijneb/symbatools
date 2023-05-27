@@ -1,18 +1,7 @@
-<div class="container-fluid odd pb-15">
+<div class="container-fluid odd">
 	<form class="text-center">
-		<!--<div class="row">
-			<div class="col-2"></div>
-			<div class="col-1">ACC</div>
-			<div class="col-1">CUN</div>
-			<div class="col-1">DIS</div>
-			<div class="col-1">PER</div>
-			<div class="col-1">QUI</div>
-			<div class="col-1">RES</div>
-			<div class="col-1">STR</div>
-			<div class="col-1">VIG</div>
-			<div class="col-2"></div>
-		</div>-->
-        <div class="row py-1 even">
+		<!-- Boutons -->
+        <div class="row py-1 odd">
             <div class="col-auto">
                 <div class="btn-group btn-group-sm" role="group">
                     <button type="button" class="btn btn-dark" title="{{'OPEN' | translate}}" ng-click="getMyPcNpc()" data-bs-toggle="offcanvas" data-bs-target="#pcNpcCanvas" ng-show="isAuthenticated()">
@@ -34,13 +23,15 @@
                   </div>
             </div>
         </div>
+		<!-- Infos -->
 		<div class="row pt-1 g-0">
+			<!-- Colonne gauche -->
 			<div class="col-4">
 				<div class="row g-0">
 					<div class="col-12 border-top border-dark">
 						<div class="card border border-0 rounded-0 odd">
 							<div class="card-hdeader text-start fw-semibold">
-								Player
+								{{'PLAYER' | translate}}
 							</div>
 							<div class="card-body border border-0 px-1 pt-0 pb-1">
 								<input type="text" class="form-control form-control-sm text-center border border-0 odd" ng-model="joueur">
@@ -60,7 +51,7 @@
 					<div class="col-12 border-top border-dark">
 						<div class="card border border-0 rounded-0 odd">
 							<div class="card-hdeader text-start fw-semibold">
-								Race
+								{{'RACE' | translate}}
 							</div>
 							<div class="card-body border border-0 px-1 pt-0 pb-1">
 								<input type="text" class="form-control form-control-sm text-center border border-0 odd" ng-model="race">
@@ -69,6 +60,7 @@
 					</div>
 				</div>
 			</div>
+			<!-- Colonne milieu -->
 			<div class="col-4">
 				<div class="row g-0">
 					<div class="col-12 border-top border-dark">
@@ -78,7 +70,7 @@
 							</div>
 							<div class="card-body border border-0 px-1 pt-0 pb-1">
 								<div class="row">
-									<div class="col"><input type="text" class="form-control form-control-sm text-center border border-0 rounded-pill" placeholder="Current" ng-model="end"></div>
+									<div class="col"><input type="text" class="form-control form-control-sm text-center border border-0 rounded-pill" placeholder="{{'CURRENT' | translate}}" ng-model="end"></div>
 									/
 									<div class="col"><input type="text" class="form-control form-control-sm text-center border border-0 rounded-pill" placeholder="Max" ng-model="maxEnd"></div>
 								</div>
@@ -88,55 +80,22 @@
 					<div class="col-12 border-top border-dark">
 						<div class="card border border-0 rounded-0 even">
 							<div class="card-hdeader text-center fw-semibold">
-								<span>Corruption</span>
+								<span>{{'CORRUPTION' | translate}}</span>
 							</div>
 							<div class="card-body border border-0 px-1 pt-0 pb-1">
 								<div class="row">
-									<div class="col"><input type="text" class="form-control form-control-sm text-center border border-0 rounded-pill" placeholder="Temporary" ng-model="ct"></div>
+									<div class="col"><input type="text" class="form-control form-control-sm text-center border border-0 rounded-pill" placeholder="{{'TEMP' | translate}}" ng-model="ct"></div>
 									|
-									<div class="col"><input type="text" class="form-control form-control-sm text-center border border-0 rounded-pill" placeholder="Permanent" ng-model="cp"></div>
+									<div class="col"><input type="text" class="form-control form-control-sm text-center border border-0 rounded-pill" placeholder="{{'PERM' | translate}}" ng-model="cp"></div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<!--<div class="col-6 border-top border-dark">
-						<div class="card border border-0 rounded-0 even">
-							<div class="card-hdeader text-center fw-semibold">
-								<span class="d-lg-none">TC</span>
-								<span class="d-none d-lg-block small">Temporary Corruption</span>
-							</div>
-							<div class="card-body border border-0 px-1 pt-0 pb-1">
-								<input type="text" class="form-control form-control-sm text-center border border-0 even">
-							</div>
-						</div>
-					</div>
 					<div class="col-6 border-top border-dark">
 						<div class="card border border-0 rounded-0 even">
 							<div class="card-hdeader text-center fw-semibold">
-								<span class="d-lg-none">CT</span>
-								<span class="d-none d-lg-block">Current Toughness</span>
-							</div>
-							<div class="card-body border border-0 px-1 pt-0 pb-1">
-								<input type="text" class="form-control form-control-sm text-center border border-0 even">
-							</div>
-						</div>
-					</div>
-					<div class="col-6 border-top border-dark">
-						<div class="card border border-0 rounded-0 even">
-							<div class="card-hdeader text-center fw-semibold">
-								<span class="d-lg-none">PC</span>
-								<span class="d-none d-lg-block">Permanent Corruption</span>
-							</div>
-							<div class="card-body border border-0 px-1 pt-0 pb-1">
-								<input type="text" class="form-control form-control-sm text-center border border-0 even">
-							</div>
-						</div>
-					</div>-->
-					<div class="col-6 border-top border-dark">
-						<div class="card border border-0 rounded-0 even">
-							<div class="card-hdeader text-center fw-semibold">
-								<span class="d-lg-none small">Pain Thres.</span>
-								<span class="d-none d-lg-block">Pain Threshold</span>
+								<span class="d-lg-none small">{{'RES_DOUL_SHORT' | translate}}</span>
+								<span class="d-none d-lg-block">{{'RES_DOUL' | translate}}</span>
 							</div>
 							<div class="card-body border border-0 px-1 pt-0 pb-1">
 								<input type="text" class="form-control form-control-sm text-center border border-0 rounded-pill" ng-model="sd">
@@ -146,8 +105,8 @@
 					<div class="col-6 border-top border-dark">
 						<div class="card border border-0 rounded-0 even">
 							<div class="card-hdeader text-center fw-semibold">
-								<span class="d-lg-none small">Corr. Thres.</span>
-								<span class="d-none d-lg-block">Corruption Threshold</span>
+								<span class="d-lg-none small">{{'SEUIL_CORR_SHORT' | translate}}</span>
+								<span class="d-none d-lg-block">{{'SEUIL_CORR' | translate}}</span>
 							</div>
 							<div class="card-body border border-0 px-1 pt-0 pb-1">
 								<input type="text" class="form-control form-control-sm text-center border border-0 rounded-pill" ng-model="sc">
@@ -156,12 +115,13 @@
 					</div>
 				</div>
 			</div>
+			<!-- Colonne droite -->
 			<div class="col-4">
 				<div class="row g-0">
 					<div class="col-12 border-top border-dark">
 						<div class="card border border-0 rounded-0 odd">
 							<div class="card-hdeader text-end fw-semibold">
-								Archetype
+								{{'ARCHETYP' | translate}}
 							</div>
 							<div class="card-body border border-0 px-1 pt-0 pb-1">
 								<input type="text" class="form-control form-control-sm text-center border border-0 odd" ng-model="typ">
@@ -171,7 +131,7 @@
 					<div class="col-12 border-top border-dark">
 						<div class="card border border-0 rounded-0 odd">
 							<div class="card-hdeader text-end fw-semibold">
-								Total XP
+								{{'XP_TOTAL' | translate}}
 							</div>
 							<div class="card-body border border-0 px-1 pt-0 pb-1">
 								<input type="text" class="form-control form-control-sm text-center border border-0 odd" ng-model="xp">
@@ -181,7 +141,7 @@
 					<div class="col-12 border-top border-dark">
 						<div class="card border border-0 rounded-0 odd">
 							<div class="card-hdeader text-end fw-semibold">
-								Unspent XP
+								{{'XP_UNSPENT' | translate}}
 							</div>
 							<div class="card-body border border-0 px-1 pt-0 pb-1">
 								<input type="text" class="form-control form-control-sm text-center border border-0 odd" ng-model="xpNonDep">
@@ -191,6 +151,7 @@
 				</div>
 			</div>
 		</div>
+		<!-- Caracs -->
 		<div class="row mt-2 p-1 g-0 g-lg-1 bg-black rounded-2">
 			<div class="col-1 p-0"></div>
 			<div class="col-1">
@@ -199,8 +160,8 @@
 						<input type="text" class="form-control form-control-sm text-center border border-0" ng-model="pre">
 					</div>
 					<div class="card-footer text-muted p-0 fw-semibold border border-top-0 bg-transparent">
-						<span class="d-lg-none">ACC</span>
-						<span class="d-none d-lg-block">Accurate</span>
+						<span class="d-lg-none">{{'PRE' | translate}}</span>
+						<span class="d-none d-lg-block">{{'ATTR_PRE' | translate}}</span>
 					</div>
 				</div>
 			</div>
@@ -210,8 +171,8 @@
 						<input type="text" class="form-control form-control-sm text-center border border-0" ng-model="ast">
 					</div>
 					<div class="card-footer text-muted p-0 fw-semibold border border-top-0 bg-transparent">
-						<span class="d-lg-none">CUN</span>
-						<span class="d-none d-lg-block">Cunning</span>
+						<span class="d-lg-none">{{'AST' | translate}}</span>
+						<span class="d-none d-lg-block">{{'ATTR_AST' | translate}}</span>
 					</div>
 				</div>
 			</div>
@@ -221,8 +182,8 @@
 						<input type="text" class="form-control form-control-sm text-center border border-0" ng-model="dis">
 					</div>
 					<div class="card-footer text-muted p-0 fw-semibold border border-top-0 bg-transparent">
-						<span class="d-lg-none">DIS</span>
-						<span class="d-none d-lg-block">Discreet</span>
+						<span class="d-lg-none">{{'DIS' | translate}}</span>
+						<span class="d-none d-lg-block">{{'ATTR_DIS' | translate}}</span>
 					</div>
 				</div>
 			</div>
@@ -232,8 +193,8 @@
 						<input type="text" class="form-control form-control-sm text-center border border-0" ng-model="per">
 					</div>
 					<div class="card-footer text-muted p-0 fw-semibold border border-top-0 bg-transparent">
-						<span class="d-lg-none">PER</span>
-						<span class="d-none d-lg-block">Persuasive</span>
+						<span class="d-lg-none">{{'PER' | translate}}</span>
+						<span class="d-none d-lg-block">{{'ATTR_PER' | translate}}</span>
 					</div>
 				</div>
 			</div>
@@ -243,8 +204,8 @@
 						<input type="text" class="form-control form-control-sm text-center border border-0" ng-model="agi">
 					</div>
 					<div class="card-footer text-muted p-0 fw-semibold border border-top-0 bg-transparent">
-						<span class="d-lg-none">QUI</span>
-						<span class="d-none d-lg-block">Quick</span>
+						<span class="d-lg-none">{{'AGI' | translate}}</span>
+						<span class="d-none d-lg-block">{{'ATTR_AGI' | translate}}</span>
 					</div>
 				</div>
 			</div>
@@ -254,8 +215,8 @@
 						<input type="text" class="form-control form-control-sm text-center border border-0" ng-model="vol">
 					</div>
 					<div class="card-footer text-muted p-0 fw-semibold border border-top-0 bg-transparent">
-						<span class="d-lg-none">RES</span>
-						<span class="d-none d-lg-block">Resolute</span>
+						<span class="d-lg-none">{{'VOL' | translate}}</span>
+						<span class="d-none d-lg-block">{{'ATTR_VOL' | translate}}</span>
 					</div>
 				</div>
 			</div>
@@ -265,8 +226,8 @@
 						<input type="text" class="form-control form-control-sm text-center border border-0" ng-model="forc">
 					</div>
 					<div class="card-footer text-muted p-0 fw-semibold border border-top-0 bg-transparent">
-						<span class="d-lg-none">STR</span>
-						<span class="d-none d-lg-block">Strong</span>
+						<span class="d-lg-none">{{'FOR' | translate}}</span>
+						<span class="d-none d-lg-block">{{'ATTR_FOR' | translate}}</span>
 					</div>
 				</div>
 			</div>
@@ -276,8 +237,8 @@
 						<input type="text" class="form-control form-control-sm text-center border border-0" ng-model="vig">
 					</div>
 					<div class="card-footer text-muted p-0 fw-semibold border border-top-0 bg-transparent">
-						<span class="d-lg-none">VIG</span>
-						<span class="d-none d-lg-block">Vigilant</span>
+						<span class="d-lg-none">{{'VIG' | translate}}</span>
+						<span class="d-none d-lg-block">{{'ATTR_VIG' | translate}}</span>
 					</div>
 				</div>
 			</div>
@@ -287,8 +248,8 @@
 						<input type="text" class="form-control form-control-sm text-center border border-0" ng-model="ini">
 					</div>
 					<div class="card-footer text-muted p-0 fw-semibold border border-top-0 bg-transparent">
-						<span class="d-lg-none">INIT</span>
-						<span class="d-none d-lg-block">Initiative</span>
+						<span class="d-lg-none">{{'INIT' | translate}}</span>
+						<span class="d-none d-lg-block">{{'INITIATIVE' | translate}}</span>
 					</div>
 				</div>
 			</div>
@@ -298,209 +259,266 @@
 						<input type="text" class="form-control form-control-sm text-center border border-0" ng-model="def">
 					</div>
 					<div class="card-footer text-muted p-0 fw-semibold border border-top-0 bg-transparent">
-						<span class="d-lg-none">DEF</span>
-						<span class="d-none d-lg-block">Defense</span>
+						<span class="d-lg-none">{{'DEF' | translate}}</span>
+						<span class="d-none d-lg-block">{{'DEFENSE' | translate}}</span>
 					</div>
 				</div>
 			</div>
-			<!--<div class="col-8 p-0">
-				<div class="input-group">
-					<input type="text" class="form-control form-control-sm">
-					<input type="text" class="form-control form-control-sm">
-					<input type="text" class="form-control form-control-sm">
-					<input type="text" class="form-control form-control-sm">
-					<input type="text" class="form-control form-control-sm">
-					<input type="text" class="form-control form-control-sm">
-					<input type="text" class="form-control form-control-sm">
-					<input type="text" class="form-control form-control-sm">
-				</div>
-			</div>-->
 			<div class="col-1 p-0"></div>
+			<div class="col-12 small text-light">{{'STD_ARRAY' | translate}} 15, 13, 11, 10, 10, 9, 7, 5</div>
 		</div>
+		<div class="row mt-1">
+			<div class="col-12 col-sm text-start small">{{'XP_SPENT' | translate}} <span class="{{getSpentPointsClass()}}">{{spentXp}}</span>, {{'ATTR_POINTS_SHORT' | translate}} <span ng-bind="getSpentPoints()"></span> / 80</div>
+		</div>
+		<!-- Items -->
 		<div class="row mt-2 pt-2 bg-white">
 			<div class="col-12">
-					<ul class="nav nav-tabs small">
-						<li class="nav-item">
-							<a class="nav-link active" href="" data-bs-toggle="tab" data-bs-target="#tab1">Abilities</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="" data-bs-toggle="tab" data-bs-target="#tab2">Boons/Burdens</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="" data-bs-toggle="tab" data-bs-target="#tab3">Equipment</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="" data-bs-toggle="tab" data-bs-target="#tab4">Background</a>
-						</li>
-					</ul>
-					<div class="tab-content" id="myTabContent">
-						<div class="tab-pane fade show active" id="tab1" role="tabpanel" tabindex="0">
-							<div class="row">
-								<div class="col-12 col-lg-4" ng-repeat="talent in charTalents">
-									<div class="card text-start small">
-										<div class="card-body p-0">
-											<ul class="list-group list-group-flush">
-												<li class="list-group-item even">
-													<div class="row">
-														<div class="col">
-															<span class="fw-semibold">{{ 'NAME' | translate }}:</span> {{ getFieldValue(talent, 'nom', lang) }}
-														</div>
-														<div class="col-auto">
-															<button type="button" class="btn btn-link btn-sm" title="Details" data-bs-toggle="collapse" ng-attr-data-bs-target="{{ '#details' + talent.id.replace('#', '') }}">Details</button>
-															<button type="button" class="btn btn-link btn-sm" title="Remove" ng-click="removeTalentFromChar(talent.id)">X</button>
-														</div>
+				<!-- Onglets -->
+				<ul class="nav nav-tabs small">
+					<li class="nav-item">
+						<a class="nav-link active" href="" data-bs-toggle="tab" data-bs-target="#tab1">{{'TALENTS' | translate}}/{{'TRAITS' | translate}}</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="" data-bs-toggle="tab" data-bs-target="#tab2">{{'BOONS' | translate}}/{{'BURDENS' | translate}}</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="" data-bs-toggle="tab" data-bs-target="#tab3" ng-click="resizeCss()">{{'EQUIPMENT' | translate}}</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="" data-bs-toggle="tab" data-bs-target="#tab4" ng-click="resizeCss()">{{'INFOS' | translate}}</a>
+					</li>
+				</ul>
+				<!-- Contenu -->
+				<div class="tab-content mt-2" id="myTabContent">
+					<!-- Talents/Traits -->
+					<div class="tab-pane fade show active" id="tab1" role="tabpanel" tabindex="0">
+						<div class="row">
+							<div class="col-12 col-lg-4" ng-repeat="talent in charTalents">
+								<div class="card text-start small">
+									<div class="card-body p-0">
+										<ul class="list-group list-group-flush">
+											<li class="list-group-item even">
+												<div class="row">
+													<div class="col">
+														<span class="fw-semibold">{{ 'NAME' | translate }}:</span> {{ getFieldValue(talent, 'nom', lang) }}
 													</div>
-												</li>
-												<li class="list-group-item">
-													<div class="row g-0">
-														<div class="col"><span class="fw-semibold">Type:</span> {{ tradType(talent.type) }}</div>
-														<div class="col-auto">
-															<div class="form-check form-check-inline m-0">
-																<input class="form-check-input" type="radio" ng-attr-name="{{ 'niveauN' + talent.id.replace('#', '') }}" value="1" ng-model="talent.niveau" ng-change="calcXp()">
-																<label class="form-check-label">N</label>
-															</div>
-															<div class="form-check form-check-inline m-0">
-																<input class="form-check-input" type="radio" ng-attr-name="{{ 'niveauA' + talent.id.replace('#', '') }}" value="3" ng-model="talent.niveau" ng-change="calcXp()">
-																<label class="form-check-label">A</label>
-															</div>
-															<div class="form-check form-check-inline m-0">
-																<input class="form-check-input" type="radio" ng-attr-name="{{ 'niveauM' + talent.id.replace('#', '') }}" value="6" ng-model="talent.niveau" ng-change="calcXp()">
-																<label class="form-check-label">M</label>
-															</div>
-														</div>
+													<div class="col-auto">
+														<button type="button" class="btn btn-link btn-sm" title="{{'DETAILS' | translate}}" data-bs-toggle="collapse" ng-attr-data-bs-target="{{ '#details' + talent.id.replace('#', '') }}">{{'DETAILS' | translate}}</button>
+														<button type="button" class="btn btn-link btn-sm" title="Remove" ng-click="removeTalentFromChar(talent.id)">X</button>
 													</div>
-												</li>
-												<div class="collapse" ng-attr-id="{{ 'details' + talent.id.replace('#', '') }}">
-													<li class="list-group-item" ng-if="getFieldValue(talent, 'tradition', lang)"><span class="fw-semibold">Archetype/School:</span> {{ getFieldValue(talent, 'tradition', lang) }}</li>
-													<li class="list-group-item" ng-if="getFieldValue(talent, 'description', lang)">{{ getFieldValue(talent, 'description', lang) }}</li>
-													<li class="list-group-item" ng-if="getFieldValue(talent, 'novice', lang)">
-														<span ng-bind-html="getFieldValue(talent, 'novice', lang)"></span>
-													</li>
-													<li class="list-group-item" ng-if="getFieldValue(talent, 'adepte', lang)">
-														<span ng-bind-html="getFieldValue(talent, 'adepte', lang)"></span>
-													</li>
-													<li class="list-group-item" ng-if="getFieldValue(talent, 'maitre', lang)">
-														<span ng-bind-html="getFieldValue(talent, 'maitre', lang)"></span>
-													</li>
 												</div>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<div class="col-12 col-md-4">
-									<div class="d-grid">
-										<button class="btn btn-light border" type="button" data-bs-toggle="modal" data-bs-target="#searchTab1">Add</button>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="tab-pane fade" id="tab2" role="tabpanel" tabindex="0">
-							<div class="row">
-								<div class="col-12 col-lg-4" ng-repeat="traitBoonBurden in charTraitsBoonsBurdens">
-									<div class="card text-start small">
-										<div class="card-body p-0">
-											<ul class="list-group list-group-flush">
-												<li class="list-group-item even">
-													<div class="row">
-														<div class="col">
-															<span class="fw-semibold">{{ 'NAME' | translate }}:</span> {{ getFieldValue(traitBoonBurden, 'nom', lang) }}
+											</li>
+											<li class="list-group-item">
+												<div class="row g-0">
+													<div class="col"><span class="fw-semibold">Type:</span> {{ tradType(talent.type) }}</div>
+													<div class="col-auto">
+														<div class="form-check form-check-inline m-0">
+															<input class="form-check-input" type="radio" ng-attr-name="{{ 'niveauN' + talent.id.replace('#', '') }}" value="1" ng-model="talent.niveau">
+															<label class="form-check-label">{{'NOVICE_SHORT' | translate}}</label>
 														</div>
-														<div class="col-auto">
-															<button type="button" class="btn btn-link btn-sm" title="Details" data-bs-toggle="collapse" ng-attr-data-bs-target="{{ '#details' + traitBoonBurden.id.replace('#', '') }}">Details</button>
-															<button type="button" class="btn btn-link btn-sm" title="Remove" ng-click="removeTraitBoonBurdenFromChar(traitBoonBurden.id)">X</button>
+														<div class="form-check form-check-inline m-0" ng-if="getFieldValue(talent, 'adepte', lang)">
+															<input class="form-check-input" type="radio" ng-attr-name="{{ 'niveauA' + talent.id.replace('#', '') }}" value="3" ng-model="talent.niveau">
+															<label class="form-check-label">A</label>
+														</div>
+														<div class="form-check form-check-inline m-0" ng-if="getFieldValue(talent, 'maitre', lang)">
+															<input class="form-check-input" type="radio" ng-attr-name="{{ 'niveauM' + talent.id.replace('#', '') }}" value="6" ng-model="talent.niveau">
+															<label class="form-check-label">M</label>
 														</div>
 													</div>
-												</li>
-												<li class="list-group-item">
-													<div class="row g-0">
-														<div class="col"><span class="fw-semibold">Type:</span> {{ tradType(traitBoonBurden.type) }}</div>
-														<div class="col-auto">
-															<div class="form-check form-check-inline m-0">
-																<input class="form-check-input" type="radio" ng-attr-name="{{ 'niveauN' + traitBoonBurden.id.replace('#', '') }}" value="1" ng-model="traitBoonBurden.niveau" ng-change="calcXp()">
-																<label class="form-check-label">N</label>
-															</div>
-															<div class="form-check form-check-inline m-0" ng-if="getFieldValue(traitBoonBurden, 'adepte', lang)">
-																<input class="form-check-input" type="radio" ng-attr-name="{{ 'niveauA' + traitBoonBurden.id.replace('#', '') }}" value="3" ng-model="traitBoonBurden.niveau" ng-change="calcXp()">
-																<label class="form-check-label">A</label>
-															</div>
-															<div class="form-check form-check-inline m-0" ng-if="getFieldValue(traitBoonBurden, 'maitre', lang)">
-																<input class="form-check-input" type="radio" ng-attr-name="{{ 'niveauM' + traitBoonBurden.id.replace('#', '') }}" value="6" ng-model="traitBoonBurden.niveau" ng-change="calcXp()">
-																<label class="form-check-label">M</label>
-															</div>
-														</div>
-													</div>
-												</li>
-												<div class="collapse" ng-attr-id="{{ 'details' + traitBoonBurden.id.replace('#', '') }}">
-													<li class="list-group-item" ng-if="getFieldValue(traitBoonBurden, 'tradition', lang)"><span class="fw-semibold">Archetype/School:</span> {{ getFieldValue(traitBoonBurden, 'tradition', lang) }}</li>
-													<li class="list-group-item" ng-if="getFieldValue(traitBoonBurden, 'description', lang)">{{ getFieldValue(traitBoonBurden, 'description', lang) }}</li>
-													<li class="list-group-item" ng-if="getFieldValue(traitBoonBurden, 'novice', lang)">
-														<span ng-bind-html="getFieldValue(traitBoonBurden, 'novice', lang)"></span>
-													</li>
-													<li class="list-group-item" ng-if="getFieldValue(traitBoonBurden, 'adepte', lang)">
-														<span ng-bind-html="getFieldValue(traitBoonBurden, 'adepte', lang)"></span>
-													</li>
-													<li class="list-group-item" ng-if="getFieldValue(traitBoonBurden, 'maitre', lang)">
-														<span ng-bind-html="getFieldValue(traitBoonBurden, 'maitre', lang)"></span>
-													</li>
 												</div>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<div class="col-12 col-md-4">
-									<div class="d-grid">
-										<button class="btn btn-light border" type="button" data-bs-toggle="modal" data-bs-target="#searchTab2">Add</button>
+											</li>
+											<div class="collapse" ng-attr-id="{{ 'details' + talent.id.replace('#', '') }}">
+												<li class="list-group-item py-1 pl-2" ng-if="afficherDetailsTalents && getFieldValue(talent, 'source', lang)"><span ng-bind-html="getFieldValue(talent, 'source', lang)"></span></li>
+												<li class="list-group-item" ng-if="getFieldValue(talent, 'tradition', lang)">{{ getFieldValue(talent, 'tradition', lang) }}</li>
+												<li class="list-group-item" ng-if="getFieldValue(talent, 'description', lang)">{{ getFieldValue(talent, 'description', lang) }}</li>
+												<li class="list-group-item" ng-if="getFieldValue(talent, 'novice', lang)">
+													<span ng-bind-html="getFieldValue(talent, 'novice', lang)"></span>
+												</li>
+												<li class="list-group-item" ng-if="getFieldValue(talent, 'adepte', lang)">
+													<span ng-bind-html="getFieldValue(talent, 'adepte', lang)"></span>
+												</li>
+												<li class="list-group-item" ng-if="getFieldValue(talent, 'maitre', lang)">
+													<span ng-bind-html="getFieldValue(talent, 'maitre', lang)"></span>
+												</li>
+											</div>
+										</ul>
 									</div>
 								</div>
 							</div>
-						</div>
-						<div class="tab-pane fade" id="tab3" role="tabpanel" tabindex="0">
-							<div class="row">
-								<div class="col-12 col-lg-6">
-									<span>Weapons</span>
-									<div class="row" ng-repeat="weapon in charWeapons">
-										<div class="col">
-											<textarea class="form-control auto-size" ng-attr-id="{{ 'weapon' + $index}}" ng-keyup="resize($event)">{{ weapon.value }}</textarea>
-										</div>
-										<div class="col-auto">
-											<button type="button" class="btn btn-link btn-sm" title="Remove" ng-click="removeWeapon($index)">X</button>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-6">
-											<div class="d-grid">
-												<button class="btn btn-light btn-sm border" type="button" data-bs-toggle="modal" data-bs-target="#searchTab3">Add</button>
-											</div>
-										</div>
-										<div class="col-6">
-											<div class="d-grid">
-												<button class="btn btn-light btn-sm border" type="button" ng-click="addCustomWeapon()">Add Custom</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-12 col-lg-6">
-									<div class="form-group">
-										<label for="equipmentTextArea">Equipment</label>
-										<textarea class="form-control autogrowth" id="equipmentTextArea"></textarea>
-									</div>
+							<div class="col-12 col-md-4">
+								<div class="d-grid">
+									<button class="btn btn-sm btn-symb border" type="button" data-bs-toggle="modal" data-bs-target="#searchTab1">{{'ADD' | translate}}</button>
 								</div>
 							</div>
 						</div>
-						<div class="tab-pane fade" id="tab4" role="tabpanel" tabindex="0">
-
+					</div>
+					<!-- Atouts/Fardeaux -->
+					<div class="tab-pane fade" id="tab2" role="tabpanel" tabindex="0">
+						<div class="row">
+							<div class="col-12 col-lg-4" ng-repeat="traitBoonBurden in charTraitsBoonsBurdens">
+								<div class="card text-start small">
+									<div class="card-body p-0">
+										<ul class="list-group list-group-flush">
+											<li class="list-group-item even">
+												<div class="row">
+													<div class="col">
+														<span class="fw-semibold">{{ 'NAME' | translate }}:</span> {{ getFieldValue(traitBoonBurden, 'nom', lang) }}
+													</div>
+													<div class="col-auto">
+														<button type="button" class="btn btn-link btn-sm" title="{{'DETAILS' | translate}}" data-bs-toggle="collapse" ng-attr-data-bs-target="{{ '#details' + traitBoonBurden.id.replace('#', '') }}">{{'DETAILS' | translate}}</button>
+														<button type="button" class="btn btn-link btn-sm" title="Remove" ng-click="removeTraitBoonBurdenFromChar(traitBoonBurden.id)">X</button>
+													</div>
+												</div>
+											</li>
+											<li class="list-group-item">
+												<div class="row g-0">
+													<div class="col"><span class="fw-semibold">Type:</span> {{ tradType(traitBoonBurden.type) }}</div>
+													<div class="col-auto">
+														<div class="form-check form-check-inline m-0">
+															<input class="form-check-input" type="radio" ng-attr-name="{{ 'niveauN' + traitBoonBurden.id.replace('#', '') }}" value="1" ng-model="traitBoonBurden.niveau">
+															<label class="form-check-label">{{'NOVICE_SHORT' | translate}}</label>
+														</div>
+														<div class="form-check form-check-inline m-0" ng-if="getFieldValue(traitBoonBurden, 'adepte', lang)">
+															<input class="form-check-input" type="radio" ng-attr-name="{{ 'niveauA' + traitBoonBurden.id.replace('#', '') }}" value="3" ng-model="traitBoonBurden.niveau">
+															<label class="form-check-label">A</label>
+														</div>
+														<div class="form-check form-check-inline m-0" ng-if="getFieldValue(traitBoonBurden, 'maitre', lang)">
+															<input class="form-check-input" type="radio" ng-attr-name="{{ 'niveauM' + traitBoonBurden.id.replace('#', '') }}" value="6" ng-model="traitBoonBurden.niveau">
+															<label class="form-check-label">M</label>
+														</div>
+													</div>
+												</div>
+											</li>
+											<div class="collapse" ng-attr-id="{{ 'details' + traitBoonBurden.id.replace('#', '') }}">
+												<li class="list-group-item py-1 pl-2" ng-if="afficherDetailsTalents && getFieldValue(traitBoonBurden, 'source', lang)"><span ng-bind-html="getFieldValue(traitBoonBurden, 'source', lang)"></span></li>
+												<li class="list-group-item" ng-if="getFieldValue(traitBoonBurden, 'novice', lang)">
+													<span ng-bind-html="getFieldValue(traitBoonBurden, 'novice', lang)"></span>
+												</li>
+												<li class="list-group-item" ng-if="getFieldValue(traitBoonBurden, 'adepte', lang)">
+													<span ng-bind-html="getFieldValue(traitBoonBurden, 'adepte', lang)"></span>
+												</li>
+												<li class="list-group-item" ng-if="getFieldValue(traitBoonBurden, 'maitre', lang)">
+													<span ng-bind-html="getFieldValue(traitBoonBurden, 'maitre', lang)"></span>
+												</li>
+											</div>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="col-12 col-md-4">
+								<div class="d-grid">
+									<button class="btn btn-sm btn-symb border" type="button" data-bs-toggle="modal" data-bs-target="#searchTab2">{{'ADD' | translate}}</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Armes/Armures/Inventaire -->
+					<div class="tab-pane fade" id="tab3" role="tabpanel" tabindex="0">
+						<div class="row">
+							<div class="col-12 col-lg-6">
+								<div class="row"><h5>{{'ARMES' | translate}}</h5></div>
+								<div class="row mb-1" ng-repeat="weapon in charWeapons">
+									<div class="col">
+										<textarea class="form-control auto-size" ng-keyup="resize($event)" ng-model="weapon.value"></textarea>
+									</div>
+									<div class="col-auto">
+										<button type="button" class="btn btn-link btn-sm" title="Remove" ng-click="removeWeapon($index)">X</button>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-6">
+										<div class="d-grid">
+											<button class="btn btn-sm btn-symb border" type="button" data-bs-toggle="modal" data-bs-target="#searchTab3">{{'ADD' | translate}}</button>
+										</div>
+									</div>
+									<div class="col-6">
+										<div class="d-grid">
+											<button class="btn btn-sm btn-symb border" type="button" ng-click="addCustomWeapon()">{{'ADD_CUSTOM' | translate}}</button>
+										</div>
+									</div>
+								</div>
+								<div class="row mt-2"><h5 class="capitalize">{{'TYPE_ARMURE' | translate}}s</h5></div>
+								<div class="row mb-1" ng-repeat="armor in charArmors">
+									<div class="col">
+										<textarea class="form-control auto-size" ng-keyup="resize($event)" ng-model="armor.value"></textarea>
+									</div>
+									<div class="col-auto">
+										<button type="button" class="btn btn-link btn-sm" title="Remove" ng-click="removeArmor($index)">X</button>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-6">
+										<div class="d-grid">
+											<button class="btn btn-sm border btn-symb" type="button" data-bs-toggle="modal" data-bs-target="#searchTab3b">{{'ADD' | translate}}</button>
+										</div>
+									</div>
+									<div class="col-6">
+										<div class="d-grid">
+											<button class="btn btn-sm border btn-symb" type="button" ng-click="addCustomArmor()">{{'ADD_CUSTOM' | translate}}</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-12 col-lg-6">
+								<div class="form-group">
+									<label for="equipmentTextArea"><h5>{{'EQUIPMENT' | translate}}</h5></label>
+									<textarea class="form-control auto-size" id="equipmentTextArea" ng-keyup="resize($event)" ng-model="equipment"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="tab4" role="tabpanel" tabindex="0">
+						<div class="row mt-2">
+							<div class="col-12 col-lg-6">
+								<div class="form-group">
+									<label for="shadowTextArea"><h5>{{'SHADOW' | translate}}</h5></label>
+									<textarea class="form-control auto-size" id="shadowTextArea" ng-keyup="resize($event)" ng-model="shadow"></textarea>
+								</div>
+							</div>
+							<div class="col-12 col-lg-6">
+								<div class="form-group">
+									<label for="tacticsTextArea"><h5>{{'TACTICS' | translate}}</h5></label>
+									<textarea class="form-control auto-size" id="tacticsTextArea" ng-keyup="resize($event)" ng-model="tactics"></textarea>
+								</div>
+							</div>
+						</div>
+						<div class="row mt-2">
+							<div class="col-12 col-lg-6">
+								<div class="form-group">
+									<label for="bgTextArea"><h5>{{'BG' | translate}}</h5></label>
+									<textarea class="form-control auto-size" id="bgTextArea" ng-keyup="resize($event)" ng-model="bg"></textarea>
+								</div>
+							</div>
+							<div class="col-12 col-lg-6">
+								<div class="form-group">
+									<label for="notesTextArea"><h5>{{'NOTES' | translate}}</h5></label>
+									<textarea class="form-control auto-size" id="notesTextArea" ng-keyup="resize($event)" ng-model="notes"></textarea>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</form>
-
+	<!-- Modal sélection talents -->
     <div class="modal fade" id="searchTab1" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content p-2">
 				<div class="sticky-top bg-white">
 					<div class="modal-header p-1">
+						<div class="input-group input-group-sm">
+							<div class="form-check form-switch form-check-inline">
+								<input class="form-check-input" type="checkbox" value="" id="afficherDetailsTalents" ng-model="afficherDetailsTalents">
+								<label class="form-check-label small" for="afficherDetailsTalents">{{'DISPLAY_DETAILS' | translate}}</label>
+							</div>
+						</div>
+						<div class="input-group input-group-sm">
+							<div class="form-check form-switch form-check-inline">
+								<input class="form-check-input" type="checkbox" value="" id="afficherDescriptionTalents" ng-model="afficherDescriptionTalents">
+								<label class="form-check-label small" for="afficherDescriptionTalents">{{'DISP_DESC' | translate}}</label>
+							</div>
+						</div>
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="row">
@@ -582,34 +600,34 @@
 						</div>
 					</div>
 				</div>
-				<div class="row" style="margin-top:2px;">
-					<div class="col-lg-6"
+				<div class="row mt-1">
+					<div class="col-lg-6 mt-1"
 						ng-repeat="(key, talent) in talents | rechercheFilter:{nom: filtreNomTalent, epingleSeulement: false,
-							filtreType: filtreType, filtreLivre: filtreLivre, filtreTrad: filtreTrad, filtreAttr: filtreAttr, lang: lang}">
-						<div class="card border-info h-100">
-							<div class="card-header bg-dark text-white small">
+							filtreType: filtreType, filtreLivre: filtreLivre, filtreTrad: filtreTrad, filtreAttr: filtreAttr, lang: lang}" ng-if="filtreType == talent.type">
+						<div class="card h-100" >
+							<div class="card-header small">
 								<div class="row">
-									<div class="col">{{ getFieldValue(talent, 'nom', lang) }}{{talent.mod}} [{{ tradType(talent.type) }}]</div>
+									<div class="col">{{ getFieldValue(talent, 'nom', lang) }}{{talent.mod}}</div>
 									<div class="col-auto">
 										<button type="button" class="btn btn-light btn-sm" title="ADD" ng-click="addTalentToChar(talent)">
-											Add
+											{{'ADD' | translate}}
 										</button>
 									</div>
 								</div>
 							</div>
-							<ul class="list-group list-group-flush bg-light small">
-								<li class="list-group-item" ng-if="getFieldValue(talent, 'description', lang)">
+							<ul class="list-group list-group-flush small">
+								<li class="list-group-item" ng-if="afficherDescriptionTalents && getFieldValue(talent, 'description', lang)">
 									<i><span ng-bind-html="getFieldValue(talent, 'description', lang)"></span></i>
 								</li>
-								<li class="list-group-item py-1 pl-2" ng-if="getFieldValue(talent, 'source', lang)"><span ng-bind-html="getFieldValue(talent, 'source', lang)"></span></li>
-								<li class="list-group-item py-1 pl-2" ng-if="getFieldValue(talent, 'tradition', lang)">{{ getFieldValue(talent, 'tradition', lang) }}</li>
-								<li class="list-group-item py-1" ng-if="getFieldValue(talent, 'novice', lang)">
+								<li class="list-group-item py-1 pl-2" ng-if="afficherDetailsTalents && getFieldValue(talent, 'source', lang)"><span ng-bind-html="getFieldValue(talent, 'source', lang)"></span></li>
+								<li class="list-group-item py-1 pl-2" ng-if="afficherDetailsTalents && getFieldValue(talent, 'tradition', lang)">{{ getFieldValue(talent, 'tradition', lang) }}</li>
+								<li class="list-group-item py-1" ng-if="afficherDetailsTalents && getFieldValue(talent, 'novice', lang)">
 									<span ng-bind-html="getFieldValue(talent, 'novice', lang)"></span>
 								</li>
-								<li class="list-group-item py-1" ng-if="getFieldValue(talent, 'adepte', lang)">
+								<li class="list-group-item py-1" ng-if="afficherDetailsTalents && getFieldValue(talent, 'adepte', lang)">
 									<span ng-bind-html="getFieldValue(talent, 'adepte', lang)"></span>
 								</li>
-								<li class="list-group-item py-1" ng-if="getFieldValue(talent, 'maitre', lang)">
+								<li class="list-group-item py-1" ng-if="afficherDetailsTalents && getFieldValue(talent, 'maitre', lang)">
 									<span ng-bind-html="getFieldValue(talent, 'maitre', lang)"></span>
 								</li>
 							</ul>
@@ -619,11 +637,18 @@
             </div>
         </div>
     </div>
+	<!-- Modal sélection atouts/fardeaux -->
     <div class="modal fade" id="searchTab2" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content p-2">
 				<div class="sticky-top bg-white">
 					<div class="modal-header p-1">
+						<div class="input-group input-group-sm">
+							<div class="form-check form-switch form-check-inline">
+								<input class="form-check-input" type="checkbox" value="" id="afficherDetailsBB" ng-model="afficherDetailsBB">
+								<label class="form-check-label small" for="afficherDetailsBB">{{'DISPLAY_DETAILS' | translate}}</label>
+							</div>
+						</div>
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="row">
@@ -638,7 +663,6 @@
 								<select class="form-select" ng-model="filtreTypeTab2">
 									<option value="atout">💪 {{'TYPE_ATOUT' | translate}}</option>
 									<option value="fardeau">🎱 {{'TYPE_FARDEAU' | translate}}</option>
-									<option value="trait">🧬 {{'TYPE_TRAIT' | translate}}</option>
 								</select>
 							</div>
 						</div>
@@ -656,27 +680,23 @@
 						</div>
 					</div>
 				</div>
-				<div class="row" style="margin-top:2px;">
-					<div class="col-lg-6"
+				<div class="row mt-1">
+					<div class="col-lg-6 mt-1"
 						ng-repeat="(key, talent) in talents | rechercheFilter:{nom: filtreNomTab2, epingleSeulement: false,
 							filtreType: filtreTypeTab2, filtreLivre: filtreLivre, filtreTrad: filtreTrad, filtreAttr: filtreAttr, lang: lang}">
-						<div class="card border-info h-100">
-							<div class="card-header bg-dark text-white small">
+						<div class="card h-100">
+							<div class="card-header small">
 								<div class="row">
-									<div class="col">{{ getFieldValue(talent, 'nom', lang) }}{{talent.mod}} [{{ tradType(talent.type) }}]</div>
+									<div class="col">{{ getFieldValue(talent, 'nom', lang) }}{{talent.mod}}</div>
 									<div class="col-auto">
 										<button type="button" class="btn btn-light btn-sm" title="ADD" ng-click="addTraitBoonBurdenToChar(talent)">
-											Add
+											{{'ADD' | translate}}
 										</button>
 									</div>
 								</div>
 							</div>
-							<ul class="list-group list-group-flush bg-light small">
-								<li class="list-group-item" ng-if="getFieldValue(talent, 'description', lang)">
-									<i><span ng-bind-html="getFieldValue(talent, 'description', lang)"></span></i>
-								</li>
-								<li class="list-group-item py-1 pl-2" ng-if="getFieldValue(talent, 'source', lang)"><span ng-bind-html="getFieldValue(talent, 'source', lang)"></span></li>
-								<li class="list-group-item py-1 pl-2" ng-if="getFieldValue(talent, 'tradition', lang)">{{ getFieldValue(talent, 'tradition', lang) }}</li>
+							<ul class="list-group list-group-flush small" ng-if="afficherDetailsBB">
+								<li class="list-group-item py-1 pl-2" ng-if=" getFieldValue(talent, 'source', lang)"><span ng-bind-html="getFieldValue(talent, 'source', lang)"></span></li>
 								<li class="list-group-item py-1" ng-if="getFieldValue(talent, 'novice', lang)">
 									<span ng-bind-html="getFieldValue(talent, 'novice', lang)"></span>
 								</li>
@@ -693,11 +713,18 @@
             </div>
         </div>
     </div>
+	<!-- Modal sélection armes -->
     <div class="modal fade" id="searchTab3" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content p-2">
 				<div class="sticky-top bg-white">
 					<div class="modal-header p-1">
+						<div class="input-group input-group-sm">
+							<div class="form-check form-switch form-check-inline">
+								<input class="form-check-input" type="checkbox" value="" id="afficherDetailsArmes" ng-model="afficherDetailsArmes">
+								<label class="form-check-label small" for="afficherDetailsArmes">{{'DISPLAY_DETAILS' | translate}}</label>
+							</div>
+						</div>
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="row">
@@ -725,25 +752,22 @@
 						</div>
 					</div>
 				</div>
-				<div class="row" style="margin-top:2px;">
-					<div class="col-lg-6"
+				<div class="row mt-1">
+					<div class="col-lg-6 mt-1"
 						ng-repeat="(key, talent) in talents | rechercheFilter:{nom: filtreNomTab3, epingleSeulement: false,
 							filtreType: filtreTypeTab3, filtreLivre: filtreLivre, filtreTrad: filtreTrad, filtreAttr: filtreAttr, lang: lang}">
-						<div class="card border-info h-100">
-							<div class="card-header bg-dark text-white small">
+						<div class="card h-100">
+							<div class="card-header small">
 								<div class="row">
-									<div class="col">{{ getFieldValue(talent, 'nom', lang) }}{{talent.mod}} [{{ tradType(talent.type) }}]</div>
+									<div class="col">{{ getFieldValue(talent, 'nom', lang) }}{{talent.mod}}</div>
 									<div class="col-auto">
 										<button type="button" class="btn btn-light btn-sm" title="ADD" ng-click="addWeapon(talent)">
-											Add
+											{{'ADD' | translate}}
 										</button>
 									</div>
 								</div>
 							</div>
-							<ul class="list-group list-group-flush bg-light small">
-								<li class="list-group-item" ng-if="getFieldValue(talent, 'description', lang)">
-									<i><span ng-bind-html="getFieldValue(talent, 'description', lang)"></span></i>
-								</li>
+							<ul class="list-group list-group-flush small" ng-if="afficherDetailsArmes">
 								<li class="list-group-item py-1 pl-2" ng-if="getFieldValue(talent, 'source', lang)"><span ng-bind-html="getFieldValue(talent, 'source', lang)"></span></li>
 								<li class="list-group-item py-1 pl-2" ng-if="getFieldValue(talent, 'tradition', lang)">{{ getFieldValue(talent, 'tradition', lang) }}</li>
 								<li class="list-group-item py-1" ng-if="getFieldValue(talent, 'novice', lang)">
@@ -762,6 +786,80 @@
             </div>
         </div>
     </div>
+	<!-- Modal sélection armures -->
+    <div class="modal fade" id="searchTab3b" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content p-2">
+				<div class="sticky-top bg-white">
+					<div class="modal-header p-1">
+						<div class="input-group input-group-sm">
+							<div class="form-check form-switch form-check-inline">
+								<input class="form-check-input" type="checkbox" value="" id="afficherDetailsArmures" ng-model="afficherDetailsArmures">
+								<label class="form-check-label small" for="afficherDetailsArmures">{{'DISPLAY_DETAILS' | translate}}</label>
+							</div>
+						</div>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="row">
+						<div class="col-6">
+							<div class="input-group input-group-sm" title="{{'SEARCH_TITLE' | translate}}">
+								<span class="input-group-text">{{'SEARCH' | translate}}</span>
+								<input type="text" class="form-control" ng-model="filtreNomTab3b">
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="input-group input-group-sm">
+								<select class="form-select" ng-model="filtreTypeTab3b">
+									<option value="armure">⚔ {{'TYPE_ARMURE' | translate}}</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="input-group input-group-sm ">
+								<select class="form-select" ng-model="filtreLivre">
+									<option value="tous">{{'BOOK_TOUS' | translate}}</option>
+									<option value="ldb">{{'BOOK_LDB' | translate}}</option>
+									<option value="gdj">{{'BOOK_GDJ' | translate}}</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-1">
+					<div class="col-lg-6 mt-1"
+						ng-repeat="(key, talent) in talents | rechercheFilter:{nom: filtreNomTab3b, epingleSeulement: false,
+							filtreType: filtreTypeTab3b, filtreLivre: filtreLivre, filtreTrad: filtreTrad, filtreAttr: filtreAttr, lang: lang}">
+						<div class="card h-100">
+							<div class="card-header small">
+								<div class="row">
+									<div class="col">{{ getFieldValue(talent, 'nom', lang) }}{{talent.mod}}</div>
+									<div class="col-auto">
+										<button type="button" class="btn btn-light btn-sm" title="ADD" ng-click="addArmor(talent)">
+											{{'ADD' | translate}}
+										</button>
+									</div>
+								</div>
+							</div>
+							<ul class="list-group list-group-flush small" ng-if="afficherDetailsArmures">
+								<li class="list-group-item py-1 pl-2" ng-if="getFieldValue(talent, 'source', lang)"><span ng-bind-html="getFieldValue(talent, 'source', lang)"></span></li>
+								<li class="list-group-item py-1 pl-2" ng-if="getFieldValue(talent, 'tradition', lang)">{{ getFieldValue(talent, 'tradition', lang) }}</li>
+								<li class="list-group-item py-1" ng-if="getFieldValue(talent, 'novice', lang)">
+									<span ng-bind-html="getFieldValue(talent, 'novice', lang)"></span>
+								</li>
+								<li class="list-group-item py-1" ng-if="getFieldValue(talent, 'adepte', lang)">
+									<span ng-bind-html="getFieldValue(talent, 'adepte', lang)"></span>
+								</li>
+								<li class="list-group-item py-1" ng-if="getFieldValue(talent, 'maitre', lang)">
+									<span ng-bind-html="getFieldValue(talent, 'maitre', lang)"></span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+            </div>
+        </div>
+    </div>
+	<!-- Modal import JSON -->
     <div class="modal fade" id="importJson" tabindex="-1" role="dialog" aria-labelledby="importJsonModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -777,4 +875,166 @@
             </div>
         </div>
     </div>
-  </div>
+	<!-- Modal exports -->
+    <div class="modal fade" id="save" tabindex="-1" role="dialog" aria-labelledby="saveModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="saveModalLabel">{{'EXPORT' | translate}}</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-5">{{'EXPORT_TITLE' | translate}}</div>
+                        <div class="col-7"><a href="_blank" data-bs-dismiss="modal" ng-click="exporter()">{{'DOWNLOAD' | translate}}</a></div>
+                    </div>
+                    <!--<div class="row">
+                        <div class="col-5">{{'FOUNDRY_EXPORT_TITLE' | translate}}</div>
+                        <div class="col-7"><a href="" ng-click="copyToClipboard()">{{'FOUNDRY_EXPORT' | translate}}</a><span id="copied"></span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <br/><br/><i>Symbaroum FoundryVTT: <a href="https://foundryvtt.com/packages/symbaroum" target="_blank">https://foundryvtt.com/packages/symbaroum</a></i>
+                        </div>
+                    </div>-->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">{{'PAN_CLOSE' | translate}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+	<!-- Modal Stat Block -->
+    <div class="modal fade" id="sheet" tabindex="-1" role="dialog" aria-labelledby="sheetModalLabel" aria-hidden="true" style="font-size: 0.7em;">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="sheetModalLabel">Stat Block</h5>
+                    <button type="button" class="btn btn-sm btn-secondary" ng-click="statBlockProps.newTab()">{{'NEW_TAB' | translate}}</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row py-2">
+                        <div class="col-12">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" value="" id="hideAbilities" ng-model="statBlockProps.hideAbilities">
+                                <label class="form-check-label small" for="hideAbilities">{{'HIDE_ABILITIES' | translate}}</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" ng-model="statBlockProps.manageIntegrated">
+                                <label class="form-check-label small" for="">{{'MANAGE_INTEGRATED' | translate}}</label>
+                            </div>
+                            <div ng-repeat="(talent, boolIntegrated) in statBlockProps.integrated" class="form-check form-check-inline" ng-show="statBlockProps.manageIntegrated">
+                                <input class="form-check-input" type="checkbox" value="" id="" ng-model="statBlockProps.integrated[talent]">
+                                <label class="form-check-label small" for="">{{talent}}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="row">
+                        <div class="col-{{statBlockProps.getStatBlockColumnsNb()}}">
+                            <table id="statBlock" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th colspan="8" class="bb" ng-bind="statBlockProps.getDefault(nom)" style="padding-top: 15px;"></th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="8" ng-bind="statBlockProps.getDefault(typ)" style="padding-bottom: 15px;"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="topRows">
+                                        <td class="br">{{'PRE' | translate}}</td>
+                                        <td class="br">{{'AST' | translate}}</td>
+                                        <td class="br">{{'DIS' | translate}}</td>
+                                        <td class="br">{{'PER' | translate}}</td>
+                                        <td class="br">{{'AGI' | translate}}</td>
+                                        <td class="br">{{'VOL' | translate}}</td>
+                                        <td class="br">{{'FOR' | translate}}</td>
+                                        <td>{{'VIG' | translate}}</td>
+                                    </tr>
+                                    <tr class="topRows bbb">
+                                        <td class="br"><b ng-bind="statBlockProps.getDefault(pre)"></b></td>
+                                        <td class="br"><b ng-bind="statBlockProps.getDefault(ast)"></b></td>
+                                        <td class="br"><b ng-bind="statBlockProps.getDefault(dis)"></b></td>
+                                        <td class="br"><b ng-bind="statBlockProps.getDefault(per)"></b></td>
+                                        <td class="br"><b ng-bind="statBlockProps.getDefault(agi)"></b></td>
+                                        <td class="br"><b ng-bind="statBlockProps.getDefault(vol)"></b></td>
+                                        <td class="br"><b ng-bind="statBlockProps.getDefault(forc)"></b></td>
+                                        <td><b ng-bind="statBlockProps.getDefault(vig)"></b></td>
+                                    </tr>
+                                    <tr class="topRows">
+                                        <td class="br" colspan="2">{{'DEFENSE' | translate}}</td>
+                                        <td class="br" colspan="2">{{'ARMURE' | translate}}</td>
+                                        <td class="br" colspan="2">{{'ENDURANCE' | translate}}</td>
+                                        <td colspan="2">{{'RES_DOUL' | translate}}</td>
+                                    </tr>
+                                    <tr class="topRows">
+                                        <td class="br bbb" colspan="2"><b ng-bind="statBlockProps.getDefault(def)"></b></td>
+                                        <td class="br bbb" colspan="2"><b ng-bind="statBlockProps.getDefault(arm)"></b></td>
+                                        <td class="br bbb" colspan="2"><b ng-bind="statBlockProps.getDefault(end)"></b></td>
+                                        <td class="bbb" colspan="2"><b ng-bind="statBlockProps.getDefault(sd)"></b></td>
+                                    </tr>
+                                    <tr class="bbb even botRows">
+                                        <td colspan="2"><b>{{'ARMES' | translate}}</b></td>
+                                        <td colspan="6" ng-bind="statBlockProps.getDefault(deg)"></td>
+                                    </tr>
+                                    <tr class="bbb odd botRows">
+                                        <td colspan="2"><b>{{'INTEGRATED' | translate}}</b></td>
+                                        <td colspan="6" ng-bind="statBlockProps.getIntegrated()"></td>
+                                    </tr>
+                                    <tr class="bbb even botRows">
+                                        <td colspan="2"><b>{{'TALENTS' | translate}}</b></td>
+                                        <td colspan="6" ng-bind="statBlockProps.getAbilities()"></td>
+                                    </tr>
+                                    <tr class="bbb odd botRows">
+                                        <td colspan="2"><b>{{'TRAITS' | translate}}</b></td>
+                                        <td colspan="6" ng-bind="statBlockProps.getTraits()"></td>
+                                    </tr>
+                                    <tr class="bbb even botRows">
+                                        <td colspan="2"><b>{{'EQUIPMENT' | translate}}</b></td>
+                                        <td colspan="6" ng-bind="statBlockProps.getDefault(equipment)"></td>
+                                    </tr>
+                                    <tr class="bbb odd botRows">
+                                        <td colspan="2"><b>{{'SHADOW' | translate}}</b></td>
+                                        <td colspan="6" ng-bind="statBlockProps.getDefault(shadow)"></td>
+                                    </tr>
+                                    <tr class="bbb even botRows">
+                                        <td colspan="2"><b>{{'TACTICS' | translate}}</b></td>
+                                        <td colspan="6" ng-bind="statBlockProps.getDefault(tactics)"></td>
+                                    </tr>
+                                    <tr class="odd botRows">
+                                        <td colspan="2"><b>{{'NOTES' | translate}}</b></td>
+                                        <td colspan="6" ng-bind="statBlockProps.getDefault(notes)"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-6" ng-show="!statBlockProps.hideAbilities">
+                            <span ng-bind-html="statBlockProps.abilitiesTexts"></span>
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">{{'PAN_CLOSE' | translate}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+	<!-- Canvas load PC/NPC -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="pcNpcCanvas">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasLabel">{{ 'MY_PC_NPC' | translate }}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <p ng-repeat="pcNpcName in myPcNpcArr">
+                <a href="" ng-click="loadPcNpc(pcNpcName)">{{pcNpcName}}</a>
+                <a href="" ng-click="deletePcNpc(pcNpcName)">🔪</a>
+            </p>
+        </div>
+    </div>
+</div>
