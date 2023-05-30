@@ -144,6 +144,7 @@ var translationsES = {
     DETAILS: "Detalles",
     NOVICE_SHORT: "P",
     DISPLAY_DETAILS: "Mostrar detalles",
+    CHAR_BUILDER: "Hoja de Personaje",
     
     // User management
     SESSION_MSG: "Advertencia, este sitio Web no administra sesiones, no actualice la página o deberá volver a autenticarse.",

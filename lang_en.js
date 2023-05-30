@@ -174,6 +174,7 @@ var translationsEN = {
     DETAILS: "Details",
     NOVICE_SHORT: "N",
     DISPLAY_DETAILS: "Display details",
+    CHAR_BUILDER: "Character Sheet",
 
     // User managerment
     SESSION_MSG: "Be aware that this Web site does not manage sessions, so do not refresh or you will need to reauthenticate.",

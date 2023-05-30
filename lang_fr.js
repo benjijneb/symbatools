@@ -173,6 +173,7 @@ var translationsFR = {
     DETAILS: "Détails",
     NOVICE_SHORT: "N",
     DISPLAY_DETAILS: "Afficher détails",
+    CHAR_BUILDER: "Fiche de Personnage",
 
     // User management
     SESSION_MSG: "Attention, ce site Web ne gère pas les sessions, ne rafraichissez pas la page ou il sera nécessaire de se réauthentifier.",

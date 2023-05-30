@@ -40,13 +40,13 @@
                     </tr>
                     <tr class="topRows">
                         <td class="br bbb" colspan="2"><b ng-bind="statBlockProps.getDefault(def)"></b></td>
-                        <td class="br bbb" colspan="2"><b ng-bind="statBlockProps.getDefault(arm)"></b></td>
+                        <td class="br bbb" colspan="2"><b ng-bind="statBlockProps.getArmors()"></b></td>
                         <td class="br bbb" colspan="2"><b ng-bind="statBlockProps.getDefault(end)"></b></td>
                         <td class="bbb" colspan="2"><b ng-bind="statBlockProps.getDefault(sd)"></b></td>
                     </tr>
                     <tr class="bbb even botRows">
                         <td colspan="2"><b>{{'ARMES' | translate}}</b></td>
-                        <td colspan="6" ng-bind="statBlockProps.getDefault(deg)"></td>
+                        <td colspan="6" ng-bind="statBlockProps.getWeapons()"></td>
                     </tr>
                     <tr class="bbb odd botRows">
                         <td colspan="2"><b>{{'INTEGRATED' | translate}}</b></td>

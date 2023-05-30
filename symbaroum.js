@@ -55,13 +55,13 @@ symbaroum.config(['$routeProvider',
 			.when('/ext', {
 				templateUrl: 'externalLinks.html'
 			})
-			.when('/help', {
-				templateUrl: 'help.html',
+			.when('/helpsearch', {
+				templateUrl: 'helpSearch.html',
 				controller: 'Help'
 			})
 			.when('/statblock', {
 				templateUrl: 'statBlock.html',
-				controller: 'Recherche'
+				controller: 'CharBuilder'
 			})
 			.when('/lostPwd', {
 				templateUrl: 'lostPwd.html',
@@ -213,9 +213,9 @@ routeAppControllers.controller('Index', function ($scope, $rootScope, $translate
 		(response) => {}
 	);
 	
-	if (localStorage.getItem("userHelp") == null) {
+	if (localStorage.getItem("newFeature") == null) {
 		$('#helpUser').modal('show');
-		localStorage.setItem("userHelp", "visited");
+		localStorage.setItem("newFeature", "visited");
 	}
 
 	$scope.isAuthenticated = auth.isAuthenticated;
@@ -480,7 +480,7 @@ routeAppControllers.controller('Recherche', function ($scope, $http, $q, $routeP
 
 	$scope.getFieldValue = (talent, field, lang) => {
 
-		let ruleSet = ($scope.rulesSet != undefined) ? $scope.rulesSet : "";
+		let rulesSet = ($scope.rulesSet != undefined) ? $scope.rulesSet : "";
 
 		if (talent.type == "arme" && field == "tradition") {
 
@@ -488,18 +488,18 @@ routeAppControllers.controller('Recherche', function ($scope, $http, $q, $routeP
 			if (undefined != talent.caracs.degats && talent.caracs.degats != "") { caracs.push("Damages: " + talent.caracs.degats) }
 			if (undefined != talent.caracs.cost && talent.caracs.cost != "") { caracs.push("Cost: " + talent.caracs.cost) }
 
-			if (undefined != talent[lang + ruleSet] && undefined != talent[lang + ruleSet]["qualites"] && talent[lang + ruleSet]["qualites"] != "") {
+			if (undefined != talent[lang + rulesSet] && undefined != talent[lang + rulesSet]["qualites"] && talent[lang + rulesSet]["qualites"] != "") {
 
-				caracs.push("Qualities: " + talent[lang + ruleSet]["qualites"]);
+				caracs.push("Qualities: " + talent[lang + rulesSet]["qualites"]);
 			} else if (talent['en']["qualites"] != "") {
 	
 				caracs.push("Qualities: " +  talent['en']["qualites"]);
 			}
 			return caracs.join(" / ");
 		} else {
-			if (undefined != talent[lang + ruleSet] && undefined != talent[lang + ruleSet][field]) {
+			if (undefined != talent[lang + rulesSet] && undefined != talent[lang + rulesSet][field]) {
 
-				return talent[lang +ruleSet][field];
+				return talent[lang +rulesSet][field];
 			} else {
 	
 				return talent['en'][field];
@@ -590,9 +590,8 @@ ${($scope.getFieldValue(talent, 'description', lang)) ? $scope.getFieldValue(tal
 ${($scope.getFieldValue(talent, 'novice', lang)) ? $scope.getFieldValue(talent, 'novice', lang) : ""}
 ${($scope.getFieldValue(talent, 'adepte', lang)) ? $scope.getFieldValue(talent, 'adepte', lang) : ""}
 ${($scope.getFieldValue(talent, 'maitre', lang)) ? $scope.getFieldValue(talent, 'maitre', lang) : ""}`;
-	let doc = new DOMParser().parseFromString(text, 'text/html');
-		console.log(doc.body.textContent || "");
-		console.log(talent);
+		
+		let doc = new DOMParser().parseFromString(text, 'text/html');
 		navigator.clipboard.writeText(doc.body.textContent || "").then(function() {
 			/* clipboard successfully set */
 		  }, function() {
@@ -602,7 +601,7 @@ ${($scope.getFieldValue(talent, 'maitre', lang)) ? $scope.getFieldValue(talent, 
 
 	$scope.openHelpPage = function() {
 
-		window.open('#!/help?lang=' + $rootScope.lang, '_blank').focus();
+		window.open('#!/helpsearch?lang=' + $rootScope.lang, '_blank').focus();
 	}
 	
 	$scope.openB64LinkPage = function() {
@@ -663,7 +662,7 @@ ${($scope.getFieldValue(talent, 'maitre', lang)) ? $scope.getFieldValue(talent, 
 						integrated[name] = false;
 					else
 						integrated[name] = $scope.statBlockProps.integrated[name];
-				} else if ((type === "trait" || type.startsWith("trait/")) && !$scope.statBlockProps.traits.includes(keyName)) {
+				} else if ((type === "trait" || type.startsWith("trait/")) && !$scope.statBlockProps.traits.includes(nom)) {
 
 					abilitiesTexts += "<b><i>" + nom + "</i></b><br/>" + $scope.getFieldValue(talent, 'novice', $rootScope.lang) + "<br/><br/>";
 					$scope.statBlockProps.traits.push(nom);
@@ -765,10 +764,10 @@ ${($scope.getFieldValue(talent, 'maitre', lang)) ? $scope.getFieldValue(talent, 
 
 					abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'novice', $rootScope.lang));
 					$scope.statBlockProps.traits.push(nom);
-					if ($resetIntegrated || !$scope.statBlockProps.integrated[name])
-						integrated[name] = false;
+					if ($resetIntegrated || !$scope.statBlockProps.integrated[nom])
+						integrated[nom] = false;
 					else
-						integrated[name] = $scope.statBlockProps.integrated[name];
+						integrated[nom] = $scope.statBlockProps.integrated[nom];
 				}
 			}
 		})
@@ -1573,13 +1572,14 @@ routeAppControllers.controller('Davokar', function ($scope, $q, $routeParams, $t
 	}
 });
 
-routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $rootScope, $translate, $window, auth) {
+routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $rootScope, $translate, $window, $routeParams, auth, globalService) {
 
 	$scope.charTalents = [];
 	$scope.charTraitsBoonsBurdens = [];
 	$scope.charWeapons = [];
 	$scope.charArmors = [];
-	
+	$scope.rulesSet = "";
+
 	$scope.spentXp = 0;
 
 	$scope.isAuthenticated = auth.isAuthenticated;
@@ -1679,8 +1679,8 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 
 	$scope.getFieldValue = (talent, field, lang) => {
 
-		let ruleSet = ($scope.rulesSet != undefined) ? $scope.rulesSet : "";
-
+		let rulesSet = (undefined != talent.rulesSet) ? talent.rulesSet : ((undefined != $scope.rulesSet) ? $scope.rulesSet : "");
+		
 		if ((talent.type == "arme" || talent.type == "armure") && field == "tradition") {
 
 			let caracs = [];
@@ -1694,9 +1694,9 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 				caracs.push("Type: " + talent.caracs.type +" (" + talent.caracs.gene + ")");
 			}
 
-			if (undefined != talent[lang + ruleSet] && undefined != talent[lang + ruleSet]["qualites"] && talent[lang + ruleSet]["qualites"] != "") {
+			if (undefined != talent[lang + rulesSet] && undefined != talent[lang + rulesSet]["qualites"] && talent[lang + rulesSet]["qualites"] != "") {
 
-				caracs.push("Qualities: " + talent[lang + ruleSet]["qualites"]);
+				caracs.push("Qualities: " + talent[lang + rulesSet]["qualites"]);
 			} else if (undefined != talent['en']["qualites"] && talent['en']["qualites"] != "") {
 	
 				caracs.push("Qualities: " +  talent['en']["qualites"]);
@@ -1705,11 +1705,14 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 			return caracs.join(" / ");
 		} else {
 
-			if (undefined != talent[lang + ruleSet] && undefined != talent[lang + ruleSet][field]) {
+			if (undefined != talent[lang + rulesSet] && undefined != talent[lang + rulesSet][field]) {
 
-				return talent[lang +ruleSet][field];
+				return talent[lang + rulesSet][field];
+			} else if (undefined != talent['en' + rulesSet] && undefined != talent['en' + rulesSet][field]) {
+
+				return talent['en' + rulesSet][field];
 			} else {
-	
+
 				return talent['en'][field];
 			}
 		}
@@ -1718,13 +1721,16 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 	$scope.addTalentToChar =  function(key) {
 
 		if ($scope.charTalents.filter(function(talent){ return talent.id == key.id; }).length == 0) {
+
+			key.rulesSet = $scope.rulesSet;
 			$scope.charTalents.push(key);
 		}
 	}
 
 	$scope.removeTalentFromChar =  function(key) {
 
-		$scope.charTalents = $scope.charTalents.filter(function(talent){ 
+		$scope.charTalents = $scope.charTalents.filter(function(talent) 
+		{ 
 			return talent.id != key;
 		});
 	}
@@ -1732,13 +1738,16 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 	$scope.addTraitBoonBurdenToChar =  function(key) {
 
 		if ($scope.charTraitsBoonsBurdens.filter(function(traitBoonBurden){ return traitBoonBurden.id == key.id; }).length == 0) {
+
+			key.rulesSet = $scope.rulesSet;
 			$scope.charTraitsBoonsBurdens.push(key);
 		}
 	}
 
 	$scope.removeTraitBoonBurdenFromChar =  function(key) {
 
-		$scope.charTraitsBoonsBurdens = $scope.charTraitsBoonsBurdens.filter(function(traitBoonBurden){ 
+		$scope.charTraitsBoonsBurdens = $scope.charTraitsBoonsBurdens.filter(function(traitBoonBurden) { 
+
 			return traitBoonBurden.id != key;
 		});
 	}
@@ -1779,6 +1788,7 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 	}
 
 	//TODO Atouts, Fardeaux
+	//TODO Armure
 	$scope.calculsStatBlock = function($resetIntegrated) {
 		
 		let abilitiesTexts =  "";
@@ -1797,7 +1807,7 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 			let type = talent.type;
 			let nom = $scope.getFieldValue(talent, 'nom', $rootScope.lang);
 
-			if (talent.niveau == "1" || talent.niveau == "3" || talent.niveau == "6") {
+			if (talent.niveau == "1") {
 
 				if (type === "talent") {
 
@@ -1815,7 +1825,7 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 				 } else if (type === "rituel") {
 
 					$scope.statBlockProps.rituals.push(nom);
-				} else if (type === "trait monstrueux" || (type === "trait" && (talent[$rootScope.lang].adepte || talent[$rootScope.lang].maitre))) {
+				} else if (type === "trait monstrueux" || type === "trait") {
 					
 					let name  = nom + " (I)";
 					abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'novice', $rootScope.lang));
@@ -1824,18 +1834,10 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 						integrated[name] = false;
 					else
 						integrated[name] = $scope.statBlockProps.integrated[name];
-				} else if ((type === "trait" || type.startsWith("trait/")) && !$scope.statBlockProps.traits.includes(nom)) {
-
-					abilitiesTexts += "<b><i>" + nom + "</i></b><br/>" + $scope.getFieldValue(talent, 'novice', $rootScope.lang) + "<br/><br/>";
-					$scope.statBlockProps.traits.push(nom);
-					if ($resetIntegrated || !$scope.statBlockProps.integrated[name])
-						integrated[name] = false;
-					else
-						integrated[name] = $scope.statBlockProps.integrated[name];
 				}
 			}
 
-			if (talent.niveau == "3" || talent.niveau == "6") {
+			if (talent.niveau == "3") {
 
 				if (type === "talent") {
 
@@ -1846,15 +1848,12 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 					else
 						integrated[name] = $scope.statBlockProps.integrated[name];
 
-					if (talent.epinglen)
-						abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'novice', $rootScope.lang));
+					abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'novice', $rootScope.lang));
 					abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'adepte', $rootScope.lang));
 				} else if (type === "pouvoir mystique") {
 
 					$scope.statBlockProps.mysticalPowers.push(nom + " (" + $translate.instant('ADEPTE').toLowerCase() + ")");
-
-					if (talent.epinglen)
-						abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'novice', $rootScope.lang));
+					abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'novice', $rootScope.lang));
 					abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'adepte', $rootScope.lang));
 					
 				} else if (type === "trait monstrueux" || type === "trait") {
@@ -1864,12 +1863,12 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 					if ($resetIntegrated || !$scope.statBlockProps.integrated[name])
 						integrated[name] = false;
 					else
-						integrated[name] = $scope.statBlockProps.integrated[name];;
+						integrated[name] = $scope.statBlockProps.integrated[name];
 					
-					if (talent.epinglen)
-						abilitiesTexts += getLibelleForStatBlock(nom + " (I)", $scope.getFieldValue(talent, 'novice', $rootScope.lang));
+					abilitiesTexts += getLibelleForStatBlock(nom + " (I)", $scope.getFieldValue(talent, 'novice', $rootScope.lang));
 					abilitiesTexts += getLibelleForStatBlock(name, $scope.getFieldValue(talent, 'adepte', $rootScope.lang));
 				}
+
 			}
 
 			if (talent.niveau == "6") {
@@ -1883,24 +1882,19 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 					else
 						integrated[name] = $scope.statBlockProps.integrated[name];
 
-					if (talent.epinglen)
-						abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'novice', $rootScope.lang));
-					if (talent.epinglea)
-						abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'adepte', $rootScope.lang));
+					abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'novice', $rootScope.lang));
+					abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'adepte', $rootScope.lang));
 					abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'maitre', $rootScope.lang));
 				} else if (type === "pouvoir mystique") {
 
 					$scope.statBlockProps.mysticalPowers.push(nom + " (" + $translate.instant('MAITRE').toLowerCase() + ")");
-
-					if (talent.epinglen)
-						abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'novice', $rootScope.lang));
-					if (talent.epinglea)
-						abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'adepte', $rootScope.lang));
+					abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'novice', $rootScope.lang));
+					abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'adepte', $rootScope.lang));
 					abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'maitre', $rootScope.lang));
 				} else if (type === "rituel") {
 
 					$scope.statBlockProps.rituals.push(nom);
-				} else if (type === "trait monstrueux" || (type === "trait" && ($scope.getFieldValue(talent, 'adepte', $rootScope.lang) || $scope.getFieldValue(talent, 'maitre', $rootScope.lang)))) {
+				} else if (type === "trait monstrueux" || type === "trait") {
 
 					let name = nom + " (III)";
 					$scope.statBlockProps.traits.push(name);
@@ -1909,29 +1903,13 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 					else
 						integrated[name] = $scope.statBlockProps.integrated[name];
 
-					if ((talent.epingle && ($scope.getFieldValue(talent, 'adepte', $rootScope.lang) || $scope.getFieldValue(talent, 'maitre', $rootScope.lang))) || talent.epinglem) {
-
-						if (talent.epinglen)
-							abilitiesTexts += getLibelleForStatBlock(nom + " (I)", $scope.getFieldValue(talent, 'novice', $rootScope.lang));
-						if (talent.epinglea)
-							abilitiesTexts += getLibelleForStatBlock(nom + " (II)", $scope.getFieldValue(talent, 'adepte', $rootScope.lang));
-						abilitiesTexts += getLibelleForStatBlock(name, $scope.getFieldValue(talent, 'maitre', $rootScope.lang));
-					} else {
-						
-						abilitiesTexts += getLibelleForStatBlock(nom + " (I)", $scope.getFieldValue(talent, 'novice', $rootScope.lang));
-					}
-					
-				} else if ((type === "trait" || type.startsWith("trait/")) && !$scope.statBlockProps.traits.includes(nom)) {
-
-					abilitiesTexts += getLibelleForStatBlock(nom, $scope.getFieldValue(talent, 'novice', $rootScope.lang));
-					$scope.statBlockProps.traits.push(nom);
-					if ($resetIntegrated || !$scope.statBlockProps.integrated[name])
-						integrated[name] = false;
-					else
-						integrated[name] = $scope.statBlockProps.integrated[name];
+					abilitiesTexts += getLibelleForStatBlock(nom + " (I)", $scope.getFieldValue(talent, 'novice', $rootScope.lang));
+					abilitiesTexts += getLibelleForStatBlock(nom + " (II)", $scope.getFieldValue(talent, 'adepte', $rootScope.lang));
+					abilitiesTexts += getLibelleForStatBlock(name, $scope.getFieldValue(talent, 'maitre', $rootScope.lang));
 				}
 			}
 		})
+
 		$scope.statBlockProps.integrated = integrated;
 		$scope.statBlockProps.abilitiesTexts = abilitiesTexts;
 	};
@@ -1973,12 +1951,49 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 			}
 			return (integrated.length > 0) ? integrated.join(", ") : "-";
 		},
+		getWeapons: function () {
+
+			if ($scope.charWeapons.length > 0) {
+
+				let weapons = [];
+				$scope.charWeapons.forEach((weapon) => {
+					weapons.push(weapon.value);
+				})
+				console.log(weapons)
+				return weapons.join(", ");
+			} else
+				return "N/A";
+		},
+		getArmors: function () {
+
+			if ($scope.charArmors.length > 0) {
+
+				let armors = [];
+				$scope.charArmors.forEach((armor) => {
+					armors.push(armor.value);
+				})
+				return armors.join(", ");
+			} else
+				return "N/A";
+		},
 		getTraits: function (value) {
 
-			if ($scope.statBlockProps.traits.length > 0)
-				return $scope.statBlockProps.traits.join(", ");
+			if ($scope.statBlockProps.traits.length > 0) {
+
+				let all = [].concat($scope.statBlockProps.traits);
+
+				for (let keyName in $scope.statBlockProps.integrated) {
+
+					let idx = all.indexOf(keyName);
+					if (idx !== -1 && $scope.statBlockProps.integrated[keyName]) {
+						all.splice(idx, 1);
+					}
+				};
+				return (all.length > 0) ? all.join(", ") : "-";
+			}
 			else
 				return "-";
+
 		},
 		getDefault: function (value) {
 			if (angular.isDefined(value) && value !== "") {
@@ -2080,8 +2095,6 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 			$scope.bg = jsonImporter.bg;
 			$scope.tactics = jsonImporter.tactics;
 
-			$scope.rulesSet = jsonImporter.regles; // TODO
-
 			if (jsonImporter.lang) {
 				$rootScope.lang = jsonImporter.lang;
 				$translate.use(jsonImporter.lang);
@@ -2092,7 +2105,13 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 			}
 			
 			if (jsonImporter.format != "v3") {
-				
+
+				console.log(jsonImporter)
+				if (jsonImporter.deg)
+					$scope.charWeapons= [{"id": random(100000000,999999999), "value":  jsonImporter.deg}];
+				if (jsonImporter.arm)
+					$scope.charArmors= [{"id": random(100000000,999999999), "value":  jsonImporter.arm}];
+
 				if (jsonImporter.epingles) {
 					jsonImporter.epingles.forEach(tmp => {
 						let i = $scope.talents.findIndex(getIndex, { "id": tmp, "version": jsonImporter.format, "lang": jsonImporter.lang });
@@ -2156,13 +2175,23 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 				if (jsonImporter.talents) {
 					jsonImporter.talents.forEach(tmp => {
 						let i = $scope.talents.findIndex(getIndex, {"id": tmp.id, "version": jsonImporter.format, "lang": jsonImporter.lang });
-						if (i >= 0) { let talent = $scope.talents[i]; talent.niveau = tmp.niveau; $scope.charTalents.push(talent) }
+						if (i >= 0) {
+							let talent = $scope.talents[i];
+							talent.niveau = tmp.niveau;
+							talent.rulesSet = tmp.rulesSet;
+							$scope.charTalents.push(talent)
+						}
 					})
 				}
 				if (jsonImporter.boonsburdens) {
 					jsonImporter.boonsburdens.forEach(tmp => {
 						let i = $scope.talents.findIndex(getIndex, {"id": tmp.id, "version": jsonImporter.format, "lang": jsonImporter.lang });
-						if (i >= 0) { let bb = $scope.talents[i]; bb.niveau = tmp.niveau; $scope.charTraitsBoonsBurdens.push(bb) }
+						if (i >= 0) {
+							let bb = $scope.talents[i];
+							bb.niveau = tmp.niveau;
+							talent.rulesSet = tmp.rulesSet;
+							$scope.charTraitsBoonsBurdens.push(bb)
+						}
 					})
 				}
 				if (jsonImporter.armes) {
@@ -2174,6 +2203,11 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 			}
 
 			$scope.resizeTrigger = Date.now();
+			
+			if (jsonImporter.integrated) {
+				$scope.statBlockProps.integrated = jsonImporter.integrated;
+				$scope.calculsStatBlock(false);
+			}
 		}
 	}
 
@@ -2183,11 +2217,11 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 		let boonsburdens = [];
 
 		$scope.charTalents.forEach(talent => {
-			talents.push({ "id" : talent.id, "niveau": talent.niveau });
+			talents.push({ "id" : talent.id, "niveau": talent.niveau, "rulesSet": talent.rulesSet });
 		})
 
 		$scope.charTraitsBoonsBurdens.forEach(talent => {
-			boonsburdens.push({ "id" : talent.id, "niveau": talent.niveau });
+			boonsburdens.push({ "id" : talent.id, "niveau": talent.niveau, "rulesSet": talent.rulesSet });
 		})
 
 		return {
@@ -2213,7 +2247,6 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 			xpNonDep: $scope.xpNonDep,
 			maxEnd: $scope.maxEnd,
 			race: $scope.race,
-			//regles: $scope.rulesSet,
 			lang: $rootScope.lang,
 			talents: talents,
 			boonsburdens: boonsburdens,
@@ -2249,6 +2282,11 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 	$scope.loadJson().then(function successCallback(response) {
 
 		$scope.talents = response.data;
+
+		if ($routeParams.b64) {
+
+			$scope.importer(globalService.decoding($routeParams.b64));
+		}
 	});
 
 	// Resize textareas on keyup
