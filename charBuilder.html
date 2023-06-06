@@ -94,8 +94,10 @@
 					<div class="col-6 border-top border-dark">
 						<div class="card border border-0 rounded-0 even">
 							<div class="card-hdeader text-center fw-semibold">
-								<span class="d-lg-none small">{{'RES_DOUL_SHORT' | translate}}</span>
-								<span class="d-none d-lg-block">{{'RES_DOUL' | translate}}</span>
+								<span class="d-sm-none small">{{'RES_DOUL_SHORT' | translate}}</span>
+								<span class="d-none d-sm-block d-lg-none">{{'RES_DOUL_SHORT' | translate}}</span>
+								<span class="d-none d-lg-block d-xl-none small">{{'RES_DOUL' | translate}}</span>
+								<span class="d-none d-xl-block">{{'RES_DOUL' | translate}}</span>
 							</div>
 							<div class="card-body border border-0 px-1 pt-0 pb-1">
 								<input type="text" class="form-control form-control-sm text-center border border-0 rounded-pill" ng-model="sd">
@@ -105,8 +107,10 @@
 					<div class="col-6 border-top border-dark">
 						<div class="card border border-0 rounded-0 even">
 							<div class="card-hdeader text-center fw-semibold">
-								<span class="d-lg-none small">{{'SEUIL_CORR_SHORT' | translate}}</span>
-								<span class="d-none d-lg-block">{{'SEUIL_CORR' | translate}}</span>
+								<span class="d-sm-none small">{{'SEUIL_CORR_SHORT' | translate}}</span>
+								<span class="d-none d-sm-block d-lg-none">{{'SEUIL_CORR_SHORT' | translate}}</span>
+								<span class="d-none d-lg-block d-xl-none small">{{'SEUIL_CORR' | translate}}</span>
+								<span class="d-none d-xl-block">{{'SEUIL_CORR' | translate}}</span>
 							</div>
 							<div class="card-body border border-0 px-1 pt-0 pb-1">
 								<input type="text" class="form-control form-control-sm text-center border border-0 rounded-pill" ng-model="sc">
@@ -156,111 +160,131 @@
 			<div class="col-1 p-0"></div>
 			<div class="col-1">
 				<div class="card text-center">
-					<div class="card-body p-0">
-						<input type="text" class="form-control form-control-sm text-center border border-0" ng-model="pre">
+					<div class="card-body p-0 m-0">
+						<input type="text" class="form-control form-control-sm text-center border border-0 p-0" ng-model="pre">
 					</div>
 					<div class="card-footer text-muted p-0 fw-semibold border border-top-0 bg-transparent">
-						<span class="d-lg-none">{{'PRE' | translate}}</span>
-						<span class="d-none d-lg-block">{{'ATTR_PRE' | translate}}</span>
+						<span class="d-sm-none small lowerTheCase">{{'PRE' | translate}}</span>
+						<span class="d-none d-sm-block d-lg-none">{{'PRE' | translate}}</span>
+						<span class="d-none d-lg-block d-xl-none small">{{'ATTR_PRE' | translate}}</span>
+						<span class="d-none d-xl-block">{{'ATTR_PRE' | translate}}</span>
 					</div>
 				</div>
 			</div>
 			<div class="col-1">
 				<div class="card text-center">
 					<div class="card-body p-0">
-						<input type="text" class="form-control form-control-sm text-center border border-0" ng-model="ast">
+						<input type="text" class="form-control form-control-sm text-center border border-0 p-0" ng-model="ast">
 					</div>
 					<div class="card-footer text-muted p-0 fw-semibold border border-top-0 bg-transparent">
-						<span class="d-lg-none">{{'AST' | translate}}</span>
-						<span class="d-none d-lg-block">{{'ATTR_AST' | translate}}</span>
+						<span class="d-sm-none small lowerTheCase">{{'AST' | translate}}</span>
+						<span class="d-none d-sm-block d-lg-none">{{'AST' | translate}}</span>
+						<span class="d-none d-lg-block d-xl-none small">{{'ATTR_AST' | translate}}</span>
+						<span class="d-none d-xl-block">{{'ATTR_AST' | translate}}</span>
 					</div>
 				</div>
 			</div>
 			<div class="col-1">
 				<div class="card text-center">
 					<div class="card-body p-0">
-						<input type="text" class="form-control form-control-sm text-center border border-0" ng-model="dis">
+						<input type="text" class="form-control form-control-sm text-center border border-0 p-0" ng-model="dis">
 					</div>
 					<div class="card-footer text-muted p-0 fw-semibold border border-top-0 bg-transparent">
-						<span class="d-lg-none">{{'DIS' | translate}}</span>
-						<span class="d-none d-lg-block">{{'ATTR_DIS' | translate}}</span>
+						<span class="d-sm-none small lowerTheCase">{{'DIS' | translate}}</span>
+						<span class="d-none d-sm-block d-lg-none">{{'DIS' | translate}}</span>
+						<span class="d-none d-lg-block d-xl-none small">{{'ATTR_DIS' | translate}}</span>
+						<span class="d-none d-xl-block">{{'ATTR_DIS' | translate}}</span>
 					</div>
 				</div>
 			</div>
 			<div class="col-1">
 				<div class="card text-center">
 					<div class="card-body p-0">
-						<input type="text" class="form-control form-control-sm text-center border border-0" ng-model="per">
+						<input type="text" class="form-control form-control-sm text-center border border-0 p-0" ng-model="per">
 					</div>
 					<div class="card-footer text-muted p-0 fw-semibold border border-top-0 bg-transparent">
-						<span class="d-lg-none">{{'PER' | translate}}</span>
-						<span class="d-none d-lg-block">{{'ATTR_PER' | translate}}</span>
+						<span class="d-sm-none small lowerTheCase">{{'PER' | translate}}</span>
+						<span class="d-none d-sm-block d-lg-none">{{'PER' | translate}}</span>
+						<span class="d-none d-lg-block d-xl-none small">{{'ATTR_PER' | translate}}</span>
+						<span class="d-none d-xl-block">{{'ATTR_PER' | translate}}</span>
 					</div>
 				</div>
 			</div>
 			<div class="col-1">
 				<div class="card text-center">
 					<div class="card-body p-0">
-						<input type="text" class="form-control form-control-sm text-center border border-0" ng-model="agi">
+						<input type="text" class="form-control form-control-sm text-center border border-0 p-0" ng-model="agi">
 					</div>
 					<div class="card-footer text-muted p-0 fw-semibold border border-top-0 bg-transparent">
-						<span class="d-lg-none">{{'AGI' | translate}}</span>
-						<span class="d-none d-lg-block">{{'ATTR_AGI' | translate}}</span>
+						<span class="d-sm-none small lowerTheCase">{{'AGI' | translate}}</span>
+						<span class="d-none d-sm-block d-lg-none">{{'AGI' | translate}}</span>
+						<span class="d-none d-lg-block d-xl-none small">{{'ATTR_AGI' | translate}}</span>
+						<span class="d-none d-xl-block">{{'ATTR_AGI' | translate}}</span>
 					</div>
 				</div>
 			</div>
 			<div class="col-1">
 				<div class="card text-center">
 					<div class="card-body p-0">
-						<input type="text" class="form-control form-control-sm text-center border border-0" ng-model="vol">
+						<input type="text" class="form-control form-control-sm text-center border border-0 p-0" ng-model="vol">
 					</div>
 					<div class="card-footer text-muted p-0 fw-semibold border border-top-0 bg-transparent">
-						<span class="d-lg-none">{{'VOL' | translate}}</span>
-						<span class="d-none d-lg-block">{{'ATTR_VOL' | translate}}</span>
+						<span class="d-sm-none small lowerTheCase">{{'VOL' | translate}}</span>
+						<span class="d-none d-sm-block d-lg-none">{{'VOL' | translate}}</span>
+						<span class="d-none d-lg-block d-xl-none small">{{'ATTR_VOL' | translate}}</span>
+						<span class="d-none d-xl-block">{{'ATTR_VOL' | translate}}</span>
 					</div>
 				</div>
 			</div>
 			<div class="col-1">
 				<div class="card text-center">
 					<div class="card-body p-0">
-						<input type="text" class="form-control form-control-sm text-center border border-0" ng-model="forc">
+						<input type="text" class="form-control form-control-sm text-center border border-0 p-0" ng-model="forc">
 					</div>
 					<div class="card-footer text-muted p-0 fw-semibold border border-top-0 bg-transparent">
-						<span class="d-lg-none">{{'FOR' | translate}}</span>
-						<span class="d-none d-lg-block">{{'ATTR_FOR' | translate}}</span>
+						<span class="d-sm-none small lowerTheCase">{{'FOR' | translate}}</span>
+						<span class="d-none d-sm-block d-lg-none">{{'FOR' | translate}}</span>
+						<span class="d-none d-lg-block d-xl-none small">{{'ATTR_FOR' | translate}}</span>
+						<span class="d-none d-xl-block">{{'ATTR_FOR' | translate}}</span>
 					</div>
 				</div>
 			</div>
 			<div class="col-1">
 				<div class="card text-center">
 					<div class="card-body p-0">
-						<input type="text" class="form-control form-control-sm text-center border border-0" ng-model="vig">
+						<input type="text" class="form-control form-control-sm text-center border border-0 p-0" ng-model="vig">
 					</div>
 					<div class="card-footer text-muted p-0 fw-semibold border border-top-0 bg-transparent">
-						<span class="d-lg-none">{{'VIG' | translate}}</span>
-						<span class="d-none d-lg-block">{{'ATTR_VIG' | translate}}</span>
+						<span class="d-sm-none small lowerTheCase">{{'VIG' | translate}}</span>
+						<span class="d-none d-sm-block d-lg-none">{{'VIG' | translate}}</span>
+						<span class="d-none d-lg-block d-xl-none small">{{'ATTR_VIG' | translate}}</span>
+						<span class="d-none d-xl-block">{{'ATTR_VIG' | translate}}</span>
 					</div>
 				</div>
 			</div>
 			<div class="col-1">
 				<div class="card text-center border-danger">
 					<div class="card-body p-0">
-						<input type="text" class="form-control form-control-sm text-center border border-0" ng-model="ini">
+						<input type="text" class="form-control form-control-sm text-center border border-0 p-0" ng-model="ini">
 					</div>
 					<div class="card-footer text-muted p-0 fw-semibold border border-top-0 bg-transparent">
-						<span class="d-lg-none">{{'INIT' | translate}}</span>
-						<span class="d-none d-lg-block">{{'INITIATIVE' | translate}}</span>
+						<span class="d-sm-none small lowerTheCase">{{'INIT' | translate}}</span>
+						<span class="d-none d-sm-block d-lg-none">{{'INIT' | translate}}</span>
+						<span class="d-none d-lg-block d-xl-none small">{{'INITIATIVE' | translate}}</span>
+						<span class="d-none d-xl-block">{{'INITIATIVE' | translate}}</span>
 					</div>
 				</div>
 			</div>
 			<div class="col-1">
 				<div class="card text-center border-success">
 					<div class="card-body p-0">
-						<input type="text" class="form-control form-control-sm text-center border border-0" ng-model="def">
+						<input type="text" class="form-control form-control-sm text-center border border-0 p-0" ng-model="def">
 					</div>
 					<div class="card-footer text-muted p-0 fw-semibold border border-top-0 bg-transparent">
-						<span class="d-lg-none">{{'DEF' | translate}}</span>
-						<span class="d-none d-lg-block">{{'DEFENSE' | translate}}</span>
+						<span class="d-sm-none small lowerTheCase">{{'DEF' | translate}}</span>
+						<span class="d-none d-sm-block d-lg-none">{{'DEF' | translate}}</span>
+						<span class="d-none d-lg-block d-xl-none small">{{'DEFENSE' | translate}}</span>
+						<span class="d-none d-xl-block">{{'DEFENSE' | translate}}</span>
 					</div>
 				</div>
 			</div>
@@ -1031,6 +1055,34 @@
                     </div>
                     <br/>
                     <br/>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">{{'PAN_CLOSE' | translate}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+	<!-- Modal artifact -->
+    <div class="modal fade" id="addModArtifact" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="saveModalLabel">{{'EXPORT' | translate}}</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-5">{{'EXPORT_TITLE' | translate}}</div>
+                        <div class="col-7"><a href="_blank" data-bs-dismiss="modal" ng-click="exporter()">{{'DOWNLOAD' | translate}}</a></div>
+                    </div>
+                    <!--<div class="row">
+                        <div class="col-5">{{'FOUNDRY_EXPORT_TITLE' | translate}}</div>
+                        <div class="col-7"><a href="" ng-click="copyToClipboard()">{{'FOUNDRY_EXPORT' | translate}}</a><span id="copied"></span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <br/><br/><i>Symbaroum FoundryVTT: <a href="https://foundryvtt.com/packages/symbaroum" target="_blank">https://foundryvtt.com/packages/symbaroum</a></i>
+                        </div>
+                    </div>-->
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">{{'PAN_CLOSE' | translate}}</button>

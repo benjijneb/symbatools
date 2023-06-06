@@ -68,19 +68,19 @@
 				</div>
 			</div>
 		</div>
-		<div class="modal fade" id="helpUser" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+		<div class="modal fade" id="newFeature" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-body">
 						<p>A new feature is now available for everyone : A new Character Sheet page for OG Symbaroum</p>
-						<p>This page is very close to the Symbaroum character sheet and with this you can build player characters and export as json as usual, or save them in database if logged in.
+						<p>This page is very close to the Symbaroum character sheet and with it, you can build player characters and export them as json, as usual, or save them in database if logged in.
 							Of course you can also use this new feature to build NPC and display them as a stat block like previously in the Search page.</p>
-						<p>At the moment everything is no automated so you will have to do the maths and edit manually weapons and armors if needed but that can change in the future.</p>
+						<p>At the moment everything is not automated so you will have to do the maths and edit manually weapons and armors if needed but that may change in the future.</p>
 						<p>The Search page has not been updated yet, but soon, only the search part will remain if I don't receive any complaints ;), but you can load your old saved PC/NPC in the new feature.</p>
-						<p>Important : Be aware that if you save a character in the new page that was build in the Search page, it won't really work anymore in the Search page.</p>
-						<p>Feel free to contact me on facebook or on the Davokar Explorers League Discord (benjijneb) .</p>
+						<p>Important : Be aware that if you save a character in the new page that was previously built in the Search page, it won't really work anymore in the Search page.</p>
+						<p>Feel free to contact me on facebook or on the Davokar Explorers League Discord (@benjijneb) .</p>
 						<p>--</p>
-						<p>La traduction française a disparu comme vous avez pu e constater, j'en suis bien désolé, mais étant donné le droit français, je ne pouvais malheureusement pas la conserver.</p>
+						<p>La traduction française a disparu comme vous avez pu le constater, j'en suis bien désolé et m'en excuse, mais étant donné le droit français, je ne pouvais malheureusement pas la conserver.</p>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
@@ -88,57 +88,59 @@
 				</div>
 			</div>
 		</div>
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flex py-0">
-			<div class="container-fluid">
-				<img src="images/recherche.jpg" class="rounded" style="margin-right:10px;" alt="LOGO"/>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-0">
+			<div ng-class="getMenuClasses()">
+				<img src="images/recherche.jpg" class="rounded d-none d-xl-block" style="margin-right:10px;" alt="LOGO"/>
 				<a class="navbar-brand" href="#">{{'BRAND' | translate}}</a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+				<button class="navbar-toggler order-2 order-lg-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 					aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav me-auto">
-						<li class="nav-item"><a class="nav-link" href="#!/search">{{'SEARCH' | translate}}</a></li>
-						<li class="nav-item"><a class="nav-link" href="#!/charBuilder">{{'CHAR_BUILDER' | translate}}</a></li>
-						<li class="nav-item" ng-if="lang == 'fr'"><a class="nav-link" href="#!/rules">Rappel règles</a></li>
-						<li class="nav-item" ng-if="lang == 'fr' || lang == 'en'"><a class="nav-link" href="#!/davokar">Davokar</a></li>
-						<li class="nav-item" ng-if="lang == 'fr'"><a class="nav-link" href="#!/init">Init</a></li>
-						<li class="nav-item"><a class="nav-link" href="#!/ext">{{'LIENS' | translate}}</a></li>
-					</ul>
-					<ul class="navbar-nav text-white">
-						<li class="nav-item me-2">Lang&nbsp;:&nbsp;
-							<a href><img src="images/fr.png" class="img-responsive" ng-click="changeLanguage('fr')" alt="fr"></a>
-							<a href><img src="images/en.png" class="img-responsive" ng-click="changeLanguage('en')" alt="en"></a>
-							<a href><img src="images/es.png" class="img-responsive" ng-click="changeLanguage('es')" alt="es"></a>
-						</li>
-						<li class="nav-item me-2">Contact&nbsp;:&nbsp;
-							<a href="https://www.facebook.com/symbatools" target="_blank">
-								<svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="white" class="bi bi-facebook" viewBox="0 0 16 16">
-									<path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
-								</svg>
-							</a>
-						</li>
-						<!--<li class="nav-item me-3">Mode&nbsp;:&nbsp;
-							<a ng-if="theme == 'std'" href="" ng-click="darkmode()" target="_self">
-								<svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="white" class="bi bi-sun" viewBox="0 0 16 16">
-									<path d="M3.5 8a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0z"/>
-									<path d="M8.202.28a.25.25 0 0 0-.404 0l-.91 1.255a.25.25 0 0 1-.334.067L5.232.79a.25.25 0 0 0-.374.154l-.36 1.51a.25.25 0 0 1-.282.188l-1.532-.244a.25.25 0 0 0-.286.286l.244 1.532a.25.25 0 0 1-.189.282l-1.509.36a.25.25 0 0 0-.154.374l.812 1.322a.25.25 0 0 1-.067.333l-1.256.91a.25.25 0 0 0 0 .405l1.256.91a.25.25 0 0 1 .067.334L.79 10.768a.25.25 0 0 0 .154.374l1.51.36a.25.25 0 0 1 .188.282l-.244 1.532a.25.25 0 0 0 .286.286l1.532-.244a.25.25 0 0 1 .282.189l.36 1.508a.25.25 0 0 0 .374.155l1.322-.812a.25.25 0 0 1 .333.067l.91 1.256a.25.25 0 0 0 .405 0l.91-1.256a.25.25 0 0 1 .334-.067l1.322.812a.25.25 0 0 0 .374-.155l.36-1.508a.25.25 0 0 1 .282-.19l1.532.245a.25.25 0 0 0 .286-.286l-.244-1.532a.25.25 0 0 1 .189-.282l1.508-.36a.25.25 0 0 0 .155-.374l-.812-1.322a.25.25 0 0 1 .067-.333l1.256-.91a.25.25 0 0 0 0-.405l-1.256-.91a.25.25 0 0 1-.067-.334l.812-1.322a.25.25 0 0 0-.155-.374l-1.508-.36a.25.25 0 0 1-.19-.282l.245-1.532a.25.25 0 0 0-.286-.286l-1.532.244a.25.25 0 0 1-.282-.189l-.36-1.509a.25.25 0 0 0-.374-.154l-1.322.812a.25.25 0 0 1-.333-.067L8.203.28zM8 2.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11z"/>
-								</svg>
-							</a>
-							<a href="" ng-if="theme == 'dark'" ng-click="lightmode()" target="_self">
-								<svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="white" class="bi bi-moon" viewBox="0 0 16 16">
-									<path fill-rule="evenodd" d="M14.53 10.53a7 7 0 0 1-9.058-9.058A7.003 7.003 0 0 0 8 15a7.002 7.002 0 0 0 6.53-4.47z"/>
-								</svg>
-							</a>
-						</li>-->
-						<li class="nav-item">
-							<button ng-show="!isAuthenticated()" id="logButton" type="button" class="btn btn-sm btn-primary" data-bs-toggle="offcanvas" data-bs-target="#loginCanvas">
-								{{ ('LOG_IN' | translate) + " / " + ('SIGN_UP' | translate) }}
-							</button>
-							<button ng-show="isAuthenticated()" type="button" class="btn btn-sm btn-danger" ng-click="logout()">{{ 'LOGOUT' | translate }}</button>
-						</li>
-					</ul>
-				</div>
+				<ul class="navbar-nav me-auto collapse navbar-collapse" id="navbarSupportedContent">
+					<li class="nav-item"><a class="nav-link" href="#!/search">{{'SEARCH' | translate}}</a></li>
+					<li class="nav-item"><a class="nav-link" href="#!/charBuilder">{{'CHAR_BUILDER' | translate}}</a></li>
+					<li class="nav-item" ng-if="lang == 'fr'"><a class="nav-link" href="#!/rules">Rappel règles</a></li>
+					<li class="nav-item" ng-if="lang == 'fr' || lang == 'en'"><a class="nav-link" href="#!/davokar">Davokar</a></li>
+					<li class="nav-item" ng-if="lang == 'fr'"><a class="nav-link" href="#!/init">Init</a></li>
+					<li class="nav-item"><a class="nav-link" href="#!/ext">{{'LIENS' | translate}}</a></li>
+				</ul>
+				<ul class="navbar-nav text-white flex-row">
+					<li class="nav-item me-2">
+						<a href><img src="images/fr.png" class="img-responsive" ng-click="changeLanguage('fr')" alt="fr"></a>
+					</li>
+					<li class="nav-item me-2">
+						<a href><img src="images/en.png" class="img-responsive" ng-click="changeLanguage('en')" alt="en"></a>
+					</li>
+					<li class="nav-item me-2">
+						<a href><img src="images/es.png" class="img-responsive" ng-click="changeLanguage('es')" alt="es"></a>
+					</li>
+					<li class="nav-item me-2">
+						<a href="https://www.facebook.com/symbatools" target="_blank">
+							<svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="white" class="bi bi-facebook" viewBox="0 0 16 16">
+								<path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+							</svg>
+						</a>
+					</li>
+					<!--<li class="nav-item me-3">Mode&nbsp;:&nbsp;
+						<a ng-if="theme == 'std'" href="" ng-click="darkmode()" target="_self">
+							<svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="white" class="bi bi-sun" viewBox="0 0 16 16">
+								<path d="M3.5 8a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0z"/>
+								<path d="M8.202.28a.25.25 0 0 0-.404 0l-.91 1.255a.25.25 0 0 1-.334.067L5.232.79a.25.25 0 0 0-.374.154l-.36 1.51a.25.25 0 0 1-.282.188l-1.532-.244a.25.25 0 0 0-.286.286l.244 1.532a.25.25 0 0 1-.189.282l-1.509.36a.25.25 0 0 0-.154.374l.812 1.322a.25.25 0 0 1-.067.333l-1.256.91a.25.25 0 0 0 0 .405l1.256.91a.25.25 0 0 1 .067.334L.79 10.768a.25.25 0 0 0 .154.374l1.51.36a.25.25 0 0 1 .188.282l-.244 1.532a.25.25 0 0 0 .286.286l1.532-.244a.25.25 0 0 1 .282.189l.36 1.508a.25.25 0 0 0 .374.155l1.322-.812a.25.25 0 0 1 .333.067l.91 1.256a.25.25 0 0 0 .405 0l.91-1.256a.25.25 0 0 1 .334-.067l1.322.812a.25.25 0 0 0 .374-.155l.36-1.508a.25.25 0 0 1 .282-.19l1.532.245a.25.25 0 0 0 .286-.286l-.244-1.532a.25.25 0 0 1 .189-.282l1.508-.36a.25.25 0 0 0 .155-.374l-.812-1.322a.25.25 0 0 1 .067-.333l1.256-.91a.25.25 0 0 0 0-.405l-1.256-.91a.25.25 0 0 1-.067-.334l.812-1.322a.25.25 0 0 0-.155-.374l-1.508-.36a.25.25 0 0 1-.19-.282l.245-1.532a.25.25 0 0 0-.286-.286l-1.532.244a.25.25 0 0 1-.282-.189l-.36-1.509a.25.25 0 0 0-.374-.154l-1.322.812a.25.25 0 0 1-.333-.067L8.203.28zM8 2.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11z"/>
+							</svg>
+						</a>
+						<a href="" ng-if="theme == 'dark'" ng-click="lightmode()" target="_self">
+							<svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="white" class="bi bi-moon" viewBox="0 0 16 16">
+								<path fill-rule="evenodd" d="M14.53 10.53a7 7 0 0 1-9.058-9.058A7.003 7.003 0 0 0 8 15a7.002 7.002 0 0 0 6.53-4.47z"/>
+							</svg>
+						</a>
+					</li>-->
+					<li class="nav-item">
+						<button ng-show="!isAuthenticated()" id="logButton" type="button" class="btn btn-sm btn-primary" data-bs-toggle="offcanvas" data-bs-target="#loginCanvas">
+							{{ ('LOG_IN' | translate) + " / " + ('SIGN_UP' | translate) }}
+						</button>
+						<button ng-show="isAuthenticated()" type="button" class="btn btn-sm btn-danger" ng-click="logout()">{{ 'LOGOUT' | translate }}</button>
+					</li>
+				</ul>
 			</div>
 		</nav>
 	</div>
@@ -159,7 +161,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-route.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-sanitize.js"></script>
 	<script src="angular-translate.min.js"></script>
-	<script src="jquery.ns-autogrow.min.js"></script>
 	<!-- Load Others -->
 	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 	<script src="lang_en.js"></script>

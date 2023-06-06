@@ -7008,7 +7008,6 @@
 			"nom":"Armure légère"
 		},
 		"en":{
-			"tradition":"Protection: 1D4, Type: Light (-2), Cost: 2 Th.",
 			"nom":"Light Armor",
 			"novice":"Light armor is easy to come by and does not limit the wearer's capabilities substantially in acrobatic situations or when performing stealthy maneuvers. Yet it has a negative effect when using mystical powers. Hardened, ring and studded leather are all examples of light armor."
 		},
@@ -7027,7 +7026,6 @@
 			"nom":"Aube Bénie"
 		},
 		"en":{
-			"tradition":"Protection: 1D4, Type: Light (0), Quality: Flexible, Cost: 10 Th.",
 			"nom":"Blessed Robe",
 			"novice":"The priest robes of the theurgs are blessed and protected by benevolent forces so that the Church's finest can travel safely throughout the kingdom, and beyond.",
 			"qualites":"Flexible"
@@ -7047,7 +7045,6 @@
 			"nom":"Cape de l'Ordre"
 		},
 		"en":{
-			"tradition":"Protection: 1D4, Type: Light (0), Quality: Flexible, Cost: 10 Th.",
 			"nom":"Order Cloak",
 			"novice":"Most novice mages of Ordo Magica are given a protective cloak in time for their first long journey. These cloaks are embroidered with warding runes, which increases the chance of the novice surviving to complete its appointed task.",
 			"qualites":"Flexible"
@@ -7067,7 +7064,6 @@
 			"nom":"Robe de sorcière"
 		},
 		"en":{
-			"tradition":"Protection: 1D4, Type: Light (0), Quality: Flexible, Cost: 10 Th.",
 			"nom":"Witch Gown",
 			"novice":"Witches bind protective spirits in carved pieces of bone and the skulls of fallen enemies, and attach them to their clothing for effective protection.",
 			"qualites":"Flexible"
@@ -7087,7 +7083,6 @@
 			"nom":"Soie tissée"
 		},
 		"en":{
-			"tradition":"Protection: 1D4, Type: Light (0), Quality: Flexible, Cost: 10 Th.",
 			"nom":"Woven Silk",
 			"novice":"Woven silk is the finest light armor available, since the close weave of its threads withstands stabs and cuts far better than its weight suggests. Woven silk has been used by both barbarians and Ambrians for a long time and some scholars speculate that the technique originally comes from the elves, possibly dating as far back as the days of the Iron Pact.",
 			"qualites":"Flexible"
@@ -7107,7 +7102,6 @@
 			"nom":"Peau de loup"
 		},
 		"en":{
-			"tradition":"Protection: 1D4, Type: Light (-3), Quality: Cumbersome, Cost: 1 Th.",
 			"nom":"Wolf Skin",
 			"novice":"For poor barbarian scouts the cheap, cumbersome wolf skin armor is a common alternative; skin that has been tanned in the most simple way and sewn together into some kind of passable protection.",
 			"qualites":"Cumbersome"
@@ -7127,7 +7121,6 @@
 			"nom":"Armure moyenne"
 		},
 		"en":{
-			"tradition":"Protection: 1D6, Type: Medium (-3), Cost: 5 Th.",
 			"nom":"Medium Armor",
 			"novice":"Medium armor offers better protection than the light versions but at the cost of being more restrictive to the wearer's movements. However, this downside is considered an acceptable trade-off by most melee combatants. Scale- and chainmail are examples of medium armor."
 		},
@@ -7146,7 +7139,6 @@
 			"nom":"Armure du corbeau"
 		},
 		"en":{
-			"tradition":"Protection: 1D6, Type: Medium (-4), Quality: Cumbersome, Cost: 2 Th.",
 			"nom":"Crow Armor",
 			"novice":"Medium armor is more expensive than light, which is the reason why many warriors have picked, riveted and bound together a so-called “Crow Armor” of their own. It is cheap, but far more difficult to move around in.",
 			"qualites":"Cumbersome"
@@ -7166,7 +7158,6 @@
 			"nom":"Cuirasse en soie laquée"
 		},
 		"en":{
-			"tradition":"Protection: 1D6, Type: Medium (-1), Quality: Flexible, Cost: 25 Th.",
 			"nom":"Lacquered Silk Cuirass",
 			"novice":"Barbarian warriors that have earned their place in the guard of a wealthy clan chieftain can sometimes be seen wearing a cuirass of lacquered silk, an armor that despite its apparent lightness protects like a breast plate. According to legend, the secret of lacquered silk was given to humankind by the elves, in a time when the Iron Pact was still strong and humans battled the parasitic darkness of Symbaroum.",
 			"qualites":"Flexible"
@@ -7186,7 +7177,6 @@
 			"nom":"Armure lourde"
 		},
 		"en":{
-			"tradition":"Protection: 1D8, Type: Heavy (-4), Cost: 10 Th.",
 			"nom":"Heavy Armor",
 			"novice":"Those melee combatants that can afford it usually chose increased protection at the cost of even greater restrictions to their movement. A self-respecting knight wears chainmail enforced by shoulder, knee and elbow plates, while those with the means tend to order themselves a personalized set of full plate armor."
 		},
@@ -7205,7 +7195,6 @@
 			"nom":"Armure de plates complète"
 		},
 		"en":{
-			"tradition":"Protection: 1D8, Type: Heavy (-2), Quality: Flexible, Cost: 50 Th.",
 			"nom":"Full Plate",
 			"novice":"Personalized full plate armor is available for those of sufficient means, and offers the best protection available with less restriction than many other kinds of heavy armor.",
 			"qualites":"Flexible"
@@ -7225,7 +7214,6 @@
 			"nom":"Armure de combat"
 		},
 		"en":{
-			"tradition":"Protection: 1D8+1, Type: Heavy (-4), Quality: Reinforced, Cost: 50 Th.",
 			"nom":"Field Armor",
 			"novice":"Field armor is a full plate forged with pleated sheets, making it less flexible than full plate, but even more impervious to slashing strikes and blows.",
 			"qualites":"Reinforced"
@@ -7245,7 +7233,6 @@
 			"nom":"Armure de combat des Pansars"
 		},
 		"en":{
-			"tradition":"Protection: 1D8+1, Type: Heavy (-2), Quality: Reinforced, Flexible, Cost: 250 Th.",
 			"nom":"Field Armor of the Pansars",
 			"novice":"The master smiths working for the Pansars can forge full plate armor using pleated steel sheets while retaining the flexibility of standard plated armor. ",
 			"qualites":"Reinforced, Flexible"
@@ -7265,7 +7252,6 @@
 			"nom":"Armure de la Rage Assoupie"
 		},
 		"en":{
-			"tradition":"Protection: 1D8, Type: Heavy (-4), Quality: Retributive, Cost: 100 Th.",
 			"nom":"Wrath Armor",
 			"novice":"The reinforced chainmail worn by the warriors in the Guard of the Slumbering Wrath has vengeful mystical energies forged into the rings. The retributive incantations, according to legend created by the huldra Bovosin more than four centuries ago, give the steel its characteristic blood-red shade – as if the warriors just came from the scene of a tough battle, painted in the blood of their enemies.",
 			"qualites":"Retributive"
@@ -7285,7 +7271,6 @@
 			"nom":"Armure de plates complète de Templier"
 		},
 		"en":{
-			"tradition":"Protection: 1D8 (+1D4), Type: Heavy (-4), Quality: Hallowed, Cost: 100 Th.",
 			"nom":"Templar Full Plate",
 			"novice":"The armor of the templars is a full plate forged, blessed and carried by the order's inner circle. This elite among the elite inherit their armor from a predecessor that fell in battle or, more uncommonly, who died a solemn death in their alcove in Templewall. The armor gives its wearer the protection of Prios, through blessings forged into the steel and by the hallowing blood of both enemies and martyrs.",
 			"qualites":"Hallowed"
@@ -7305,7 +7290,6 @@
 			"nom":"Armure dissimulée"
 		},
 		"en":{
-			"tradition":"Protection: 1D4, Type: Light (0), Quality: Concealed, Flexible, Cost: 50 Th.",
 			"nom":"Concealed Armor",
 			"novice":"Sorcerers have many reasons to stay hidden. To do this, they often weave mystically reinforced threads into their cloths, resulting in tunics and capes that look ordinary but offer protection. Other groups, such as spies, would love to have access to such garments, so they can avoid unwanted attention while still being ready for battle.",
 			"qualites":"Concealed, Flexible"
@@ -7325,7 +7309,6 @@
 			"nom":"Armure feuilletée"
 		},
 		"en":{
-			"tradition":"Protection: 1D6+1, Type: Medium (-3), Quality: Reinforced, Cost: 25 Th.",
 			"nom":"Laminated Armor",
 			"novice":"Laminated armor is an older armor-type, nowadays often replaced by the cheaper scale mail or the flexible chain mail. However, some old laminated sets of armor are still around and there are blacksmiths who actually prefer them because of their greater protective capability. Some of Ambria's noble houses still dress in this type of armor, for sentimental… or, as they claim, ”traditional” reasons. Laminated armor can only protect the torso, shoulders and hips – arms and legs are usually dressed in studded leather to maintain mobility",
 			"qualites":"Reinforced"
@@ -7345,7 +7328,6 @@
 			"nom":"Cotte de mailles double"
 		},
 		"en":{
-			"tradition":"Protection: 1D6+1, Type: Medium (-1), Quality: Reinforced, Flexible, Cost: 125 Th.",
 			"nom":"Double Chainmail",
 			"novice":"Double-threaded chainmail can only be crafted by the most skilled blacksmiths; with thinner rings that interlock in layers they craft an armor which is as flexible as chainmail but even more durable.",
 			"qualites":"Reinforced, Flexible"
@@ -7365,7 +7347,6 @@
 			"nom":"Cuirasse de scalde"
 		},
 		"en":{
-			"tradition":"Protection: 1D4+1, Type: Light (0), Quality: Reinforced, Flexible, Cost: 50 Th.",
 			"nom":"Skald's Cuira",
 			"novice":"Troll singers are often warrior poets and many carry a flexible armor of woven cloth- or leather-strips, strengthened with protective harmonies. The Skald's Cuirass is durable without hampering the wearers' movement, making it popular among other groups as well. For instance, wealthy duelists in Yndaros often color their cuirasses in personal colors, so that they can be recognized from afar.",
 			"qualites":"Reinforced, Flexible"
@@ -7385,7 +7366,6 @@
 			"nom":"Cuirasse cloutée"
 		},
 		"en":{
-			"tradition":"Protection: 1D4+1, Type: Light (-2), Quality: Reinforced, Cost: 10 Th.",
 			"nom":"Studded Leather",
 			"novice":"No description.",
 			"qualites":"Reinforced"

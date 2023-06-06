@@ -101,6 +101,17 @@ function download(data, filename, type) {
 	}
 }
 
+function getLibelleForStatBlock(nom, texte) {
+
+	return "<b><i>" + nom + "</i></b><br/>" + texte + "<br/><br/>"; 
+}
+
+function parseMyInt(myInt) {
+	let parsed = parseInt(myInt);
+	if (isNaN(parsed)) { return 0; }
+	return parsed;
+}
+
 symbaroum.filter('rechercheFilter', function () {
 
 	return function (items, query) {
@@ -214,7 +225,7 @@ routeAppControllers.controller('Index', function ($scope, $rootScope, $translate
 	);
 	
 	if (localStorage.getItem("newFeature") == null) {
-		$('#helpUser').modal('show');
+		$('#newFeature').modal('show');
 		localStorage.setItem("newFeature", "visited");
 	}
 
@@ -243,6 +254,13 @@ routeAppControllers.controller('Index', function ($scope, $rootScope, $translate
 		}
 	});
 
+	$scope.getMenuClasses = function() {
+		if ($rootScope.lang == "fr")
+			return "container-fluid small";
+		else
+			return "container-fluid";
+	}
+	
 	$scope.changeLanguage = function (langKey) {
 
 		$rootScope.lang = langKey;
@@ -343,17 +361,6 @@ routeAppControllers.controller('Init', function ($scope, $routeParams, globalSer
 	}
 });
 
-
-function getLibelleForStatBlock(nom, texte) {
-
-	return "<b><i>" + nom + "</i></b><br/>" + texte + "<br/><br/>"; 
-}
-
-function parseMyInt(myInt) {
-	let parsed = parseInt(myInt);
-	if (isNaN(parsed)) { return 0; }
-	return parsed;
-}
 routeAppControllers.controller('Help', function ($scope, $translate, $routeParams) {
 
 	$scope.lang = $routeParams.lang;
@@ -482,26 +489,38 @@ routeAppControllers.controller('Recherche', function ($scope, $http, $q, $routeP
 
 		let rulesSet = ($scope.rulesSet != undefined) ? $scope.rulesSet : "";
 
-		if (talent.type == "arme" && field == "tradition") {
+		if ((talent.type == "arme" || talent.type == "armure") && field == "tradition") {
 
 			let caracs = [];
-			if (undefined != talent.caracs.degats && talent.caracs.degats != "") { caracs.push("Damages: " + talent.caracs.degats) }
-			if (undefined != talent.caracs.cost && talent.caracs.cost != "") { caracs.push("Cost: " + talent.caracs.cost) }
+			if (undefined != talent.caracs.jet && talent.caracs.jet != "") {
+
+				caracs.push(((talent.type == "arme") ? "Damages: " : "Protection: ") + talent.caracs.jet)
+			}
+
+			if (talent.type == "armure") {
+
+				caracs.push("Type: " + talent.caracs.type +" (" + talent.caracs.gene + ")");
+			}
 
 			if (undefined != talent[lang + rulesSet] && undefined != talent[lang + rulesSet]["qualites"] && talent[lang + rulesSet]["qualites"] != "") {
 
 				caracs.push("Qualities: " + talent[lang + rulesSet]["qualites"]);
-			} else if (talent['en']["qualites"] != "") {
+			} else if (undefined != talent['en']["qualites"] && talent['en']["qualites"] != "") {
 	
 				caracs.push("Qualities: " +  talent['en']["qualites"]);
 			}
+			if (undefined != talent.caracs.cost && talent.caracs.cost != "") { caracs.push("Cost: " + talent.caracs.cost) }
 			return caracs.join(" / ");
 		} else {
+
 			if (undefined != talent[lang + rulesSet] && undefined != talent[lang + rulesSet][field]) {
 
-				return talent[lang +rulesSet][field];
+				return talent[lang + rulesSet][field];
+			} else if (undefined != talent['en' + rulesSet] && undefined != talent['en' + rulesSet][field]) {
+
+				return talent['en' + rulesSet][field];
 			} else {
-	
+
 				return talent['en'][field];
 			}
 		}
@@ -1574,16 +1593,36 @@ routeAppControllers.controller('Davokar', function ($scope, $q, $routeParams, $t
 
 routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $rootScope, $translate, $window, $routeParams, auth, globalService) {
 
+	/**
+	 * Page variables
+	 */
 	$scope.charTalents = [];
 	$scope.charTraitsBoonsBurdens = [];
 	$scope.charWeapons = [];
 	$scope.charArmors = [];
 	$scope.rulesSet = "";
-
 	$scope.spentXp = 0;
 
 	$scope.isAuthenticated = auth.isAuthenticated;
 
+	
+	$scope.filtreNomTalent = "";
+	$scope.filtreNomTab2 = "";
+	$scope.filtreNomTab3 = "";
+	$scope.filtreNomTab3b = "";
+	$scope.epingleSeulement = false;
+	$scope.filtreType = "talent";
+	$scope.filtreTypeTab2 = "atout";
+	$scope.filtreTypeTab3 = "arme";
+	$scope.filtreTypeTab3b = "armure";
+	$scope.filtreLivre = "tous";
+	$scope.filtreTrad = "tous";
+	$scope.filtreAttr = "tous";
+
+
+	/**
+	 * API calls methods
+	 */
 	$scope.getMyPcNpc = function() {
 
 		$http.get('https://symbatools-api.tk/json/list', { withCredentials: true }).then(
@@ -1677,6 +1716,9 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 		return deferred.promise;
 	}
 
+	/**
+	 * Page methods related to the view
+	 */
 	$scope.getFieldValue = (talent, field, lang) => {
 
 		let rulesSet = (undefined != talent.rulesSet) ? talent.rulesSet : ((undefined != $scope.rulesSet) ? $scope.rulesSet : "");
@@ -1787,8 +1829,64 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 		$scope.charArmors.splice(index, 1);
 	}
 
+	$scope.calcXp = function() {
+
+		$scope.spentXp = 0;
+		$scope.charTalents.forEach(talent => {
+
+			if (talent.type == "talent" || talent.type == "pouvoir mystique" || talent.type == "trait monstrueux" || (talent.type == "trait" && talent.coutXp == "oui")) {
+				if (talent.niveau) {
+					$scope.spentXp += talent.niveau * 10;
+				}
+			} else if (talent.type.includes("atout")) {
+				if (talent.niveau) {
+					$scope.spentXp += Math.ceil(talent.niveau / 2) * 5;
+				}
+			} else if (talent.type.includes("fardeau")) {
+				if (talent.niveau) {
+					$scope.spentXp -= 5;
+				}
+			}
+		});
+		$scope.charTraitsBoonsBurdens.forEach(bb => {
+
+			if (bb.type.includes("atout")) {
+				if (bb.niveau) {
+					$scope.spentXp += Math.ceil(bb.niveau / 2) * 5;
+				}
+			} else if (bb.type.includes("fardeau")) {
+				if (bb.niveau) {
+					$scope.spentXp -= 5;
+				}
+			}
+		});
+	}
+	
+	$scope.getSpentPointsClass = function() {
+		if (undefined != $scope.xp && $scope.spentXp > $scope.xp)
+			return "text-danger fw-semibold";
+		else
+			return "";
+	}
+
+	$scope.getAttrsPointsClass = function() {
+		if (undefined != $scope.xp && $scope.spentXp > $scope.xp)
+			return "text-danger fw-semibold";
+		else
+			return "";
+	}
+
+	$scope.getSpentPoints = function() {
+
+		return parseMyInt($scope.agi) + parseMyInt($scope.forc) + parseMyInt($scope.pre)
+				+ parseMyInt($scope.vol) + parseMyInt($scope.vig) + parseMyInt($scope.dis)
+				+ parseMyInt($scope.ast) + parseMyInt($scope.per);
+	}
+
+	/**
+	 * StatcBlock variables & methods
+	 */
 	//TODO Atouts, Fardeaux
-	//TODO Armure
 	$scope.calculsStatBlock = function($resetIntegrated) {
 		
 		let abilitiesTexts =  "";
@@ -2022,39 +2120,9 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 	$scope.statBlockProps.rituals = [];
 	$scope.statBlockProps.traits = [];
 
-	$scope.calcXp = function() {
-
-		$scope.spentXp = 0;
-		$scope.charTalents.forEach(talent => {
-
-			if (talent.type == "talent" || talent.type == "pouvoir mystique" || talent.type == "trait monstrueux" || (talent.type == "trait" && talent.coutXp == "oui")) {
-				if (talent.niveau) {
-					$scope.spentXp += talent.niveau * 10;
-				}
-			} else if (talent.type.includes("atout")) {
-				if (talent.niveau) {
-					$scope.spentXp += Math.ceil(talent.niveau / 2) * 5;
-				}
-			} else if (talent.type.includes("fardeau")) {
-				if (talent.niveau) {
-					$scope.spentXp -= 5;
-				}
-			}
-		});
-		$scope.charTraitsBoonsBurdens.forEach(bb => {
-
-			if (bb.type.includes("atout")) {
-				if (bb.niveau) {
-					$scope.spentXp += Math.ceil(bb.niveau / 2) * 5;
-				}
-			} else if (bb.type.includes("fardeau")) {
-				if (bb.niveau) {
-					$scope.spentXp -= 5;
-				}
-			}
-		});
-	}
-
+	/**
+	 * Import/Export methods
+	 */
 	$scope.importer = function ($fileContent) {
 
 		$scope.charTalents = [];
@@ -2266,19 +2334,6 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 		download(angular.toJson($scope.getDataToExport()), $scope.nom, 'application/json');
 	}
 
-	$scope.filtreNomTalent = "";
-	$scope.filtreNomTab2 = "";
-	$scope.filtreNomTab3 = "";
-	$scope.filtreNomTab3b = "";
-	$scope.epingleSeulement = false;
-	$scope.filtreType = "talent";
-	$scope.filtreTypeTab2 = "atout";
-	$scope.filtreTypeTab3 = "arme";
-	$scope.filtreTypeTab3b = "armure";
-	$scope.filtreLivre = "tous";
-	$scope.filtreTrad = "tous";
-	$scope.filtreAttr = "tous";
-
 	$scope.loadJson().then(function successCallback(response) {
 
 		$scope.talents = response.data;
@@ -2289,6 +2344,9 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 		}
 	});
 
+	/**
+	 * Textareas autogrowth methods
+	 */
 	// Resize textareas on keyup
 	$scope.resize = function($event) {
 
@@ -2338,27 +2396,6 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 
 		$scope.calcXp();
     }, true);
-	
-	$scope.getSpentPointsClass = function() {
-		if (undefined != $scope.xp && $scope.spentXp > $scope.xp)
-			return "text-danger fw-semibold";
-		else
-			return "";
-	}
-
-	$scope.getAttrsPointsClass = function() {
-		if (undefined != $scope.xp && $scope.spentXp > $scope.xp)
-			return "text-danger fw-semibold";
-		else
-			return "";
-	}
-
-	$scope.getSpentPoints = function() {
-
-		return parseMyInt($scope.agi) + parseMyInt($scope.forc) + parseMyInt($scope.pre)
-				+ parseMyInt($scope.vol) + parseMyInt($scope.vig) + parseMyInt($scope.dis)
-				+ parseMyInt($scope.ast) + parseMyInt($scope.per);
-	}
 });
 
 routeAppControllers.controller('Test', function ($scope, $q, $http) {

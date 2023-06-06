@@ -97,3 +97,7 @@
 .capitalize {
     text-transform: capitalize;
 }
+
+.lowerTheCase {
+    text-transform: lowercase;
+}
