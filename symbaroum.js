@@ -63,7 +63,7 @@ symbaroum.config(['$routeProvider',
 				templateUrl: 'statBlock.html',
 				controller: 'CharBuilder'
 			})
-			.when('/lostPwd', {
+/*			.when('/lostPwd', {
 				templateUrl: 'lostPwd.html',
 				controller: 'LostPwd'
 			})
@@ -74,7 +74,7 @@ symbaroum.config(['$routeProvider',
 			.when('/test', {
 				templateUrl: 'test.html',
 				controller: 'Test'
-			})
+			})*/
 			.otherwise({
 				redirectTo: '/search'
 			});
@@ -197,7 +197,7 @@ symbaroum.factory('globalService', function () {
 	};
 });
 
-symbaroum.factory('auth', function() {
+/*symbaroum.factory('auth', function() {
 	
 	let authenticationService = {};
 
@@ -210,28 +210,28 @@ symbaroum.factory('auth', function() {
 	}
 
     return authenticationService;
-});
+});*/
 
 var routeAppControllers = angular.module('routeAppControllers', []);
 
-routeAppControllers.controller('Index', function ($scope, $rootScope, $translate, $http, auth) {
+routeAppControllers.controller('Index', function ($scope, $rootScope, $translate, $http/*, auth*/) {
 
-	$http.get('https://symbatools-api.tk/auth/isLoggedIn', { withCredentials: true }).
+	/*$http.get('https://symbatools-api.tk/auth/isLoggedIn', { withCredentials: true }).
 		then((response) => {
 			auth.authenticated = true;
 			auth.username = response.username;
 		},
 		(response) => {}
-	);
+	);*/
 	
-	if (localStorage.getItem("newFeature") == null) {
-		$('#newFeature').modal('show');
-		localStorage.setItem("newFeature", "visited");
+	if (localStorage.getItem("remFeat") == null) {
+		/*$('#newFeature').modal('show');
+		localStorage.setItem("newFeature", "visited");*/
 	}
 
-	$scope.isAuthenticated = auth.isAuthenticated;
+	/*$scope.isAuthenticated = auth.isAuthenticated;
 
-	$scope.pwdPattern = "(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}";
+	$scope.pwdPattern = "(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}";*/
 	$scope.everythingPattern = ".*";
 
 	$rootScope.theme = (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) ? 'dark' : 'std';
@@ -277,7 +277,7 @@ routeAppControllers.controller('Index', function ($scope, $rootScope, $translate
 		$scope.theme = "std";
 	}
 
-	$scope.login = function() {
+	/*$scope.login = function() {
 	
 		$('form[name="loginForm"]').addClass("was-validated");
 		$scope.loginAlert = null;
@@ -323,7 +323,7 @@ routeAppControllers.controller('Index', function ($scope, $rootScope, $translate
 		auth.authenticated = false;
 		$scope.username = auth.username = null;
 		$scope.password = null;
-	}
+	}*/
 });
 
 routeAppControllers.controller('Init', function ($scope, $routeParams, globalService) {
@@ -368,7 +368,7 @@ routeAppControllers.controller('Help', function ($scope, $translate, $routeParam
 
 //TODO https://selectize.dev/ for the search ? could be a good idea
 //TODO Filtres recherches dans l'url
-routeAppControllers.controller('Recherche', function ($scope, $http, $q, $routeParams, $rootScope, $translate, globalService, auth) {
+routeAppControllers.controller('Recherche', function ($scope, $http, $q, $routeParams, $rootScope, $translate, globalService/*, auth*/) {
 
 	$scope.tradType = function ($type) {
 
@@ -794,7 +794,7 @@ ${($scope.getFieldValue(talent, 'maitre', lang)) ? $scope.getFieldValue(talent, 
 		$scope.statBlockProps.abilitiesTexts = abilitiesTexts;
 	};
 
-	$scope.getMyPcNpc = function() {
+	/*$scope.getMyPcNpc = function() {
 
 		$http.get('https://symbatools-api.tk/json/list', { withCredentials: true }).then(
 			function(response) {
@@ -852,7 +852,7 @@ ${($scope.getFieldValue(talent, 'maitre', lang)) ? $scope.getFieldValue(talent, 
 		);
 	}
 
-	$scope.isAuthenticated = auth.isAuthenticated;
+	$scope.isAuthenticated = auth.isAuthenticated;*/
 
 	$scope.filtreNomTalent = "";
 	$scope.epingleSeulement = false;
@@ -975,7 +975,7 @@ ${($scope.getFieldValue(talent, 'maitre', lang)) ? $scope.getFieldValue(talent, 
 	$scope.statBlockProps.traits = [];
 });
 
-routeAppControllers.controller('LostPwd', function ($scope, $translate, $http) {
+/*routeAppControllers.controller('LostPwd', function ($scope, $translate, $http) {
 
 	$scope.pwdPattern = "(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}";
 	
@@ -1050,7 +1050,7 @@ routeAppControllers.controller('LostPwd', function ($scope, $translate, $http) {
 
 		$('form[name="pwdChangeForm"]').removeClass("was-validated");
 	}
-})
+})*/
 
 routeAppControllers.controller('Davokar', function ($scope, $q, $routeParams, $translate, globalService) {
 
@@ -1591,11 +1591,11 @@ routeAppControllers.controller('Davokar', function ($scope, $q, $routeParams, $t
 	}
 });
 
-routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $rootScope, $translate, $window, $routeParams, auth, globalService) {
+/*routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $rootScope, $translate, $window, $routeParams, auth, globalService) {
 
 	/**
 	 * Page variables
-	 */
+	 *#removedd_slash
 	$scope.charTalents = [];
 	$scope.charTraitsBoonsBurdens = [];
 	$scope.charWeapons = [];
@@ -1622,7 +1622,7 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 
 	/**
 	 * API calls methods
-	 */
+	 *#removed_slash
 	$scope.getMyPcNpc = function() {
 
 		$http.get('https://symbatools-api.tk/json/list', { withCredentials: true }).then(
@@ -1718,7 +1718,7 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 
 	/**
 	 * Page methods related to the view
-	 */
+	 *#removed_slash
 	$scope.getFieldValue = (talent, field, lang) => {
 
 		let rulesSet = (undefined != talent.rulesSet) ? talent.rulesSet : ((undefined != $scope.rulesSet) ? $scope.rulesSet : "");
@@ -1885,7 +1885,7 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 
 	/**
 	 * StatcBlock variables & methods
-	 */
+	 *#removedslash
 	//TODO Atouts, Fardeaux
 	$scope.calculsStatBlock = function($resetIntegrated) {
 		
@@ -2122,7 +2122,7 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 
 	/**
 	 * Import/Export methods
-	 */
+	 *#removed_slash
 	$scope.importer = function ($fileContent) {
 
 		$scope.charTalents = [];
@@ -2346,7 +2346,7 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 
 	/**
 	 * Textareas autogrowth methods
-	 */
+	 *#removed_slash
 	// Resize textareas on keyup
 	$scope.resize = function($event) {
 
@@ -2396,7 +2396,7 @@ routeAppControllers.controller('CharBuilder', function ($scope, $http, $q, $root
 
 		$scope.calcXp();
     }, true);
-});
+});*/
 
 routeAppControllers.controller('Test', function ($scope, $q, $http) {
 	$scope.loadJson = function () {

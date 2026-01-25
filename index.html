@@ -18,7 +18,7 @@
 
 <body>
 	<div ng-controller="Index">
-		<div class="offcanvas offcanvas-start" tabindex="-1" id="loginCanvas">
+		<!--<div class="offcanvas offcanvas-start" tabindex="-1" id="loginCanvas">
 			<div class="offcanvas-header">
 				<h5 class="offcanvas-title" id="offcanvasLabel">{{ isAuthenticated() ? username : ('LOG_IN' | translate) + " / " + ('SIGN_UP' | translate) }}</h5>
 				<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -55,7 +55,7 @@
 					<a ng-href="#!/lostPwd">{{'LOST_PWD' | translate}}</a>
 				  </p>
 			</div>
-		</div>
+		</div>-->
 		<div class="modal fade" id="messagesCard" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -68,19 +68,10 @@
 				</div>
 			</div>
 		</div>
-		<div class="modal fade" id="newFeature" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+		<div class="modal fade" id="remFeat" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-body">
-						<p>A new feature is now available for everyone : A new Character Sheet page for OG Symbaroum</p>
-						<p>This page is very close to the Symbaroum character sheet and with it, you can build player characters and export them as json, as usual, or save them in database if logged in.
-							Of course you can also use this new feature to build NPC and display them as a stat block like previously in the Search page.</p>
-						<p>At the moment everything is not automated so you will have to do the maths and edit manually weapons and armors if needed but that may change in the future.</p>
-						<p>The Search page has not been updated yet, but soon, only the search part will remain if I don't receive any complaints ;), but you can load your old saved PC/NPC in the new feature.</p>
-						<p>Important : Be aware that if you save a character in the new page that was previously built in the Search page, it won't really work anymore in the Search page.</p>
-						<p>Feel free to contact me on facebook or on the Davokar Explorers League Discord (@benjijneb) .</p>
-						<p>--</p>
-						<p>La traduction française a disparu comme vous avez pu le constater, j'en suis bien désolé et m'en excuse, mais étant donné le droit français, je ne pouvais malheureusement pas la conserver.</p>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
@@ -98,7 +89,7 @@
 				</button>
 				<ul class="navbar-nav me-auto collapse navbar-collapse" id="navbarSupportedContent">
 					<li class="nav-item"><a class="nav-link" href="#!/search">{{'SEARCH' | translate}}</a></li>
-					<li class="nav-item"><a class="nav-link" href="#!/charBuilder">{{'CHAR_BUILDER' | translate}}</a></li>
+					<!--<li class="nav-item"><a class="nav-link" href="#!/charBuilder">{{'CHAR_BUILDER' | translate}}</a></li>-->
 					<li class="nav-item" ng-if="lang == 'fr'"><a class="nav-link" href="#!/rules">Rappel règles</a></li>
 					<li class="nav-item" ng-if="lang == 'fr' || lang == 'en'"><a class="nav-link" href="#!/davokar">Davokar</a></li>
 					<li class="nav-item" ng-if="lang == 'fr'"><a class="nav-link" href="#!/init">Init</a></li>
@@ -115,9 +106,9 @@
 						<a href><img src="images/es.png" class="img-responsive" ng-click="changeLanguage('es')" alt="es"></a>
 					</li>
 					<li class="nav-item me-2">
-						<a href="https://www.facebook.com/symbatools" target="_blank">
-							<svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="white" class="bi bi-facebook" viewBox="0 0 16 16">
-								<path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+						<a href="https://discord.gg/NZphm6Fsvf" target="_blank">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-discord" viewBox="0 0 16 16">
+							<path d="M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019m-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612"/>
 							</svg>
 						</a>
 					</li>
@@ -133,13 +124,13 @@
 								<path fill-rule="evenodd" d="M14.53 10.53a7 7 0 0 1-9.058-9.058A7.003 7.003 0 0 0 8 15a7.002 7.002 0 0 0 6.53-4.47z"/>
 							</svg>
 						</a>
-					</li>-->
+					</li>
 					<li class="nav-item">
 						<button ng-show="!isAuthenticated()" id="logButton" type="button" class="btn btn-sm btn-primary" data-bs-toggle="offcanvas" data-bs-target="#loginCanvas">
 							{{ ('LOG_IN' | translate) + " / " + ('SIGN_UP' | translate) }}
 						</button>
 						<button ng-show="isAuthenticated()" type="button" class="btn btn-sm btn-danger" ng-click="logout()">{{ 'LOGOUT' | translate }}</button>
-					</li>
+					</li>-->
 				</ul>
 			</div>
 		</nav>
@@ -162,7 +153,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-sanitize.js"></script>
 	<script src="angular-translate.min.js"></script>
 	<!-- Load Others -->
-	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+	<!--<script src="https://www.google.com/recaptcha/api.js" async defer></script>-->
 	<script src="lang_en.js"></script>
 	<script src="lang_fr.js"></script>
 	<script src="lang_es.js"></script>
